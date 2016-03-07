@@ -1,31 +1,31 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"  lang="ja" xml:lang="ja">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Star WebPRNT User's Manual</title>
+    <link href="bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="font-awesome.min.css">    
     <link href="html5reset-1.6.1.css" rel="stylesheet" type="text/css" />
     <link href="webPRNT_layout.css" rel="stylesheet" type="text/css" />
     <link href="webPRNT_print_layout.css" rel="stylesheet" type="text/css" media="print" />
     
-   <!--[if IE ]>
+<!-- ie10にて条件付きコメント([if IE]の箇所）がサポートされなくなったことに対する対処　　-->
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
+    <!--[if IE ]>
         <link rel="stylesheet" type="text/css" href="webPRNT_layout_ie.css"></script>
         <link rel="stylesheet" type="text/css" href="webPRNT_print_layout_ie.css" media="print"></script>
     <![endif]-->
     
     <script src="jquery-1.10.2.min.js"></script>
     <script>
-    
     $(function tggleNavi() {
         $('#naviArrow').click(function(){
            $('#mainNavi').slideToggle('slow');
-           
        });
     });
-
     </script>
     
 </head>
-
 
 <body>
 
@@ -36,8 +36,9 @@
     <div class="clear"></div>
 </div>
 
+<!--   ナビゲーショントグル　　　-->
 <div id="naviArrowSection">
-    <a id="naviArrow" onclick="tggleNavi()"><h5> Contents Show / Hide</h5></a>
+    <p class="naviToggle"><a id="naviArrow" onclick="tggleNavi()">Navi Show / Hidden</a></p>
 </div>
 
 <!-- wrapp : mainNavi + mainContents-->
@@ -140,7 +141,7 @@
 <div id="mainContents">
 
     <article>
-    <div id="StarBarcodeEncoder-js">
+    <div id="StarBarcodeEncoder-js" class="summary">
         <h2>StarBarcodeEncoder.js</h2>
         
         <div class="introduction_2">
@@ -160,7 +161,7 @@
         </table>
     
 
-        <h4>メソッド</h4>
+        <h4>Method</h4>
         <table class="coder">
             <thead>
                 <tr><td>Name</td><td>Description</td></tr>
@@ -178,6 +179,44 @@
             </tbody>
         </table>
 
+        <h4>Star Printer Compatibility Chart</h4>
+        <h5>POS Printer and AsuraCPRNT</h5>
+        <table class="List2">
+            <thead>
+                <tr><td>Name</td><td>FVP10</td><td>TSP650II</td><td>TSP700II</td><td>TSP800II</td><td>AsuraCPRNT</td></tr>
+            </thead>
+            <tbody>
+             <tr><td><a href="#createUPCE">createUPCE</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createUPCA">createUPCA</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createJAN8">createJAN8</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createJAN13">createJAN13</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createCode39">createCode39</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createITF">createITF</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createCode128">createCode128</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createCode93">createCode93</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createNW7">createNW7</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            </tbody>
+        </table>
+        <br />
+        
+        <h5>Mobile Printer</h5>
+        <table class="List2">
+            <thead>
+                <tr><td>Name</td><td>SM-S220i<br />(Excluding Jp model)</td><td>SM-T300i</td><td>SM-T400i</td></tr>
+            </thead>
+            <tbody>
+             <tr><td><a href="#createUPCE">createUPCE</a></td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createUPCA">createUPCA</a></td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createJAN8">createJAN8</a></td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createJAN13">createJAN13</a></td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createCode39">createCode39</a></td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createITF">createITF</a></td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createCode128">createCode128</a></td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createCode93">createCode93</a></td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createNW7">createNW7</a></td><td>○</td><td>○</td><td>○</td></tr>
+            </tbody>
+        </table>
+        
         
     </div>
     </article>
@@ -202,6 +241,7 @@
         <p>
         StarBarcodeEncoder();
         </p>
+        </div>
     
         <h4>Parameter</h4>
         <table class="coder">
@@ -257,6 +297,7 @@ function onBuild() {
         <p>
         createUPCE(args);
         </p>
+        </div>
     
         <h4>Parameter</h4>
         <table class="coder">
@@ -314,6 +355,7 @@ function onBuild() {
         <p>
         createUPCA(args);
         </p>
+        </div>
     
         <h4>Parameter</h4>
         <table class="coder">
@@ -371,6 +413,7 @@ function onBuild() {
         <p>
         createJAN8(args);
         </p>
+        </div>
     
         <h4>Parameter</h4>
         <table class="coder">
@@ -428,6 +471,7 @@ function onBuild() {
         <p>
         createJAN13(args);
         </p>
+        </div>
     
         <h4>Parameter</h4>
         <table class="coder">
@@ -485,6 +529,7 @@ function onBuild() {
         <p>
         createCode39(args);
         </p>
+        </div>
     
         <h4>Parameter</h4>
         <table class="coder">
@@ -544,6 +589,7 @@ function onBuild() {
         <p>
         createITF(args);
         </p>
+        </div>
     
         <h4>Parameter</h4>
         <table class="coder">
@@ -603,6 +649,7 @@ function onBuild() {
         <p>
         createCode128(args);
         </p>
+        </div>
     
         <h4>Parameter</h4>
         <table class="coder">
@@ -660,6 +707,7 @@ function onBuild() {
         <p>
         createCode93(args);
         </p>
+        </div>
     
         <h4>Parameter</h4>
         <table class="coder">
@@ -717,6 +765,7 @@ function onBuild() {
         <p>
         createNW7(args);
         </p>
+        </div>
     
         <h4>Parameter</h4>
         <table class="coder">

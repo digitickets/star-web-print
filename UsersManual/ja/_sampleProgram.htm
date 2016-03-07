@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"  lang="ja" xml:lang="ja">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -7,6 +7,8 @@
     <link href="webPRNT_layout.css" rel="stylesheet" type="text/css" />
     <link href="webPRNT_print_layout.css" rel="stylesheet" type="text/css" media="print" />
     
+<!-- ie10にて条件付きコメント([if IE]の箇所）がサポートされなくなったことに対する対処　　-->
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
    <!--[if IE ]>
         <link rel="stylesheet" type="text/css" href="webPRNT_layout_ie.css"></script>
         <link rel="stylesheet" type="text/css" href="webPRNT_print_layout_ie.css" media="print"></script>
@@ -83,6 +85,42 @@
         $("#AsuraCPRNTconcept5").mouseleave(function(){
             $("#AsuraCPRNTconceptIllust").attr("src","../illust/AsuraCPRNTconcept.png");
         });
+        $("#StarWebBrowserConsept1").mouseenter(function(){
+            $("#StarWebBrowserConseptIllust").attr("src","../illust/StarWebBrowser_consept1.png");
+        });
+        $("#StarWebBrowserConsept1").mouseleave(function(){
+            $("#StarWebBrowserConseptIllust").attr("src","../illust/StarWebBrowser_consept.png");
+        });
+        $("#StarWebBrowserConsept2").mouseenter(function(){
+            $("#StarWebBrowserConseptIllust").attr("src","../illust/StarWebBrowser_consept2.png");
+        });
+        $("#StarWebBrowserConsept2").mouseleave(function(){
+            $("#StarWebBrowserConseptIllust").attr("src","../illust/StarWebBrowser_consept.png");
+        });
+        $("#StarWebBrowserConsept3").mouseenter(function(){
+            $("#StarWebBrowserConseptIllust").attr("src","../illust/StarWebBrowser_consept3.png");
+        });
+        $("#StarWebBrowserConsept3").mouseleave(function(){
+            $("#StarWebBrowserConseptIllust").attr("src","../illust/StarWebBrowser_consept.png");
+        });
+        $("#StarWebBrowserConsept4").mouseenter(function(){
+            $("#StarWebBrowserConseptIllust").attr("src","../illust/StarWebBrowser_consept4.png");
+        });
+        $("#StarWebBrowserConsept4").mouseleave(function(){
+            $("#StarWebBrowserConseptIllust").attr("src","../illust/StarWebBrowser_consept.png");
+        });
+        $("#StarWebBrowserConsept5").mouseenter(function(){
+            $("#StarWebBrowserConseptIllust").attr("src","../illust/StarWebBrowser_consept5.png");
+        });
+        $("#StarWebBrowserConsept5").mouseleave(function(){
+            $("#StarWebBrowserConseptIllust").attr("src","../illust/StarWebBrowser_consept.png");
+        });
+        $("#StarWebBrowserConsept6").mouseenter(function(){
+            $("#StarWebBrowserConseptIllust").attr("src","../illust/StarWebBrowser_consept6.png");
+        });
+        $("#StarWebBrowserConsept6").mouseleave(function(){
+            $("#StarWebBrowserConseptIllust").attr("src","../illust/StarWebBrowser_consept.png");
+        });        
     });
 
 
@@ -199,13 +237,13 @@
 	</ul>
 
 	</navi>
-    </div>
+    </div><!-- mainNavi -->
+
 
     <div id="mainContents">
 
-      <article>
+      <article id="sampleProgram">
 
-      <div id="sampleProgram">
         <h2>Star WebPRNT SDK</h2>
         <p>
         このSDKには、HTMLファイルとJavaScriptファイルがパッケージされています。
@@ -222,10 +260,10 @@
         <div id="sampleProgramConcept">
             <h3>システム構築例</h3>
 
-           <h4>Star POSプリンター	</h4>
+           <h4>Star HE07x/08xインターフェイスプリンター	</h4>
             <p>※ 手順にマウスを合わせることで、イラストが変化します。</p>
         
-            <img id="conceptIllust" src="../illust/concept.png" />
+            <img id="conceptIllust" src="../illust/concept.png" class="img_responsive" />
         
             <div class="conceptDescription">
                 <ol class="concept">
@@ -243,7 +281,7 @@
            <h4>AsuraCPRNT</h4>
             <p>※ 手順にマウスを合わせることで、イラストが変化します。</p>
         
-            <img id="AsuraCPRNTconceptIllust" src="../illust/AsuraCPRNTconcept.png" />
+            <img id="AsuraCPRNTconceptIllust" src="../illust/AsuraCPRNTconcept.png" class="img_responsive" />
         
             <div class="conceptDescription">
                 <ol class="concept">
@@ -254,7 +292,32 @@
                     <li><a id="AsuraCPRNTconcept5">AsruaCPRNT(A)から印刷され、Webブラウザー(B)にプリンターステータスが戻ります。</a></li>
                 </ol>
             </div>
-          </div>
+            
+            
+        <br />&nbsp;<br />
+
+           <h4>Star WebPRNT Browser + Star Bluetoothプリンター</h4>
+            <p>※ 手順をタップすることで、イラストが変化します。</p>
+        
+            <img id="StarWebBrowserConseptIllust" src="../illust/StarWebBrowser_consept.png" class="img_responsive" />
+        
+            <div class="conceptDescription">
+                <ol class="concept">
+                    <li><a id="StarWebBrowserConsept1">ローカルサーバーまたはクラウドサーバー(A)、Star WebPRNT BrowserをインストールしたiOSデバイス*(B)を通信可能な環境に準備します。</a></li>
+                    <li><a id="StarWebBrowserConsept2">iOSデバイス(B)とStar Bluetoothプリンター(C)をペアリングします。</a></li>
+                    <li><a id="StarWebBrowserConsept3">SDKにパッケージされているサンプルプログラム一式をWebサーバー(A)にコピーします。</a></li>
+                    <li><a id="StarWebBrowserConsept4">Star WebPRNT Browser(B)からサンプルプログラムを表示します。</a></li>
+                    <li><a id="StarWebBrowserConsept5">Star WebPRNT Browserに表示したサンプルプログラム(B)から印刷データをStar Bluetoothプリンターに送信します。</a></li>
+                    <li><a id="StarWebBrowserConsept6">Star Bluetoothプリンター(C)から印刷され、Star WebPRNT Browser(B)にプリンターステータスが戻ります。</a></li>
+                </ol>
+                 
+            </div>
+            <br />
+        <p class="note2">
+            * iOS Ver7.0 以降に対応しています。
+         </p>
+           
+          </div><!-- sampleProgramConcept -->
 
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
@@ -307,25 +370,48 @@
     
         <div id="howToUse">
         <h3>使用方法</h3>
+
+            <h4>Star HE07x/08xインターフェイスプリンター	・AsuraCPRNT</h4>
     
         <div class="numOperation">
             <ol>
             <li>Webブラウザで公開したComparisonReceiptDesign.htmlを開き、JavaScript/Canvasのサポートに問題のないことを確認します。<br />
-            <img src="../illust/CheckYourBrowser3.png" class="numOpeFig" alt="ComparisonReceiptDesign エラー画面"><br />
+            <img src="../illust/CheckYourBrowser3.png" class="numOpeFig img_responsive" alt="ComparisonReceiptDesign エラー画面"><br />
             <p class="note">
                   *"Your browser does not support JavaScript!"と表示された場合には、お使いのWebブラウザのJavaScript設定が無効になっていますので、JavaScriptを有効に変更してください。</p>
             <p class="note">
                   *"Your browser does not support Canvas!"と表示された場合には、Canvas機能に対応したWebブラウザへ変更してください。</p>
             </li>
             <li>starWebPRNTエンドポイントURLをプリンタのIPアドレスに合わせて編集します。<br />
-            <img src="../illust/Set_IP-Address3.png" class="numOpeFig" alt="ComparisonReceiptSesign 設定画面"></li>
+            <img src="../illust/Set_IP-Address3.png" class="numOpeFig img_responsive" alt="ComparisonReceiptSesign 設定画面"></li>
             <li>Send（API）ボタンでデバイスフォントによる印刷が行えることを確認します。</li>
             <li>Send（Canvas）ボタンでCanvas描画による印刷が行えることを確認します。</li>
             </ol>
         </div>
-        </div>
+            
+        <br />
+
+        <h4 id="howToUseBrowser">Star WebPRNT Browser + Star Bluetoothプリンター</h4>
+    
+        <div class="numOperation">
+            <ol>
+            <li>App Storeより「Star WebPRNT Browser」をインストールします。<br />
+            <img src="../illust/Howtouse/ToStarWebPRNTBrowser.png" class="numOpeFig2 img_responsive" alt=""></li>
+            <li>Star BluetoothプリンターとiOSデバイスをペアリングします。</li>
+            <li>Settings &gt; Star WebPRNT を開きます。 <br />
+            <img src="../illust/Howtouse/ToSettings.png" class="numOpeFig2 img_responsive" alt="ComparisonReceiptSesign 設定画面">
+            <img src="../illust/Howtouse/Settings.png" class="numOpeFig2 img_responsive" alt=""></li>
+            <li>デフォルトでは弊社サンプルサイトが参照されています。利用されるWebサーバーのURLに変更してください。(1)<br />
+                使用するStar Bluetoothプリンターを選択します。(POS PrinterまたはPortable Printer)(2)<br />
+             <img src="../illust/Howtouse/StarWebPRNTBrowserSetting.png" class="numOpeFig2 img_responsive" alt="ComparisonReceiptSesign 設定画面"></li>
+           <li>Star WebPRNT Browserを開き、動作を確認します。<br />
+             <img src="../illust/Howtouse/WebPRNTBrowser.png" class="numOpeFig2 img_responsive" alt="ComparisonReceiptSesign 設定画面"></li>
+           </ol>
+        </div>          
+          
+          
+          </div>
         
-      </div>
       </article>
 
     <div class="to_top">

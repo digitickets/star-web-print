@@ -1,0 +1,1155 @@
+﻿<!DOCTYPE html>
+<!--
+//
+// StarWebPRNT Sample(Canvas Handwriting)
+//
+// Version 1.1.0
+//
+// Copyright (C) 2012-2015 STAR MICRONICS CO., LTD. All Rights Reserved.
+//
+-->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title>StarWebPRNT Sample(API Combination)</title>
+
+<link href="css/import.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="style.css" media="screen">
+
+<link href="css/style_apicombination.css" rel="stylesheet" type="text/css">
+<script type='text/javascript' src='js/StarWebPrintBuilder.js'></script>
+<script type='text/javascript' src='js/StarWebPrintTrader.js'></script>
+<script type='text/javascript'>
+<!--
+var builder = new StarWebPrintBuilder();
+
+var request = '';
+
+var sampleCode = '';
+
+function onInitializationReset() {
+    if (document.getElementById('initializationReset').checked) {
+        document.getElementById('initializationPrint').disabled = false;
+    }
+    else {
+        document.getElementById('initializationPrint').disabled = true;
+    }
+}
+
+function onAppendInitialization() {
+    try {
+        var reset = document.getElementById('initializationReset').checked;
+        var print = document.getElementById('initializationPrint').checked;
+
+        request += builder.createInitializationElement({reset:reset, print:print});
+
+        sampleCode += 'request += builder.createInitializationElement({reset:' + reset + ', print:' + print + '});\n';
+
+        updateSampleCode();
+    }
+    catch (e) {
+        alert(e.message);
+    }
+}
+
+function onAppendAlignment() {
+    try {
+        var position = document.getElementById('alignmentPosition').value;
+
+        request += builder.createAlignmentElement({position:position});
+
+        sampleCode += 'request += builder.createAlignmentElement({position:\'' + position + '\'});\n';
+
+        updateSampleCode();
+    }
+    catch (e) {
+        alert(e.message);
+    }
+}
+
+function onAppendText() {
+    try {
+        var characterspace = parseInt(document.getElementById('textCharacterSpace').value);
+        var linespace      = parseInt(document.getElementById('textLineSpace')     .value);
+        var width          = parseInt(document.getElementById('textWidth')         .value);
+        var height         = parseInt(document.getElementById('textHeight')        .value);
+
+        var codepage      = document.getElementById('textCodePage')     .value;
+        var international = document.getElementById('textInternational').value;
+        var font          = document.getElementById('textFont')         .value;
+        var data          = document.getElementById('textData')         .value;
+
+        var emphasis  = document.getElementById('textEmphasis') .checked;
+        var underline = document.getElementById('textUnderline').checked;
+        var invert    = document.getElementById('textInvert')   .checked;
+        var binary    = document.getElementById('textBinary')   .checked;
+
+        request += builder.createTextElement({characterspace:characterspace, linespace:linespace, codepage:codepage, international:international, font:font, width:width, height:height, emphasis:emphasis, underline:underline, invert:invert, binary:binary, data:encodeEscapeSequence(data)});
+
+        sampleCode += 'request += builder.createTextElement({characterspace:' + characterspace + ', linespace:' + linespace + ', codepage:\'' + codepage + '\', international:\'' + international + '\', font:\'' + font + '\', width:' + width + ', height:' + height + ', emphasis:' + emphasis + ', underline:' + underline + ', invert:' + invert + ', binary:' + binary + ', data:\'' + encodeEscapeSequenceSample(data) + '\'});\n';
+
+        updateSampleCode();
+    }
+    catch (e) {
+        alert(e.message);
+    }
+}
+
+function onChangeBarcodeSymbology() {
+    switch (document.getElementById('barcodeSymbology').value) {
+        default        :     // 'UPCE'
+//      case 'UPCA'    :
+//      case 'JAN8'    :
+//      case 'JAN13'   :
+//      case 'Code128' :
+//      case 'Code93'  :
+            document.getElementById('barcodeWidth0').disabled = false;
+            document.getElementById('barcodeWidth1').disabled = true;
+            document.getElementById('barcodeWidth2').disabled = true;
+            break;
+        case 'Code39' :
+        case 'NW7'    :
+            document.getElementById('barcodeWidth0').disabled = true;
+            document.getElementById('barcodeWidth1').disabled = false;
+            document.getElementById('barcodeWidth2').disabled = true;
+            break;
+        case 'ITF' :
+            document.getElementById('barcodeWidth0').disabled = true;
+            document.getElementById('barcodeWidth1').disabled = true;
+            document.getElementById('barcodeWidth2').disabled = false;
+            break;
+    }
+}
+
+function onBarcodeExample() {
+    switch (document.getElementById('barcodeSymbology').value) {
+        default        : document.getElementById('barcodeData').value = '01234500006';  break;     // 'UPCE'
+        case 'UPCA'    : document.getElementById('barcodeData').value = '01234567890';  break;
+        case 'JAN8'    : document.getElementById('barcodeData').value = '0123456';      break;
+        case 'JAN13'   : document.getElementById('barcodeData').value = '012345678901'; break;
+        case 'Code39'  : document.getElementById('barcodeData').value = '0123456789';   break;
+        case 'ITF'     : document.getElementById('barcodeData').value = '0123456789';   break;
+        case 'Code128' : document.getElementById('barcodeData').value = '{B0123456789'; break;
+        case 'Code93'  : document.getElementById('barcodeData').value = '0123456789';   break;
+        case 'NW7'     : document.getElementById('barcodeData').value = 'A0123456789B'; break;
+    }
+}
+
+function onAppendBarcode() {
+    try {
+        var height = parseInt(document.getElementById('barcodeHeight').value);
+
+        var symbology = document.getElementById('barcodeSymbology').value;
+        var data      = document.getElementById('barcodeData')     .value;
+
+        var hri = document.getElementById('barcodeHri').checked;
+
+        var width = '';
+
+        switch (document.getElementById('barcodeSymbology').value) {
+            default        :     // 'UPCE'
+//          case 'UPCA'    :
+//          case 'JAN8'    :
+//          case 'JAN13'   :
+//          case 'Code128' :
+//          case 'Code93'  :
+                width = document.getElementById('barcodeWidth0').value;
+                break;
+            case 'Code39' :
+            case 'NW7'    :
+                width = document.getElementById('barcodeWidth1').value;
+                break;
+            case 'ITF' :
+                width = document.getElementById('barcodeWidth2').value;
+                break;
+        }
+
+        request += builder.createBarcodeElement({symbology:symbology, width:width, height:height, hri:hri, data:encodeEscapeSequence(data)});
+
+        sampleCode += 'request += builder.createBarcodeElement({symbology:\'' + symbology + '\', width:\'' + width + '\', height:' + height + ', hri:' + hri + ', data:\'' + encodeEscapeSequenceSample(data) + '\'});\n';
+
+        updateSampleCode();
+    }
+    catch (e) {
+        alert(e.message);
+    }
+}
+
+function onAppendPdf417() {
+    try {
+        var line   = parseInt(document.getElementById('pdf417Line')  .value);
+        var column = parseInt(document.getElementById('pdf417Column').value);
+        var module = parseInt(document.getElementById('pdf417Module').value);
+        var aspect = parseInt(document.getElementById('pdf417Aspect').value);
+
+        var level = document.getElementById('pdf417Level').value;
+        var data  = document.getElementById('pdf417Data') .value;
+
+        request += builder.createPdf417Element({level:level, line:line, column:column, module:module, aspect:aspect, data:encodeEscapeSequence(data)});
+
+        sampleCode += 'request += builder.createPdf417Element({level:\'' + level + '\', line:' + line + ', column:' + column + ', module:' + module + ', aspect:' + aspect + ', data:\'' + encodeEscapeSequenceSample(data) + '\'});\n';
+
+        updateSampleCode();
+    }
+    catch (e) {
+        alert(e.message);
+    }
+}
+
+function onAppendQrCode() {
+    try {
+        var cell = parseInt(document.getElementById('qrcodeCell').value);
+
+        var model = document.getElementById('qrcodeModel').value;
+        var level = document.getElementById('qrcodeLevel').value;
+        var data  = document.getElementById('qrcodeData') .value;
+
+        request += builder.createQrCodeElement({model:model, level:level, cell:cell, data:encodeEscapeSequence(data)});
+
+        sampleCode += 'request += builder.createQrCodeElement({model:\'' + model + '\', level:\'' + level + '\', cell:' + cell + ', data:\'' + encodeEscapeSequenceSample(data) + '\'});\n';
+
+        updateSampleCode();
+    }
+    catch (e) {
+        alert(e.message);
+    }
+}
+
+function onLoadImage() {
+    try {
+        var image = new Image();
+
+        image.src = document.getElementById('imageNumber').value + '?' + new Date().getTime();
+
+        image.onload = function () {
+            alert('Image:width = ' + image.width + 'px, height = ' + image.height + 'px');
+
+            var canvas = document.getElementById('canvas');
+
+            if (canvas.getContext) {
+                canvas.width  = image.width;
+                canvas.height = image.height;
+
+                var context = canvas.getContext('2d');
+
+                context.drawImage(image, 0, 0);
+            }
+        }
+
+        image.onerror = function () {
+            alert('Image file was not able to be loaded int the web server.');
+        }
+    }
+    catch (e) {
+        alert(e.message);
+    }
+}
+
+function onAppendImage() {
+    try {
+        var canvas = document.getElementById('canvas');
+
+        if (canvas.getContext) {
+            request += builder.createBitImageElement({context:canvas.getContext('2d'), x:0, y:0, width:canvas.width, height:canvas.height});
+
+            sampleCode += 'request += builder.createBitImageElement({context:canvas.getContext(\'2d\'), x:0, y:0, width:' + canvas.width + ', height:' + canvas.height + '});\n';
+
+            updateSampleCode();
+        }
+    }
+    catch (e) {
+        alert(e.message);
+    }
+}
+
+function onAppendLogo() {
+    try {
+        var width  = document.getElementById('logoWidth') .checked ? 'double' : 'single';
+        var height = document.getElementById('logoHeight').checked ? 'double' : 'single';
+
+        var number = parseInt(document.getElementById('logoNumber').value);
+
+        request += builder.createLogoElement({number:number, width:width, height:height});
+
+        sampleCode += 'request += builder.createLogoElement({number:' + number + ', width:\'' + width + '\', height:\'' + height + '\'});\n';
+
+        updateSampleCode();
+    }
+    catch (e) {
+        alert(e.message);
+    }
+}
+
+function onAppendRuledLine() {
+    try {
+        var width = parseInt(document.getElementById('ruledlineWidth').value);
+
+        var thickness = document.getElementById('ruledlineThickness').value;
+
+        request += builder.createRuledLineElement({thickness:thickness, width:width});
+
+        sampleCode += 'request += builder.createRuledLineElement({thickness:\'' + thickness + '\', width:' + width + '});\n';
+
+        updateSampleCode();
+    }
+    catch (e) {
+        alert(e.message);
+    }
+}
+
+function onAppendLineFeed() {
+    try {
+        var line = parseInt(document.getElementById('lineFeed').value);
+
+        request += builder.createFeedElement({line:line});
+
+        sampleCode += 'request += builder.createFeedElement({line:' + line + '});\n';
+
+        updateSampleCode();
+    }
+    catch (e) {
+        alert(e.message);
+    }
+}
+
+function onAppendUnitFeed() {
+    try {
+        var unit = parseInt(document.getElementById('unitFeed').value);
+
+        request += builder.createFeedElement({unit:unit});
+
+        sampleCode += 'request += builder.createFeedElement({unit:' + unit + '});\n';
+
+        updateSampleCode();
+    }
+    catch (e) {
+        alert(e.message);
+    }
+}
+
+function onAppendCutPaper() {
+    try {
+        var type = document.getElementById('cutpaperType').value;
+
+        var feed = document.getElementById('cutpaperFeed').checked;
+
+        request += builder.createCutPaperElement({feed:feed, type:type});
+
+        sampleCode += 'request += builder.createCutPaperElement({feed:' + feed + ', type:\'' + type + '\'});\n';
+
+        updateSampleCode();
+    }
+    catch (e) {
+        alert(e.message);
+    }
+}
+
+function onChangePeripheralChannel() {
+    switch (document.getElementById('peripheralChannel').value) {
+        default  : document.getElementById('peripheralWidth').disabled = false; break;     // '1'
+        case '2' : document.getElementById('peripheralWidth').disabled = true;  break;
+    }
+}
+
+function onAppendPeripheral() {
+    try {
+        var channel = parseInt(document.getElementById('peripheralChannel').value);
+        var width   = parseInt(document.getElementById('peripheralWidth')  .value);
+
+        request += builder.createPeripheralElement({channel:channel, on:width, off:width});
+
+        sampleCode += 'request += builder.createPeripheralElement({channel:' + channel + ', on:' + width + ', off:' + width + '});\n';
+
+        updateSampleCode();
+    }
+    catch (e) {
+        alert(e.message);
+    }
+}
+
+function onAppendSound() {
+    try {
+        var channel = parseInt(document.getElementById('soundChannel').value);
+        var repeat  = parseInt(document.getElementById('soundRepeat') .value);
+
+        request += builder.createSoundElement({channel:channel, repeat:repeat});
+
+        sampleCode += 'request += builder.createSoundElement({channel:' + channel + ', repeat:' + repeat + '});\n';
+
+        updateSampleCode();
+    }
+    catch (e) {
+        alert(e.message);
+    }
+}
+
+function onAppendRawData() {
+    try {
+        var data = document.getElementById('rawdataData').value;
+
+        request += builder.createRawDataElement({data:encodeEscapeSequence(data)});
+
+        sampleCode += 'request += builder.createRawDataElement({data:\'' + encodeEscapeSequenceSample(data) + '\')});\n';
+
+        updateSampleCode();
+    }
+    catch (e) {
+        alert(e.message);
+    }
+}
+
+function encodeEscapeSequence(data) {
+    var regexp = /\\[tnr\\]/g;
+
+    if (regexp.test(data)) {
+        data = data.replace(regexp, function (match) {
+            switch (match) {
+                case '\\t' : return '\\x09';
+                case '\\n' : return '\\x0a';
+                case '\\r' : return '\\x0d';
+            }
+
+            return '\\x5c';
+        });
+    }
+
+    var regexp = /\\[Xx][0-9A-Fa-f]{2}/g;
+
+    if (regexp.test(data)) {
+        data = data.replace(regexp, function (match) {
+            return String.fromCharCode(parseInt(match.slice(2), 16));
+        });
+    }
+
+    return data;
+}
+
+function encodeEscapeSequenceSample(data) {
+    var regexp = /['"]/g;
+
+    if (regexp.test(data)) {
+        data = data.replace(regexp, function (match) {
+            switch (match) {
+                case '"' : return '\\"';
+                case "'" : return "\\'";
+            }
+
+            return match;
+        });
+    }
+
+    return data;
+}
+
+function updateSampleCode() {
+    document.getElementById('message').value =
+        'var url = "http://localhost:8001/StarWebPRNT/SendMessage";\n\n' +
+        'var builder = new StarWebPrintBuilder();\n' + sampleCode + '\n' +
+        'var trader = new StarWebPrintTrader({url:url});\n' +
+        'trader.onReceive = function (response) { alert(response.responseText); }\n' +
+        'trader.onError = function (response) { alert(response.responseText); }\n' +
+        'trader.sendMessage({request:request});\n';
+}
+
+function onClearMessage() {
+    request = '';
+
+    sampleCode = '';
+
+//  updateSampleCode();
+
+    document.getElementById('message').value = '';
+}
+
+function onSendMessage() {
+	nowPrinting();
+    var url = document.getElementById('url').value;
+
+    var trader = new StarWebPrintTrader({url:url});
+
+    trader.onReceive = function (response) {
+        var msg = '- onReceive -\n\n';
+
+        msg += 'TraderSuccess : [ ' + response.traderSuccess + ' ]\n';
+
+//      msg += 'TraderCode : [ ' + response.traderCode + ' ]\n';
+
+        msg += 'TraderStatus : [ ' + response.traderStatus + ',\n';
+
+        if (trader.isCoverOpen            ({traderStatus:response.traderStatus})) {msg += '\tCoverOpen,\n';}
+        if (trader.isOffLine              ({traderStatus:response.traderStatus})) {msg += '\tOffLine,\n';}
+        if (trader.isCompulsionSwitchClose({traderStatus:response.traderStatus})) {msg += '\tCompulsionSwitchClose,\n';}
+        if (trader.isEtbCommandExecute    ({traderStatus:response.traderStatus})) {msg += '\tEtbCommandExecute,\n';}
+        if (trader.isHighTemperatureStop  ({traderStatus:response.traderStatus})) {msg += '\tHighTemperatureStop,\n';}
+        if (trader.isNonRecoverableError  ({traderStatus:response.traderStatus})) {msg += '\tNonRecoverableError,\n';}
+        if (trader.isAutoCutterError      ({traderStatus:response.traderStatus})) {msg += '\tAutoCutterError,\n';}
+        if (trader.isBlackMarkError       ({traderStatus:response.traderStatus})) {msg += '\tBlackMarkError,\n';}
+        if (trader.isPaperEnd             ({traderStatus:response.traderStatus})) {msg += '\tPaperEnd,\n';}
+        if (trader.isPaperNearEnd         ({traderStatus:response.traderStatus})) {msg += '\tPaperNearEnd,\n';}
+
+        msg += '\tEtbCounter = ' + trader.extractionEtbCounter({traderStatus:response.traderStatus}).toString() + ' ]\n';
+
+//      msg += 'Status : [ ' + response.status + ' ]\n';
+//
+//      msg += 'ResponseText : [ ' + response.responseText + ' ]\n';
+
+        alert(msg);
+    }
+
+    trader.onError = function (response) {
+        var msg = '- onError -\n\n';
+
+        msg += '\tStatus:' + response.status + '\n';
+
+        msg += '\tResponseText:' + response.responseText;
+
+        alert(msg);
+    }
+
+    trader.sendMessage({request:request});
+}
+function nowLoading(){
+	document.getElementById('form').style.display="block";
+	document.getElementById('overlay').style.display="none";
+	document.getElementById('nowLoadingWrapper').style.display="none";
+}
+function nowPrinting(){
+	document.getElementById('overlay').style.display="block";
+	document.getElementById('nowPrintingWrapper').style.display="table";
+	timer = setTimeout(function (){
+		document.getElementById('overlay').style.opacity= 0.0;
+		document.getElementById('overlay').style.transition= "all 0.3s";
+		intimer = setTimeout(function (){
+			document.getElementById('overlay').style.display="none";
+		document.getElementById('overlay').style.opacity= 1;
+	        clearTimeout(intimer);
+		}, 300);
+		document.getElementById('nowPrintingWrapper').style.display="none";
+        clearTimeout(timer);
+	}, 7000);
+}
+window.onload = function() {
+	nowLoading();
+}
+// -->
+</script>
+<noscript>
+    Your browser does not support JavaScript!
+</noscript>
+</head>
+
+<body>
+
+	<div id="overlay">
+		<div id="nowPrintingWrapper">
+			<section id="nowPrinting">
+				<h1>Now Printing</h1>
+				<p><img src="images/icon_loading.gif" /></p>
+			</section>
+		</div>
+		<div id="nowLoadingWrapper">
+			<section id="nowLoading">
+				<h1>Now Loading</h1>
+				<p><img src="images/icon_loading.gif" /></p>
+			</section>
+		</div>
+	</div>
+
+<header id="global-header">
+<h1><a href="A001.html"><img src="images/logo_01.png" alt="HOME" width="108" height="61"></a></h1>
+<div id="sub-logo"><a href="http://www.star-m.jp/" target="_blank"><img src="images/logo_02.png" alt="" width="120" height="13"></a></div>
+</header>
+
+<section class="btmMg20">
+	<h2 class="h2-tit-01 btmMg20">API : Combination</h2>
+</section>
+
+
+    <form onsubmit='return false;' id="form">
+		<div class="container">
+			<div id="combinationBlock">
+
+		    <h4>Initialization</h4>
+                <dl>
+	                <dt></dt>
+	                <dd>
+	                    <div><input id='initializationReset' type='checkbox' onclick='onInitializationReset()' />Hardware Reset</div>
+	                    <div><input id="initializationPrint" type="checkbox" disabled />Self Print</div>
+	                </dd>
+                </dl>
+                <div class="appendBlock"><input class="appendBtn" type='button' value='Append' onclick='onAppendInitialization()' /></div>
+
+			<hr>
+		    <h4 class="clearfix">Alignment</h4>
+				<dl>
+					<dt>Position</dt>
+					<dd>:
+	                    <select id='alignmentPosition'>
+	                        <option value='left' selected='selected'>Left</option>
+	                        <option value='center'>Center</option>
+	                        <option value='right'>Right</option>
+	                    </select>
+	                </dd>
+                </dl>
+				<div class="appendBlock"><input class="appendBtn" type='button' value='Append' onclick='onAppendAlignment()' /></div>
+
+
+			<hr>
+		    <h4 class="clearfix">Text</h4>
+				<dl>
+					<dt style="height:50px;">Character Space</dt>
+					<dd style="height:50px;">:
+	                    <select id='textCharacterSpace'>
+	                        <option value='0' selected='selected'>0</option>
+	                        <option value='1'>1</option>
+	                        <option value='2'>2</option>
+	                        <option value='3'>3</option>
+	                        <option value='4'>4</option>
+	                        <option value='5'>5</option>
+	                        <option value='6'>6</option>
+	                        <option value='7'>7</option>
+	                    </select>
+					</dd>
+
+					<dt>Line Space</dt>
+					<dd>:
+                        <select id='textLineSpace'>
+                            <option value='24'>24</option>
+                            <option value='32' selected='selected'>32</option>
+                        </select>
+                    </dd>
+
+					<dt>CodePage</dt>
+					<dd>:
+                        <select id='textCodePage'>
+                            <option value='cp437'>CodePage437</option>
+                            <option value='cp737'>CodePage737</option>
+                            <option value='cp772'>CodePage772</option>
+                            <option value='cp774'>CodePage774</option>
+                            <option value='cp851'>CodePage851</option>
+                            <option value='cp852'>CodePage852</option>
+                            <option value='cp855'>CodePage855</option>
+                            <option value='cp857'>CodePage857</option>
+                            <option value='cp858'>CodePage858</option>
+                            <option value='cp860'>CodePage860</option>
+                            <option value='cp861'>CodePage861</option>
+                            <option value='cp862'>CodePage862</option>
+                            <option value='cp863'>CodePage863</option>
+                            <option value='cp864'>CodePage864</option>
+                            <option value='cp865'>CodePage865</option>
+                            <option value='cp866'>CodePage866</option>
+                            <option value='cp869'>CodePage869</option>
+                            <option value='cp874'>CodePage874</option>
+                            <option value='cp928'>CodePage928</option>
+                            <option value='cp932'>CodePage932</option>
+                            <option value='cp998' selected='selected'>CodePage998</option>
+                            <option value='cp999'>CodePage999</option>
+                            <option value='cp1001'>CodePage1001</option>
+                            <option value='cp1250'>CodePage1250</option>
+                            <option value='cp1251'>CodePage1251</option>
+                            <option value='cp1252'>CodePage1252</option>
+                            <option value='cp2001'>CodePage2001</option>
+                            <option value='cp3001'>CodePage3001</option>
+                            <option value='cp3002'>CodePage3002</option>
+                            <option value='cp3011'>CodePage3011</option>
+                            <option value='cp3012'>CodePage3012</option>
+                            <option value='cp3021'>CodePage3021</option>
+                            <option value='cp3041'>CodePage3041</option>
+                            <option value='cp3840'>CodePage3840</option>
+                            <option value='cp3841'>CodePage3841</option>
+                            <option value='cp3843'>CodePage3843</option>
+                            <option value='cp3844'>CodePage3844</option>
+                            <option value='cp3845'>CodePage3845</option>
+                            <option value='cp3846'>CodePage3846</option>
+                            <option value='cp3847'>CodePage3847</option>
+                            <option value='cp3848'>CodePage3848</option>
+                            <option value='utf8' selected='selected'>UTF-8</option>
+                            <option value='blank'>BlankCodePage</option>
+                        </select>
+					</dd>
+
+					<dt>International</dt>
+					<dd>:
+                        <select id='textInternational'>
+                            <option value='usa' selected='selected'>USA</option>
+                            <option value='france'>France</option>
+                            <option value='germany'>Germany</option>
+                            <option value='uk'>UK</option>
+                            <option value='denmark'>Denmark</option>
+                            <option value='sweden'>Sweden</option>
+                            <option value='italy'>Italy</option>
+                            <option value='spain'>Spain</option>
+                            <option value='japan'>Japan</option>
+                            <option value='norway'>Norway</option>
+                            <option value='denmark2'>DenmarkII</option>
+                            <option value='spain2'>SpainII</option>
+                            <option value='latin_america'>LatinAmerica</option>
+                            <option value='korea'>Korea</option>
+                            <option value='ireland'>Ireland</option>
+                            <option value='legal'>Legal</option>
+                        </select>
+					</dd>
+
+					<dt>Font</dt>
+					<dd>:
+                        <select id='textFont'>
+                            <option value='font_a' selected='selected'>FONT_A</option>
+                            <option value='font_b'>FONT_B</option>
+                        </select>
+                    </dd>
+
+                    <dt>Width</dt>
+					<dd>:
+                        <select id='textWidth'>
+                            <option value='1' selected='selected'>x1</option>
+                            <option value='2'>x2</option>
+                            <option value='3'>x3</option>
+                            <option value='4'>x4</option>
+                            <option value='5'>x5</option>
+                            <option value='6'>x6</option>
+                        </select>
+                    </dd>
+
+                    <dt>Height</dt>
+					<dd>:
+                        <select id='textHeight'>
+                            <option value='1' selected='selected'>x1</option>
+                            <option value='2'>x2</option>
+                            <option value='3'>x3</option>
+                            <option value='4'>x4</option>
+                            <option value='5'>x5</option>
+                            <option value='6'>x6</option>
+                        </select>
+                    </dd>
+                    <dt>Option</dt>
+					<dd><input id='textEmphasis' type='checkbox' />Emphasis</dd>
+					<dd><input id='textUnderline' type='checkbox' />Underline</dd>
+					<dd><input id='textInvert' type='checkbox' />Invert</dd>
+
+					<dt>Data</dt>
+					<dd>:
+						<input id='textData' type='text' value='Star Micronics\n' />
+                        <div class="note">Hexadecimal:'\x00'-'\xff', HorizontalTab:'\t', LineFeed:'\n', CarriageReturn:'\r', BackSlash:'\\'</div>
+                    </dd>
+                    <dd>
+						<input id='textBinary' type='checkbox' />Binary
+                    </dd>
+                </dl>
+				<div class="appendBlock"><input class="appendBtn" type='button' value='Append' onclick='onAppendText()' /></div>
+
+
+			<hr>
+		    <h4 class="clearfix">Barcode</h4>
+		    	<dl>
+					<dt>Symbology</dt>
+					<dd> :
+                        <select id='barcodeSymbology' onchange='onChangeBarcodeSymbology()'>
+                            <option value='UPCE'>UPC-E</option>
+                            <option value='UPCA'>UPC-A</option>
+                            <option value='JAN8'>JAN/EAN8</option>
+                            <option value='JAN13' selected='selected'>JAN/EAN13</option>
+                            <option value='Code39'>Code39</option>
+                            <option value='ITF'>ITF</option>
+                            <option value='Code128'>Code128</option>
+                            <option value='Code93'>Code93</option>
+                            <option value='NW7'>NW-7</option>
+                        </select>
+                    </dd>
+                    <dt>Width</dt>
+					<dd>:
+                        <select id='barcodeWidth0'>
+                            <option value='width2' selected='selected'>2</option>
+                            <option value='width3'>3</option>
+                            <option value='width4'>4</option>
+                        </select> dots,
+                        <select id='barcodeWidth1' disabled='disabled'>
+                            <option value='width_mode1' selected='selected'>2:6</option>
+                            <option value='width_mode2'>3:9</option>
+                            <option value='width_mode3'>4:12</option>
+                            <option value='width_mode4'>2:5</option>
+                            <option value='width_mode5'>3:8</option>
+                            <option value='width_mode6'>4:10</option>
+                            <option value='width_mode7'>2:4</option>
+                            <option value='width_mode8'>3:6</option>
+                            <option value='width_mode9'>4:8</option>
+                        </select> dots,
+                        <select id='barcodeWidth2' disabled='disabled'>
+                            <option value='width_mode1' selected='selected'>2:5</option>
+                            <option value='width_mode2'>4:10</option>
+                            <option value='width_mode3'>6:15</option>
+                            <option value='width_mode4'>2:4</option>
+                            <option value='width_mode5'>4:8</option>
+                            <option value='width_mode6'>6:12</option>
+                            <option value='width_mode7'>2:6</option>
+                            <option value='width_mode8'>3:9</option>
+                            <option value='width_mode9'>4:12</option>
+                        </select> dots
+                    </dd>
+                    <dt>Height</dt>
+					<dd>:
+                        <select id='barcodeHeight'>
+                            <option value='20'>20</option>
+                            <option value='40' selected='selected'>40</option>
+                            <option value='60'>60</option>
+                            <option value='80'>80</option>
+                            <option value='100'>100</option>
+                            <option value='120'>120</option>
+                        </select> dots
+                    </dd>
+					<dd><input id='barcodeHri' type='checkbox' />HRI</dd>
+					<dt>Data</dt>
+					<dd>:
+                        <input id='barcodeData' type='text' value='012345678901' />
+                        <input type='button' value='Example' onclick='onBarcodeExample()' /><div class="note">Hexadecimal:'\x00'-'\xff', HorizontalTab:'\t', LineFeed:'\n', CarriageReturn:'\r', BackSlash:'\\'</div></dd>
+		    	</dl>
+				<div class="appendBlock"><input class="appendBtn" type='button' value='Append' onclick='onAppendBarcode()' /></div>
+
+
+			<hr>
+		    <h4 class="clearfix">PDF417</h4>
+				<dl>
+					<dt>Level</dt>
+					<dd>:
+                        <select id='pdf417Level'>
+                            <option value='level0'>Level0</option>
+                            <option value='level1' selected='selected'>Level1</option>
+                            <option value='level2'>Level2</option>
+                            <option value='level3'>Level3</option>
+                            <option value='level4'>Level4</option>
+                            <option value='level5'>Level5</option>
+                            <option value='level6'>Level6</option>
+                            <option value='level7'>Level7</option>
+                            <option value='level8'>Level8</option>
+                        </select>
+                    </dd>
+					<dt>Line</dt>
+					<dd>:
+                        <select id='pdf417Line'>
+                            <option value='0' selected='selected'>0</option>
+                            <option value='3'>3</option>
+                            <option value='4'>4</option>
+                            <option value='5'>5</option>
+                            <option value='6'>6</option>
+                            <option value='7'>7</option>
+                            <option value='8'>8</option>
+                            <option value='9'>9</option>
+                            <option value='10'>10</option>
+                            <option value='11'>11</option>
+                            <option value='12'>12</option>
+                            <option value='13'>13</option>
+                            <option value='14'>14</option>
+                            <option value='15'>15</option>
+                            <option value='16'>16</option>
+                            <option value='17'>17</option>
+                            <option value='18'>18</option>
+                            <option value='19'>19</option>
+                            <option value='20'>20</option>
+                        </select>
+                    </dd>
+					<dt>Column</dt>
+					<dd>:
+                        <select id='pdf417Column'>
+                            <option value='0' selected='selected'>0</option>
+                            <option value='1'>1</option>
+                            <option value='2'>2</option>
+                            <option value='3'>3</option>
+                            <option value='4'>4</option>
+                            <option value='5'>5</option>
+                            <option value='6'>6</option>
+                            <option value='7'>7</option>
+                            <option value='8'>8</option>
+                            <option value='9'>9</option>
+                            <option value='10'>10</option>
+                            <option value='11'>11</option>
+                            <option value='12'>12</option>
+                            <option value='13'>13</option>
+                            <option value='14'>14</option>
+                            <option value='15'>15</option>
+                            <option value='16'>16</option>
+                            <option value='17'>17</option>
+                            <option value='18'>18</option>
+                            <option value='19'>19</option>
+                            <option value='20'>20</option>
+                        </select>
+                    </dd>
+					<dt>Module</dt>
+					<dd>:
+                        <select id='pdf417Module'>
+                            <option value='1'>1</option>
+                            <option value='2' selected='selected'>2</option>
+                            <option value='3'>3</option>
+                            <option value='4'>4</option>
+                            <option value='5'>5</option>
+                            <option value='6'>6</option>
+                            <option value='7'>7</option>
+                            <option value='8'>8</option>
+                        </select>
+                    </dd>
+					<dt>Aspect</dt>
+					<dd>:
+                        <select id='pdf417Aspect'>
+                            <option value='1'>1</option>
+                            <option value='2'>2</option>
+                            <option value='3' selected='selected'>3</option>
+                            <option value='4'>4</option>
+                            <option value='5'>5</option>
+                            <option value='6'>6</option>
+                            <option value='7'>7</option>
+                            <option value='8'>8</option>
+                        </select>
+                    </dd>
+					<dt>Data</dt>
+					<dd>:
+                            <input id='pdf417Data' type='text' value='http://www.starmicronics.com/' /><div class="note">Hexadecimal:'\x00'-'\xff', HorizontalTab:'\t', LineFeed:'\n', CarriageReturn:'\r', BackSlash:'\\'</div>
+                    </dd>
+				</dl>
+				<div class="appendBlock"><input class="appendBtn" type='button' value='Append' onclick='onAppendPdf417()' /></div>
+
+
+			<hr>
+		    <h4 class="clearfix">QR-Code</h4>
+				<dl>
+					<dt>Model</dt>
+					<dd>:
+                        <select id='qrcodeModel'>
+                            <option value='model1'>Model1</option>
+                            <option value='model2' selected='selected'>Model2</option>
+                        </select></dd>
+					<dt>Level</dt>
+					<dd>:
+                        <select id='qrcodeLevel'>
+                            <option value='level_l' selected='selected'>LevelL</option>
+                            <option value='level_m'>LevelM</option>
+                            <option value='level_q'>LevelQ</option>
+                            <option value='level_h'>LevelH</option>
+                        </select></dd>
+					<dt>Cell</dt>
+					<dd>:
+                        <select id='qrcodeCell'>
+                            <option value='1'>1</option>
+                            <option value='2'>2</option>
+                            <option value='3' selected='selected'>3</option>
+                            <option value='4'>4</option>
+                            <option value='5'>5</option>
+                            <option value='6'>6</option>
+                            <option value='7'>7</option>
+                            <option value='8'>8</option>
+                        </select></dd>
+					<dt>Data</dt>
+					<dd>:
+                    	<input id='qrcodeData' type='text' value='http://www.starmicronics.com/' /><div class="note">Hexadecimal:'\x00'-'\xff', HorizontalTab:'\t', LineFeed:'\n', CarriageReturn:'\r', BackSlash:'\\'</div>
+                    </dd>
+				</dl>
+				<div class="appendBlock"><input class="appendBtn" type='button' value='Append' onclick='onAppendQrCode()' /></div>
+
+
+			<hr>
+			<h4 class="clearfix">Image</h4>
+				<dl>
+					<dt>Image File</dt>
+					<dd>:
+                        <select id='imageNumber'>
+                            <option value='img/StarLogo1.jpg' selected='selected'>img/StarLogo1.jpg</option>
+                            <option value='img/StarLogo2.jpg'>img/StarLogo2.jpg</option>
+                        </select>
+                        <input type='button' value='Load' onclick='onLoadImage()' />
+						<canvas id='canvas' width='0' height='15'>
+                            Your browser does not support Canvas!
+                        </canvas>
+                    </dd>
+				</dl>
+				<div class="appendBlock"><input class="appendBtn" type='button' value='Append' onclick='onAppendImage()' /></div>
+
+
+			<hr>
+			<h4 class="clearfix">Logo</h4>
+				<dl>
+					<dt>Number</dt>
+					<dd>:
+                        <select id='logoNumber'>
+                            <option value='1' selected='selected'>1</option>
+                            <option value='2'>2</option>
+                            <option value='3'>3</option>
+                            <option value='4'>4</option>
+                            <option value='5'>5</option>
+                            <option value='6'>6</option>
+                            <option value='7'>7</option>
+                            <option value='8'>8</option>
+                            <option value='9'>9</option>
+                            <option value='10'>10</option>
+                        </select>
+                    </dd>
+					<dd><input id='logoWidth' type='checkbox' />Double Width</dd>
+					<dd><input id='logoHeight' type='checkbox' />Double Height</dd>
+				</dl>
+				<div class="appendBlock"><input class="appendBtn" type='button' value='Append' onclick='onAppendLogo()' /></div>
+
+
+			<hr>
+			<h4 class="clearfix">RuledLine</h4>
+				<dl>
+					<dt>Thickness</dt>
+					<dd>:
+                        <select id='ruledlineThickness'>
+                            <option value='thin' selected='selected'>Thin</option>
+                            <option value='medium'>Medium</option>
+                            <option value='thick'>Thick</option>
+                            <option value='double_thin'>Double Thin</option>
+                            <option value='double_medium'>Double Medium</option>
+                            <option value='double_thick'>Double Thick</option>
+                        </select>
+                    </dd>
+					<dt>Width</dt>
+					<dd>:
+                        <select id='ruledlineWidth'>
+                            <option value='100' selected='selected'>100</option>
+                            <option value='200'>200</option>
+                            <option value='300'>300</option>
+                            <option value='400'>400</option>
+                            <option value='500'>500</option>
+                            <option value='572'>572</option>
+                            <option value='640'>640</option>
+                            <option value='832'>832</option>
+                        </select>
+                    </dd>
+				</dl>
+				<div class="appendBlock"><input class="appendBtn" type='button' value='Append' onclick='onAppendRuledLine()' /></div>
+
+
+			<hr>
+			<h4 class="clearfix">Line Feed</h4>
+				<dl>
+					<dt>Line</dt>
+					<dd>:
+                        <select id='lineFeed'>
+                            <option value='1'>1</option>
+                            <option value='2' selected='selected'>2</option>
+                            <option value='4'>4</option>
+                            <option value='8'>8</option>
+                        </select> lines
+                    </dd>
+				</dl>
+				<div class="appendBlock"><input class="appendBtn" type='button' value='Append' onclick='onAppendLineFeed()' /></div>
+
+
+			<hr>
+			<h4 class="clearfix">Unit Feed</h4>
+				<dl class="clearfix">
+					<dt>Unit</dt>
+					<dd>:
+                        <select id='unitFeed'>
+                            <option value='8' selected='selected'>8</option>
+                            <option value='16'>16</option>
+                            <option value='24'>24</option>
+                            <option value='32'>32</option>
+                            <option value='40'>40</option>
+                            <option value='48'>48</option>
+                            <option value='56'>56</option>
+                            <option value='64'>64</option>
+                            <option value='72'>72</option>
+                            <option value='80'>80</option>
+                        </select> dots
+                    </dd>
+				</dl>
+				<div class="appendBlock"><input class="appendBtn" type='button' value='Append' onclick='onAppendUnitFeed()' /></div>
+
+
+			<hr>
+			<h4 class="clearfix">Cut Paper</h4>
+				<dl>
+					<dt>Feed</dt>
+					<dd><input id='cutpaperFeed' type='checkbox' checked='checked' />Feed</dd>
+					<dt>Cut</dt>
+					<dd>:
+                        <select id='cutpaperType'>
+                            <option value='full'>Full</option>
+                            <option value='partial' selected='selected'>Partial</option>
+                        </select>
+                    </dd>
+				</dl>
+				<div class="appendBlock"><input class="appendBtn" type='button' value='Append' onclick='onAppendCutPaper()' /></div>
+
+
+			<hr>
+			<h4 class="clearfix">Peripheral</h4>
+				<dl>
+					<dt>Channel</dt>
+					<dd>:
+                        <select id='peripheralChannel' onchange='onChangePeripheralChannel()'>
+                            <option value='1' selected='selected'>1</option>
+                            <option value='2'>2</option>
+                        </select>
+                    </dd>
+					<dt>Time</dt>
+					<dd>:
+                        <select id='peripheralWidth'>
+                            <option value='100'>100</option>
+                            <option value='200' selected='selected'>200</option>
+                            <option value='500'>500</option>
+                            <option value='1000'>1000</option>
+                            <option value='2000'>2000</option>
+                        </select> mS
+                    </dd>
+				</dl>
+				<div class="appendBlock"><input class="appendBtn" type='button' value='Append' onclick='onAppendPeripheral()' /></div>
+
+
+			<hr>
+			<h4 class="clearfix">Sound</h4>
+				<dl>
+					<dt>Channel</dt>
+					<dd>:
+                        <select id='soundChannel'>
+                            <option value='1' selected='selected'>1</option>
+                            <option value='2'>2</option>
+                        </select>
+                    </dd>
+					<dt>Repeat</dt>
+					<dd>:
+                        <select id='soundRepeat'>
+                            <option value='1' selected='selected'>1</option>
+                            <option value='2'>2</option>
+                            <option value='5'>5</option>
+                            <option value='10'>10</option>
+                        </select> times
+                    </dd>
+				</dl>
+				<div class="appendBlock"><input class="appendBtn" type='button' value='Append' onclick='onAppendSound()' /></div>
+
+
+			<hr>
+			<h4 class="clearfix">Raw Data</h4>
+				<dl>
+					<dt>Data</dt>
+					<dd>:
+                            <input id='rawdataData' type='text' value='12345' /><div class="note">Hexadecimal:'\x00'-'\xff', HorizontalTab:'\t', LineFeed:'\n', CarriageReturn:'\r', BackSlash:'\\'</div>
+                    </dd>
+				</dl>
+				<div class="appendBlock"><input class="appendBtn" type='button' value='Append' onclick='onAppendRawData()' /></div>
+
+
+			<hr>
+			<h4 class="clearfix">Message</h4>
+			<div><textarea id='message' style='width:98%' rows='10' cols='100' readonly='readonly'></textarea></div>
+				<div class="appendBlock"><input class="appendBtn" type='button' value='Clear' onclick='onClearMessage()' /></div>
+
+            </div>
+
+			<hr>
+
+			<h4 class="clearfix">URL</h4>
+            <div><input id="url" type="text" value="http://localhost:8001/StarWebPRNT/SendMessage" /></div>
+				<div class="appendBlock"><input id="sendBtn" type="button" value="Send" onclick="onSendMessage()" /></div>
+		</div>
+	</form>
+
+    <div class="to_top">
+        <a href="#global-header">Go to top</a>
+    </div>
+<footer id="global-footer" class="clearfix">
+	<a href="http://www.star-m.jp/products/s_print/sdk_webprnt/manual/index.htm" target="_blank"><img src="images/footer-logo.png" width="123" alt="" id="footer-logo"></a>
+    <img src="images/footer-image.png"height="54" alt=""/>
+</footer>
+
+</body>
+</html>

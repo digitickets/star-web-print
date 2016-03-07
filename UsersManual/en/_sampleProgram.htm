@@ -1,27 +1,31 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"  lang="ja" xml:lang="ja">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Star WebPRNT User's Manual</title>
+    <link href="bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="font-awesome.min.css">    
     <link href="html5reset-1.6.1.css" rel="stylesheet" type="text/css" />
     <link href="webPRNT_layout.css" rel="stylesheet" type="text/css" />
     <link href="webPRNT_print_layout.css" rel="stylesheet" type="text/css" media="print" />
     
-   <!--[if IE ]>
+<!-- ie10にて条件付きコメント([if IE]の箇所）がサポートされなくなったことに対する対処　　-->
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
+    <!--[if IE ]>
         <link rel="stylesheet" type="text/css" href="webPRNT_layout_ie.css"></script>
         <link rel="stylesheet" type="text/css" href="webPRNT_print_layout_ie.css" media="print"></script>
     <![endif]-->
     
     <script src="jquery-1.10.2.min.js"></script>
     <script>
-    
+    //ナビゲーショントグル
     $(function tggleNavi() {
         $('#naviArrow').click(function(){
-           $('#mainNavi').slideToggle('slow');
-           
+           $('#mainNavi').slideToggle('slow');           
        });
     });
-
+	
+	// 構成図　切り替え設定
     $(function() {
         $("#concept1").mouseenter(function(){
             $("#conceptIllust").attr("src","../illust/concept1.png");
@@ -83,13 +87,45 @@
         $("#AsuraCPRNTconcept5").mouseleave(function(){
             $("#AsuraCPRNTconceptIllust").attr("src","../illust/AsuraCPRNTconcept.png");
         });
+        $("#StarWebBrowserConsept1").mouseenter(function(){
+            $("#StarWebBrowserConseptIllust").attr("src","../illust/StarWebBrowser_consept1.png");
+        });
+        $("#StarWebBrowserConsept1").mouseleave(function(){
+            $("#StarWebBrowserConseptIllust").attr("src","../illust/StarWebBrowser_consept.png");
+        });
+        $("#StarWebBrowserConsept2").mouseenter(function(){
+            $("#StarWebBrowserConseptIllust").attr("src","../illust/StarWebBrowser_consept2.png");
+        });
+        $("#StarWebBrowserConsept2").mouseleave(function(){
+            $("#StarWebBrowserConseptIllust").attr("src","../illust/StarWebBrowser_consept.png");
+        });
+        $("#StarWebBrowserConsept3").mouseenter(function(){
+            $("#StarWebBrowserConseptIllust").attr("src","../illust/StarWebBrowser_consept3.png");
+        });
+        $("#StarWebBrowserConsept3").mouseleave(function(){
+            $("#StarWebBrowserConseptIllust").attr("src","../illust/StarWebBrowser_consept.png");
+        });
+        $("#StarWebBrowserConsept4").mouseenter(function(){
+            $("#StarWebBrowserConseptIllust").attr("src","../illust/StarWebBrowser_consept4.png");
+        });
+        $("#StarWebBrowserConsept4").mouseleave(function(){
+            $("#StarWebBrowserConseptIllust").attr("src","../illust/StarWebBrowser_consept.png");
+        });
+        $("#StarWebBrowserConsept5").mouseenter(function(){
+            $("#StarWebBrowserConseptIllust").attr("src","../illust/StarWebBrowser_consept5.png");
+        });
+        $("#StarWebBrowserConsept5").mouseleave(function(){
+            $("#StarWebBrowserConseptIllust").attr("src","../illust/StarWebBrowser_consept.png");
+        });
+        $("#StarWebBrowserConsept6").mouseenter(function(){
+            $("#StarWebBrowserConseptIllust").attr("src","../illust/StarWebBrowser_consept6.png");
+        });
+        $("#StarWebBrowserConsept6").mouseleave(function(){
+            $("#StarWebBrowserConseptIllust").attr("src","../illust/StarWebBrowser_consept.png");
+        });        
     });
-
-
-    </script>
-    
+    </script>    
 </head>
-
 
 <body>
 
@@ -100,8 +136,9 @@
     <div class="clear"></div>
 </div>
 
+<!--   ナビゲーショントグル　　　-->
 <div id="naviArrowSection">
-    <a id="naviArrow" onclick="tggleNavi()"><h5> Contents Show / Hide</h5></a>
+    <p class="naviToggle"><a id="naviArrow" onclick="tggleNavi()">Navi Show / Hidden</a></p>
 </div>
 
 <!-- wrapp : mainNavi + mainContents-->
@@ -223,11 +260,11 @@
         <div id="sampleProgramConcept">
             <h3>Example of system configuration</h3>
 
-            <h4>Star POS Printer</h4>
+            <h4>Star HE07x/08x Interface Printer</h4>
             <p>* When you put your mouse cursor on the following sentences (each step), 
             the illustration changes and shows detailed information.</p>
         
-            <img id="conceptIllust" src="../illust/concept.png" />
+            <img id="conceptIllust" src="../illust/concept.png"  class="img_responsive"/>
         
             <div class="conceptDescription">
                 <ol class="concept">
@@ -245,7 +282,7 @@
             <p>* When you put your mouse cursor on the following sentences (each step), 
             the illustration changes and shows detailed information.</p>
         
-            <img id="AsuraCPRNTconceptIllust" src="../illust/AsuraCPRNTconcept.png" />
+            <img id="AsuraCPRNTconceptIllust" src="../illust/AsuraCPRNTconcept.png" class="img_responsive" />
         
             <div class="conceptDescription">
                 <ol class="concept">
@@ -256,8 +293,30 @@
                     <li><a id="AsuraCPRNTconcept5">The AsuraCPRNT(A) prints and returns the printer status to the input device(B).</a></li>
                 </ol>
             </div>
+       <br />&nbsp;<br />
 
-          </div>
+           <h4>Star WebPRNT Browser + Star Bluetooth Printer</h4>
+            <p>* When you tap the following sentences (each step), the illustration changes and shows detailed information.</p>
+        
+            <img id="StarWebBrowserConseptIllust" src="../illust/StarWebBrowser_consept.png" class="img_responsive" />
+        
+            <div class="conceptDescription">
+                <ol class="concept">
+                    <li><a id="StarWebBrowserConsept1">Prepare a local server or a cloud server(A) and an iOS device* in which the Star WebPRNT Browser is installed(B), and enable them to communicate each other.</a></li>
+                    <li><a id="StarWebBrowserConsept2">Pair the iOS device(B) and a Star Bluetooth printer(C).</a></li>
+                    <li><a id="StarWebBrowserConsept3">Copy the sample program in the SDK onto the Web server(A).</a></li>
+                    <li><a id="StarWebBrowserConsept4">Display the sample program via the Star WebPRNT Browser(B).</a></li>
+                    <li><a id="StarWebBrowserConsept5">Send print data to the Star Bluetooth printer from the sample program displayed via the Star WebPRNT Browser(B).</a></li>
+                    <li><a id="StarWebBrowserConsept6">The Star Bluetooth printer(C) prints and returns the printer status to the Star WebPRNT Browser(B).</a></li>
+                </ol>
+                 
+            </div>
+            <br />
+        <p class="note2">
+            * iOS Version 7.0 or later is required.
+         </p>
+            
+          </div><!-- SampleProgramConcept  -->
 
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
@@ -307,11 +366,13 @@
     
         <div id="howToUse">
         <h3>How to use</h3>
-    
+
+        <h4>Star HE07x/08x Interface Printer and AsuraCPRNT</h4>
+            
         <div class="numOperation">
             <ol>
             <li>Open CompariosReceiptDesign.html on your server and check if the JavaScript/Canvas works properly with your browser.<br />
-            <img src="../illust/CheckYourBrowser3.png" class="numOpeFig" alt="ComparisonReceiptDesign error screen"><br />
+            <img src="../illust/CheckYourBrowser3.png" class="numOpeFig img-responsive" alt="ComparisonReceiptDesign error screen"><br />
             <p class="note">
                   *If the message "Your browser does not support JavaScript!" appears on your browser, check the JavaScript setting and make it valid.</p>
             <p class="note">
@@ -319,11 +380,30 @@
                   change (or upgrade) your browser to one which supports Canvas function.</p>
             </li>
             <li>Edit the StarWebPRNT end point URL in accordance with the IP address of the printer.<br />
-            <img src="../illust/Set_IP-Address3.png" class="numOpeFig" alt="ComparisonReceiptSesign setting screen"></li>
+            <img src="../illust/Set_IP-Address3.png" class="numOpeFig img-responsive" alt="ComparisonReceiptSesign setting screen"></li>
             <li>Press the “Send (API)” button to check if it is possible to print with device fonts</li>
             <li>Press the “Send (Canvas)” button to check if it is possible to print with Canvas drawing.</li>
             </ol>
         </div>
+            
+        <h4 id="howToUseBrowser">Star WebPRNT Browser + Star Bluetooth Printer</h4>
+    
+        <div class="numOperation">
+            <ol>
+            <li>Install the "Star WebPRNT Browser" from AppStore.<br />
+            <img src="../illust/Howtouse/ToStarWebPRNTBrowser.png" class="numOpeFig2 img-responsive" alt=""></li>
+            <li>Pair a Bluetooth printer with your iOS device.</li>
+            <li>Open Settings &gt; Star WebPRNT<br />
+            <img src="../illust/Howtouse/ToSettings.png" class="numOpeFig2 img-responsive" alt="ComparisonReceiptSesign">
+            <img src="../illust/Howtouse/Settings.png" class="numOpeFig2 img-responsive" alt=""></li>
+            <li>Default is the Star WebPRNT sample site. Enter the URL of the Web server to be used.(1)<br />
+                Choose the Star Bluetooth printer to use.(POS Printer or Portable Printer)(2)<br />
+             <img src="../illust/Howtouse/StarWebPRNTBrowserSetting.png" class="numOpeFig2 img-responsive" alt="ComparisonReceiptSesign"></li>
+           <li>Open the Star WebPRNT Browser and try printing.<br />
+             <img src="../illust/Howtouse/WebPRNTBrowser.png" class="numOpeFig2 img-responsive" alt="ComparisonReceiptSesign"></li>
+           </ol>
+        </div>          
+                      
         </div>
         
       </div>

@@ -7,6 +7,8 @@
     <link href="webPRNT_layout.css" rel="stylesheet" type="text/css" />
     <link href="webPRNT_print_layout.css" rel="stylesheet" type="text/css" media="print" />
     
+<!-- ie10にて条件付きコメント([if IE]の箇所）がサポートされなくなったことに対する対処　　-->
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
    <!--[if IE ]>
         <link rel="stylesheet" type="text/css" href="webPRNT_layout_ie.css"></script>
         <link rel="stylesheet" type="text/css" href="webPRNT_print_layout_ie.css" media="print"></script>
@@ -138,8 +140,7 @@
 
 <div id="mainContents">
 
-    <article> 
-    <div id="starWebPrintBuilder-js">
+    <article id="starWebPrintBuilder-js" class="summary"> 
         <h2>StarWebPrintBuilder.js</h2>
     
         <div class="introduction_2">
@@ -150,7 +151,7 @@
     
 
         <h4>コンストラクタ</h4>
-        <table class="coder">
+        <table class="List1">
             <thead>
                 <tr><td>名称</td><td>説明</td></tr>
             </thead>
@@ -161,14 +162,14 @@
     
 
         <h4>メソッド</h4>
-        <table class="coder">
+        <table class="List1">
             <thead>
                 <tr><td>名称</td><td>説明</td></tr>
             </thead>
             <tbody>
             <tr><td><a href="#createAlignmentElement">createAlignmentElement</a></td><td>位置揃えエレメントを生成します。</td></tr>
             <tr><td><a href="#createBarcodeElement">createBarcodeElement</a></td><td>バーコードエレメントを生成します。</td></tr>
-            <tr><td><a href="#createBitImageElement">createBitImageElement</td><td>ビットイメージエレメントを生成します。</td></tr>
+            <tr><td><a href="#createBitImageElement">createBitImageElement</a></td><td>ビットイメージエレメントを生成します。</td></tr>
             <tr><td><a href="#createCutPaperElement">createCutPaperElement</a></td><td>用紙カットエレメントを生成します。</td></tr>
             <tr><td><a href="#createFeedElement">createFeedElement</a></td><td>用紙送りエレメントを生成します。</td></tr>
             <tr><td><a href="#createInitializationElement">createInitializationElement</a></td><td>初期化エレメントを生成します。</td></tr>
@@ -183,15 +184,73 @@
             </tbody>
         </table>
 
-    </div>
+        <h4>機種別対応リスト</h4>
+        <h5>POSプリンター・AsuraCPRNT</h5>
+        <table class="List2">
+            <thead>
+                <tr><td>名称</td><td>FVP10</td><td>TSP650II</td><td>TSP700II</td><td>TSP800II</td><td>AsuraCPRNT</td></tr>
+            </thead>
+            <tbody>
+            <tr><td><a href="#createAlignmentElement">createAlignmentElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createBarcodeElement">createBarcodeElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createBitImageElement">createBitImageElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createCutPaperElement">createCutPaperElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createFeedElement">createFeedElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createInitializationElement">createInitializationElement</a>*1</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createLogoElement">createLogoElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>-</td></tr>
+            <tr><td><a href="#createPdf417Element">createPdf417Element</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createPeripheralElement">createPeripheralElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createQrCodeElement">createQrCodeElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createRawDataElement">createRawDataElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createRuledLineElement">createRuledLineElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createSoundElement">createSoundElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createTextElement">createTextElement</a>*2</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            </tbody>
+        </table>
+        <p class="note2">
+            *1 Bluetoothプリンターはコマンドの初期化のみ実施<br />
+            *2 国際文字が日本モデルは日本固定、韓国モデルは韓国固定
+        </p>
+
+
+        <h5>モバイルプリンター</h5>
+        <table class="List2">
+            <thead>
+                <tr><td>名称</td><td>SM-S210i</td><td>SM-S220i<br />(Jpモデル以外)</td><td>SM-T300i</td><td>SM-T400i</td></tr>
+            </thead>
+            <tbody>
+            <tr><td><a href="#createAlignmentElement">createAlignmentElement</a>*1</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createBarcodeElement">createBarcodeElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createBitImageElement">createBitImageElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createCutPaperElement">createCutPaperElement</a>*2</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#createFeedElement">createFeedElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createInitializationElement">createInitializationElement</a>*3</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createLogoElement">createLogoElement</a>*4</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createPdf417Element">createPdf417Element</a>*5</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createPeripheralElement">createPeripheralElement</a>*2</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#createQrCodeElement">createQrCodeElement</a>*6</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createRawDataElement">createRawDataElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createRuledLineElement">createRuledLineElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createSoundElement">createSoundElement</a>*2</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#createTextElement">createTextElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            </tbody>
+        </table>
+        <p class="note2">
+            *1 テキストデータのみ有効<br />
+            *2 コマンド未生成<br />
+            *3 コマンドの初期化のみ実施<br />
+            *4 ロゴ番号1～255を指定した時に、0～254番のロゴを印字<br />
+            *5 lineパラメータ無効<br />
+            *6 modelパラメータ無効
+        </p>
+
     </article>
 
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
     </div>
     
-    <article>
-    <div id="StarWebPrintBuilder">
+    <article id="StarWebPrintBuilder">
         <h3>StarWebPrintBuilder</h3>
     
         <div class="introduction_3">
@@ -1148,7 +1207,7 @@ function onBuild() {
 // --&gt;
 &lt;/script&gt;
 </pre>
-    </div>
+
     </article>
 
     <div class="to_top">

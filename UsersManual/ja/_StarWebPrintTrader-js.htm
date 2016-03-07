@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"  lang="ja" xml:lang="ja">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -6,7 +6,9 @@
     <link href="html5reset-1.6.1.css" rel="stylesheet" type="text/css" />
     <link href="webPRNT_layout.css" rel="stylesheet" type="text/css" />
     <link href="webPRNT_print_layout.css" rel="stylesheet" type="text/css" media="print" />
-    
+
+<!-- ie10にて条件付きコメント([if IE]の箇所）がサポートされなくなったことに対する対処　　-->
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
    <!--[if IE ]>
         <link rel="stylesheet" type="text/css" href="webPRNT_layout_ie.css"></script>
         <link rel="stylesheet" type="text/css" href="webPRNT_print_layout_ie.css" media="print"></script>
@@ -139,8 +141,7 @@
 
 <div id="mainContents">
 
-    <article>
-    <div id="starWebPrintTrader-js">
+    <article id="starWebPrintTrader-js" class="summary">
         <h2>StarWebPrintTrader.js</h2>
         
         <div class="introduction_2">
@@ -150,7 +151,7 @@
         </div>
         
         <h4>コンストラクタ</h4>
-        <table class="coder">
+        <table class="List1">
             <thead>
                 <tr><td>名称</td><td>説明</td></tr>
             </thead>
@@ -161,7 +162,7 @@
     
 
         <h4>メソッド</h4>
-        <table class="coder">
+        <table class="List1">
             <thead>
                 <tr><td>名称</td><td>説明</td></tr>
             </thead>
@@ -183,7 +184,7 @@
    
 
         <h4>プロパティ</h4>
-        <table class="coder">
+        <table class="List1">
             <thead>
                 <tr><td>名称</td><td>説明</td></tr>
             </thead>
@@ -193,8 +194,60 @@
             </tbody>
         </table>
 
+        <h4>機種別対応リスト</h4>
+        <h5>POSプリンター・AsuraCPRNT</h5>
+        <table class="List2">
+            <thead>
+                <tr><td>名称</td><td>FVP10</td><td>TSP650II</td><td>TSP700II</td><td>TSP800II</td><td>AsuraCPRNT</td></tr>
+            </thead>
+            <tbody>
+            <tr><td><a href="#sendMessage">sendMessage</a>*1</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#isCoverOpen">isCoverOpen</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#isOffLine">isOffLine</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#isCompulsionSwitchClose">isCompulsionSwitchClose</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#isEtbCommandExecute">isEtbCommandExecute</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#isHighTemperatureStop">isHighTemperatureStop</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#isNonRecoverableError">isNonRecoverableError</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#isAutoCutterError">isAutoCutterError</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#isBlackMarkError">isBlackMarkError</a></td><td>○</td><td>-</td><td>○</td><td>○</td><td>-</td></tr>
+            <tr><td><a href="#isPaperEnd">isPaperEnd</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#isPaperNearEnd">isPaperNearEnd</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#extractionEtbCounter">extractionEtbCounter</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>            
+            </tbody>
+        </table>
+        <p class="note2">
+            *1 Bluetoothプリンターは印刷完了待ち有効固定<br />
+            　　名前付き引数’checkedblock'は作用しない
+        </p>
+
+
+        <h5>モバイルプリンター</h5>
+        <table class="List2">
+            <thead>
+                <tr><td>名称</td><td>SM-S210i</td><td>SM-S220i<br />(Jpモデル以外)</td><td>SM-T300i</td><td>SM-T400i</td></tr>
+            </thead>
+            <tbody>
+            <tr><td><a href="#sendMessage">sendMessage</a>*1</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#isCoverOpen">isCoverOpen</a></td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#isOffLine">isOffLine</a></td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#isCompulsionSwitchClose">isCompulsionSwitchClose</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#isEtbCommandExecute">isEtbCommandExecute</a></td></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#isHighTemperatureStop">isHighTemperatureStop</a></td></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#isNonRecoverableError">isNonRecoverableError</a></td></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#isAutoCutterError">isAutoCutterError</a></td></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#isBlackMarkError">isBlackMarkError</a></td></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#isPaperEnd">isPaperEnd</a></td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#isPaperNearEnd">isPaperNearEnd</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#extractionEtbCounter">extractionEtbCounter</a></td></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>            
+            </tbody>
+        </table>
+        <p class="note2">
+            *1 印刷完了待ち有効固定<br />
+            　　名前付き引数’checkedblock'は作用しない
+        </p>
+
+
         
-    </div>
     </article>
 
     <div class="to_top">
@@ -202,8 +255,7 @@
     </div>
     
 
-    <article>
-    <div id="StarWebPrintTrader">
+    <article id="StarWebPrintTrader">
         <h3>StarWebPrintTrader</h3>
     
         <div class="introduction_3">
@@ -260,8 +312,7 @@ function onSend(url, request) {
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
     </div>
     
-    <article>
-    <div id="sendMessage">
+    <article id="sendMessage">
     
         <h3>sendMessage</h3>
         
@@ -315,15 +366,13 @@ function onSend(url, request) {
 // --&gt;
 &lt;/script&gt;
 </pre>
-    </div>
     </article>
 
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
     </div>
     
-    <article>
-    <div id="isCoverOpen">
+    <article id="isCoverOpen">
     
         <h3>isCoverOpen</h3>
         
@@ -379,15 +428,13 @@ function onSend(url, request) {
 // --&gt;
 &lt;/script&gt;
 </pre>
-    </div>
     </article>
 
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
     </div>
     
-    <article>
-    <div id="isOffLine">
+    <article id="isOffLine">
     
         <h3>isOffLine</h3>
         
@@ -443,15 +490,13 @@ function onSend(url, request) {
 // --&gt;
 &lt;/script&gt;
 </pre>
-    </div>
     </article>
 
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
     </div>
     
-    <article>
-    <div id="isCompulsionSwitchClose">
+    <article id="isCompulsionSwitchClose">
     
         <h3>isCompulsionSwitchClose</h3>
         
@@ -507,15 +552,13 @@ function onSend(url, request) {
 // --&gt;
 &lt;/script&gt;
 </pre>
-    </div>
     </article>
 
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
     </div>
     
-    <article>
-    <div id="isEtbCommandExecute">
+    <article id="isEtbCommandExecute">
     
         <h3>isEtbCommandExecute</h3>
         
@@ -572,15 +615,13 @@ function onSend(url, request) {
 // --&gt;
 &lt;/script&gt;
 </pre>
-    </div>
     </article>
 
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
     </div>
     
-    <article>
-    <div id="isHighTemperatureStop">
+    <article id="isHighTemperatureStop">
     
         <h3>isHighTemperatureStop</h3>
         
@@ -637,15 +678,13 @@ function onSend(url, request) {
 // --&gt;
 &lt;/script&gt;
 </pre>
-    </div>
     </article>
 
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
     </div>
     
-    <article>
-    <div id="isNonRecoverableError">
+    <article id="isNonRecoverableError">
     
         <h3>isNonRecoverableError</h3>
         
@@ -702,15 +741,13 @@ function onSend(url, request) {
 // --&gt;
 &lt;/script&gt;
 </pre>
-    </div>
     </article>
 
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
     </div>
     
-    <article>
-    <div id="isAutoCutterError">
+    <article id="isAutoCutterError">
     
         <h3>isAutoCutterError</h3>
         
@@ -767,15 +804,13 @@ function onSend(url, request) {
 // --&gt;
 &lt;/script&gt;
 </pre>
-    </div>
     </article>
 
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
     </div>
     
-    <article>
-    <div id="isBlackMarkError">
+    <article id="isBlackMarkError">
     
         <h3>isBlackMarkError</h3>
         
@@ -832,15 +867,13 @@ function onSend(url, request) {
 // --&gt;
 &lt;/script&gt;
 </pre>
-    </div>
     </article>
 
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
     </div>
     
-    <article>
-    <div id="isPaperEnd">
+    <article id="isPaperEnd">
     
         <h3>isPaperEnd</h3>
         
@@ -897,15 +930,13 @@ function onSend(url, request) {
 // --&gt;
 &lt;/script&gt;
 </pre>
-    </div>
     </article>
 
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
     </div>
     
-    <article>
-    <div id="isPaperNearEnd">
+    <article id="isPaperNearEnd">
     
         <h3>isPaperNearEnd</h3>
         
@@ -962,15 +993,13 @@ function onSend(url, request) {
 // --&gt;
 &lt;/script&gt;
 </pre>
-    </div>
     </article>
 
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
     </div>
     
-    <article>
-    <div id="extractionEtbCounter">
+    <article id="extractionEtbCounter">
     
         <h3>extractionEtbCounter</h3>
         
@@ -1025,15 +1054,13 @@ function onSend(url, request) {
 // --&gt;
 &lt;/script&gt;
 </pre>
-    </div>
     </article>
 
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
     </div>
     
-    <article>
-    <div id="onReceive">
+    <article id="onReceive">
     
         <h3>onReceive</h3>
         
@@ -1106,15 +1133,13 @@ function onSend(url, request) {
 // --&gt;
 &lt;/script&gt;
 </pre>
-    </div>
     </article>
 
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
     </div>
     
-    <article>
-    <div id="onError">
+    <article id="onError">
     
         <h3>onError</h3>
         
@@ -1182,7 +1207,6 @@ function onSend(url, request) {
 // --&gt;
 &lt;/script&gt;
 </pre>
-    </div>
     </article>
 
     <div class="to_top">
@@ -1194,11 +1218,9 @@ function onSend(url, request) {
 
 </div>		<!-- Wrapp -->
 
-<div id="footer">
-<footer>
+<footer id="footer">
 <p id="copyright"> &copy; Copyright 2013 - 2014  <a href="http://www.star-m.jp/">Star Micronics Co., Ltd.</a> </p>
 </footer>
-</div>
 
 </body>
 </html>

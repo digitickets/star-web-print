@@ -16,11 +16,7 @@ It provides guidelines for our customers to build the printing application.
 
 
 Version History 
-Release Date
-Update
-July 08, 2013
-Initial Release
-
+Release DateUpdateJuly 08, 2013Initial Release
 
 Contents
 1	Sample Program	5
@@ -96,21 +92,9 @@ Contents
 1 Sample Program
 1.1 Sample Program List
 HTML File
-Name
-Description
-ComparisonReceiptDesign.html
-Confirms if it is possible to print with device fonts and Canvas drawing
-
+NameDescriptionComparisonReceiptDesign.htmlConfirms if it is possible to print with device fonts and Canvas drawing
 JavaScript File
-Name
-Description
-StarWebPrintBuilder.js
-Creates StarWebPRNT request element
-StarWebPrintTrader.js
-Sends StarWebPRNT request element and checks status from received StarWebPRNT request element
-StarBarcodeEncoder.js
-Creates barcode module for drawing to a HTML5 Canvas 2D context
-
+NameDescriptionStarWebPrintBuilder.jsCreates StarWebPRNT request elementStarWebPrintTrader.jsSends StarWebPRNT request element and checks status from received StarWebPRNT request elementStarBarcodeEncoder.jsCreates barcode module for drawing to a HTML5 Canvas 2D context
 1.2 Web Server Registration
 Copy all sample program files for the Public folder according to the Web server operating manual.
 
@@ -132,43 +116,9 @@ Copy all sample program files for the Public folder according to the Web server 
 Creates StarWebPRNT Request Element.
 
 Constructor
-Name
-Description
-StarWebPrintBuilder
-Creates StarWebPrintBuilder object.
-
+NameDescriptionStarWebPrintBuilderCreates StarWebPrintBuilder object.
 Method
-Name
-Description
-createAlignmentElement
-Creates Alignment element.
-createBarcodeElement
-Creates Barcode element.
-createBitImageElement
-Creates Bitimage element.
-createCutPaperElement
-Creates Cut paper element.
-createFeedElement
-Creates Feed element.
-createInitializationElement
-Creates Initialization element.
-createLogoElement
-Creates Logo element.
-createPdf417Element
-Creates PDF417 element.
-createPeripheralElement
-Creates Peripheral element.
-createQrCodeElement
-Creates QR code element.
-createRawDataElement
-Creates Raw data element.
-createRuledLineElement
-Creates Horizontal ruled line element.
-createSoundElement
-Creates Sound element.
-createTextElement
-Creates Text element.
-
+NameDescriptioncreateAlignmentElementCreates Alignment element.createBarcodeElementCreates Barcode element.createBitImageElementCreates Bitimage element.createCutPaperElementCreates Cut paper element.createFeedElementCreates Feed element.createInitializationElementCreates Initialization element.createLogoElementCreates Logo element.createPdf417ElementCreates PDF417 element.createPeripheralElementCreates Peripheral element.createQrCodeElementCreates QR code element.createRawDataElementCreates Raw data element.createRuledLineElementCreates Horizontal ruled line element.createSoundElementCreates Sound element.createTextElementCreates Text element.
 2.1 StarWebPrintBuilder
 Creates StarWebPrintBuilder object.
 
@@ -176,21 +126,9 @@ Syntax
 StarWebPrintBuilder();
 
 Parameter
-Name
-Description
-Object type
-Omission
--
--
--
--
-
+NameDescriptionObject typeOmission----
 Return value
-Description
-Object type
-StarWebPrintBuilder object
-StarWebPrintBuilder
-
+DescriptionObject typeStarWebPrintBuilder objectStarWebPrintBuilder
 Example
 <script type='text/javascript' src='js/StarWebPrintBuilder.js'></script>
 <script type='text/javascript'>
@@ -209,24 +147,12 @@ Syntax
 createAlignmentElement(args);
 
 Parameter
-Name
-Description
-Object type
-Omission
-poistion
-Specifies position alignment
+NameDescriptionObject typeOmissionpoistionSpecifies position alignment
 * 'left' … Left alignment
 * 'center' … Center alignment
-* 'right' … Right alignment
-String
-'left'
-
+* 'right' … Right alignmentString'left'
 Return value
-Description
-Object type
-Created element character string
-String
-
+DescriptionObject typeCreated element character stringString
 Example
 <script type='text/javascript' src='js/StarWebPrintBuilder.js'></script>
 <script type='text/javascript'>
@@ -247,12 +173,7 @@ Syntax
 createBarcodeElement(args);
 
 Parameter
-Name
-Description
-Object type
-Omission
-symbology
-Specifies barcode symbol
+NameDescriptionObject typeOmissionsymbologySpecifies barcode symbol
 * 'UPCE' … UPC-E
 * 'UPCA' … UPC-A
 * 'JAN8' … JAN/EAN8
@@ -261,11 +182,7 @@ Specifies barcode symbol
 * 'ITF' … ITF
 * 'Code128' … Code128
 * 'Code93' … Code93
-* 'NW7' … NW-7
-String
-'UPCE'
-width
-Specifies barcode width
+* 'NW7' … NW-7String'UPCE'widthSpecifies barcode width
 * 'width2' … Minimum module 2dots
 * 'width3' … Minimum module 3dots
 * 'width4' … Minimum module 4dots
@@ -279,32 +196,13 @@ Specifies barcode width
 * 'width_mode8' … Mode8
 * 'width_mode9' … Mode9
 
-Note. Refer to the command specifications.
-String
-'width3'
-height
-Specifies barcode height (Unit of dot)
-Number
-162
-hri
-Specifies HRI characters
+Note. Refer to the command specifications.String'width3'heightSpecifies barcode height (Unit of dot)Number162hriSpecifies HRI characters
 * true … Adds HRI characters
-* false … No  added HRI characters
-Boolean
-True
-data
-Specifies barcode data
+* false … No  added HRI charactersBooleanTruedataSpecifies barcode data
 
-Note. Refer to the command specifications.
-String
-Can't be omitted
-
+Note. Refer to the command specifications.StringCan't be omitted
 Return value
-Description
-Object type
-Created element character string
-String
-
+DescriptionObject typeCreated element character stringString
 
 Example
 <script type='text/javascript' src='js/StarWebPrintBuilder.js'></script>
@@ -325,37 +223,9 @@ Syntax
 createBitImageElement(args);
 
 Parameter
-Name
-Description
-Object type
-Omission
-context
-HTML5 Canvas 2D Context
-Canvas
-Can't be omitted
-x
-Horizontal direction starting point of the image (Unit of dot)
-Number
-0
-y
-Vertical direction starting point of the image (Unit of dot)
-Number
-0
-width
-Specifies the image width (Unit of dot)
-Number
-0
-height
-Specifies the image height (Unit of dot)
-Number
-0
-
+NameDescriptionObject typeOmissioncontextHTML5 Canvas 2D ContextCanvasCan't be omittedxHorizontal direction starting point of the image (Unit of dot)Number0yVertical direction starting point of the image (Unit of dot)Number0widthSpecifies the image width (Unit of dot)Number0heightSpecifies the image height (Unit of dot)Number0
 Return value
-Description
-Object type
-Created element character string
-String
-
+DescriptionObject typeCreated element character stringString
 Example
 <script type='text/javascript' src='js/StarWebPrintBuilder.js'></script>
 <script type='text/javascript'>
@@ -376,29 +246,13 @@ Syntax
 createCutPaperElement(args);
 
 Parameter
-Name
-Description
-Object type
-Omission
-type
-Specifies cut type
+NameDescriptionObject typeOmissiontypeSpecifies cut type
 * 'full' … Full cut
-* 'partial' … Partial cut
-String
-'full'
-feed
-Specifies feed to cut position
+* 'partial' … Partial cutString'full'feedSpecifies feed to cut position
 * true … Feed
-* false … No feed (Current position)
-Boolean
-true
-
+* false … No feed (Current position)Booleantrue
 Return value
-Description
-Object type
-Created element character string
-String
-
+DescriptionObject typeCreated element character stringString
 Example
 <script type='text/javascript' src='js/StarWebPrintBuilder.js'></script>
 <script type='text/javascript'>
@@ -419,25 +273,9 @@ Syntax
 createFeedElement(args);
 
 Parameter
-Name
-Description
-Object type
-Omission
-line
-Specifies the paper feed space (Unit of line)
-Number
-0
-unit
-Specifies the paper feed space (Unit of dot)
-Number
-0
-
+NameDescriptionObject typeOmissionlineSpecifies the paper feed space (Unit of line)Number0unitSpecifies the paper feed space (Unit of dot)Number0
 Return value
-Description
-Object type
-Created element character string
-String
-
+DescriptionObject typeCreated element character stringString
 Example
 <script type='text/javascript' src='js/StarWebPrintBuilder.js'></script>
 <script type='text/javascript'>
@@ -458,29 +296,13 @@ Syntax
 createInitializationElement(args);
 
 Parameter
-Name
-Description
-Object type
-Omission
-reset
-Specifies hardware reset
+NameDescriptionObject typeOmissionresetSpecifies hardware reset
 * true … Execute hardware reset
-* false … Not execute hardware reset (Only command initialization)
-Boolean
-False
-print
-Self printing after hardware reset
+* false … Not execute hardware reset (Only command initialization)BooleanFalseprintSelf printing after hardware reset
 * true … Execute self print
-* false … Not execute self print
-Boolean
-False
-
+* false … Not execute self printBooleanFalse
 Return value
-Description
-Object type
-Created element character string
-String
-
+DescriptionObject typeCreated element character stringString
 Example
 <script type='text/javascript' src='js/StarWebPrintBuilder.js'></script>
 <script type='text/javascript'>
@@ -501,33 +323,13 @@ Syntax
 createLogoElement(args);
 
 Parameter
-Name
-Description
-Object type
-Omission
-number
-Specifies the number of logo registration
-Number
-1
-width
-Specifies width
+NameDescriptionObject typeOmissionnumberSpecifies the number of logo registrationNumber1widthSpecifies width
 * 'single' … Single width
-* 'double' … Double width
-String
-'single'
-height
-Specifies height
+* 'double' … Double widthString'single'heightSpecifies height
 * 'single' … Single height
-* 'double' … Double height
-String
-'single'
-
+* 'double' … Double heightString'single'
 Return value
-Description
-Object type
-Created element character string
-String
-
+DescriptionObject typeCreated element character stringString
 Example
 <script type='text/javascript' src='js/StarWebPrintBuilder.js'></script>
 <script type='text/javascript'>
@@ -548,24 +350,11 @@ Syntax
 createPdf417Element(args);
 
 Parameter
-Name
-Description
-Object type
-Omission
-line
-Specifies number of lines
+NameDescriptionObject typeOmissionlineSpecifies number of lines
 
-Note. Refer to the command specifications.
-Number
-0
-column
-Specifies number of columns
+Note. Refer to the command specifications.Number0columnSpecifies number of columns
 
-Note. Refer to the command specifications.
-Number
-0
-level
-Specifies security level
+Note. Refer to the command specifications.Number0levelSpecifies security level
 * 'level0' … Security level0
 * 'level1' … Security level1
 * 'level2' … Security level2
@@ -574,30 +363,11 @@ Specifies security level
 * 'level5' … Security level5
 * 'level6' … Security level6
 * 'level7' … Security level7
-* 'level8' … Security level8
-String
-'level1'
-module
-Specifies module size (Unit of dot)
-Number
-2
-aspect
-Specifies aspect ratio
-Number
-3
-data
-Specifies PDF417 data
+* 'level8' … Security level8String'level1'moduleSpecifies module size (Unit of dot)Number2aspectSpecifies aspect ratioNumber3dataSpecifies PDF417 data
 
-Note. Refer to the command specifications.
-String
-Can't be omitted
-
+Note. Refer to the command specifications.StringCan't be omitted
 Return value
-Description
-Object type
-Created element character string
-String
-
+DescriptionObject typeCreated element character stringString
 Example
 <script type='text/javascript' src='js/StarWebPrintBuilder.js'></script>
 <script type='text/javascript'>
@@ -618,31 +388,11 @@ Syntax
 createPeripheralElement(args);
 
 Parameter
-Name
-Description
-Object type
-Omission
-channel
-Specifies the drive terminal of the peripheral
+NameDescriptionObject typeOmissionchannelSpecifies the drive terminal of the peripheral
 * '1' … Peripheral drive terminal1
-* ‘2' … Peripheral drive terminal2 (Energizing time and Delay time ignore)
-Number
-1
-on
-Energizing time (Unit of 1mSec)
-Number
-200
-off
-Delay time (Unit of 1mSec)
-Number
-200
-
+* ‘2' … Peripheral drive terminal2 (Energizing time and Delay time ignore)Number1onEnergizing time (Unit of 1mSec)Number200offDelay time (Unit of 1mSec)Number200
 Return value
-Description
-Object type
-Created element character string
-String
-
+DescriptionObject typeCreated element character stringString
 Example
 <script type='text/javascript' src='js/StarWebPrintBuilder.js'></script>
 <script type='text/javascript'>
@@ -663,41 +413,17 @@ Syntax
 createQrCodeElement(args);
 
 Parameter
-Name
-Description
-Object type
-Omission
-model
-Specifies model
+NameDescriptionObject typeOmissionmodelSpecifies model
 * 'model1' … Model1
-* 'model2' … Model2
-String
-'model2'
-level
-Specifies mistake correction level
+* 'model2' … Model2String'model2'levelSpecifies mistake correction level
 * 'level_l' … Mistake Correction LevelL
 * 'level_m' … Mistake Correction LevelM
 * 'level_q' … Mistake Correction LevelQ
-* 'level_h' … Mistake Correction LevelH
-String
-'level_l'
-cell
-Specifies cell size (Unit of dot)
-Number
-3
-data
-Specifies QR code data
+* 'level_h' … Mistake Correction LevelHString'level_l'cellSpecifies cell size (Unit of dot)Number3dataSpecifies QR code data
 
-Note. Refer to the command specifications.
-String
-Can't be omitted
-
+Note. Refer to the command specifications.StringCan't be omitted
 Return value
-Description
-Object type
-Created element character string
-String
-
+DescriptionObject typeCreated element character stringString
 Example
 <script type='text/javascript' src='js/StarWebPrintBuilder.js'></script>
 <script type='text/javascript'>
@@ -718,22 +444,10 @@ Syntax
 createRawDataElement(args);
 
 Parameter
-Name
-Description
-Object type
-Omission
-Data
-Raw data
-*16Hex '\x00'-'\xff', Horizontal tab '\t', Line feed '\n', Carriage return '\r', Backslash '\\'
-String
-Can't be omitted
-
+NameDescriptionObject typeOmissionDataRaw data
+*16Hex '\x00'-'\xff', Horizontal tab '\t', Line feed '\n', Carriage return '\r', Backslash '\\'StringCan't be omitted
 Return value
-Description
-Object type
-Created element character string
-String
-
+DescriptionObject typeCreated element character stringString
 Example
 <script type='text/javascript' src='js/StarWebPrintBuilder.js'></script>
 <script type='text/javascript'>
@@ -754,31 +468,15 @@ Syntax
 createRuledLineElement(args);
 
 Parameter
-Name
-Description
-Object type
-Omission
-thickness
-Specifies ruled line
+NameDescriptionObject typeOmissionthicknessSpecifies ruled line
 * 'thin' … Thin line
 * 'medium' … Medium line
 * 'thick' … Thick line
 * 'double_thin' … Thin, double line
 * 'double_medium' … Medium, double line
-* 'double_thick' … Thick, double line
-String
-'medium'
-width
-Specifies width (Unit of dot)
-Number
-832
-
+* 'double_thick' … Thick, double lineString'medium'widthSpecifies width (Unit of dot)Number832
 Return value
-Description
-Object type
-Created element character string
-String
-
+DescriptionObject typeCreated element character stringString
 Example
 <script type='text/javascript' src='js/StarWebPrintBuilder.js'></script>
 <script type='text/javascript'>
@@ -799,27 +497,11 @@ Syntax
 createSoundElement(args);
 
 Parameter
-Name
-Description
-Object type
-Omission
-channel
-Specifies the drive terminal of the buzzer
+NameDescriptionObject typeOmissionchannelSpecifies the drive terminal of the buzzer
 * '1' … Buzzer drive terminal1
-* '2' … Buzzer drive terminal2
-Number
-1
-repeat
-Specifies the number of repeats
-Number
-1
-
+* '2' … Buzzer drive terminal2Number1repeatSpecifies the number of repeatsNumber1
 Return value
-Description
-Object type
-Created element character string
-String
-
+DescriptionObject typeCreated element character stringString
 Example
 <script type='text/javascript' src='js/StarWebPrintBuilder.js'></script>
 <script type='text/javascript'>
@@ -840,12 +522,7 @@ Syntax
 createTextElement(args);
 
 Parameter
-Name
-Description
-Object type
-Omission
-codepage
-Specifies CodePage
+NameDescriptionObject typeOmissioncodepageSpecifies CodePage
 * 'cp437' … CodePage437
 * 'cp737' … CodePage737
 * 'cp772' … CodePage772
@@ -874,11 +551,7 @@ Specifies CodePage
 * 'cp3840' … CodePage3840
 * 'cp3841' … CodePage3841
 * 'cp3843' - 'cp3848' … CodePage3843 - 3848
-* 'blank' …  User Setting (Blank CodePage)
-String
-Unchanged
-international
-Specifies international characters
+* 'blank' …  User Setting (Blank CodePage)StringUnchangedinternationalSpecifies international characters
 * 'usa' … USA
 * 'france' … France
 * 'germany' … Germany
@@ -894,74 +567,31 @@ Specifies international characters
 * 'latin_america' … Latin America
 * 'korea' … Korea
 * 'ireland' … Ireland
-* 'legal' … Legal
-String
-Unchanged
-characterspace
-Specifies character space (Unit of dot)
-Number
-Unchanged
-emphasis
-Specifies emphasized
+* 'legal' … LegalStringUnchangedcharacterspaceSpecifies character space (Unit of dot)NumberUnchangedemphasisSpecifies emphasized
 * true … Specifies emphasized
-* false … Cancels emphasized
-Boolean
-Unchanged
-invert
-Specifies inversion
+* false … Cancels emphasizedBooleanUnchangedinvertSpecifies inversion
 * 'true' … Specifies inversion
-* 'false' … Cancels inversion
-Boolean
-Unchanged
-linespace
-Specifies line space (Unit of dot)
+* 'false' … Cancels inversionBooleanUnchangedlinespaceSpecifies line space (Unit of dot)
 * 24 … Specifies 3mm line feed amount
-* 32 … Specifies 4mm line feed amount
-Number
-Unchanged
-width
-Specifies expanded width
+* 32 … Specifies 4mm line feed amountNumberUnchangedwidthSpecifies expanded width
 * 1 … Cancels expanded width
 * 2 … Specifies 2x width expansion
 * 3 … Specifies 3x width expansion
 * 4 … Specifies 4x width expansion
 * 5 … Specifies 5x width expansion
-* 6 … Specifies 6x width expansion
-Number
-Unchanged
-height
-Specifies expanded height
+* 6 … Specifies 6x width expansionNumberUnchangedheightSpecifies expanded height
 * 1 … Cancels expanded height
 * 2 … Specifies 2x height expansion
 * 3 … Specifies 3x height expansion
 * 4 … Specifies 4x height expansion
 * 5 … Specifies 5x height expansion
-* 6 … Specifies 6x height expansion
-Number
-Unchanged
-font
-Specifies font style
+* 6 … Specifies 6x height expansionNumberUnchangedfontSpecifies font style
 * 'font_a' … Font-A (12 x 24 dots)
-* 'font_b' … Font-B (9 x 24 dots)
-String
-Unchanged
-undelline
-Specifies underline
+* 'font_b' … Font-B (9 x 24 dots)StringUnchangedundellineSpecifies underline
 * true … Specifies underline
-* false … Cancels underline
-Boolean
-Unchanged
-data
-Specifies text data
-String
-Can't be omitted
-
+* false … Cancels underlineBooleanUnchangeddataSpecifies text dataStringCan't be omitted
 Return value
-Description
-Object type
-Created element character string
-String
-
+DescriptionObject typeCreated element character stringString
 Example
 <script type='text/javascript' src='js/StarWebPrintBuilder.js'></script>
 <script type='text/javascript'>
@@ -979,47 +609,11 @@ function onBuild() {
 Sends StarWebPRNT request element and checks status from received StarWebPRNT request element.
 
 Constructor
-Name
-Description
-StarWebPrintTrader
-Creates StarWebPrintTrader object.
-
+NameDescriptionStarWebPrintTraderCreates StarWebPrintTrader object.
 Method
-Name
-Description
-sendMessage
-sendMessage  Sends StarWebPRNT request element.
-isCoverOpen
-Cover open is checked.
-isOffLine
-Offline/Online is checked.
-isCompulsionSwitchClose
-Compulsion switch is checked.
-isEtbCommandExecute
-ETB command execute is checked.
-isHighTemperatureStop
-High temperature stop is checked.
-isNonRecoverableError
-Non recoverable error is checked.
-isAutoCutterError
-Auto cutter error is checked.
-isBlackMarkError
-Black mark error is checked.
-isPaperEnd
-Paper end is checked.
-isPaperNearEnd
-Paper near end is checked.
-extractionEtbCounter
-ETB counter is extracted.
-
+NameDescriptionsendMessagesendMessage  Sends StarWebPRNT request element.isCoverOpenCover open is checked.isOffLineOffline/Online is checked.isCompulsionSwitchCloseCompulsion switch is checked.isEtbCommandExecuteETB command execute is checked.isHighTemperatureStopHigh temperature stop is checked.isNonRecoverableErrorNon recoverable error is checked.isAutoCutterErrorAuto cutter error is checked.isBlackMarkErrorBlack mark error is checked.isPaperEndPaper end is checked.isPaperNearEndPaper near end is checked.extractionEtbCounterETB counter is extracted.
 Property
-Name
-Description
-onReceive
-Communication success event
-onError
-Communication error event.
-
+NameDescriptiononReceiveCommunication success eventonErrorCommunication error event.
 
 3.1 StarWebPrintTrader
 Creates StarWebPrintTrader object.
@@ -1028,28 +622,12 @@ Syntax
 StarWebPrintTrader(args);
 
 Parameter
-Name
-Description
-Object type
-Omission
-url
-Specifies StarWebPRNT endpoint URL
-Note: When a url is omitted, it should be specified by sendMessage method.
-String
--
-checkedblock
-Specifies waiting for the completion of printing
+NameDescriptionObject typeOmissionurlSpecifies StarWebPRNT endpoint URL
+Note: When a url is omitted, it should be specified by sendMessage method.String-checkedblockSpecifies waiting for the completion of printing
 * true … Wait for the completion of printing
-* false … Not wait for the completion of printing
-Boolean
-True
-
+* false … Not wait for the completion of printingBooleanTrue
 Return value
-Description
-Object type
-StarWebPrintTrader object
-StarWebPrintTrader
-
+DescriptionObject typeStarWebPrintTrader objectStarWebPrintTrader
 Example
 <script type='text/javascript' src='js/StarWebPrintTrader.js'></script>
 <script type='text/javascript'>
@@ -1070,33 +648,13 @@ Syntax
 sendMessage(args);
 
 Parameter
-Name
-Description
-Object type
-Omission
-url
-Specifies StarWebPRNT endpoint URL
-Note: When a url is omitted, it should be specified by StarWebPrintTrader constructor.
-String
--
-checkedblock
-Specifies waiting for the completion of printing
+NameDescriptionObject typeOmissionurlSpecifies StarWebPRNT endpoint URL
+Note: When a url is omitted, it should be specified by StarWebPrintTrader constructor.String-checkedblockSpecifies waiting for the completion of printing
 * true … Wait for the completion of printing
 * false … Not wait for the completion of printing
-Note: When a url is omitted, the value specified by StarWebPrintTrader constructor should be used.
-Boolean
--
-request
-List of StarWebPRNT request element
-String
-Can't be omitted
-
+Note: When a url is omitted, the value specified by StarWebPrintTrader constructor should be used.Boolean-requestList of StarWebPRNT request elementStringCan't be omitted
 Return value
-Description
-Object type
--
--
-
+DescriptionObject type--
 Example
 <script type='text/javascript' src='js/StarWebPrintTrader.js'></script>
 <script type='text/javascript'>
@@ -1117,23 +675,11 @@ Syntax
 isCoverOpen(args);
 
 Parameter
-Name
-Description
-Object type
-Omission
-traderStatus
-traderStatus property of response passed to the onReceive event
-String
-Can't be omitted
-
+NameDescriptionObject typeOmissiontraderStatustraderStatus property of response passed to the onReceive eventStringCan't be omitted
 Return value
-Description
-Object type
-Cover status
+DescriptionObject typeCover status
 * true … Open
-* false … Close
-Boolean
-
+* false … CloseBoolean
 Example
 <script type='text/javascript' src='js/StarWebPrintTrader.js'></script>
 <script type='text/javascript'>
@@ -1160,23 +706,11 @@ Syntax
 isOffLine(args);
 
 Parameter
-Name
-Description
-Object type
-Omission
-traderStatus
-traderStatus property of response passed to the onReceive event
-String
-Can't be omitted
-
+NameDescriptionObject typeOmissiontraderStatustraderStatus property of response passed to the onReceive eventStringCan't be omitted
 Return value
-Description
-Object type
-Offline/Online status
+DescriptionObject typeOffline/Online status
 * true … Offline
-* false … Online
-Boolean
-
+* false … OnlineBoolean
 Example
 <script type='text/javascript' src='js/StarWebPrintTrader.js'></script>
 <script type='text/javascript'>
@@ -1203,23 +737,11 @@ Syntax
 isCompulsionSwitchClose(args);
 
 Parameter
-Name
-Description
-Object type
-Omission
-traderStatus
-traderStatus property of response passed to the onReceive event
-String
-Can't be omitted
-
+NameDescriptionObject typeOmissiontraderStatustraderStatus property of response passed to the onReceive eventStringCan't be omitted
 Return value
-Description
-Object type
-Compulsion switch
+DescriptionObject typeCompulsion switch
 * true … Close
-* false … open
-Boolean
-
+* false … openBoolean
 Example
 <script type='text/javascript' src='js/StarWebPrintTrader.js'></script>
 <script type='text/javascript'>
@@ -1246,23 +768,11 @@ Syntax
 isEtbCommandExecute(args);
 
 Parameter
-Name
-Description
-Object type
-Omission
-traderStatus
-traderStatus property of response passed to the onReceive event
-String
-Can't be omitted
-
+NameDescriptionObject typeOmissiontraderStatustraderStatus property of response passed to the onReceive eventStringCan't be omitted
 Return value
-Description
-Object type
-ETB command
+DescriptionObject typeETB command
 * true … Executed
-* false … Not executed
-Boolean
-
+* false … Not executedBoolean
 Example
 // -->
 <script type='text/javascript' src='js/StarWebPrintTrader.js'></script>
@@ -1290,23 +800,11 @@ Syntax
 isHighTemperatureStop(args);
 
 Parameter
-Name
-Description
-Object type
-Omission
-traderStatus
-traderStatus property of response passed to the onReceive event
-String
-Can't be omitted
-
+NameDescriptionObject typeOmissiontraderStatustraderStatus property of response passed to the onReceive eventStringCan't be omitted
 Return value
-Description
-Object type
-Stopped by high head temperature
+DescriptionObject typeStopped by high head temperature
 * true … Yes
-* false … No
-Boolean
-
+* false … NoBoolean
 Example
 // -->
 <script type='text/javascript' src='js/StarWebPrintTrader.js'></script>
@@ -1334,23 +832,11 @@ Syntax
 isNonRecoverableError(args);
 
 Parameter
-Name
-Description
-Object type
-Omission
-traderStatus
-traderStatus property of response passed to the onReceive event
-String
-Can't be omitted
-
+NameDescriptionObject typeOmissiontraderStatustraderStatus property of response passed to the onReceive eventStringCan't be omitted
 Return value
-Description
-Object type
-Non recoverable error
+DescriptionObject typeNon recoverable error
 * true … Yes
-* false … No
-Boolean
-
+* false … NoBoolean
 Example
 // -->
 <script type='text/javascript' src='js/StarWebPrintTrader.js'></script>
@@ -1378,23 +864,11 @@ Syntax
 isAutoCutterError(args);
 
 Parameter
-Name
-Description
-Object type
-Omission
-traderStatus
-traderStatus property of response passed to the onReceive event
-String
-Can't be omitted
-
+NameDescriptionObject typeOmissiontraderStatustraderStatus property of response passed to the onReceive eventStringCan't be omitted
 Return value
-Description
-Object type
-Auto cutter error
+DescriptionObject typeAuto cutter error
 * true … Yes
-* false … No
-Boolean
-
+* false … NoBoolean
 Example
 // -->
 <script type='text/javascript' src='js/StarWebPrintTrader.js'></script>
@@ -1422,23 +896,11 @@ Syntax
 isBlackMarkError(args);
 
 Parameter
-Name
-Description
-Object type
-Omission
-traderStatus
-traderStatus property of response passed to the onReceive event
-String
-Can't be omitted
-
+NameDescriptionObject typeOmissiontraderStatustraderStatus property of response passed to the onReceive eventStringCan't be omitted
 Return value
-Description
-Object type
-Black mark error
+DescriptionObject typeBlack mark error
 * true … Yes
-* false … No
-Boolean
-
+* false … NoBoolean
 Example
 // -->
 <script type='text/javascript' src='js/StarWebPrintTrader.js'></script>
@@ -1466,23 +928,11 @@ Syntax
 isPaperEnd(args);
 
 Parameter
-Name
-Description
-Object type
-Omission
-traderStatus
-traderStatus property of response passed to the onReceive event
-String
-Can't be omitted
-
+NameDescriptionObject typeOmissiontraderStatustraderStatus property of response passed to the onReceive eventStringCan't be omitted
 Return value
-Description
-Object type
-Paper end
+DescriptionObject typePaper end
 * true … Yes
-* false … No
-Boolean
-
+* false … NoBoolean
 Example
 // -->
 <script type='text/javascript' src='js/StarWebPrintTrader.js'></script>
@@ -1510,23 +960,11 @@ Syntax
 isPaperNearEnd(args);
 
 Parameter
-Name
-Description
-Object type
-Omission
-traderStatus
-traderStatus property of response passed to the onReceive event
-String
-Can't be omitted
-
+NameDescriptionObject typeOmissiontraderStatustraderStatus property of response passed to the onReceive eventStringCan't be omitted
 Return value
-Description
-Object type
-Paper near end
+DescriptionObject typePaper near end
 * true … Yes
-* false … No
-Boolean
-
+* false … NoBoolean
 Example
 // -->
 <script type='text/javascript' src='js/StarWebPrintTrader.js'></script>
@@ -1554,21 +992,9 @@ Syntax
 extractionEtbCounter(args);
 
 Parameter
-Name
-Description
-Object type
-Omission
-traderStatus
-traderStatus property of response passed to the onReceive event
-String
-Can't be omitted
-
+NameDescriptionObject typeOmissiontraderStatustraderStatus property of response passed to the onReceive eventStringCan't be omitted
 Return value
-Description
-Object type
-ETB counter
-Number
-
+DescriptionObject typeETB counterNumber
 Example
 // -->
 <script type='text/javascript' src='js/StarWebPrintTrader.js'></script>
@@ -1594,34 +1020,16 @@ Syntax
 function(response);
 
 Parameter
-Name
-Description
-Object type
-traderSuccess
-Success code
+NameDescriptionObject typetraderSuccessSuccess code
 * true … Printing succeeded
-* false … Printing failed
-Boolean
-traderCode
-Result code
-* 0 … Success
-Number
-traderStatus
-Star Automatic Status
+* false … Printing failedBooleantraderCodeResult code
+* 0 … SuccessNumbertraderStatusStar Automatic Status
 
-Note. Refer to the command specifications.
-String
-status
-Status property of XMLHttpRequest
+Note. Refer to the command specifications.StringstatusStatus property of XMLHttpRequest
 
-Note. Refer to the XMLHttpRequest specifications.
-Number
-responseText
-ResponseText property of XMLHttpRequest
+Note. Refer to the XMLHttpRequest specifications.NumberresponseTextResponseText property of XMLHttpRequest
 
-Note. Refer to the XMLHttpRequest specifications.
-String
-
+Note. Refer to the XMLHttpRequest specifications.String
 
 
 Example
@@ -1671,20 +1079,11 @@ Syntax
 function(response);
 
 Parameter
-Name
-Description
-Object type
-status
-Status property of XMLHttpRequest
+NameDescriptionObject typestatusStatus property of XMLHttpRequest
 
-Note. Refer to the XMLHttpRequest specifications.
-Number
-responseText
-ResponseText property of XMLHttpRequest
+Note. Refer to the XMLHttpRequest specifications.NumberresponseTextResponseText property of XMLHttpRequest
 
-Note. Refer to the XMLHttpRequest specifications.
-String
-
+Note. Refer to the XMLHttpRequest specifications.String
 Example
 // -->
 <script type='text/javascript' src='js/StarWebPrintTrader.js'></script>
@@ -1729,33 +1128,9 @@ function onSend(url, request) {
 The list of barcode module for  drawing to a HTML5 Canvas 2D context is generated.
 
 Constructor
-Name
-Description
-StarBarcodeEncoder
-Creates StarBarcodeEncoder object.
-
+NameDescriptionStarBarcodeEncoderCreates StarBarcodeEncoder object.
 Method
-Name
-Description
-createUPCE
-Creates module list of UPCE barcode .
-createUPCA
-Creates module list of UPCA barcode.
-createJAN8
-Creates module list of JAN/EAN8 barcode.
-createJAN13
-Creates module list of JAN/EAN13 barcode.
-createCode39
-Creates module list of Code39 barcode.
-createITF
-Creates module list of ITF barcode.
-createCode128
-Creates module list of Code128 barcode.
-createCode93
-Creates module list of Code93 barcode.
-createNW7
-Creates module list of NW7 barcode.
-
+NameDescriptioncreateUPCECreates module list of UPCE barcode .createUPCACreates module list of UPCA barcode.createJAN8Creates module list of JAN/EAN8 barcode.createJAN13Creates module list of JAN/EAN13 barcode.createCode39Creates module list of Code39 barcode.createITFCreates module list of ITF barcode.createCode128Creates module list of Code128 barcode.createCode93Creates module list of Code93 barcode.createNW7Creates module list of NW7 barcode.
 4.1 StarBarcodeEncoder
 Creates StarBarcodeEncoder object.
 
@@ -1763,21 +1138,9 @@ Syntax
 StarBarcodeEncoder();
 
 Parameter
-Name
-Description
-Object type
-Omission
--
--
--
--
-
+NameDescriptionObject typeOmission----
 Return value
-Description
-Object type
-StarBarcodeEncoder object
-StarBarcodeEncoder
-
+DescriptionObject typeStarBarcodeEncoder objectStarBarcodeEncoder
 Example
 <script type='text/javascript' src='js/StarBarcodeEncoder.js'></script>
 <script type='text/javascript'>
@@ -1796,23 +1159,11 @@ Syntax
 createUPCE(args);
 
 Parameter
-Name
-Description
-Object type
-Omission
-data
-Specifies UPCE barcode data
-String
-Can't be omitted
-
+NameDescriptionObject typeOmissiondataSpecifies UPCE barcode dataStringCan't be omitted
 Return value
-Description
-Object type
-Module list of barcode
+DescriptionObject typeModule list of barcode
 * '1' … Bar
-* '0' … Space
-String
-
+* '0' … SpaceString
 Example
 <script type='text/javascript' src='js/StarBarcodeEncoder.js'></script>
 <script type='text/javascript'>
@@ -1833,23 +1184,11 @@ Syntax
 createUPCA(args);
 
 Parameter
-Name
-Description
-Object type
-Omission
-data
-Specifies UPCA barcode data
-String
-Can't be omitted
-
+NameDescriptionObject typeOmissiondataSpecifies UPCA barcode dataStringCan't be omitted
 Return value
-Description
-Object type
-Module list of barcode
+DescriptionObject typeModule list of barcode
 * '1' … Bar
-* '0' … Space
-String
-
+* '0' … SpaceString
 Example
 <script type='text/javascript' src='js/StarBarcodeEncoder.js'></script>
 <script type='text/javascript'>
@@ -1870,23 +1209,11 @@ Syntax
 createJAN8(args);
 
 Parameter
-Name
-Description
-Object type
-Omission
-data
-Specifies JAN/EAN8 barcode data
-String
-Can't be omitted
-
+NameDescriptionObject typeOmissiondataSpecifies JAN/EAN8 barcode dataStringCan't be omitted
 Return value
-Description
-Object type
-Module list of barcode
+DescriptionObject typeModule list of barcode
 * '1' … Bar
-* '0' … Space
-String
-
+* '0' … SpaceString
 Example
 <script type='text/javascript' src='js/StarBarcodeEncoder.js'></script>
 <script type='text/javascript'>
@@ -1907,23 +1234,11 @@ Syntax
 createJAN13(args);
 
 Parameter
-Name
-Description
-Object type
-Omission
-data
-Specifies JAN/EAN13 barcode data
-String
-Can't be omitted
-
+NameDescriptionObject typeOmissiondataSpecifies JAN/EAN13 barcode dataStringCan't be omitted
 Return value
-Description
-Object type
-Module list of barcode
+DescriptionObject typeModule list of barcode
 * '1' … Bar
-* '0' … Space
-String
-
+* '0' … SpaceString
 Example
 <script type='text/javascript' src='js/StarBarcodeEncoder.js'></script>
 <script type='text/javascript'>
@@ -1944,25 +1259,13 @@ Syntax
 createCode39(args);
 
 Parameter
-Name
-Description
-Object type
-Omission
-data
-Specifies Code39 barcode data
-String
-Can't be omitted
-
+NameDescriptionObject typeOmissiondataSpecifies Code39 barcode dataStringCan't be omitted
 Return value
-Description
-Object type
-Module list of barcode
+DescriptionObject typeModule list of barcode
 * 'N' … Narrow bar
 * 'n' … Narrow space
 * 'W' … Wide bar
-* 'w' … Wide space
-String
-
+* 'w' … Wide spaceString
 Example
 <script type='text/javascript' src='js/StarBarcodeEncoder.js'></script>
 <script type='text/javascript'>
@@ -1983,25 +1286,13 @@ Syntax
 createITF(args);
 
 Parameter
-Name
-Description
-Object type
-Omission
-data
-Specifies ITF barcode data
-String
-Can't be omitted
-
+NameDescriptionObject typeOmissiondataSpecifies ITF barcode dataStringCan't be omitted
 Return value
-Description
-Object type
-Module list of barcode
+DescriptionObject typeModule list of barcode
 * 'N' … Narrow bar
 * 'n' … Narrow space
 * 'W' … Wide bar
-* 'w' … Wide space
-String
-
+* 'w' … Wide spaceString
 Example
 <script type='text/javascript' src='js/StarBarcodeEncoder.js'></script>
 <script type='text/javascript'>
@@ -2022,23 +1313,11 @@ Syntax
 createCode128(args);
 
 Parameter
-Name
-Description
-Object type
-Omission
-data
-Specifies Code128 barcode data
-String
-Can't be omitted
-
+NameDescriptionObject typeOmissiondataSpecifies Code128 barcode dataStringCan't be omitted
 Return value
-Description
-Object type
-Module list of barcode
+DescriptionObject typeModule list of barcode
 * '1' … Bar
-* '0' … Space
-String
-
+* '0' … SpaceString
 Example
 <script type='text/javascript' src='js/StarBarcodeEncoder.js'></script>
 <script type='text/javascript'>
@@ -2059,23 +1338,11 @@ Syntax
 createCode93(args);
 
 Parameter
-Name
-Description
-Object type
-Omission
-data
-Specifies Code93 barcode data
-String
-Can't be omitted
-
+NameDescriptionObject typeOmissiondataSpecifies Code93 barcode dataStringCan't be omitted
 Return value
-Description
-Object type
-Module list of barcode
+DescriptionObject typeModule list of barcode
 * '1' … Bar
-* '0' … Space
-String
-
+* '0' … SpaceString
 Example
 <script type='text/javascript' src='js/StarBarcodeEncoder.js'></script>
 <script type='text/javascript'>
@@ -2096,25 +1363,13 @@ Syntax
 createNW7(args);
 
 Parameter
-Name
-Description
-Object type
-Omission
-data
-Specifies NW7 barcode data
-String
-Can't be omitted
-
+NameDescriptionObject typeOmissiondataSpecifies NW7 barcode dataStringCan't be omitted
 Return value
-Description
-Object type
-Module list of barcode
+DescriptionObject typeModule list of barcode
 * 'N' … Narrow bar
 * 'n' … Narrow space
 * 'W' … Wide bar
-* 'w' … Wide space
-String
-
+* 'w' … Wide spaceString
 Example
 <script type='text/javascript' src='js/StarBarcodeEncoder.js'></script>
 <script type='text/javascript'>
@@ -2130,56 +1385,16 @@ function onBuild() {
 
 5 StarWebPRNT Request Element
 
-Name
-Description
-<root>
-Root Element
-<alignment>
-Alignment Element
-<barcode>
-Barcode Element
-<bitimage>
-Bitimage Element
-<cutpaper>
-Cut paper Element
-<feed>
-Feed Element
-<initialization>
-Initialization Element
-<logo>
-Logo Element
-<pdf417>
-PDF417Element
-<peripheral>
-Peripheral Element
-<qrcode>
-QR code Element
-<rawdata>
-Raw data Element
-<ruledline>
-Horizontal ruled line Element
-<sound>
-Sound Element
-<text>
-Text Element
-
+NameDescription<root>Root Element<alignment>Alignment Element<barcode>Barcode Element<bitimage>Bitimage Element<cutpaper>Cut paper Element<feed>Feed Element<initialization>Initialization Element<logo>Logo Element<pdf417>PDF417Element<peripheral>Peripheral Element<qrcode>QR code Element<rawdata>Raw data Element<ruledline>Horizontal ruled line Element<sound>Sound Element<text>Text Element
 5.1 <root>
 Root Element
 
 Attribute
-Name
-Description
-Omission
-checkedblock
-Specifies waiting for the completion of printing
+NameDescriptionOmissioncheckedblockSpecifies waiting for the completion of printing
 * 'true' … Wait for the completion of printing
-* 'false' … Not wait for the completion of printing
-'true'
-
+* 'false' … Not wait for the completion of printing'true'
 Value
-Description
-List of StarWebPRNT Request Element
-
+DescriptionList of StarWebPRNT Request Element
 Example
 <root>
     <alignment position='center'/>
@@ -2192,20 +1407,12 @@ Example
 Alignment Element
 
 Attribute
-Name
-Description
-Omission
-poistion
-Specifies position alignment
+NameDescriptionOmissionpoistionSpecifies position alignment
 * 'left' … Left alignment
 * 'center' … Center alignment
-* 'right' … Right alignment
-'left'
-
+* 'right' … Right alignment'left'
 Value
-Description
-Ignore
-
+DescriptionIgnore
 Example
 <root>
     <alignment position='center'/>
@@ -2216,11 +1423,7 @@ Example
 Barcode Element
 
 Attribute
-Name
-Description
-Omission
-symbology
-Specifies barcode symbol
+NameDescriptionOmissionsymbologySpecifies barcode symbol
 * 'UPCE' … UPC-E
 * 'UPCA' … UPC-A
 * 'JAN8' … JAN/EAN8
@@ -2229,10 +1432,7 @@ Specifies barcode symbol
 * 'ITF' … ITF
 * 'Code128' … Code128
 * 'Code93' … Code93
-* 'NW7' … NW-7
-'UPCE'
-width
-Specifies barcode width
+* 'NW7' … NW-7'UPCE'widthSpecifies barcode width
 * 'width2' … Minimum module 2dots
 * 'width3' … Minimum module 3dots
 * 'width4' … Minimum module 4dots
@@ -2246,23 +1446,13 @@ Specifies barcode width
 * 'width_mode8' … Mode8
 * 'width_mode9' … Mode9
 
-Note. Refer to the command specifications.
-'width3'
-height
-Specifies barcode height (Unit of dot)
-'162'
-hri
-Specifies HRI characters
+Note. Refer to the command specifications.'width3'heightSpecifies barcode height (Unit of dot)'162'hriSpecifies HRI characters
 * true … Adds HRI characters
-* false … No  added HRI characters
-'true'
-
+* false … No  added HRI characters'true'
 Value
-Description
-Specifies barcode data
+DescriptionSpecifies barcode data
 
-Note. Refer to the command specifications.
-
+Note. Refer to the command specifications.
 Example
 <root>
     <barcode symbology='JAN13' width='width2' hri='false' height='40'>012345678901</barcode>
@@ -2273,22 +1463,11 @@ Example
 Bitimage Element
 
 Attribute
-Name
-Description
-Omission
-width
-Specifies the image width (Unit of dot)
-'0'
-height
-Specifies the image height (Unit of dot)
-'0'
-
+NameDescriptionOmissionwidthSpecifies the image width (Unit of dot)'0'heightSpecifies the image height (Unit of dot)'0'
 Value
-Description
-Specifies raster graphic image data
+DescriptionSpecifies raster graphic image data
 
-Note.Base64 encoding
-
+Note.Base64 encoding
 Example
 <root>
     <bitimage width='200' height='50'>f////////////////////////////////4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAAAAA/j+AAAAAAAAAAAAAAAAAAAGAGAAAAAAAAP4/gAAAAAAAAAAAAAAAAAAHgBgAAAAAAAD+P4AAAAAAAAAAAAAAAAAAHYAYAAAAAAAA/j+AAAAAAAAAAAAAAAAAADkAGAAAAAAAAP4/gAAAAAAAAAAAAAAAAADnABgAAAAAAAD+P4AAAAAAAAAAAAAAAAADnAAYAAAH///4/j//4AAf9+AAD+HwP/fgBzAAGAAAf///+P4//+AD///+AA/h8f//4BzgABgAAP////j+P//gD////8AP4f/8ACAzgAAYAAP8AAAAAAAAAH/+A//wD+H/wAfgYwAAGAAH4AAAAAAAAAD/wAAf/A/h/AeP47OAABgAB+P///j+P//j/gf/A/4P4eB//y/4wAAYAAfD///4/j//5/h//+D/D+GD/+c8AHAAGAAH4///+P4//+/x///4f4/hD//hM/wYABgAB/B/AAD+P4AH4/8H/D+P4D/AAQ4f9gAYAAP8D/AA/j+AH8f4AP4fz+B/AAE4AH4AGAAA/4H+AP4/gB/H8AB/H8/g/gABYAAAABgAAD/4f8D+P4Afh+AAfw/P4fwAAcAAAAAYAAAH/g/g/j+AH8fwAH8Pz+F4AAEAAAAAGAAAAH/D+P4/gB/H+AB/D8/h+AAAAAAAABgAAAAf4fz+P8Af4/4Gfw/P4fgAAAAAAAAYAAf///j8/j//z+H//n8Pz+H4AAAAAAAAGAAH///w/PYX/8f49/Z3D8/h+AAAAAAAABgAB///8Pz/B//D/B/+fw/P4fgAAAAAAAAYAAAAAAH8f8AAAf+AAH8Pz+H4AAAAAAAAGAAAAAAP+D/8AAD/+AB/D8/h+AAAAAAAABgAB////+AP///AH//+fw/P4fgAAAAAAAAYAAf///+AAf//wAf//n8Pz+H4AAAAAAAAGAAH///4AAAf/8AAf/x/D8/h+AAAAAAAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAf////////////////////////////////8=</bitimage>
@@ -2299,24 +1478,13 @@ Example
 Cut paper Element
 
 Attribute
-Name
-Description
-Omission
-type
-Specifies cut type
+NameDescriptionOmissiontypeSpecifies cut type
 * 'full' … Full cut
-* 'partial' … Partial cut
-'full'
-feed
-Specifies feed to cut position
+* 'partial' … Partial cut'full'feedSpecifies feed to cut position
 * 'true' … Feed
-* 'false' … No feed (Current position)
-'true'
-
+* 'false' … No feed (Current position)'true'
 Value
-Description
-Ignore
-
+DescriptionIgnore
 Example
 <root>
     <cutpaper feed='true' type='partial'/>
@@ -2326,20 +1494,9 @@ Example
 Feed Element
 
 Attribute
-Name
-Description
-Omission
-line
-Specifies the paper feed space (Unit of line)
-'0'
-unit
-Specifies the paper feed space (Unit of dot)
-'0'
-
+NameDescriptionOmissionlineSpecifies the paper feed space (Unit of line)'0'unitSpecifies the paper feed space (Unit of dot)'0'
 Value
-Description
-Ignore
-
+DescriptionIgnore
 Example
 <root>
     <feed line='2' unit='8'/>
@@ -2350,24 +1507,13 @@ Example
 Initialization Element
 
 Attribute
-Name
-Description
-Omission
-Reset
-Specifies hardware reset
+NameDescriptionOmissionResetSpecifies hardware reset
 * true … Execute hardware reset
-* false … Not execute hardware reset (Only command initialization)
-'false'
-Print
-Self printing after hardware reset
+* false … Not execute hardware reset (Only command initialization)'false'PrintSelf printing after hardware reset
 * true … Execute self print
-* false … Not execute self print
-'false'
-
+* false … Not execute self print'false'
 Value
-Description
-Ignore
-
+DescriptionIgnore
 Example
 <root>
     <initialization reset='false' print='false'/>
@@ -2377,27 +1523,13 @@ Example
 Logo Element
 
 Attribute
-Name
-Description
-Omission
-number
-Specifies the number of logo registration
-'1'
-Width
-Specifies width
+NameDescriptionOmissionnumberSpecifies the number of logo registration'1'WidthSpecifies width
 * 'single' … Single width
-* 'double' … Double width
-'single'
-Height
-Specifies height
+* 'double' … Double width'single'HeightSpecifies height
 * 'single' … Single height
-* 'double' … Double height
-'single'
-
+* 'double' … Double height'single'
 Value
-Description
-Ignore
-
+DescriptionIgnore
 Example
 <root>
     <logo number='1' width='single' height='single'/>
@@ -2408,21 +1540,11 @@ Example
 PDF417Element
 
 Attribute
-Name
-Description
-Omission
-line
-Specifies number of lines
+NameDescriptionOmissionlineSpecifies number of lines
 
-Note. Refer to the command specifications.
-'0'
-column
-Specifies number of columns
+Note. Refer to the command specifications.'0'columnSpecifies number of columns
 
-Note. Refer to the command specifications.
-'0'
-level
-Specifies security level
+Note. Refer to the command specifications.'0'levelSpecifies security level
 * 'level0' … Security level0
 * 'level1' … Security level1
 * 'level2' … Security level2
@@ -2431,21 +1553,11 @@ Specifies security level
 * 'level5' … Security level5
 * 'level6' … Security level6
 * 'level7' … Security level7
-* 'level8' … Security level8
-'level1'
-module
-Specifies module size (Unit of dot)
-'2'
-aspect
-Specifies aspect ratio
-'3'
-
+* 'level8' … Security level8'level1'moduleSpecifies module size (Unit of dot)'2'aspectSpecifies aspect ratio'3'
 Value
-Description
-Specifies PDF417 data
+DescriptionSpecifies PDF417 data
 
-Note. Refer to the command specifications.
-
+Note. Refer to the command specifications.
 Example
 <root>
     <pdf417 level='level1' line='0' column='0' module='2' aspect='3'>http://www.starmicronics.com/</pdf417>
@@ -2456,25 +1568,11 @@ Example
 Peripheral Element
 
 Attribute
-Name
-Description
-Omission
-channel
-Specifies the drive terminal of the peripheral
+NameDescriptionOmissionchannelSpecifies the drive terminal of the peripheral
 * '1' … Peripheral drive terminal1
-* ‘2' … Peripheral drive terminal2 (Energizing time and Delay time ignore)
-'1'
-on
-Energizing time (Unit of 1mSec)
-'200'
-off
-Delay time  (Unit of 1mSec)
-'200'
-
+* ‘2' … Peripheral drive terminal2 (Energizing time and Delay time ignore)'1'onEnergizing time (Unit of 1mSec)'200'offDelay time  (Unit of 1mSec)'200'
 Value
-Description
-Ignore
-
+DescriptionIgnore
 Example
 <root>
     <peripheral channel='1' on='200' off='200'/>
@@ -2484,31 +1582,17 @@ Example
 QR code Element
 
 Attribute
-Name
-Description
-Omission
-model
-Specifies model
+NameDescriptionOmissionmodelSpecifies model
 * 'model1' … Model1
-* 'model2' … Model2
-'model2'
-level
-Specifies mistake correction level
+* 'model2' … Model2'model2'levelSpecifies mistake correction level
 * 'level_l' … Mistake Correction LevelL
 * 'level_m' … Mistake Correction LevelM
 * 'level_q' … Mistake Correction LevelQ
-* 'level_h' … Mistake Correction LevelH
-'level_l'
-cell
-Specifies cell size (Unit of dot)
-'3'
-
+* 'level_h' … Mistake Correction LevelH'level_l'cellSpecifies cell size (Unit of dot)'3'
 Value
-Description
-Specifies Qr code data
+DescriptionSpecifies Qr code data
 
-Note. Refer to the command specifications.
-
+Note. Refer to the command specifications.
 Example
 <root>
     <qrcode model='model2' level='level_l' cell='3'>http://www.starmicronics.com/</qrcode>
@@ -2519,19 +1603,11 @@ Example
 Raw data Element
 
 Attribute
-Name
-Description
-Omission
--
--
--
-
+NameDescriptionOmission---
 Value
-Description
-Specifies raw data
+DescriptionSpecifies raw data
 
-Note.Base64 encoding
-
+Note.Base64 encoding
 Example
 <root>
 　　<rawdata>MTIzNDU=</rawdata>
@@ -2541,26 +1617,15 @@ Example
 Horizontal ruled line Element
 
 Attribute
-Name
-Description
-Omission
-thickness
-Specifies ruled line
+NameDescriptionOmissionthicknessSpecifies ruled line
 * 'thin' … Thin line
 * 'medium' … Medium line
 * 'thick' … Thick line
 * 'double_thin' … Thin, double line
 * 'double_medium' … Medium, double line
-* 'double_thick' … Thick, double line
-'medium'
-width
-Specifies width (Unit of dot)
-'832'
-
+* 'double_thick' … Thick, double line'medium'widthSpecifies width (Unit of dot)'832'
 Value
-Description
-Ignore
-
+DescriptionIgnore
 Example
 <root>
     <ruledline thickness='thin' width='200'/>
@@ -2571,22 +1636,11 @@ Example
 Sound Element
 
 Attribute
-Name
-Description
-Omission
-channel
-Specifies the drive terminal of the buzzer
+NameDescriptionOmissionchannelSpecifies the drive terminal of the buzzer
 * '1' … Buzzer drive terminal1
-* '2' … Buzzer drive terminal2
-'1'
-repeat
-Specifies the number of repeats
-'1'
-
+* '2' … Buzzer drive terminal2'1'repeatSpecifies the number of repeats'1'
 Value
-Description
-Ignore
-
+DescriptionIgnore
 Example
 <root>
     <sound channel='1' repeat='1'/>
@@ -2597,11 +1651,7 @@ Example
 Text Element
 
 Attribute
-Name
-Description
-Omission
-codepage
-Specifies CodePage
+NameDescriptionOmissioncodepageSpecifies CodePage
 * 'cp437' … CodePage437
 * 'cp737' … CodePage737
 * 'cp772' … CodePage772
@@ -2630,10 +1680,7 @@ Specifies CodePage
 * 'cp3840' … CodePage3840
 * 'cp3841' … CodePage3841
 * 'cp3843' - 'cp3848' … CodePage3843 - 3848
-* 'blank' … User Setting (Blank CodePage)
-Unchanged
-international
-Specifies international characters
+* 'blank' … User Setting (Blank CodePage)UnchangedinternationalSpecifies international characters
 * 'usa' … USA
 * 'france' … France
 * 'germany' … Germany
@@ -2649,59 +1696,31 @@ Specifies international characters
 * 'latin_america' … Latin America
 * 'korea' … Korea
 * 'ireland' … Ireland
-* 'legal' … Legal
-Unchanged
-characterspace
-Specifies character space (Unit of dot)
-Unchanged
-emphasis
-Specifies emphasized
+* 'legal' … LegalUnchangedcharacterspaceSpecifies character space (Unit of dot)UnchangedemphasisSpecifies emphasized
 * 'true' … Specifies emphasized
-* 'false' … Cancels emphasized
-Unchanged
-invert
-Specifies inversion
+* 'false' … Cancels emphasizedUnchangedinvertSpecifies inversion
 * 'true' … Specifies inversion
-* 'false' … Cancels inversion
-Unchanged
-linespace
-Specifies line space (Unit of dot)
+* 'false' … Cancels inversionUnchangedlinespaceSpecifies line space (Unit of dot)
 * '24' … Specifies 3mm line feed amount
-* '32' … Specifies 4mm line feed amount
-Unchanged
-width
-Specifies expanded width
+* '32' … Specifies 4mm line feed amountUnchangedwidthSpecifies expanded width
 * '1' … Cancels expanded width
 * '2' … Specifies 2x width expansion
 * '3' … Specifies 3x width expansion
 * '4' … Specifies 4x width expansion
 * '5' … Specifies 5x width expansion
-* '6' … Specifies 6x width expansion
-Unchanged
-height
-Specifies expanded height
+* '6' … Specifies 6x width expansionUnchangedheightSpecifies expanded height
 * '1' … Cancels expanded height
 * '2' … Specifies 2x height expansion
 * '3' … Specifies 3x height expansion
 * '4' … Specifies 4x height expansion
 * '5' … Specifies 5x height expansion
-* '6' … Specifies 6x height expansion
-Unchanged
-font
-Specifies font style
+* '6' … Specifies 6x height expansionUnchangedfontSpecifies font style
 * 'font_a' … Font-A (12 x 24 dots)
-* 'font_b' … Font-B (9 x 24 dots)
-Unchanged
-undelline
-Specifies underline
+* 'font_b' … Font-B (9 x 24 dots)UnchangedundellineSpecifies underline
 * 'true' … Specifies underline
-* 'false' … Cancels underline
-Unchanged
-
+* 'false' … Cancels underlineUnchanged
 Value
-Description
-Specifies text data
-
+DescriptionSpecifies text data
 Example
 <root>
     <text codepage='cp998' international='usa' characterspace='0' emphasis='false' invert='false' linespace='32' width='1' height='1' font='font_a' underline='false'>Star Micronics\x0a</text>
@@ -2710,32 +1729,14 @@ Example
 
 6 StarWebPRNT Response Element
 
-Name
-Description
-<root>
-Root Element
-<success>
-Success code Element
-<code>
-Result code Element
-<status>
-Star Automatic Status Element
-
+NameDescription<root>Root Element<success>Success code Element<code>Result code Element<status>Star Automatic Status Element
 6.1 <root>
 Root Element
 
 Attribute
-Name
-Description
-Omission
--
--
--
-
+NameDescriptionOmission---
 Value
-Description
-List of StarWebPRNT Response Element
-
+DescriptionList of StarWebPRNT Response Element
 Example
 <root>
     <success>true</success>
@@ -2747,19 +1748,11 @@ Example
 Success code Element
 
 Attribute
-Name
-Description
-Omission
--
--
--
-
+NameDescriptionOmission---
 Value
-Description
-Success code
+DescriptionSuccess code
 * true … Printing succeeded
-* false … Printing failed
-
+* false … Printing failed
 Example
 <root>
     <success>true</success>
@@ -2772,18 +1765,10 @@ Example
 Result code Element
 
 Attribute
-Name
-Description
-Omission
--
--
--
-
+NameDescriptionOmission---
 Value
-Description
-Result code
-* 0 … Success
-
+DescriptionResult code
+* 0 … Success
 Example
 <root>
     <success>true</success>
@@ -2796,19 +1781,11 @@ Example
 Star Automatic Status Element
 
 Attribute
-Name
-Description
-Omission
--
--
--
-
+NameDescriptionOmission---
 Value
-Description
-Star Automatic Status
+DescriptionStar Automatic Status
 
-Note. Refer to the command specifications.
-
+Note. Refer to the command specifications.
 Example
 <root>
     <success>true</success>

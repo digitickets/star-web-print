@@ -1,0 +1,113 @@
+div.lb {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 0;
+    width: 100%;
+    text-align: center;
+    background-color: none;
+    z-index: 100;
+    visibility: hidden;
+}
+div.lb iframe {
+    margin-top: 4em;
+    padding: 2em;
+    background: #fff;
+    border: 5px solid black;
+    z-index: 100;
+}
+div.js-graph-wrap {
+    text-align: center;
+	margin: 0 10px;
+}
+div.js-graph-body {
+    border: 1px solid #dddddd;
+    margin-bottom: 10px;
+}
+/*
+#overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #000;
+    z-index: 99;
+    filter: alpha(opacity=0);
+    -moz-opacity: 0;
+    opacity: 0;
+    display: none;
+    width:100%;
+}*/
+#overlay{
+	position: fixed; z-index:100; 
+	top: 0px;
+	left: 0px;
+	height: 100%;
+	width: 100%;
+	background: url(../images/bg_overlay.png);
+}
+div.js-graph-wrap .roll {
+	border: none;
+    width:158px;
+    height:37px;
+    z-index:100;
+}
+div.js-graph-wrap .comment {
+    font-size: 11px;
+    text-align: left;
+    margin: 15px 0;
+}
+.lb-button {
+    z-index:120;
+}
+
+#overlay-close {
+    background: url("../images/close.png") no-repeat scroll right top transparent;
+    cursor: pointer;
+    display: none;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    z-index: 1103;
+    zoom: 1;
+}
+
+*html #overlay-close {
+	background: transparent;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/close.png', sizingMethod='scale');
+	cursor: pointer;
+	display: none;
+	position: absolute;
+	padding: 0;
+	width: 32px;
+	height: 32px;
+	z-index: 1103;
+	margin-left:-13px;
+    zoom: 1;
+}
+
+#overlay-print {
+    background: url("../images/print.png") no-repeat scroll right top transparent;
+    cursor: pointer;
+    display: none;
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    z-index: 1103;
+    zoom: 1;
+}
+*html #overlay-print {
+	background: transparent;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/print.png', sizingMethod='scale');
+	cursor: pointer;
+	display: none;
+	position: absolute;
+	padding: 0;
+	width: 32px;
+	height: 32px;
+	z-index: 1103;
+	margin-left:-13px;
+    zoom: 1;
+}

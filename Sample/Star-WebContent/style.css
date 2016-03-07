@@ -1,0 +1,16 @@
+@charset "utf-8";
+/*
+Theme Name: Star Micronics Smart Phone English Theme
+Theme URI: http://www.star-m.jp/
+Description: スター精密株式会社の英語サイトのスマートフォン用のテーマです。
+Author: Star Micronics CO,.LTD.
+Version: 1.0
+*/
+
+/* page style - グラフスタイル
+----------------------------------------------------------- */
+@import url("css/core.css");
+
+/* page style - グラフスタイル
+----------------------------------------------------------- */
+@import url("css/g_graph.css");

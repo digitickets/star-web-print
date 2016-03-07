@@ -1,31 +1,31 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"  lang="ja" xml:lang="ja">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Star WebPRNT User's Manual</title>
+    <link href="bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="font-awesome.min.css">    
     <link href="html5reset-1.6.1.css" rel="stylesheet" type="text/css" />
     <link href="webPRNT_layout.css" rel="stylesheet" type="text/css" />
     <link href="webPRNT_print_layout.css" rel="stylesheet" type="text/css" media="print" />
     
-   <!--[if IE ]>
+<!-- ie10にて条件付きコメント([if IE]の箇所）がサポートされなくなったことに対する対処　　-->
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
+    <!--[if IE ]>
         <link rel="stylesheet" type="text/css" href="webPRNT_layout_ie.css"></script>
         <link rel="stylesheet" type="text/css" href="webPRNT_print_layout_ie.css" media="print"></script>
     <![endif]-->
     
     <script src="jquery-1.10.2.min.js"></script>
     <script>
-    
     $(function tggleNavi() {
         $('#naviArrow').click(function(){
            $('#mainNavi').slideToggle('slow');
-           
        });
     });
-
     </script>
     
 </head>
-
 
 <body>
 
@@ -36,8 +36,9 @@
     <div class="clear"></div>
 </div>
 
+<!--   ナビゲーショントグル　　　-->
 <div id="naviArrowSection">
-    <a id="naviArrow" onclick="tggleNavi()"><h5> Contents Show / Hide</h5></a>
+    <p class="naviToggle"><a id="naviArrow" onclick="tggleNavi()">Navi Show / Hidden</a></p>
 </div>
 
 <!-- wrapp : mainNavi + mainContents-->
@@ -141,7 +142,7 @@
 
 
     <article> 
-    <div id="starWebPrintBuilder-js">
+    <div id="starWebPrintBuilder-js" class="summary">
         <h2>StarWebPrintBuilder.js</h2>
     
         <div class="introduction_2">
@@ -170,7 +171,7 @@
             <tbody>
             <tr><td><a href="#createAlignmentElement">createAlignmentElement</a></td><td>Creates Alignment element.</td></tr>
             <tr><td><a href="#createBarcodeElement">createBarcodeElement</a></td><td>Creates Barcode element.</td></tr>
-            <tr><td><a href="#createBitImageElement">createBitImageElement</td><td>Creates Bitimage element.</td></tr>
+            <tr><td><a href="#createBitImageElement">createBitImageElement</a></td><td>Creates Bitimage element.</td></tr>
             <tr><td><a href="#createCutPaperElement">createCutPaperElement</a></td><td>Creates Cut paper element.</td></tr>
             <tr><td><a href="#createFeedElement">createFeedElement</a></td><td>Creates Feed element.</td></tr>
             <tr><td><a href="#createInitializationElement">createInitializationElement</a></td><td>Creates Initialization element.</td></tr>
@@ -185,7 +186,69 @@
             </tbody>
         </table>
 
-    </div>
+        
+        <h4>Star Printer Compatibility Chart</h4>
+        <h5>POS Printer and AsuraCPRNT</h5>
+        <table class="List2">
+            <thead>
+                <tr><td>Name</td><td>FVP10</td><td>TSP650II</td><td>TSP700II</td><td>TSP800II</td><td>AsuraCPRNT</td></tr>
+            </thead>
+            <tbody>
+            <tr><td><a href="#createAlignmentElement">createAlignmentElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createBarcodeElement">createBarcodeElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createBitImageElement">createBitImageElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createCutPaperElement">createCutPaperElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createFeedElement">createFeedElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createInitializationElement">createInitializationElement</a>*1</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createLogoElement">createLogoElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>-*3</td></tr>
+            <tr><td><a href="#createPdf417Element">createPdf417Element</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createPeripheralElement">createPeripheralElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createQrCodeElement">createQrCodeElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createRawDataElement">createRawDataElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createRuledLineElement">createRuledLineElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createSoundElement">createSoundElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createTextElement">createTextElement</a>*2</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            </tbody>
+        </table>
+        <p class="note2">
+            *1 Performs only initialization of a command for Bluetooth printers <br />
+            *2 The international character is fixed to "Japan" for Japanese modelｓ and "Korea" for Korean models.<br />
+            *3 It is unsupported, because there is not a method to make logo registration.
+        </p>
+
+
+        <h5>Mobile Printer</h5>
+        <table class="List2">
+            <thead>
+                <tr><td>Name</td><td>SM-S220i<br />(Excluding Jp model)</td><td>SM-T300i</td><td>SM-T400i</td></tr>
+            </thead>
+            <tbody>
+            <tr><td><a href="#createAlignmentElement">createAlignmentElement</a>*1</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createBarcodeElement">createBarcodeElement</a></td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createBitImageElement">createBitImageElement</a></td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createCutPaperElement">createCutPaperElement</a>*2</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#createFeedElement">createFeedElement</a></td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createInitializationElement">createInitializationElement</a>*3</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createLogoElement">createLogoElement</a>*4</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createPdf417Element">createPdf417Element</a>*5</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createPeripheralElement">createPeripheralElement</a>*2</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#createQrCodeElement">createQrCodeElement</a>*6</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createRawDataElement">createRawDataElement</a></td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createRuledLineElement">createRuledLineElement</a></td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createSoundElement">createSoundElement</a>*2</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#createTextElement">createTextElement</a></td><td>○</td><td>○</td><td>○</td></tr>
+            </tbody>
+        </table>
+        <p class="note2">
+            *1 Text data only<br />
+            *2 Command not created<br />
+            *3 Performs only initialization of a command<br />
+            *4 When the logo number 1 - 255 is specified, the No.0 - 254 logo is printed.<br />
+            *5 The line parameter is ineffective.<br />
+            *6 The model parameter is ineffective.
+        </p>
+        </div>
+        
     </article>
 
     <div class="to_top">

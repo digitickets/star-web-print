@@ -7,6 +7,8 @@
     <link href="webPRNT_layout.css" rel="stylesheet" type="text/css" />
     <link href="webPRNT_print_layout.css" rel="stylesheet" type="text/css" media="print" />
     
+<!-- ie10にて条件付きコメント([if IE]の箇所）がサポートされなくなったことに対する対処　　-->
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
    <!--[if IE ]>
         <link rel="stylesheet" type="text/css" href="webPRNT_layout_ie.css"></script>
         <link rel="stylesheet" type="text/css" href="webPRNT_print_layout_ie.css" media="print"></script>
@@ -152,7 +154,7 @@
         </div>
 
 
-        <table class="coder">
+        <table class="List2">
             <thead>
                 <tr><td rowspan="2">機種名</td><td rowspan="2">ファームウェアバージョン</td><td rowspan="2">インターフェイス<br/></td><td colspan="5">UTF-8</td></tr>
                 <tr><td>日本語<br/>Shift-JIS</td><td>中国語<br/>簡体字<br/>GB2312</td><td>中国語<br/>簡体字<br/>GB18030</td><td>中国語<br/>繁体字<br/>Big5</td><td>韓国語<br/>Korean</td></tr>

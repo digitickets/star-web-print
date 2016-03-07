@@ -3,6 +3,8 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Star WebPRNT User's Manual</title>
+    <link href="bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="font-awesome.min.css">    
     <link href="html5reset-1.6.1.css" rel="stylesheet" type="text/css" />
     <link href="webPRNT_layout.css" rel="stylesheet" type="text/css" />
     <link href="webPRNT_print_layout.css" rel="stylesheet" type="text/css" media="print" />
@@ -14,14 +16,11 @@
     
     <script src="jquery-1.10.2.min.js"></script>
     <script>
-    
     $(function tggleNavi() {
         $('#naviArrow').click(function(){
            $('#mainNavi').slideToggle('slow');
-           
        });
     });
-
     </script>
     
 </head>
@@ -36,8 +35,9 @@
     <div class="clear"></div>
 </div>
 
+<!--   ナビゲーショントグル　　　-->
 <div id="naviArrowSection">
-    <a id="naviArrow" onclick="tggleNavi()"><h5> Contents Show / Hide</h5></a>
+    <p class="naviToggle"><a id="naviArrow" onclick="tggleNavi()">Navi Show / Hidden</a></p>
 </div>
 
 <!-- wrapp : mainNavi + mainContents-->

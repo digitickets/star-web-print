@@ -1,0 +1,121 @@
+@charset "utf-8";
+
+/*=================================================
+* 固有スタイル
+* ================================================= */
+
+#howto{
+	width:100%;
+	max-width: 800px;
+	margin:0 auto;
+}
+
+#howto .numOperation{
+	padding:0 30px !important;
+}
+
+.howto #sub-logo {
+	top: 2px !important;
+}
+
+#howto h2 {
+	margin: 10px 10px 30px 10px;
+	padding: 15px 0 5px 5px;
+	border-bottom: solid 1px #1d54b1;
+	color: #333;
+	font-size: 1.5em;
+	line-height: 1;
+}
+
+#howto h2 small{
+	font-size:65%;
+	font-weight: normal;
+	line-height: 1;
+	color: #777;
+}
+
+#howto ul, #howto ol {
+	margin-top: 0;
+	margin-bottom: 10px;
+}
+
+.img-responsive {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+.langBtn a {
+	display:block;
+	background: #818181;
+	margin: 5px 5px -4px 0;
+	padding: 4.5px 9px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	-webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+	-moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+	box-shadow: rgba(0,0,0,1) 0 1px 0;
+	color: white !important;
+	font-size: 13px;
+	font-family: Helvetica, Arial, Sans-Serif;
+	text-decoration: none;
+	vertical-align: middle;
+}
+.langBtn a:hover {
+	border-top-color: #818181;
+	background: #818181;
+	text-decoration:underline;
+	color: #cccccc;
+ }
+
+/* -------------------------  */
+/*  Class  numOperation   */
+/* -------------------------  */
+
+#howto .numOperation ol {
+	list-style-type:decimal !important;
+	list-style-position:outside !important;
+}
+
+#howto .numOperation li {
+	padding:0 0 20px 0 !important;
+	list-style-position:outside !important;
+	list-style-type:decimal !important;
+}
+#howto .numOpeFig2 {
+	margin: 18px 0;
+	display: table-cell;
+	vertical-align: top;
+	border: #666 solid 1px;
+}
+@media (max-width: 320px){
+	#howto .col-md-4 {
+		padding-right: 0;
+	}
+}
+
+#howto .col-md-4 {
+	float: left;
+	position: relative;
+	width:100%;
+	max-width:320px;
+	min-height: 1px;
+	padding-right: 15px;
+}
+
+#howto .to_top {
+	margin: 40px 0 10px 0;
+	text-align: right;
+	font-style: italic;
+	font-size: 80%;
+	color: #666666;
+}
+#howto .to_top a {
+	font-style:normal;
+	color: #154399;
+	text-decoration: none;
+}
+#howto .to_top a:hover, #howto a:focus {
+	text-decoration: underline;
+}

@@ -3,15 +3,28 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Star WebPRNT ユーザーズマニュアル</title>
+    <link href="bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="font-awesome.min.css">    
     <link href="html5reset-1.6.1.css" rel="stylesheet" type="text/css" />
     <link href="webPRNT_layout.css" rel="stylesheet" type="text/css" />
     <link href="webPRNT_print_layout.css" rel="stylesheet" type="text/css" media="print" />
     
+<!-- ie10にて条件付きコメント([if IE]の箇所）がサポートされなくなったことに対する対処　　-->
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
    <!--[if IE ]>
         <link rel="stylesheet" type="text/css" href="webPRNT_layout_ie.css"></script>
         <link rel="stylesheet" type="text/css" href="webPRNT_print_layout_ie.css" media="print"></script>
     <![endif]-->
     
+    <script src="jquery-1.10.2.min.js"></script>
+    <script>
+    
+    $(function tggleNavi() {
+        $('#naviArrow').click(function(){
+           $('#mainNavi').slideToggle('slow');           
+       });
+    });
+	</script>    
     
 </head>
 
@@ -25,8 +38,9 @@
     <div class="clear"></div>
 </div>
 
+<!--   ナビゲーショントグル　　　-->
 <div id="naviArrowSection">
-    <h5> Contents</h5>
+    <p class="naviToggle"><a id="naviArrow" onclick="tggleNavi()">ナビ 表示 / 非表示</a></p>
 </div>
 
 <!-- wrapp : mainNavi + mainContents-->
@@ -142,9 +156,18 @@
             このマニュアルはStarWebPRNTに関する情報を提供します。<br />
             ユーザー向けに印刷アプリケーションの構築に関するガイドラインを示します。
             </p>
+
+    <div class="infoBox noteBox">
+        <div class="noteTitle">ご使用に関する情報</div>
+        <p>StarWebPRNTブラウザーを使用してStarプリンターの印刷を制御するWebプログラミングをされるにあたり、ご注意いただきたい点がございます。 <br />
+        また、StarWebPRNTブラウザーの使用に関してご注意いただきたい点がございます。<br />
+        以下のリンク先をご一読ください。 </p>
+        <p><a href="_infoToUse.htm"><button type="button" class="btn btn-default">Star WebPRNTブラウザーご利用に関するご案内</button></a></p>
+        
+    </div>
+
+
         </div>    
-
-
     
 
         
@@ -152,7 +175,6 @@
 
     </div>
 
-    </div>
 
     <div id="footer">
         <footer>

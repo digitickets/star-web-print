@@ -1,0 +1,98 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*======================================
+
+	initialize
+
+=======================================*/
+
+body {
+    width:100%;
+    margin:0;
+	padding:0;
+	background:#ffffff;
+	font-family: arial, helvetica, clean, sans-serif;
+	color: #000;
+}
+
+header, nav, section, footer {
+    margin:0;
+    padding:0;
+}
+
+
+/*======================================
+
+	shared parts
+
+=======================================*/
+
+
+a{
+	color:#425d94;
+	text-decoration:none;
+}
+a:hover{
+	color:#6f87a8;
+	text-decoration:underline;
+}
+
+.clear {
+	clear: both;
+}
+.clearfix {
+	zoom: 1;
+}
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	height: 0;
+	visibility: hidden;
+}
+
+
+/* append */ 
+#form{display:none;}
+#lean_overlay{
+	  position: fixed; z-index:100; 
+	  top: 0px;
+	  left: 0px;
+	  height: 100%;
+	  width: 100%;
+	  background: #000;
+	  display: none;
+}
+#overlay{
+	position: fixed; z-index:100; 
+	top: 0px;
+	left: 0px;
+	height: 100%;
+	width: 100%;
+	background: url(../images/bg_overlay.png);
+}
+#nowPrintingWrapper{
+	display: none;
+	height: 100%;
+	width: 100%;
+}
+#nowLoadingWrapper{
+	display: table;
+	height: 100%;
+	width: 100%;
+}
+#nowPrinting,#nowLoading{
+	display:table-cell;
+	vertical-align: middle;
+	width:100%;
+	height:100%;
+}
+#nowPrinting h1,#nowPrinting p,#nowLoading h1,#nowLoading p{
+	text-align:center;
+	color:#FFF;	
+}
+#nowPrinting h1,#nowLoading h1{
+	font-size:1.3em;
+	margin:0 0 8px 0;
+}

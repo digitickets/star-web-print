@@ -9,12 +9,13 @@ section, article, aside, hgroup, header, footer, nav, figure, figcaption, summar
 }
 
 body {
-	font-family:  Verdana, Meiryo, "ÉÅÉCÉäÉI", "ÇlÇr ÇoÉSÉVÉbÉN", Verdana, Geneva, Arial, Helvetica;
+	font-family:  Verdana, Meiryo, "„É°„Ç§„É™„Ç™", "Ôº≠Ôº≥ Ôº∞„Ç¥„Ç∑„ÉÉ„ÇØ", Verdana, Geneva, Arial, Helvetica;
 	font-size: 90%;
 	line-height: 1.5em;
 	margin:0;
 	padding:0;
 	background:#fff;
+    max-width: 960px;
 }
 
 
@@ -44,7 +45,7 @@ p {
 
 /* ----------------------------------------------------
 /*  for link (a)                                         */
-* -------------------------------------------------- */
+/* -------------------------------------------------- */
 
 a{
 	color: #006699;
@@ -67,6 +68,15 @@ a:hover{
 }
 
 
+/* ----------------------------------------  */
+/* ----    for img       to responsive!   ----  */
+/* ---------------------------------------  */
+
+.img_responsive{
+	display:block;
+	max-width:100%;
+	height:auto;
+}
 
 
 
@@ -96,6 +106,24 @@ h1 {
 	padding-left: 10px;
 }
 
+.naviToggle{
+	font-size:0.85em;
+	text-decoration:none;
+	padding-left:1em;
+}
+
+.naviToggle:before {
+	text-decoration:none;
+    font-family: 'FontAwesome','Lucida Grande', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+    content:"\f04b";
+	color:#B8DAF0;
+	font-size:0.85em;
+	padding-right:0.5em;
+	font-weight:normal;
+}
+
+
+
 h5 {
 	margin: 30px 0px 2px 5px;
 	padding: 0 0 2px 18px;
@@ -104,8 +132,13 @@ h5 {
 	background-repeat: no-repeat;
 	color: #333;
 	font-size: 80%;
-	
 }
+
+
+.summary h5{
+	margin: 10px 0px 2px 5px;
+}
+
 
 /* -------------------------  */
 /* ---- page footer    ---- */
@@ -189,14 +222,17 @@ h2 {
 	border-bottom: solid 1px #265d7f;
 	color: #333;
 	font-size: 150%;
+	font-weight:bold;
 }
 
 h3 {
-	margin: 80px 0px 15px 0px;
+	margin: 15px 0px 15px 0px;
 	padding: 30px 0 10px 5px;
 	border-bottom: solid 1px #bbb;
 	color: #333;
-	font-size: 150%;
+	font-size: 1.5em;
+	line-height:1.5em;
+	font-weight:bold;
 }
 
 h4 {
@@ -206,11 +242,12 @@ h4 {
 	background-position: 0px 6px;
 	background-repeat: no-repeat;
 	color: #333;
-	
+	font-weight:bold;
 }
 
-
-
+#howToUse h4{
+    margin: 50px 0px 5px 0px;
+}
 
 .introduction_2 {
 	margin: 20px 15px;
@@ -278,7 +315,7 @@ h4 {
 /* -------------------------  */
 
 .to_top   {
-	margin: 40px 30px 10px 0;
+	margin: 40px 30px 60px 0;
 	text-align: right;
 	padding-right: 30px;
 	font-style:italic;
@@ -288,6 +325,73 @@ h4 {
 	
 }
 
+/* -------------------------  */
+/*   Cases   ‰∫ãÊ°à Ë°®È°å           */
+/* -------------------------  */
+.cases{
+	padding:10px 20px;
+	font-size:1.1em;
+	line-height:1.2em;
+	color:#333;
+	border:#CFCFCF 1px solid;
+	border-left: #F9CF1B 5px solid;
+	border-radius:5px;
+}
+
+.cases_contents{
+	padding:10px 20px;
+}
+
+.cases_subTitle{
+	font-weight:bold;
+	font-size:1.1em;
+	margin-top:1em;
+}
+
+.cases_subTitle:before{
+    font-family: 'FontAwesome','Lucida Grande', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+    content:"\f0c8";
+	color:#F9CF1B;
+	font-size:0.9em;
+	padding-right:0.3em;
+	font-weight:normal;
+}
+
+/* -------------------------  */
+/*   Restrictions   ‰∫ãÊ°à Ë°®È°å           */
+/* -------------------------  */
+.restrictions{
+	padding:10px 20px;
+	font-size:1.1em;
+	line-height:1.2em;
+	color:#333;
+	border:#CFCFCF 1px solid;
+	border-left: #FD0004 5px solid;
+	border-radius:5px;
+}
+
+.restrictions_subTitle{
+	font-weight:bold;
+	font-size:1.1em;
+	margin-top:1em;
+}
+
+.restrictions_subTitle:before{
+    font-family: 'FontAwesome','Lucida Grande', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+    content:"\f0c8";
+	color:#FD0004;
+	font-size:0.9em;
+	padding-right:0.3em;
+	font-weight:normal;
+}
+
+
+.lead-text{
+	font-size:1.05em;
+	line-height:1.5em;
+	padding-top: 2em;
+	padding-bottom: 2em;
+}
 
 
 /* -------------------------  */
@@ -308,8 +412,27 @@ h4 {
 	text-indent: -1em;
 }
 
+.note2 {
+	margin: 5px 5px 20px 15px;
+	font-size: 80%;
+	line-height: 1.5em;
+}
+
+
 .numOpeFig {
 	margin-top: 8px;
+}
+
+.numOpeFig2 {
+	margin: 8px 0;
+    display: table-cell;
+    vertical-align: top;
+    border: #666 solid 1px;
+}
+
+
+.sub_read {
+    margin-left: 1.5em;
 }
 
 
@@ -346,14 +469,10 @@ pre {
 
 #conceptIllust {
 	margin: 30px 0;
-	width: 510px;
-	height: 425px;
 }
 
 #AsuraCPRNTconceptIllust {
 	margin: 30px 0;
-	width: 482px;
-	height: 283px;
 }
 
 
@@ -372,6 +491,46 @@ pre {
 
 .concept a:hover{
 	background-color: #e5f0ff;
+}
+
+
+/*--------------------
+infoBox noteBox    Style
+-------------------*/
+.infoBox {
+	margin: 3em auto;
+	padding:1em 1.3em ;
+}
+.infoBox p{
+	padding: 0.5em 0 0.5em 1.1em;
+}
+
+
+.noteBox{
+	/*background-color: #FFFBD8;*/
+	border-radius: 20px;
+	border:#FC991B solid 2px;
+}
+
+.noteBox2{
+	border-radius: 10px;
+}
+
+
+.noteTitle{
+	font-weight:bold;
+	font-size:1.3em;
+	margin-top:1em;
+	margin-left:2em;
+}
+
+.noteTitle:before{
+    font-family: 'FontAwesome','Lucida Grande', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+    content:"\f05a";
+	color:#FC991B;
+	font-size:1.3em;
+	padding-right:0.3em;
+	font-weight:normal;
 }
 
 
@@ -408,6 +567,8 @@ pre {
     background-color: #b9d6e8;
     box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8) inset;
 }
+
+
 
 /* -----------------------
   left-top
@@ -505,8 +666,62 @@ pre {
 ----------------------- */
 .coder thead+tbody tr:last-child th:last-child,
 .coder thead+tbody tr:last-child td:last-child {
-    -webkit-border-radius: 0 0 5px 0;
-       -moz-border-radius: 0 0 5px 0;
-         -o-border-radius: 0 0 5px 0;
-            border-radius: 0 0 5px 0;
+	-webkit-border-radius: 0 0 5px 0;
+	-moz-border-radius: 0 0 5px 0;
+	-o-border-radius: 0 0 5px 0;
+	border-radius: 0 0 5px 0;
+	/*text-align: center;*/
 }           
+
+
+/* --------------------------------------------------
+   List Table    
+-------------------------------------------------- */
+.List1 {
+	text-align:left;
+}
+
+.List2{
+	text-align:center;
+}
+
+.List1,
+.List2{
+    margin-left: 0px;
+    font-size: 90%;
+	vertical-align:middle;
+    min-width: 80%;
+    border-spacing: 0;
+    border: 1px solid #aaa;
+            border-radius: 5px;
+    box-shadow: 0 1px 1px #CCC;	
+}
+
+.List1 thead,
+.List1 td,
+.List2 thead,
+.List2 td {
+    padding: 3px 10px;
+    border-bottom:solid 1px #aaa;
+    border-right:solid 1px #aaa;
+	vertical-align:middle;
+}
+
+.List2 tr :first-child {
+	padding: 3px 10px;
+	text-align:left;
+}
+
+.List1 thead,
+.List2 thead  {
+    font-weight: bold;
+	text-align:center;
+	vertical-align:middle;
+    background:#F0F8FF;
+    background-color: #b9d6e8;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8) inset;
+}
+
+.List2 thead :first-child {
+	text-align:center;
+}

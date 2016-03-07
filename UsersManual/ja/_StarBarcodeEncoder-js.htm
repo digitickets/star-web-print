@@ -7,6 +7,8 @@
     <link href="webPRNT_layout.css" rel="stylesheet" type="text/css" />
     <link href="webPRNT_print_layout.css" rel="stylesheet" type="text/css" media="print" />
     
+<!-- ie10にて条件付きコメント([if IE]の箇所）がサポートされなくなったことに対する対処　　-->
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
    <!--[if IE ]>
         <link rel="stylesheet" type="text/css" href="webPRNT_layout_ie.css"></script>
         <link rel="stylesheet" type="text/css" href="webPRNT_print_layout_ie.css" media="print"></script>
@@ -134,13 +136,12 @@
 	</ul>
 
 	</navi>
-</div>
+</div>   <!--   mainNavi   End    -->
 
 
 <div id="mainContents">
 
-    <article>
-    <div id="StarBarcodeEncoder-js">
+    <article id="StarBarcodeEncoder-js" class="summary">
         <h2>StarBarcodeEncoder.js</h2>
         
         <div class="introduction_2">
@@ -178,8 +179,44 @@
             </tbody>
         </table>
 
+        <h4>機種別対応リスト</h4>
+        <h5>POSプリンター・AsuraCPRNT</h5>
+        <table class="List2">
+            <thead>
+                <tr><td>名称</td><td>FVP10</td><td>TSP650II</td><td>TSP700II</td><td>TSP800II</td><td>AsuraCPRNT</td></tr>
+            </thead>
+            <tbody>
+             <tr><td><a href="#createUPCE">createUPCE</a></td></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createUPCA">createUPCA</a></td></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createJAN8">createJAN8</a></td></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createJAN13">createJAN13</a></td></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createCode39">createCode39</a></td></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createITF">createITF</a></td></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createCode128">createCode128</a></td></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createCode93">createCode93</a></td></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createNW7">createNW7</a></td></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            </tbody>
+        </table>
+        <br />
         
-    </div>
+        <h5>モバイルプリンター</h5>
+        <table class="List2">
+            <thead>
+                <tr><td>名称</td><td>SM-S210i</td><td>SM-S220i<br />(Jpモデル以外)</td><td>SM-T300i</td><td>SM-T400i</td></tr>
+            </thead>
+            <tbody>
+             <tr><td><a href="#createUPCE">createUPCE</a></td></td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createUPCA">createUPCA</a></td></td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createJAN8">createJAN8</a></td></td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createJAN13">createJAN13</a></td></td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createCode39">createCode39</a></td></td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createITF">createITF</a></td></td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createCode128">createCode128</a></td></td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createCode93">createCode93</a></td></td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createNW7">createNW7</a></td></td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            </tbody>
+        </table>
+
     </article>
 
     <div class="to_top">
@@ -187,8 +224,7 @@
     </div>
     
 
-    <article>
-    <div id="StarBarcodeEncoder">
+    <article id="StarBarcodeEncoder">
         <h3>StarBarcodeEncoder</h3>
     
         <div class="introduction_3">
@@ -202,6 +238,7 @@
         <p>
         StarBarcodeEncoder();
         </p>
+        </div>
     
         <h4>名前付き引数</h4>
         <table class="coder">
@@ -234,7 +271,7 @@ function onBuild() {
 // --&gt;
 &lt;/script&gt;
 </pre>
-    </div>
+
     </article>
 
     <div class="to_top">
@@ -242,8 +279,7 @@ function onBuild() {
     </div>
     
 
-    <article>
-    <div id="createUPCE">
+    <article id="createUPCE">
         <h3>createUPCE</h3>
     
         <div class="introduction_3">
@@ -257,6 +293,7 @@ function onBuild() {
         <p>
         createUPCE(args);
         </p>
+        </div>
     
         <h4>名前付き引数</h4>
         <table class="coder">
@@ -291,7 +328,6 @@ function onBuild() {
 // --&gt;
 &lt;/script&gt;
 </pre>
-    </div>
     </article>
 
     <div class="to_top">
@@ -299,8 +335,7 @@ function onBuild() {
     </div>
     
 
-    <article>
-    <div id="createUPCA">
+    <article id="createUPCA">
         <h3>createUPCA</h3>
     
         <div class="introduction_3">
@@ -314,6 +349,7 @@ function onBuild() {
         <p>
         createUPCA(args);
         </p>
+        </div>
     
         <h4>名前付き引数</h4>
         <table class="coder">
@@ -348,7 +384,6 @@ function onBuild() {
 // --&gt;
 &lt;/script&gt;
 </pre>
-    </div>
     </article>
 
     <div class="to_top">
@@ -356,8 +391,7 @@ function onBuild() {
     </div>
     
 
-    <article>
-    <div id="createJAN8">
+    <article id="createJAN8">
         <h3>createJAN8</h3>
     
         <div class="introduction_3">
@@ -371,6 +405,7 @@ function onBuild() {
         <p>
         createJAN8(args);
         </p>
+        </div>
     
         <h4>名前付き引数</h4>
         <table class="coder">
@@ -405,7 +440,6 @@ function onBuild() {
 // --&gt;
 &lt;/script&gt;
 </pre>
-    </div>
     </article>
 
     <div class="to_top">
@@ -413,8 +447,7 @@ function onBuild() {
     </div>
     
 
-    <article>
-    <div id="createJAN13">
+    <article id="createJAN13">
         <h3>createJAN13</h3>
     
         <div class="introduction_3">
@@ -428,6 +461,7 @@ function onBuild() {
         <p>
         createJAN13(args);
         </p>
+        </div>
     
         <h4>名前付き引数</h4>
         <table class="coder">
@@ -462,7 +496,6 @@ function onBuild() {
 // --&gt;
 &lt;/script&gt;
 </pre>
-    </div>
     </article>
 
     <div class="to_top">
@@ -470,8 +503,7 @@ function onBuild() {
     </div>
     
 
-    <article>
-    <div id="createCode39">
+    <article id="createCode39">
         <h3>createCode39</h3>
     
         <div class="introduction_3">
@@ -485,6 +517,7 @@ function onBuild() {
         <p>
         createCode39(args);
         </p>
+        </div>
     
         <h4>名前付き引数</h4>
         <table class="coder">
@@ -521,7 +554,6 @@ function onBuild() {
 // --&gt;
 &lt;/script&gt;
 </pre>
-    </div>
     </article>
 
     <div class="to_top">
@@ -529,8 +561,7 @@ function onBuild() {
     </div>
     
 
-    <article>
-    <div id="createITF">
+    <article id="createITF">
         <h3>createITF</h3>
     
         <div class="introduction_3">
@@ -544,6 +575,7 @@ function onBuild() {
         <p>
         createITF(args);
         </p>
+        </div>
     
         <h4>名前付き引数</h4>
         <table class="coder">
@@ -580,7 +612,6 @@ function onBuild() {
 // --&gt;
 &lt;/script&gt;
 </pre>
-    </div>
     </article>
 
     <div class="to_top">
@@ -588,8 +619,7 @@ function onBuild() {
     </div>
     
 
-    <article>
-    <div id="createCode128">
+    <article id="createCode128">
         <h3>createCode128</h3>
     
         <div class="introduction_3">
@@ -603,6 +633,7 @@ function onBuild() {
         <p>
         createCode128(args);
         </p>
+        </div>
     
         <h4>名前付き引数</h4>
         <table class="coder">
@@ -637,7 +668,6 @@ function onBuild() {
 // --&gt;
 &lt;/script&gt;
 </pre>
-    </div>
     </article>
 
     <div class="to_top">
@@ -645,8 +675,7 @@ function onBuild() {
     </div>
     
 
-    <article>
-    <div id="createCode93">
+    <article id="createCode93">
         <h3>createCode93</h3>
     
         <div class="introduction_3">
@@ -660,6 +689,7 @@ function onBuild() {
         <p>
         createCode93(args);
         </p>
+        </div>
     
         <h4>名前付き引数</h4>
         <table class="coder">
@@ -694,7 +724,6 @@ function onBuild() {
 // --&gt;
 &lt;/script&gt;
 </pre>
-    </div>
     </article>
 
     <div class="to_top">
@@ -702,8 +731,7 @@ function onBuild() {
     </div>
     
 
-    <article>
-    <div id="createNW7">
+    <article id="createNW7">
         <h3>createNW7</h3>
     
         <div class="introduction_3">
@@ -717,6 +745,7 @@ function onBuild() {
         <p>
         createNW7(args);
         </p>
+        </div>
     
         <h4>名前付き引数</h4>
         <table class="coder">
@@ -753,7 +782,6 @@ function onBuild() {
 // --&gt;
 &lt;/script&gt;
 </pre>
-    </div>
     </article>
 
     <div class="to_top">
