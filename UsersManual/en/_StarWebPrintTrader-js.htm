@@ -3,8 +3,6 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Star WebPRNT User's Manual</title>
-    <link href="bootstrap.css" rel="stylesheet">
-    <link rel="stylesheet" href="font-awesome.min.css">    
     <link href="html5reset-1.6.1.css" rel="stylesheet" type="text/css" />
     <link href="webPRNT_layout.css" rel="stylesheet" type="text/css" />
     <link href="webPRNT_print_layout.css" rel="stylesheet" type="text/css" media="print" />
@@ -18,11 +16,14 @@
     
     <script src="jquery-1.10.2.min.js"></script>
     <script>
+    
     $(function tggleNavi() {
         $('#naviArrow').click(function(){
            $('#mainNavi').slideToggle('slow');
+           
        });
     });
+
     </script>
     
 </head>
@@ -37,9 +38,8 @@
     <div class="clear"></div>
 </div>
 
-<!--   ナビゲーショントグル　　　-->
 <div id="naviArrowSection">
-    <p class="naviToggle"><a id="naviArrow" onclick="tggleNavi()">Navi Show / Hidden</a></p>
+    <a id="naviArrow" onclick="tggleNavi()"><h5> Contents Show / Hide</h5></a>
 </div>
 
 <!-- wrapp : mainNavi + mainContents-->
@@ -74,6 +74,9 @@
 	<li><a href="_StarWebPrintBuilder-js.htm#createRuledLineElement">createRuledLineElement</a></li>
 	<li><a href="_StarWebPrintBuilder-js.htm#createSoundElement">createSoundElement</a></li>
 	<li><a href="_StarWebPrintBuilder-js.htm#createTextElement">createTextElement</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createBarcodeReaderElement">createBarcodeReaderElement</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createMagstripeReaderElement">createMagstripeReaderElement</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createLineDisplayElement">createLineDisplayElement</a></li>
 	</ul>
 	<ul>
 	<li><a href="_StarWebPrintTrader-js.htm">StarWebPrintTrader.js</a></li>
@@ -107,6 +110,24 @@
 	<li><a href="_StarBarcodeEncoder-js.htm#createNW7">createNW7</a></li>
 	</ul>
 	<ul>
+	<li><a href="_StarClaimManager-js.htm">StarClaimManager.js</a></li>
+	<li><a href="_StarClaimManager-js.htm#StarClaimManager">StarClaimManager</a></li>
+	<li><a href="_StarClaimManager-js.htm#sendMessage">sendMessage</a></li>
+	<li><a href="_StarClaimManager-js.htm#isBCRClaimed">isBCRClaimed</a></li>
+	<li><a href="_StarClaimManager-js.htm#isMSRClaimed">isMSRClaimed</a></li>
+	<li><a href="_StarClaimManager-js.htm#isLDClaimed">isLDClaimed</a></li>
+	<li><a href="_StarClaimManager-js.htm#getBCRDeviceNameCapability">getBCRDeviceNameCapability</a></li>
+	<li><a href="_StarClaimManager-js.htm#getBCRModeCapability">getBCRModeCapability</a></li>
+	<li><a href="_StarClaimManager-js.htm#getBCRSymbolCapability">getBCRSymbolCapability</a></li>
+	<li><a href="_StarClaimManager-js.htm#setPollingInterval">setPollingInterval</a></li>
+	<li><a href="_StarClaimManager-js.htm#setBCREventListener">setBCREventListener</a></li>
+	<li><a href="_StarClaimManager-js.htm#setMSREventListener">setMSREventListener</a></li>
+	<li><a href="_StarClaimManager-js.htm#setLDEventListener">setLDEventListener</a></li>
+	<li><a href="_StarClaimManager-js.htm#removeBCREventListener">removeBCREventListener</a></li>
+	<li><a href="_StarClaimManager-js.htm#removeMSREventListener">removeMSREventListener</a></li>
+	<li><a href="_StarClaimManager-js.htm#removeLDEventListener">removeLDEventListener</a></li>
+	</ul>
+	<ul>
 	<li><a href="_StarWebPrintRequestElement.htm">StarWebPRNT Request Element</a></li>
 	<li><a href="_StarWebPrintRequestElement.htm#root">&lt;root&gt;</a></li>
 	<li><a href="_StarWebPrintRequestElement.htm#alignment">&lt;alignment&gt;</a></li>
@@ -123,6 +144,9 @@
 	<li><a href="_StarWebPrintRequestElement.htm#ruledline">&lt;ruledline&gt;</a></li>
 	<li><a href="_StarWebPrintRequestElement.htm#sound">&lt;sound&gt;</a></li>
 	<li><a href="_StarWebPrintRequestElement.htm#text">&lt;text&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#barcodereader">&lt;barcodereader&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#magstripereader">&lt;magstripereader&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#linedisplay">&lt;linedisplay&gt;</a></li>
 	</ul>
 	<ul>
 	<li><a href="_StarWebPrintResponseElement.htm">StarWebPRNT Response Element</a></li>
@@ -130,13 +154,41 @@
 	<li><a href="_StarWebPrintResponseElement.htm#success">&lt;success&gt;</a></li>
 	<li><a href="_StarWebPrintResponseElement.htm#code">&lt;code&gt;</a></li>
 	<li><a href="_StarWebPrintResponseElement.htm#status">&lt;status&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr">&lt;bcr&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-success">&lt;success&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-code">&lt;code&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-claim">&lt;claim&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-mode">&lt;mode&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-duplicatescandelay">&lt;duplicatescandelay&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-scanoncetimeout">&lt;scanoncetimeout&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-claimpollingtimeout">&lt;claimpollingtimeout&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-symbol">&lt;symbol&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-symbolenable">&lt;symbolenable&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-data">&lt;data&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-datasymbol">&lt;datasymbol&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-datacount">&lt;datacount&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-bcrdevicename">&lt;bcrdevicename&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-modecapability">&lt;modecapability&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-symbolcapability">&lt;symbolcapability&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#msr">&lt;msr&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#msr-success">&lt;success&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#msr-code">&lt;code&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#msr-claim">&lt;claim&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#msr-claimpollingtimeout">&lt;claimpollingtimeout&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#msr-data">&lt;data&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#msr-datacount">&lt;datacount&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#ld">&lt;ld&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#ld-success">&lt;success&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#ld-code">&lt;code&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#ld-claim">&lt;claim&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#ld-claimpollingtimeout">&lt;claimpollingtimeout&gt;</a></li>
 	</ul>
         <ul>
         <li><a href="_appendixUTF8.htm">Appendix UTF-8</a></li>
         </ul>
 
 	</navi>
-</div>   <!--      mainNavi    END      -->
+</div>
 
 
 <div id="mainContents">
@@ -199,20 +251,73 @@
         <h5>POS Printer and AsuraCPRNT</h5>
         <table class="List2">
             <thead>
-                <tr><td>Name</td><td>FVP10</td><td>TSP650II</td><td>TSP700II</td><td>TSP800II</td><td>AsuraCPRNT</td></tr>
+                <tr><td>Name</td><td>FVP10</td><td>TSP650II</td><td>TSP700II</td><td>TSP800II</td><td>mPOP</td><td>AsuraCPRNT</td></tr>
+            </thead>
+            <tbody>
+            <tr><td><a href="#sendMessage">sendMessage</a>*1 *2</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#isCoverOpen">isCoverOpen</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#isOffLine">isOffLine</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#isCompulsionSwitchClose">isCompulsionSwitchClose</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#isEtbCommandExecute">isEtbCommandExecute</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#isHighTemperatureStop">isHighTemperatureStop</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#isNonRecoverableError">isNonRecoverableError</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#isAutoCutterError">isAutoCutterError</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#isBlackMarkError">isBlackMarkError</a></td><td>○</td><td>-</td><td>○</td><td>○</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#isPaperEnd">isPaperEnd</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#isPaperNearEnd">isPaperNearEnd</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>-</td><td>○</td></tr>
+            <tr><td><a href="#extractionEtbCounter">extractionEtbCounter</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>            
+            </tbody>
+        </table>
+        <p class="note2">
+            *1 Waiting for completion of printing is fixed to valid for Bluetooth printers. <br />
+            　　The named argument ’checkedblock' does not work.<br />
+            *2 The named argument ’blackmark_sensor' does not work.
+        </p>
+
+
+        <h5>Mobile Printer (ESC/POS)</h5>
+        <table class="List2">
+            <thead>
+                <tr><td>Name</td><td>SM-S220i<br />(Excluding Jp model)</td><td>SM-S230i</td><td>SM-T300i</td><td>SM-T400i</td></tr>
+            </thead>
+            <tbody>
+            <tr><td><a href="#sendMessage">sendMessage</a>*1 *2</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#isCoverOpen">isCoverOpen</a></td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#isOffLine">isOffLine</a></td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#isCompulsionSwitchClose">isCompulsionSwitchClose</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#isEtbCommandExecute">isEtbCommandExecute</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#isHighTemperatureStop">isHighTemperatureStop</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#isNonRecoverableError">isNonRecoverableError</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#isAutoCutterError">isAutoCutterError</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#isBlackMarkError">isBlackMarkError</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#isPaperEnd">isPaperEnd</a></td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#isPaperNearEnd">isPaperNearEnd</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#extractionEtbCounter">extractionEtbCounter</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>            
+            </tbody>
+        </table>
+        <p class="note2">
+            *1 Waiting for completion of printing is fixed to valid for Bluetooth printers. <br />
+            　　The named argument ’checkedblock' does not work.<br />
+            *2 The named argument 'papertype', 'blackmark_sensor' does not work.
+        </p>
+        
+        <h5>Mobile Printer (StarPRNT)</h5>
+        <table class="List2">
+            <thead>
+                <tr><td>Name</td><td>SM-S220i<br />(Excluding Jp model)</td><td>SM-S230i</td><td>SM-T300i</td><td>SM-T400i</td><td>SM-L200</td></tr>
             </thead>
             <tbody>
             <tr><td><a href="#sendMessage">sendMessage</a>*1</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
             <tr><td><a href="#isCoverOpen">isCoverOpen</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
             <tr><td><a href="#isOffLine">isOffLine</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#isCompulsionSwitchClose">isCompulsionSwitchClose</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#isCompulsionSwitchClose">isCompulsionSwitchClose</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
             <tr><td><a href="#isEtbCommandExecute">isEtbCommandExecute</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
             <tr><td><a href="#isHighTemperatureStop">isHighTemperatureStop</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#isNonRecoverableError">isNonRecoverableError</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#isAutoCutterError">isAutoCutterError</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#isBlackMarkError">isBlackMarkError</a></td><td>○</td><td>-</td><td>○</td><td>○</td><td>-</td></tr>
+            <tr><td><a href="#isNonRecoverableError">isNonRecoverableError</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#isAutoCutterError">isAutoCutterError</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#isBlackMarkError">isBlackMarkError</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
             <tr><td><a href="#isPaperEnd">isPaperEnd</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#isPaperNearEnd">isPaperNearEnd</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#isPaperNearEnd">isPaperNearEnd</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
             <tr><td><a href="#extractionEtbCounter">extractionEtbCounter</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>            
             </tbody>
         </table>
@@ -220,33 +325,6 @@
             *1 Waiting for completion of printing is fixed to valid for Bluetooth printers. <br />
             　　The named argument ’checkedblock' does not work.
         </p>
-
-
-        <h5>Mobile Printer</h5>
-        <table class="List2">
-            <thead>
-                <tr><td>Name</td><td>SM-S220i<br />(Excluding Jp model)</td><td>SM-T300i</td><td>SM-T400i</td></tr>
-            </thead>
-            <tbody>
-            <tr><td><a href="#sendMessage">sendMessage</a>*1</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#isCoverOpen">isCoverOpen</a></td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#isOffLine">isOffLine</a></td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#isCompulsionSwitchClose">isCompulsionSwitchClose</a></td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#isEtbCommandExecute">isEtbCommandExecute</a></td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#isHighTemperatureStop">isHighTemperatureStop</a></td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#isNonRecoverableError">isNonRecoverableError</a></td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#isAutoCutterError">isAutoCutterError</a></td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#isBlackMarkError">isBlackMarkError</a></td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#isPaperEnd">isPaperEnd</a></td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#isPaperNearEnd">isPaperNearEnd</a></td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#extractionEtbCounter">extractionEtbCounter</a></td><td>-</td><td>-</td><td>-</td></tr>            
-            </tbody>
-        </table>
-        <p class="note2">
-            *1 Waiting for completion of printing is fixed to valid for Bluetooth printers. <br />
-            　　The named argument ’checkedblock' does not work.
-        </p>
-        
 
         
     </div>
@@ -284,8 +362,16 @@
                    <td>String</td><td>-</td></tr>
                 <tr><td>checkedblock</td><td>Specifies waiting for the completion of printing<br />
                    <ul><li>true … Wait for the completion of printing</li><li>false … Not wait for the completion of printing</li></ul></td><td>Boolean</td><td>true</td></tr>
+                <tr><td>papertype</td><td>Paper type<br />
+                   <ul><li>normal … Nomal paper</li><li>black_mark … Black mark paper</li><li>black_mark_and_detect_at_power_on … Black mark paper (Detect at power on)</ul></td><td>String</td><td>-</td></tr>
+                <tr><td>blackmark_sensor *1</td><td>Type of blackmark sensor<br />
+                   <ul><li>front_side … Front side detector sensor</li><li>back_side … Back side detector sensor</li><li>hole_or_gap … Hole or gap detector sensor</li></ul></td><td>String</td><td>front_side</td></tr>
             </tbody>
         </table>
+        <p class="note">
+            *1 The blackmark_sensor attribute is valid when ”black_mark" or ”black_mark_and_detect_at_power_on” is specified for the paper type attribute.
+        </p>
+
 
         <h4>Return value</h4>
         <table class="coder">
@@ -346,10 +432,20 @@ function onSend(url, request) {
                 <tr><td>checkedblock</td>
                       <td>Specifies waiting for the completion of printing<br /><ul><li>true … Wait for the completion of printing</li>
                          <li>false … Not wait for the completion of printing</li></ul><br />
-                      Note: When a url is omitted, the value specified by StarWebPrintTrader constructor should be used.</td><td>Boolean</td><td>-</td></tr>
+                      Note: When a checkedblock is omitted, the value specified by StarWebPrintTrader constructor should be used.</td><td>Boolean</td><td>-</td></tr>
                 <tr><td>request</td><td>List of StarWebPRNT request element</td><td>String</td><td>Can't be omitted</td></tr>
+                <tr><td>papertype</td><td>Paper type<br />
+                   <ul><li>normal … Nomal paper</li><li>black_mark … Black mark paper</li><li>black_mark_and_detect_at_power_on … Black mark paper (Detect at power on)</ul><br />
+                      Note: When a papertype is omitted, the value specified by StarWebPrintTrader constructor should be used. 
+                      If not specified by StarWebPrintTrader constructor either, it is an unset status.</td><td>String</td><td>-</td></tr>
+                <tr><td>blackmark_sensor *1</td><td>Type of blackmark sensor<br />
+                   <ul><li>front_side … Front side detector sensor</li><li>back_side … Back side detector sensor</li><li>hole_or_gap … Hole or gap detector sensor</li></ul><br />
+                      Note: When a blackmark_sensor is omitted, the value specified by StarWebPrintTrader constructor should be used.</td><td>String</td><td>-</td></tr>
             </tbody>
         </table>
+        <p class="note">
+            *1 The blackmark_sensor attribute is valid when ”black_mark" or ”black_mark_and_detect_at_power_on” is specified for the paper type attribute.
+        </p>
 
         <h4>Return value</h4>
         <table class="coder">
@@ -1120,11 +1216,58 @@ function onSend(url, request) {
                                                                 <li>1100 … Printer off line(On error)</li>
                                                                 <li>2001 … Printer busy(In use with another device: Need to resend data)</li></ul></td><td>Number</td></tr>
                 <tr><td>traderStatus</td><td>Star Automatic Status<br />Note. Refer to the command specifications.</td><td>String</td></tr>
+                <tr><td>traderBCRSuccess (*1)</td><td>Barcode reader success code<br /><ul><li>true … Control succeeded</li><li>false … Control failed</li></ul></td><td>Boolean</td></tr>
+                <tr><td>traderBCRCode (*1)</td><td>Barcode reader result code<br /><ul><li>0 … Success</li>
+                                                               <li>1 … The read data of barcode data is nothing</li>
+                                                               <li>1001 … Barcode reader claim still has not be performed.</li>
+                                                               <li>1002 … Barcode reader is busy<br />(In use with another device. Another device has already performed the claim start: Need to resend data)</li>
+                                                               <li>1003 … Barcode reader device is not connected on AsuraCPRNT or turn off. </li>
+                                                               <li>1004 … Barcode reader has error(On online)</li></ul></td><td>Number</td></tr>
+                <tr><td>traderBCRClaim (*1)</td><td>Barcode reader claim status<br /><ul><li>true … Starts the claim of the barcode reader device</li><li>false … Finishes the claim of the barcode reader device</li></ul></td><td>Boolean</td></tr>
+                <tr><td>traderBCRMode (*1)</td><td>Scan mode<br /><ul><li>OFF … Turn off</li>
+                                                                          <li>ONCE … The scan mode of once reading</li>
+                                                                          <li>AUTO … The scan mode of continuous reading with sights</li>
+                                                                          <li>CONTINUOUS … The scan mode of continuous reading without sights</li>
+                                                                          <li>MOBILE_PHONE … The scan mode of one time reading for LCD screens</li>
+                                                                          <li>MOBILE_CONTINUOUS … The scan mode of continuous reading for LCD screens</li></ul></td><td>String</td></tr>
+                <tr><td>traderBCRData (*1)</td><td>Barcode Data<br />*Form of Base64</td><td>String</td></tr>
+                <tr><td>traderBCRDataSymbol (*1)</td><td>Barcode data symbol<br /><ul><li>AUSTRALIAN_POST</li><li>AZTEC_CODE</li><li>BRITISH_POST</li><li>CANADIAN_POST</li><li>CHINA_POST</li><li>CHINESE_SENSIBLE_CODE</li><li>CODABAR</li><li>CODABLOCK_A</li><li>CODABLOCK_F</li><li>CODE_11</li><li>CODE_128</li><li>CODE_32</li><li>CODE_39</li><li>CODE_49</li><li>CODE_93</li><li>DATA_MATRIX</li><li>EAN_13</li><li>EAN_8</li><li>INFOMAIL</li><li>INTELLIGENT_MAIL_BARCODE</li><li>INTERLEAVED_2_OF_5</li><li>JAPANESE_POST</li><li>KIX_POST</li><li>KOREA_POST</li><li>MATRIX_2_OF_5</li><li>MAXICODE</li><li>MICROPDF417</li><li>MSI</li><li>NEC_2_OF_5</li><li>PDF417</li><li>PLANET_CODE</li><li>POSTAL_4I</li><li>POSTNET</li><li>QR_CODE</li><li>STRAIGHT_2_OF_5_IATA</li><li>STRAIGHT_2_OF_5_INDUSTRIAL</li><li>TLC39</li><li>TELEPEN</li><li>UPC_A</li><li>UPC_E</li><li>GS1_128</li><li>GS1_COMPOSIT</li><li>GS1_DATABAR</li></ul></td><td>String</td></tr>
+                <tr><td>traderBCRDataCount (*1)</td><td>Current number of read barcode data which have been held</td><td>Number</td></tr>
+                <tr><td>traderBCRDuplicateScanDelay (*1)</td><td>The delay time when read same barcode about the scan mode of continuous reading. (msec)<br />*0 - 30000 (msec)</td><td>Number</td></tr>
+                <tr><td>traderBCRScanOnceTimeout (*1)</td><td>The time which is keeping to turn on about the scan mode of once reading.<br />*0 - 300000 (msec)</td><td>Number</td></tr>
+                <tr><td>traderBCRSymbol (*1)</td><td>Barcode symbol<br />*please refer to "traderBCRDataSymbol" about supported symbol</td><td>String</td></tr>
+                <tr><td>traderBCRSymbolEnable (*1)</td><td>Reading setting of barcode symbol<br /><ul><li>true … The reading of barcode symbol is enable</li><li>false … The reading of barcode symbol is disable</li></ul></td><td>Boolean</td></tr>
+                <tr><td>traderBCRClaimPollingTimeout (*1)</td><td>Polling of Claim management timeout<br />*1000　～  2147483647(msec)</td><td>Number</td></tr>
+                <tr><td>traderMSRSuccess (*1)</td><td>Magstripe reader success code<br /><ul><li>true … Control succeeded</li><li>false … Control failed</li></ul></td><td>Boolean</td></tr>
+                <tr><td>traderMSRCode (*1)</td><td>Magstripe reader result code<br /><ul><li>0 … Success</li>
+                                                               <li>1 … The read data of magstripe data is nothing</li>
+                                                               <li>1001 … Magstripe reader claim still has not be performed. </li>
+                                                               <li>1002 … Magstripe reader is busy<br />(In use with another device. Another device has already performed the claim start: Need to resend data)</li>
+                                                               <li>1003 … Magstripe reader device is not connected on AsuraCPRNT or turn off. </li>
+                                                               <li>1004 … Magstripe reader has error(On online) </li></ul></td><td>Number</td></tr>
+                <tr><td>traderMSRClaim (*1)</td><td>Magstripe reader claim status<br /><ul><li>true … Starts the claim of the magstripe reader device</li><li>false … Finishes the claim of the magstripe reader device</li></ul></td><td>Boolean</td></tr>
+                <tr><td>traderMSRData (*1)</td><td>Magstripe Data<br />*Form of Base64</td><td>String</td></tr>
+                <tr><td>traderMSRDataCount (*1)</td><td>Current number of read magstripe data which have been held</td><td>Number</td></tr>
+                <tr><td>traderMSRClaimPollingTimeout (*1)</td><td>Polling of Claim management timeout<br />*1000　～  2147483647(msec)</td><td>Number</td></tr>
+                <tr><td>traderLDSuccess (*1) (*2)</td><td>Linde display success code<br /><ul><li>true … Control succeeded</li><li>false … Control failed</li></ul></td><td>Boolean</td></tr>
+                <tr><td>traderLDCode (*1) (*2)</td><td>Line display reader result code<br /><ul><li>0 … Success</li>
+                                                               <li>1001 … Line display claim still has not be performed. </li>
+                                                               <li>1002 … Line display is busy<br />(In use with another device. Another device has already performed the claim start: Need to resend data)</li>
+                                                               <li>1003 … Line display device is not connected on AsuraCPRNT or turn off. </li>
+                                                               <li>1004 … line display has error(On online) </li></ul></td><td>Number</td></tr>
+                <tr><td>traderLDClaim (*1) (*2)</td><td>Line display claim status<br /><ul><li>true … Starts the claim of the line display device</li><li>false … Finishes the claim of the line display device</li></ul></td><td>Boolean</td></tr>
+                <tr><td>traderLDClaimPollingTimeout (*1) (*2)</td><td>Polling of Claim management timeout<br />*1000　～  2147483647(msec)</td><td>Number</td></tr>
+
                 <tr><td>status</td><td>Status property of XMLHttpRequest<br />Note. Refer to the XMLHttpRequest specifications.</td><td>Number</td></tr>
                 <tr><td>responseText</td><td>ResponseText property of XMLHttpRequest<br />Note. Refer to the XMLHttpRequest specifications.</td><td>String</td></tr>
             </tbody>
         </table>
-    
+        <p class="note2">
+            *1 This function has been supported in AsuraCPRNT Linux OS since version 1.7.<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Please refer to the specifications of <a href="http://www.star-m.jp/eng/products/s_print/sp01_09.html"> AsuraCPRNT Develeper Site</a> about each supported devices.<br />
+            *2 When start up the "Line Display" Application which has been supported AsuraCPRNT Linux OS since version 1.7 on Asura, can be available.
+        </p>
+
         <h5>Example</h5>
 <pre>
 // --&gt;
@@ -1165,6 +1308,151 @@ function onSend(url, request) {
 // --&gt;
 &lt;/script&gt;
 </pre>
+
+        <h5>Example: Barcode Reader</h5>
+<pre>
+// --&gt;
+&lt;script type='text/javascript' src='js/StarWebPrintTrader.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript' src='js/StarClaimManager.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+var manager = new StarClaimManager();
+
+function onSend(url, request) {
+　　var trader = new StarWebPrintTrader({url:url});
+
+　　trader.onReceive = function (response) {
+        var msg = '- onReceive -\n\n';
+
+        msg += 'TraderBCRSuccess:' + response.traderBCRSuccess + '\n';
+
+　      msg += 'TraderBCRCode:' + response.traderBCRCode + '\n';
+
+        msg += 'TraderBCRClaim:' + response.traderBCRClaim + '\n';
+
+        msg += 'TraderBCRData:' + response.traderBCRData + '\n';
+
+　      msg += 'TraderBCRDataSymbol:' + response.traderBCRDataSymbol + '\n';
+
+        msg += 'TraderBCRDataCount:' + response.traderBCRDataCount + '\n';
+
+        msg += 'TraderBCRDuplicateScanDelay:' + response.traderBCRDuplicateScanDelay + '\n';
+
+        msg += 'TraderBCRScanOnceTimeout:' + response.traderBCRScanOnceTimeout + '\n';
+
+　      msg += 'TraderBCRSymbol:' + response.traderBCRSymbol + '\n';
+
+　      msg += 'TraderBCRSymbolEnable:' + response.traderBCRSymbolEnable + '\n';
+
+　      msg += 'TraderBCRClaimPollingTimeout:' + response.traderBCRClaimPollingTimeout + '\n';
+
+        alert(msg);
+　　}
+
+    trader.onError = function (response) {
+        var msg = '- onError -\n\n';
+
+        msg += '\tStatus:' + response.status + '\n';
+
+        msg += '\tResponseText:' + response.responseText;
+
+        alert(msg);
+    }
+
+    manager.sendMessage({request:request, trader:trader});
+}
+// --&gt;
+&lt;/script&gt;
+</pre>
+
+        <h5>Example: Magstripe Reader</h5>
+<pre>
+// --&gt;
+&lt;script type='text/javascript' src='js/StarWebPrintTrader.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript' src='js/StarClaimManager.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+var manager = new StarClaimManager();
+
+function onSend(url, request) {
+　　var trader = new StarWebPrintTrader({url:url});
+
+　　trader.onReceive = function (response) {
+        var msg = '- onReceive -\n\n';
+
+        msg += 'TraderMSRSuccess:' + response.traderMSRSuccess + '\n';
+
+　      msg += 'TraderMSRCode:' + response.traderMSRCode + '\n';
+
+        msg += 'TraderMSRClaim:' + response.traderMSRClaim + '\n';
+
+        msg += 'TraderMSRData:' + response.traderMSRData + '\n';
+
+　      msg += 'TraderMSRDataCount:' + response.traderMSRDataCount + '\n';
+
+        msg += 'TraderMSRClaimPollingTimeout:' + response.traderMSRClaimPollingTimeout + '\n';
+
+        alert(msg);
+　　}
+
+    trader.onError = function (response) {
+        var msg = '- onError -\n\n';
+
+        msg += '\tStatus:' + response.status + '\n';
+
+        msg += '\tResponseText:' + response.responseText;
+
+        alert(msg);
+    }
+
+    manager.sendMessage({request:request, trader:trader});
+}
+// --&gt;
+&lt;/script&gt;
+</pre>
+
+        <h5>Example: Line Disaplay</h5>
+<pre>
+// --&gt;
+&lt;script type='text/javascript' src='js/StarWebPrintTrader.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript' src='js/StarClaimManager.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+var manager = new StarClaimManager();
+
+function onSend(url, request) {
+　　var trader = new StarWebPrintTrader({url:url});
+
+　　trader.onReceive = function (response) {
+        var msg = '- onReceive -\n\n';
+
+        msg += 'TraderLDSuccess:' + response.traderLDSuccess + '\n';
+
+　      msg += 'TraderLDCode:' + response.traderLDCode + '\n';
+
+        msg += 'TraderLDClaim:' + response.traderLDClaim + '\n';
+
+        msg += 'traderLDClaimPollingTimeout:' + response.traderLDClaimPollingTimeout + '\n';
+
+        alert(msg);
+　　}
+
+    trader.onError = function (response) {
+        var msg = '- onError -\n\n';
+
+        msg += '\tStatus:' + response.status + '\n';
+
+        msg += '\tResponseText:' + response.responseText;
+
+        alert(msg);
+    }
+
+    manager.sendMessage({request:request, trader:trader});
+}
+// --&gt;
+&lt;/script&gt;
+</pre>
+
     </div>
     </article>
 
@@ -1255,7 +1543,7 @@ function onSend(url, request) {
 
 <div id="footer">
 <footer>
-<p id="copyright"> &copy; Copyright 2013 - 2014  <a href="http://www.star-m.jp/">Star Micronics Co., Ltd.</a> </p>
+<p id="copyright"> &copy; Copyright 2013 - 2015  <a href="http://www.star-m.jp/">Star Micronics Co., Ltd.</a> </p>
 </footer>
 </div>
 

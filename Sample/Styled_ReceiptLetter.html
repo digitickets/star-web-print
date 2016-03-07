@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<!--
+//
+// StarWebPRNT Sample(レシートレター)
+//
+// Version 1.2.1
+//
+// Copyright (C) 2015 STAR MICRONICS CO., LTD. All Rights Reserved.
+//
+-->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title>StarWebPRNT レシートレター</title>
+
+<link href="css/import.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="style.css" media="screen">
+
+<link href="css/style_receiptLetter.css" rel="stylesheet" type="text/css">
+<script type='text/javascript' src='js/StarWebPrintBuilder.js'></script>
+<script type='text/javascript' src='js/StarWebPrintTrader.js'></script>
+<script type='text/javascript'>
+
+function sendMessage(request) {
+    var url       = 'http://localhost:8001/StarWebPRNT/SendMessage';
+
+    var trader = new StarWebPrintTrader({url:url});
+
+    trader.onReceive = function (response) {
+        var msg = '- onReceive -\n\n';
+
+        if (response.traderSuccess == 'true') {
+            msg += '印刷結果 : 成功\n';
+        }
+        else {
+            msg += '印刷結果 : 失敗\n';
+        
+            msg += '状態 : [ '
+
+            if (trader.isCoverOpen            ({traderStatus:response.traderStatus})) {msg += '\tカバーオープン,\n';}
+            if (trader.isOffLine              ({traderStatus:response.traderStatus})) {msg += '\tオフライン,\n';}
+            // if (trader.isCompulsionSwitchClose({traderStatus:response.traderStatus})) {msg += '\tCompulsionSwitchClose,\n';}
+            // if (trader.isEtbCommandExecute    ({traderStatus:response.traderStatus})) {msg += '\tEtbCommandExecute,\n';}
+            if (trader.isHighTemperatureStop  ({traderStatus:response.traderStatus})) {msg += '\t高温検知停止,\n';}
+            if (trader.isNonRecoverableError  ({traderStatus:response.traderStatus})) {msg += '\t復帰不可能エラー,\n';}
+            if (trader.isAutoCutterError      ({traderStatus:response.traderStatus})) {msg += '\tカッターエラー,\n';}
+            // if (trader.isBlackMarkError       ({traderStatus:response.traderStatus})) {msg += '\tBlackMarkError,\n';}
+            if (trader.isPaperEnd             ({traderStatus:response.traderStatus})) {msg += '\t紙無しエラー,\n';}
+            // if (trader.isPaperNearEnd         ({traderStatus:response.traderStatus})) {msg += '\tPaperNearEnd,\n';}
+
+            msg += ' ]\n';
+        }
+
+        alert(msg);
+    }
+
+    trader.onError = function (response) {
+        var msg = '- onError -\n\n';
+
+        msg += '\tStatus:' + response.status + '\n';
+
+        msg += '\tResponseText:' + response.responseText;
+
+        alert(msg);
+    }
+
+    trader.sendMessage({request:request});
+}
+
+function onSend() {
+	nowPrinting();
+    var builder = new StarWebPrintBuilder();
+
+    var textArea = document.getElementById('textData');
+
+    var request = '';
+
+    request += builder.createInitializationElement();
+
+    var canvasPrint = document.getElementById('canvasPrint');
+    request += builder.createBitImageElement({context:canvasPrint.getContext('2d'), x:0, y:0, width:canvasPrint.width, height:canvasPrint.height});
+
+    request += builder.createTextElement({characterspace:0, codepage:'utf8', international:'japan'});
+
+    request += builder.createTextElement({data:textArea.value});
+
+    request += builder.createCutPaperElement({feed:true});
+
+    sendMessage(request);
+}
+function createTextArea(){
+    var div_element = document.createElement("div");
+    div_element.innerHTML = '<textarea id="textData" rows="40" style="overflow: hidden;" wrap="hard">'
+
+    document.getElementById("container").appendChild(div_element);
+}
+function check() {
+    alert("abc");
+}
+function changeLogo() {
+    try {
+        var paperWidth = document.getElementById('PaperWidth');
+        var selection  = document.getElementById('LogoSelection');
+        var width      = paperWidth.options[paperWidth.selectedIndex].value;
+
+        var path = selection.options[selection.selectedIndex].value;
+
+        var image = new Image();
+
+        image.src = 'img/' + width + '/' + path + '?' + new Date().getTime();
+
+        var canvasPrint = document.getElementById('canvasPrint');
+        var canvasShow = document.getElementById('canvasShow');
+
+        image.onload = function () {
+            if (canvasPrint.getContext) {
+                canvasPrint.width  = image.width;
+                canvasPrint.height = image.height;
+
+                var contextPrint = canvasPrint.getContext('2d');
+                contextPrint.drawImage(image, 0, 0);
+            }
+
+            if (canvasShow.getContext) {
+                var canvasWidth;
+                if (width == '2inch') {
+                    canvasWidth = 200;
+                }
+                else {
+                    canvasWidth = 300;
+                }
+
+                var canvasRatio = image.width / canvasWidth;
+
+                canvasShow.width  = canvasWidth;
+                canvasShow.height = image.height / canvasRatio;
+                // canvasShow.height = image.height;
+
+                var contextShow = canvasShow.getContext('2d');
+                contextShow.drawImage(image, 0, 0, canvasShow.width, canvasShow.height);
+            }
+        }
+
+        image.onerror = function () {
+            alert('Image file was not able to be loaded int the web server.');
+        }
+    }
+    catch (e) {
+        alert(e.message);
+    }
+}
+function changePaperWidth(PaperWidth) {
+    var textArea = document.getElementById('textData');
+
+    if (PaperWidth.options[PaperWidth.selectedIndex].value == '2inch') {
+        if (navigator.userAgent.indexOf("Android") != -1) {
+            textArea.cols = 29;
+        }
+        else {
+            textArea.cols = 30;
+        }
+
+        textArea.value = 
+"\n" +
+"    毎度ありがとうございます！\n" +
+"静岡店：０５４－３４７－０１１２\n" +
+"\n" +
+"              領収証\n" +
+"\n" +
+"２０１６年１月１日　１８時２３分\n" +
+"　生ビール               \\   550\n" +
+"　笑顔                   \\     0\n" +
+"　激辛！麻婆豆腐         \\   980\n" +
+"　いい夫婦               \\ 1,122\n" +
+"　感謝                   \\    39\n" +
+"　これからも             \\     0\n" +
+"　末長く                 \\   888\n" +
+"　宜しくお願いします     \\ 4,649\n" +
+"--------------------------------\n" +
+"              合計       \\ 8,117\n" +
+"              御預り金   \\10,000\n" +
+"              おつり     \\ 1,883\n" +
+"\n" +
+"　来週、焼肉おごるよ！\n" +
+"\n" +
+"　No.777\n" +
+"　作成者： 星 太郎\n";
+    }
+    else {
+        textArea.cols = 44;
+        textArea.value = 
+"\n" +
+"            毎度ありがとうございます！\n" +
+"         静岡店：０５４－３４７－０１１２\n" +
+"\n" +
+"                    領収証\n" +
+"\n" +
+"２０１６年１月１日  １８時２３分\n" +
+"　K18 ホワイトゴールドネックレス        \\  ?????\n" +
+"　今年で付き合って2回目の               \\      2\n" +
+"　クリスマスだね★                      \\  1,225\n" +
+"　普段は恥ずかしくて言えないけど        \\      0\n" +
+"　いつも手料理ありがとう♪              \\     39\n" +
+"　これからも末長く                      \\    888\n" +
+"　よろしくお願いします♪                \\  4,649\n" +
+"------------------------------------------------\n" +
+"                              合計      \\  6,803\n" +
+"                           御預り金     \\ 10,000\n" +
+"                             おつり     \\  3,197\n" +
+"\n" +
+"　      暖かくなったら、韓国旅行行こうね★\n";
+    }
+    changeLogo();
+}
+
+function nowLoading(){
+	document.getElementById('form').style.display="block";
+	document.getElementById('overlay').style.display="none";
+	document.getElementById('nowLoadingWrapper').style.display="none";
+}
+function nowPrinting(){
+	document.getElementById('overlay').style.display="block";
+	document.getElementById('nowPrintingWrapper').style.display="table";
+	timer = setTimeout(function (){
+		document.getElementById('overlay').style.opacity= 0.0;
+		document.getElementById('overlay').style.transition= "all 0.3s";
+		intimer = setTimeout(function (){
+			document.getElementById('overlay').style.display="none";
+		document.getElementById('overlay').style.opacity= 1;
+	        clearTimeout(intimer);
+		}, 300);
+		document.getElementById('nowPrintingWrapper').style.display="none";
+        clearTimeout(timer);
+	}, 7000);
+}
+
+// -->
+</script>
+<noscript>
+    Your browser does not support JavaScript!
+</noscript>
+</head>
+<body>
+
+	<div id="overlay">
+		<div id="nowPrintingWrapper">
+			<section id="nowPrinting">
+				<h1>Now Printing</h1>
+				<p><img src="images/icon_loading.gif" /></p>
+			</section>
+		</div>
+		<div id="nowLoadingWrapper">
+			<section id="nowLoading">
+				<h1>Now Loading</h1>
+				<p><img src="images/icon_loading.gif" /></p>
+			</section>
+		</div>
+	</div>
+
+<header id="global-header">
+<h1><a href="A001.html"><img src="images/logo_01.png" alt="HOME" width="108" height="61"></a></h1>
+<div id="sub-logo"><a href="http://www.star-m.jp/" target="_blank"><img src="images/logo_02.png" alt="" width="120" height="13"></a></div>
+</header>
+
+<section class="btmMg20">
+	<h2 class="h2-tit-01 btmMg20">レシートレター</h2>
+</section>
+
+    <form onsubmit='return false;' id="form">
+		<div class="container">
+
+        <d1>
+        <dt>用紙幅選択</dt>
+        <dd>
+            <select id='PaperWidth' onchange="changePaperWidth(this)">
+                <option value='2inch' selected='selected'>2インチ (SM-S210i)</option>
+                <option value='3inch'>3インチ (TSP650II)</option>
+            </select>
+        </dd>
+        </d1>
+
+        <d1>
+        <dt>ロゴ選択</dt>
+        <dd>
+            <select id='LogoSelection' onchange="changeLogo()">
+                <option value='01-Receipt_Letter_ENG.bmp' selected='selected'>01　レシートレター英語</option>
+                <option value='02-Receipt_Letter_JP.bmp'>02　レシートレター日本語</option>
+                <option value='03-Thanks_Letter.bmp'>03　サンクスレター</option>
+                <option value='04-Kansha_Letter_H.bmp'>04　感謝レター１</option>
+                <option value='05-Kansha_Letter_V.bmp'>05　感謝レター２</option>
+                <option value='06-Kokuhaku_Letter.bmp'>06　告白レター</option>
+                <option value='07-Sorry_Letter.bmp'>07　ごめんねレター</option>
+                <option value='08-Happy_Birthday.bmp'>08　ハッピーバースデー</option>
+                <option value='09-Happy_Christmas.bmp'>09　ハッピークリスマス</option>
+                <option value='10-Merry_Christmas.bmp'>10　メリークリスマス</option>
+                <option value='11-Happy_New_Year.bmp'>11　ハッピーニューイヤー</option>
+                <option value='12-Happy_Valentines.bmp'>12　バレンタイン</option>
+            </select>
+        </dd>
+        </d1>
+
+        <hr>
+
+        <d1>
+            <dt>ロゴ</dt>
+            <dd>
+                <canvas id='canvasPrint' width='0' height='15' hidden>
+                    Your browser does not support Canvas!
+                </canvas>
+                <canvas id='canvasShow' width='0'>
+                    Your browser does not support Canvas!
+                </canvas>
+            </dd>
+        </d1>
+
+        <d1>
+            <dt>本文</dt>
+            <dd>
+                <div id="container"></div>
+            </dd>
+        </d1>
+
+        <hr>
+        <footer>
+			<input id="sendBtnAscii" type="button" value="印刷" onclick="onSend()" />
+		</footer>
+        </div>
+	</form>
+
+    <div class="to_top">
+        <a href="#global-header">Go to top</a>
+    </div>
+
+<footer id="global-footer" class="clearfix">
+	<a href="http://www.star-m.jp/products/s_print/sdk_webprnt/manual/index.htm" target="_blank"><img src="images/footer-logo.png" width="123" alt="" id="footer-logo"></a>
+    <img src="images/footer-image.png" height="54" alt=""/>
+</footer>
+
+<script>
+window.onload = function() {
+    nowLoading();
+    createTextArea();
+    changePaperWidth(document.getElementById('PaperWidth'));
+    changeLogo(document.getElementById('LogoSelection'));
+}
+</script>
+</body>
+</html>

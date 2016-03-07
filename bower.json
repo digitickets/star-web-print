@@ -1,15 +1,15 @@
 {
   "name": "rquadling.star-web-print",
-  "version": "1.1.0",
+  "version": "1.2.1",
   "homepage": "http://www.starmicronics.com/support/sdkdocumentation.aspx",
   "authors": [
     "Star Micronics"
   ],
   "description": "Javascript library for printing to Star Micronics printers supporting the WebPRNT interface.",
   "main": [
-    "Sample/Star-WebContent/js/StarBarcodeEncoder.js",
-    "Sample/Star-WebContent/js/StarWebPrintBuilder.js",
-    "Sample/Star-WebContent/js/StarWebPrintTrader.js"
+    "Sample/js/StarBarcodeEncoder.js",
+    "Sample/js/StarWebPrintBuilder.js",
+    "Sample/js/StarWebPrintTrader.js"
   ],
   "keywords": [
     "javascript",

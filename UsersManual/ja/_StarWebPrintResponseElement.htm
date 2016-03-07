@@ -74,6 +74,9 @@
 	<li><a href="_StarWebPrintBuilder-js.htm#createRuledLineElement">createRuledLineElement</a></li>
 	<li><a href="_StarWebPrintBuilder-js.htm#createSoundElement">createSoundElement</a></li>
 	<li><a href="_StarWebPrintBuilder-js.htm#createTextElement">createTextElement</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createBarcodeReaderElement">createBarcodeReaderElement</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createMagstripeReaderElement">createMagstripeReaderElement</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createLineDisplayElement">createLineDisplayElement</a></li>
 	</ul>
 	<ul>
 	<li><a href="_StarWebPrintTrader-js.htm">StarWebPrintTrader.js</a></li>
@@ -107,6 +110,24 @@
 	<li><a href="_StarBarcodeEncoder-js.htm#createNW7">createNW7</a></li>
 	</ul>
 	<ul>
+	<li><a href="_StarClaimManager-js.htm">StarClaimManager.js</a></li>
+	<li><a href="_StarClaimManager-js.htm#StarClaimManager">StarClaimManager</a></li>
+	<li><a href="_StarClaimManager-js.htm#sendMessage">sendMessage</a></li>
+	<li><a href="_StarClaimManager-js.htm#isBCRClaimed">isBCRClaimed</a></li>
+	<li><a href="_StarClaimManager-js.htm#isMSRClaimed">isMSRClaimed</a></li>
+	<li><a href="_StarClaimManager-js.htm#isLDClaimed">isLDClaimed</a></li>
+	<li><a href="_StarClaimManager-js.htm#getBCRDeviceNameCapability">getBCRDeviceNameCapability</a></li>
+	<li><a href="_StarClaimManager-js.htm#getBCRModeCapability">getBCRModeCapability</a></li>
+	<li><a href="_StarClaimManager-js.htm#getBCRSymbolCapability">getBCRSymbolCapability</a></li>
+	<li><a href="_StarClaimManager-js.htm#setPollingInterval">setPollingInterval</a></li>
+	<li><a href="_StarClaimManager-js.htm#setBCREventListener">setBCREventListener</a></li>
+	<li><a href="_StarClaimManager-js.htm#setMSREventListener">setMSREventListener</a></li>
+	<li><a href="_StarClaimManager-js.htm#setLDEventListener">setLDEventListener</a></li>
+	<li><a href="_StarClaimManager-js.htm#removeBCREventListener">removeBCREventListener</a></li>
+	<li><a href="_StarClaimManager-js.htm#removeMSREventListener">removeMSREventListener</a></li>
+	<li><a href="_StarClaimManager-js.htm#removeLDEventListener">removeLDEventListener</a></li>
+	</ul>
+	<ul>
 	<li><a href="_StarWebPrintRequestElement.htm">StarWebPRNT送信エレメント</a></li>
 	<li><a href="_StarWebPrintRequestElement.htm#root">&lt;root&gt;</a></li>
 	<li><a href="_StarWebPrintRequestElement.htm#alignment">&lt;alignment&gt;</a></li>
@@ -123,6 +144,9 @@
 	<li><a href="_StarWebPrintRequestElement.htm#ruledline">&lt;ruledline&gt;</a></li>
 	<li><a href="_StarWebPrintRequestElement.htm#sound">&lt;sound&gt;</a></li>
 	<li><a href="_StarWebPrintRequestElement.htm#text">&lt;text&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#barcodereader">&lt;barcodereader&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#magstripereader">&lt;magstripereader&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#linedisplay">&lt;linedisplay&gt;</a></li>
 	</ul>
 	<ul>
 	<li><a href="_StarWebPrintResponseElement.htm">StarWebPRNT受信エレメント</a></li>
@@ -130,6 +154,34 @@
 	<li><a href="_StarWebPrintResponseElement.htm#success">&lt;success&gt;</a></li>
 	<li><a href="_StarWebPrintResponseElement.htm#code">&lt;code&gt;</a></li>
 	<li><a href="_StarWebPrintResponseElement.htm#status">&lt;status&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr">&lt;bcr&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-success">&lt;success&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-code">&lt;code&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-claim">&lt;claim&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-mode">&lt;mode&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-duplicatescandelay">&lt;duplicatescandelay&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-scanoncetimeout">&lt;scanoncetimeout&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-claimpollingtimeout">&lt;claimpollingtimeout&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-symbol">&lt;symbol&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-symbolenable">&lt;symbolenable&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-data">&lt;data&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-datasymbol">&lt;datasymbol&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-datacount">&lt;datacount&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-bcrdevicename">&lt;bcrdevicename&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-modecapability">&lt;modecapability&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-symbolcapability">&lt;symbolcapability&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#msr">&lt;msr&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#msr-success">&lt;success&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#msr-code">&lt;code&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#msr-claim">&lt;claim&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#msr-claimpollingtimeout">&lt;claimpollingtimeout&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#msr-data">&lt;data&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#msr-datacount">&lt;datacount&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#ld">&lt;ld&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#ld-success">&lt;success&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#ld-code">&lt;code&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#ld-claim">&lt;claim&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#ld-claimpollingtimeout">&lt;claimpollingtimeout&gt;</a></li>
 	</ul>
 	<ul>
 	<li><a href="_appendixUTF8.htm">付録 UTF-8対応</a></li>
@@ -157,9 +209,126 @@
                 <tr><td><a href="#success">&lt;success&gt;</a></td><td>印刷結果エレメント</td></tr>
                 <tr><td><a href="#code">&lt;code&gt;</a></td><td>終了コードエレメント</td></tr>
                 <tr><td><a href="#status">&lt;status&gt;</a></td><td>スター自動ステータスエレメント</td></tr>
+                <tr><td><a href="#bcr">&lt;bcr&gt;</a></td><td>バーコードリーダーエレメント</td></tr>
+                <tr><td><a href="#bcr-success">&lt;success&gt;</a></td><td>バーコードリーダー制御結果エレメント</td></tr>
+                <tr><td><a href="#bcr-code">&lt;code&gt;</a></td><td>バーコードリーダー終了コードエレメント</td></tr>
+                <tr><td><a href="#bcr-claim">&lt;claim&gt;</a></td><td>バーコードリーダーClaim状態エレメント</td></tr>
+                <tr><td><a href="#bcr-mode">&lt;mode&gt;</a></td><td>スキャンモードエレメント</td></tr>
+                <tr><td><a href="#bcr-duplicatescandelay">&lt;duplicatescandelay&gt;</a></td><td>同種バーコード二重読取り遅延ミリ秒エレメント</td></tr>
+                <tr><td><a href="#bcr-scanoncetimeout">&lt;scanoncetimeout&gt;</a></td><td>一回読取モードスキャンタイムアウトエレメント</td></tr>
+                <tr><td><a href="#bcr-claimpollingtimeout">&lt;claimpollingtimeout&gt;</a></td><td>バーコードリーダーClaim管理用ポーリングタイムアウトエレメント</td></tr>
+                <tr><td><a href="#bcr-symbol">&lt;symbol&gt;</a></td><td>バーコードシンボルエレメント</td></tr>
+                <tr><td><a href="#bcr-symbolenable">&lt;symbolenable&gt;</a></td><td>バーコードシンボル読取有効設定エレメント</td></tr>
+                <tr><td><a href="#bcr-data">&lt;data&gt;</a></td><td>バーコードデータエレメント</td></tr>
+                <tr><td><a href="#bcr-datasymbol">&lt;datasymbol&gt;</a></td><td>バーコードデータシンボルエレメント</td></tr>
+                <tr><td><a href="#bcr-datacount">&lt;datacount&gt;</a></td><td>バーコードデータカウントエレメント</td></tr>
+                <tr><td><a href="#bcr-bcrdevicename">&lt;bcrdevicename&gt;</a></td><td>バーコードリーダーデバイス名称エレメント</td></tr>
+                <tr><td><a href="#bcr-modecapability">&lt;modecapability&gt;</a></td><td>スキャンモードケイパビリティエレメント</td></tr>
+                <tr><td><a href="#bcr-symbolcapability">&lt;symbolcapability&gt;</a></td><td>バーコードシンボルケイパビリティエレメント</td></tr>
+                <tr><td><a href="#msr">&lt;msr&gt;</a></td><td>磁気リーダーエレメント</td></tr>
+                <tr><td><a href="#msr-success">&lt;success&gt;</a></td><td>磁気リーダー制御結果エレメント</td></tr>
+                <tr><td><a href="#msr-code">&lt;code&gt;</a></td><td>磁気リーダー終了コードエレメント</td></tr>
+                <tr><td><a href="#msr-claim">&lt;claim&gt;</a></td><td>磁気リーダーClaim状態エレメント</td></tr>
+                <tr><td><a href="#msr-claimpollingtimeout">&lt;claimpollingtimeout&gt;</a></td><td>磁気リーダーClaim管理用ポーリングタイムアウトエレメント</td></tr>
+                <tr><td><a href="#msr-data">&lt;data&gt;</a></td><td>磁気データエレメント</td></tr>
+                <tr><td><a href="#msr-datacount">&lt;datacount&gt;</a></td><td>磁気データカウントエレメント</td></tr>
+                <tr><td><a href="#ld">&lt;ld&gt;</a> (*1) (*2)</td><td>ラインディスプレイエレメント</td></tr>
+                <tr><td><a href="#ld-success">&lt;success&gt;</a> (*1) (*2)</td><td>ラインディスプレイ制御結果エレメント</td></tr>
+                <tr><td><a href="#ld-code">&lt;code&gt;</a> (*1) (*2)</td><td>ラインディスプレイ終了コードエレメント</td></tr>
+                <tr><td><a href="#ld-claim">&lt;claim&gt;</a> (*1) (*2)</td><td>ラインディスプレイClaim状態エレメント</td></tr>
+                <tr><td><a href="#ld-claimpollingtimeout">&lt;claimpollingtimeout&gt;</a> (*1) (*2)</td><td>ラインディスプレイClaim管理用ポーリングタイムアウトエレメント</td></tr>
             </tbody>
         </table>
 
+        <h4>機種別対応リスト</h4>
+        <h5>POSプリンター・AsuraCPRNT</h5>
+        <table class="List2">
+            <thead>
+                <tr><td>名称</td><td>FVP10</td><td>TSP650II</td><td>TSP700II</td><td>TSP800II</td><td>AsuraCPRNT</td></tr>
+            </thead>
+            <tbody>
+            <tr><td><a href="#root-response">&lt;root&gt;</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#success">&lt;success&gt;</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#code">&lt;code&gt;</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#status">&lt;status&gt;</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>&nbsp;&nbsp;&nbsp;&nbsp;○ *1</td></tr>
+            <tr><td><a href="#bcr">&lt;bcr&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>&nbsp;&nbsp;&nbsp;&nbsp;○ *1</td></tr>
+            <tr><td><a href="#bcr-success">&lt;success&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>&nbsp;&nbsp;&nbsp;&nbsp;○ *1</td></tr>
+            <tr><td><a href="#bcr-code">&lt;code&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>&nbsp;&nbsp;&nbsp;&nbsp;○ *1</td></tr>
+            <tr><td><a href="#bcr-claim">&lt;claim&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>&nbsp;&nbsp;&nbsp;&nbsp;○ *1</td></tr>
+            <tr><td><a href="#bcr-mode">&lt;mode&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>&nbsp;&nbsp;&nbsp;&nbsp;○ *1</td></tr>
+            <tr><td><a href="#bcr-duplicatescandelay">&lt;duplicatescandelay&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>&nbsp;&nbsp;&nbsp;&nbsp;○ *1</td></tr>
+            <tr><td><a href="#bcr-scanoncetimeout">&lt;scanoncetimeout&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>&nbsp;&nbsp;&nbsp;&nbsp;○ *1</td></tr>
+            <tr><td><a href="#bcr-claimpollingtimeout">&lt;claimpollingtimeout&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>&nbsp;&nbsp;&nbsp;&nbsp;○ *1</td></tr>
+            <tr><td><a href="#bcr-symbol">&lt;symbol&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>&nbsp;&nbsp;&nbsp;&nbsp;○ *1</td></tr>
+            <tr><td><a href="#bcr-symbolenable">&lt;symbolenable&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>&nbsp;&nbsp;&nbsp;&nbsp;○ *1</td></tr>
+            <tr><td><a href="#bcr-data">&lt;data&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>&nbsp;&nbsp;&nbsp;&nbsp;○ *1</td></tr>
+            <tr><td><a href="#bcr-datasymbol">&lt;datasymbol&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>&nbsp;&nbsp;&nbsp;&nbsp;○ *1</td></tr>
+            <tr><td><a href="#bcr-datacount">&lt;datacount&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>&nbsp;&nbsp;&nbsp;&nbsp;○ *1</td></tr>
+            <tr><td><a href="#bcr-bcrdevicename">&lt;bcrdevicename&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>&nbsp;&nbsp;&nbsp;&nbsp;○ *1</td></tr>
+            <tr><td><a href="#bcr-modecapability">&lt;modecapability&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>&nbsp;&nbsp;&nbsp;&nbsp;○ *1</td></tr>
+            <tr><td><a href="#bcr-symbolcapability">&lt;symbolcapability&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>&nbsp;&nbsp;&nbsp;&nbsp;○ *1</td></tr>
+            <tr><td><a href="#msr">&lt;msr&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>&nbsp;&nbsp;&nbsp;&nbsp;○ *1</td></tr>
+            <tr><td><a href="#msr-success">&lt;success&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>&nbsp;&nbsp;&nbsp;&nbsp;○ *1</td></tr>
+            <tr><td><a href="#msr-code">&lt;code&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>&nbsp;&nbsp;&nbsp;&nbsp;○ *1</td></tr>
+            <tr><td><a href="#msr-claim">&lt;claim&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>&nbsp;&nbsp;&nbsp;&nbsp;○ *1</td></tr>
+            <tr><td><a href="#msr-claimpollingtimeout">&lt;claimpollingtimeout&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>&nbsp;&nbsp;&nbsp;&nbsp;○ *1</td></tr>
+            <tr><td><a href="#msr-data">&lt;data&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>&nbsp;&nbsp;&nbsp;&nbsp;○ *1</td></tr>
+            <tr><td><a href="#msr-datacount">&lt;datacount&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>&nbsp;&nbsp;&nbsp;&nbsp;○ *1</td></tr>
+            <tr><td><a href="#ld">&lt;ld&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;○ *1 *2</td></tr>
+            <tr><td><a href="#ld-success">&lt;success&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;○ *1 *2</td></tr>
+            <tr><td><a href="#ld-code">&lt;code&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;○ *1 *2</td></tr>
+            <tr><td><a href="#ld-claim">&lt;claim&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;○ *1 *2</td></tr>
+            <tr><td><a href="#ld-claimpollingtimeout">&lt;claimpollingtimeout&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;○ *1 *2</td></tr>
+
+            </tbody>
+        </table>
+        <p class="note2">
+            *1 AsuraCPRNT Linux OS Ver 1.7以降のみ対応<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;また、各デバイスの対応状況は<a href="http://www.star-m.jp/products/s_print/sp01_09.html">AsuraCPRNTデベロッパーサイト</a>の仕様書をご確認ください<br />
+            *2 AsuraCPRNT Linux OS Ver 1.7以降に搭載の"Line Display"アプリケーション起動時利用可
+        </p>
+
+        <h5>モバイルプリンター</h5>
+        <table class="List2">
+            <thead>
+                <tr><td>名称</td><td>SM-S210i</td><td>SM-S220i<br />(Jpモデル以外)</td><td>SM-T300i</td><td>SM-T400i</td></tr>
+            </thead>
+            <tbody>
+            <tr><td><a href="#root-response">&lt;root&gt;</a></td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#success">&lt;success&gt;</a></td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#code">&lt;code&gt;</a></td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#status">&lt;status&gt;</a></td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#bcr">&lt;bcr&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#bcr-success">&lt;success&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#bcr-code">&lt;code&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#bcr-claim">&lt;claim&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#bcr-mode">&lt;mode&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#bcr-duplicatescandelay">&lt;duplicatescandelay&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#bcr-scanoncetimeout">&lt;scanoncetimeout&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#bcr-claimpollingtimeout">&lt;claimpollingtimeout&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#bcr-symbol">&lt;symbol&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#bcr-symbolenable">&lt;symbolenable&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#bcr-data">&lt;data&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#bcr-datasymbol">&lt;datasymbol&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#bcr-datacount">&lt;datacount&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#bcr-bcrdevicename">&lt;bcrdevicename&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#bcr-modecapability">&lt;modecapability&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#bcr-symbolcapability">&lt;symbolcapability&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#msr">&lt;msr&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#msr-success">&lt;success&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#msr-code">&lt;code&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#msr-claim">&lt;claim&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#msr-claimpollingtimeout">&lt;claimpollingtimeout&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#msr-data">&lt;data&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#msr-datacount">&lt;datacount&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#ld">&lt;ld&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#ld-success">&lt;success&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#ld-code">&lt;code&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#ld-claim">&lt;claim&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#ld-claimpollingtimeout">&lt;claimpollingtimeout&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+
+            </tbody>
+        </table>
     </div>
     </article>
 
@@ -353,6 +522,1607 @@
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
     </div>
 
+    <article>
+    <div id="bcr">
+        <h3>&lt;bcr&gt;</h3>
+
+        <div class="introduction_3">
+            <p>
+            バーコードリーダーエレメント
+            </p>
+        </div>
+
+        <h4>属性</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>名称</td><td>説明</td><td>省略時</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>-</td><td>-</td><td>-</td></tr>
+            </tbody>
+        </table>
+
+        <h4>値</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>説明</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>バーコードリーダーStarWebPRNT受信エレメント列</td></tr>
+            </tbody>
+        </table>
+
+        <h5>例</h5>
+<pre>
+&lt;root&gt;
+    &lt;bcr&gt;
+        &lt;success&gt;true&lt;/success&gt;
+        &lt;code&gt;0&lt;/code&gt;
+        &lt;claim&gt;true&lt;/claim&gt;
+        &lt;mode&gt;ONCE&lt;/mode&gt;
+        &lt;scanoncetimeout&gt;30000&lt;/scanoncetimeout&gt;
+        &lt;duplicatescandelay&gt;750&lt;/duplicatescandelay&gt;
+        &lt;claimpollingtimeout&gt;30000&lt;/claimpollingtimeout&gt;
+        &lt;symbol&gt;AUSTRALIAN_POST&lt;/symbol&gt;
+        &lt;symbolenable&gt;true&lt;/symbolenable&gt;
+        &lt;bcrdevicename&gt;N5600&lt;/bcrdevicename&gt;
+        &lt;modecapability&gt;f3&lt;/modecapability&gt;
+        &lt;symbolcapability&gt;fffdffffff7&lt;/symbolcapability&gt;
+    &lt;/bcr&gt;
+&lt;/root&gt;
+</pre>
+
+    </div>
+    </article>
+    
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
+    </div>
+
+    <article>
+    <div id="bcr-success">
+        <h3>&lt;success&gt;</h3>
+
+        <div class="introduction_3">
+            <p>
+            バーコードリーダー制御結果エレメント
+            </p>
+        </div>
+
+        <h4>属性</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>名称</td><td>説明</td><td>省略時</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>-</td><td>-</td><td>-</td></tr>
+            </tbody>
+        </table>
+
+        <h4>値</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>説明</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>バーコードリーダー制御結果<br /><ul><li>true … 制御成功</li><li>false … 制御失敗</li></ul></td></tr>
+            </tbody>
+        </table>
+
+        <h5>例</h5>
+<pre>
+&lt;root&gt;
+    &lt;bcr&gt;
+        &lt;success&gt;true&lt;/success&gt;
+        &lt;code&gt;0&lt;/code&gt;
+        &lt;claim&gt;true&lt;/claim&gt;
+        &lt;mode&gt;ONCE&lt;/mode&gt;
+        &lt;scanoncetimeout&gt;30000&lt;/scanoncetimeout&gt;
+        &lt;duplicatescandelay&gt;750&lt;/duplicatescandelay&gt;
+        &lt;claimpollingtimeout&gt;30000&lt;/claimpollingtimeout&gt;
+        &lt;symbol&gt;AUSTRALIAN_POST&lt;/symbol&gt;
+        &lt;symbolenable&gt;true&lt;/symbolenable&gt;
+        &lt;bcrdevicename&gt;N5600&lt;/bcrdevicename&gt;
+        &lt;modecapability&gt;f3&lt;/modecapability&gt;
+        &lt;symbolcapability&gt;fffdffffff7&lt;/symbolcapability&gt;
+    &lt;/bcr&gt;
+&lt;/root&gt;
+</pre>
+
+    </div>
+    </article>
+    
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
+    </div>
+
+    <article>
+    <div id="bcr-code">
+        <h3>&lt;code&gt;</h3>
+
+        <div class="introduction_3">
+            <p>
+            バーコードリーダー終了コードエレメント
+            </p>
+        </div>
+
+        <h4>属性</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>名称</td><td>説明</td><td>省略時</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>-</td><td>-</td><td>-</td></tr>
+            </tbody>
+        </table>
+
+        <h4>値</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>説明</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>バーコードリーダー終了コード<br /><ul><li>0 … 正常終了</li>
+                                                            <li>1 … 読取済みのバーコードデータが存在しない</li>
+                                                            <li>1001 … バーコードリーダのClaimが行われていない </li>
+                                                            <li>1002 … バーコードリーダビジー状態<br />　　　　（他の端末機器がClaim開始状態にありデバイス使用中：要再送）</li>
+                                                            <li>1003 … バーコードリーダデバイスがAsuraCPRNTに接続されていないか電源が入っていない </li>
+                                                            <li>1004 … バーコードリーダデバイスがオンライン状態でエラー発生 </li></ul></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h5>例</h5>
+<pre>
+&lt;root&gt;
+    &lt;bcr&gt;
+        &lt;success&gt;true&lt;/success&gt;
+        &lt;code&gt;0&lt;/code&gt;
+        &lt;claim&gt;true&lt;/claim&gt;
+        &lt;mode&gt;ONCE&lt;/mode&gt;
+        &lt;scanoncetimeout&gt;30000&lt;/scanoncetimeout&gt;
+        &lt;duplicatescandelay&gt;750&lt;/duplicatescandelay&gt;
+        &lt;claimpollingtimeout&gt;30000&lt;/claimpollingtimeout&gt;
+        &lt;symbol&gt;AUSTRALIAN_POST&lt;/symbol&gt;
+        &lt;symbolenable&gt;true&lt;/symbolenable&gt;
+        &lt;bcrdevicename&gt;N5600&lt;/bcrdevicename&gt;
+        &lt;modecapability&gt;f3&lt;/modecapability&gt;
+        &lt;symbolcapability&gt;fffdffffff7&lt;/symbolcapability&gt;
+    &lt;/bcr&gt;
+&lt;/root&gt;
+</pre>
+
+    </div>
+    </article>
+    
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
+    </div>
+
+    <article>
+    <div id="bcr-claim">
+        <h3>&lt;claim&gt;</h3>
+
+        <div class="introduction_3">
+            <p>
+            バーコードリーダーClaim状態エレメント
+            </p>
+        </div>
+
+        <h4>属性</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>名称</td><td>説明</td><td>省略時</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>-</td><td>-</td><td>-</td></tr>
+            </tbody>
+        </table>
+
+        <h4>値</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>説明</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>バーコードリーダーClaim状態結果<br /><ul><li>true … Claim開始</li><li>false … Claim終了</li>※バーコードリーダー終了コードが0の場合、true/falseに固有IDが付帯します。<br />&nbsp;&nbsp;&nbsp;このIDはStarClaimManagerによって管理されます。</ul></td></tr>
+            </tbody>
+        </table>
+
+        <h5>例</h5>
+<pre>
+&lt;root&gt;
+    &lt;bcr&gt;
+        &lt;success&gt;true&lt;/success&gt;
+        &lt;code&gt;0&lt;/code&gt;
+        &lt;claim&gt;true&lt;/claim&gt;
+        &lt;mode&gt;ONCE&lt;/mode&gt;
+        &lt;scanoncetimeout&gt;30000&lt;/scanoncetimeout&gt;
+        &lt;duplicatescandelay&gt;750&lt;/duplicatescandelay&gt;
+        &lt;claimpollingtimeout&gt;30000&lt;/claimpollingtimeout&gt;
+        &lt;symbol&gt;AUSTRALIAN_POST&lt;/symbol&gt;
+        &lt;symbolenable&gt;true&lt;/symbolenable&gt;
+        &lt;bcrdevicename&gt;N5600&lt;/bcrdevicename&gt;
+        &lt;modecapability&gt;f3&lt;/modecapability&gt;
+        &lt;symbolcapability&gt;fffdffffff7&lt;/symbolcapability&gt;
+    &lt;/bcr&gt;
+&lt;/root&gt;
+</pre>
+
+    </div>
+    </article>
+    
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
+    </div>
+
+    <article>
+    <div id="bcr-mode">
+        <h3>&lt;mode&gt;</h3>
+
+        <div class="introduction_3">
+            <p>
+            スキャンモードエレメント
+            </p>
+        </div>
+
+        <h4>属性</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>名称</td><td>説明</td><td>省略時</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>-</td><td>-</td><td>-</td></tr>
+            </tbody>
+        </table>
+
+        <h4>値</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>説明</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>スキャンモード<br /><ul><li>OFF … 消灯</li>
+                                               <li>ONCE … 1回読取モード</li>
+                                               <li>AUTO … 連続読取モード (エイマー有り)</li>
+                                               <li>CONTINUOUS … 連続読取モード (エイマー無し)</li>
+                                               <li>MOBILE_PHONE … 1回読取モード (モバイル機器画面用)</li>
+                                               <li>MOBILE_CONTINUOUS … 連続読取モード (モバイル機器画面用)</li></ul></td></tr>
+            </tbody>
+        </table>
+
+        <h5>例</h5>
+<pre>
+&lt;root&gt;
+    &lt;bcr&gt;
+        &lt;success&gt;true&lt;/success&gt;
+        &lt;code&gt;0&lt;/code&gt;
+        &lt;claim&gt;true&lt;/claim&gt;
+        &lt;mode&gt;ONCE&lt;/mode&gt;
+        &lt;scanoncetimeout&gt;30000&lt;/scanoncetimeout&gt;
+        &lt;duplicatescandelay&gt;750&lt;/duplicatescandelay&gt;
+        &lt;claimpollingtimeout&gt;30000&lt;/claimpollingtimeout&gt;
+        &lt;symbol&gt;AUSTRALIAN_POST&lt;/symbol&gt;
+        &lt;symbolenable&gt;true&lt;/symbolenable&gt;
+        &lt;bcrdevicename&gt;N5600&lt;/bcrdevicename&gt;
+        &lt;modecapability&gt;f3&lt;/modecapability&gt;
+        &lt;symbolcapability&gt;fffdffffff7&lt;/symbolcapability&gt;
+    &lt;/bcr&gt;
+&lt;/root&gt;
+</pre>
+
+    </div>
+    </article>
+    
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
+    </div>
+
+    <article>
+    <div id="bcr-duplicatescandelay">
+        <h3>&lt;duplicatescandelay&gt;</h3>
+
+        <div class="introduction_3">
+            <p>
+            同種バーコード二重読取り遅延ミリ秒エレメント
+            </p>
+        </div>
+
+        <h4>属性</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>名称</td><td>説明</td><td>省略時</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>-</td><td>-</td><td>-</td></tr>
+            </tbody>
+        </table>
+
+        <h4>値</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>説明</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>同種バーコード二重読取り遅延ミリ秒<br />※0 - 30000 (msec)</td></tr>
+            </tbody>
+        </table>
+
+        <h5>例</h5>
+<pre>
+&lt;root&gt;
+    &lt;bcr&gt;
+        &lt;success&gt;true&lt;/success&gt;
+        &lt;code&gt;0&lt;/code&gt;
+        &lt;claim&gt;true&lt;/claim&gt;
+        &lt;mode&gt;ONCE&lt;/mode&gt;
+        &lt;scanoncetimeout&gt;30000&lt;/scanoncetimeout&gt;
+        &lt;duplicatescandelay&gt;750&lt;/duplicatescandelay&gt;
+        &lt;claimpollingtimeout&gt;30000&lt;/claimpollingtimeout&gt;
+        &lt;symbol&gt;AUSTRALIAN_POST&lt;/symbol&gt;
+        &lt;symbolenable&gt;true&lt;/symbolenable&gt;
+        &lt;bcrdevicename&gt;N5600&lt;/bcrdevicename&gt;
+        &lt;modecapability&gt;f3&lt;/modecapability&gt;
+        &lt;symbolcapability&gt;fffdffffff7&lt;/symbolcapability&gt;
+    &lt;/bcr&gt;
+&lt;/root&gt;
+</pre>
+
+    </div>
+    </article>
+    
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
+    </div>
+
+    <article>
+    <div id="bcr-scanoncetimeout">
+        <h3>&lt;scanoncetimeout&gt;</h3>
+
+        <div class="introduction_3">
+            <p>
+            一回読取モードスキャンタイムアウトエレメント
+            </p>
+        </div>
+
+        <h4>属性</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>名称</td><td>説明</td><td>省略時</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>-</td><td>-</td><td>-</td></tr>
+            </tbody>
+        </table>
+
+        <h4>値</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>説明</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>一回読取モードスキャンタイムアウト<br />※0 - 300000 (msec)</td></tr>
+            </tbody>
+        </table>
+
+        <h5>例</h5>
+<pre>
+&lt;root&gt;
+    &lt;bcr&gt;
+        &lt;success&gt;true&lt;/success&gt;
+        &lt;code&gt;0&lt;/code&gt;
+        &lt;claim&gt;true&lt;/claim&gt;
+        &lt;mode&gt;ONCE&lt;/mode&gt;
+        &lt;scanoncetimeout&gt;30000&lt;/scanoncetimeout&gt;
+        &lt;duplicatescandelay&gt;750&lt;/duplicatescandelay&gt;
+        &lt;claimpollingtimeout&gt;30000&lt;/claimpollingtimeout&gt;
+        &lt;symbol&gt;AUSTRALIAN_POST&lt;/symbol&gt;
+        &lt;symbolenable&gt;true&lt;/symbolenable&gt;
+        &lt;bcrdevicename&gt;N5600&lt;/bcrdevicename&gt;
+        &lt;modecapability&gt;f3&lt;/modecapability&gt;
+        &lt;symbolcapability&gt;fffdffffff7&lt;/symbolcapability&gt;
+    &lt;/bcr&gt;
+&lt;/root&gt;
+</pre>
+
+    </div>
+    </article>
+    
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
+    </div>
+
+    <article>
+    <div id="bcr-claimpollingtimeout">
+        <h3>&lt;claimpollingtimeout&gt;</h3>
+
+        <div class="introduction_3">
+            <p>
+            バーコードリーダーClaim管理用ポーリングタイムアウトエレメント
+            </p>
+        </div>
+
+        <h4>属性</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>名称</td><td>説明</td><td>省略時</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>-</td><td>-</td><td>-</td></tr>
+            </tbody>
+        </table>
+
+        <h4>値</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>説明</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>Claim管理用ポーリングタイムアウト<br />※1000　～  2147483647(msec)</td></tr>
+            </tbody>
+        </table>
+
+        <h5>例</h5>
+<pre>
+&lt;root&gt;
+    &lt;bcr&gt;
+        &lt;success&gt;true&lt;/success&gt;
+        &lt;code&gt;0&lt;/code&gt;
+        &lt;claim&gt;true&lt;/claim&gt;
+        &lt;mode&gt;ONCE&lt;/mode&gt;
+        &lt;scanoncetimeout&gt;30000&lt;/scanoncetimeout&gt;
+        &lt;duplicatescandelay&gt;750&lt;/duplicatescandelay&gt;
+        &lt;claimpollingtimeout&gt;30000&lt;/claimpollingtimeout&gt;
+        &lt;symbol&gt;AUSTRALIAN_POST&lt;/symbol&gt;
+        &lt;symbolenable&gt;true&lt;/symbolenable&gt;
+        &lt;bcrdevicename&gt;N5600&lt;/bcrdevicename&gt;
+        &lt;modecapability&gt;f3&lt;/modecapability&gt;
+        &lt;symbolcapability&gt;fffdffffff7&lt;/symbolcapability&gt;
+    &lt;/bcr&gt;
+&lt;/root&gt;
+</pre>
+
+    </div>
+    </article>
+    
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
+    </div>
+
+    <article>
+    <div id="bcr-symbol">
+        <h3>&lt;symbol&gt;</h3>
+
+        <div class="introduction_3">
+            <p>
+            バーコードシンボルエレメント
+            </p>
+        </div>
+
+        <h4>属性</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>名称</td><td>説明</td><td>省略時</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>-</td><td>-</td><td>-</td></tr>
+            </tbody>
+        </table>
+
+        <h4>値</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>説明</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>バーコードシンボル<br /><ul><li>AUSTRALIAN_POST</li><li>AZTEC_CODE</li><li>BRITISH_POST</li><li>CANADIAN_POST</li><li>CHINA_POST</li><li>CHINESE_SENSIBLE_CODE</li><li>CODABAR</li><li>CODABLOCK_A</li><li>CODABLOCK_F</li><li>CODE_11</li><li>CODE_128</li><li>CODE_32</li><li>CODE_39</li><li>CODE_49</li><li>CODE_93</li><li>DATA_MATRIX</li><li>EAN_13</li><li>EAN_8</li><li>INFOMAIL</li><li>INTELLIGENT_MAIL_BARCODE</li><li>INTERLEAVED_2_OF_5</li><li>JAPANESE_POST</li><li>KIX_POST</li><li>KOREA_POST</li><li>MATRIX_2_OF_5</li><li>MAXICODE</li><li>MICROPDF417</li><li>MSI</li><li>NEC_2_OF_5</li><li>PDF417</li><li>PLANET_CODE</li><li>POSTAL_4I</li><li>POSTNET</li><li>QR_CODE</li><li>STRAIGHT_2_OF_5_IATA</li><li>STRAIGHT_2_OF_5_INDUSTRIAL</li><li>TLC39</li><li>TELEPEN</li><li>UPC_A</li><li>UPC_E</li><li>GS1_128</li><li>GS1_COMPOSIT</li><li>GS1_DATABAR</li></ul></td></tr>
+            </tbody>
+        </table>
+
+        <h5>例</h5>
+<pre>
+&lt;root&gt;
+    &lt;bcr&gt;
+        &lt;success&gt;true&lt;/success&gt;
+        &lt;code&gt;0&lt;/code&gt;
+        &lt;claim&gt;true&lt;/claim&gt;
+        &lt;mode&gt;ONCE&lt;/mode&gt;
+        &lt;scanoncetimeout&gt;30000&lt;/scanoncetimeout&gt;
+        &lt;duplicatescandelay&gt;750&lt;/duplicatescandelay&gt;
+        &lt;claimpollingtimeout&gt;30000&lt;/claimpollingtimeout&gt;
+        &lt;symbol&gt;AUSTRALIAN_POST&lt;/symbol&gt;
+        &lt;symbolenable&gt;true&lt;/symbolenable&gt;
+        &lt;bcrdevicename&gt;N5600&lt;/bcrdevicename&gt;
+        &lt;modecapability&gt;f3&lt;/modecapability&gt;
+        &lt;symbolcapability&gt;fffdffffff7&lt;/symbolcapability&gt;
+    &lt;/bcr&gt;
+&lt;/root&gt;
+</pre>
+
+    </div>
+    </article>
+    
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
+    </div>
+
+    <article>
+    <div id="bcr-symbolenable">
+        <h3>&lt;symbolenable&gt;</h3>
+
+        <div class="introduction_3">
+            <p>
+            バーコードシンボル読取有効設定エレメント
+            </p>
+        </div>
+
+        <h4>属性</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>名称</td><td>説明</td><td>省略時</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>-</td><td>-</td><td>-</td></tr>
+            </tbody>
+        </table>
+
+        <h4>値</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>説明</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>バーコードシンボル読取有効設定<br /><ul><li>true … 読取有効</li><li>false … 読取無効</li></ul></td></tr>
+            </tbody>
+        </table>
+
+        <h5>例</h5>
+<pre>
+&lt;root&gt;
+    &lt;bcr&gt;
+        &lt;success&gt;true&lt;/success&gt;
+        &lt;code&gt;0&lt;/code&gt;
+        &lt;claim&gt;true&lt;/claim&gt;
+        &lt;mode&gt;ONCE&lt;/mode&gt;
+        &lt;scanoncetimeout&gt;30000&lt;/scanoncetimeout&gt;
+        &lt;duplicatescandelay&gt;750&lt;/duplicatescandelay&gt;
+        &lt;claimpollingtimeout&gt;30000&lt;/claimpollingtimeout&gt;
+        &lt;symbol&gt;AUSTRALIAN_POST&lt;/symbol&gt;
+        &lt;symbolenable&gt;true&lt;/symbolenable&gt;
+        &lt;bcrdevicename&gt;N5600&lt;/bcrdevicename&gt;
+        &lt;modecapability&gt;f3&lt;/modecapability&gt;
+        &lt;symbolcapability&gt;fffdffffff7&lt;/symbolcapability&gt;
+    &lt;/bcr&gt;
+&lt;/root&gt;
+</pre>
+
+    </div>
+    </article>
+    
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
+    </div>
+
+    <article>
+    <div id="bcr-data">
+        <h3>&lt;data&gt;</h3>
+
+        <div class="introduction_3">
+            <p>
+            バーコードデータエレメント
+            </p>
+        </div>
+
+        <h4>属性</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>名称</td><td>説明</td><td>省略時</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>-</td><td>-</td><td>-</td></tr>
+            </tbody>
+        </table>
+
+        <h4>値</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>説明</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>バーコードデータ<br />※Base64形式</td></tr>
+            </tbody>
+        </table>
+
+        <h5>例</h5>
+<pre>
+&lt;root&gt;
+    &lt;bcr&gt;
+        &lt;success&gt;true&lt;/success&gt;
+        &lt;code&gt;0&lt;/code&gt;
+        &lt;claim&gt;true&lt;/claim&gt;
+        &lt;data&gt;NDU0MTIxNjcxMTcz&lt;/data&gt;
+        &lt;datasymbol&gt;UPC_A&lt;/datasymbol&gt;
+        &lt;datacount&gt;0&lt;/datacount&gt;
+    &lt;/bcr&gt;
+&lt;/root&gt;
+</pre>
+
+    </div>
+    </article>
+    
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
+    </div>
+
+    <article>
+    <div id="bcr-datasymbol">
+        <h3>&lt;datasymbol&gt;</h3>
+
+        <div class="introduction_3">
+            <p>
+            バーコードデータシンボルエレメント
+            </p>
+        </div>
+
+        <h4>属性</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>名称</td><td>説明</td><td>省略時</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>-</td><td>-</td><td>-</td></tr>
+            </tbody>
+        </table>
+
+        <h4>値</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>説明</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>バーコードデータシンボル<br />※対応シンボルはバーコードシンボル&lt;symbol&gt;を参照</td></tr>
+            </tbody>
+        </table>
+
+        <h5>例</h5>
+<pre>
+&lt;root&gt;
+    &lt;bcr&gt;
+        &lt;success&gt;true&lt;/success&gt;
+        &lt;code&gt;0&lt;/code&gt;
+        &lt;claim&gt;true&lt;/claim&gt;
+        &lt;data&gt;NDU0MTIxNjcxMTcz&lt;/data&gt;
+        &lt;datasymbol&gt;UPC_A&lt;/datasymbol&gt;
+        &lt;datacount&gt;0&lt;/datacount&gt;
+    &lt;/bcr&gt;
+&lt;/root&gt;
+</pre>
+
+    </div>
+    </article>
+    
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
+    </div>
+
+    <article>
+    <div id="bcr-datacount">
+        <h3>&lt;datacount&gt;</h3>
+
+        <div class="introduction_3">
+            <p>
+            バーコードデータカウントエレメント
+            </p>
+        </div>
+
+        <h4>属性</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>名称</td><td>説明</td><td>省略時</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>-</td><td>-</td><td>-</td></tr>
+            </tbody>
+        </table>
+
+        <h4>値</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>説明</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>現在保持している読取済みバーコードデータ数</td></tr>
+            </tbody>
+        </table>
+
+        <h5>例</h5>
+<pre>
+&lt;root&gt;
+    &lt;bcr&gt;
+        &lt;success&gt;true&lt;/success&gt;
+        &lt;code&gt;0&lt;/code&gt;
+        &lt;claim&gt;true&lt;/claim&gt;
+        &lt;data&gt;NDU0MTIxNjcxMTcz&lt;/data&gt;
+        &lt;datasymbol&gt;UPC_A&lt;/datasymbol&gt;
+        &lt;datacount&gt;0&lt;/datacount&gt;
+    &lt;/bcr&gt;
+&lt;/root&gt;
+</pre>
+
+    </div>
+    </article>
+    
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
+    </div>
+
+    <article>
+    <div id="bcr-bcrdevicename">
+        <h3>&lt;bcrdevicename&gt;</h3>
+
+        <div class="introduction_3">
+            <p>
+            バーコードリーダーデバイス名称エレメント
+            </p>
+        </div>
+
+        <h4>属性</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>名称</td><td>説明</td><td>省略時</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>-</td><td>-</td><td>-</td></tr>
+            </tbody>
+        </table>
+
+        <h4>値</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>説明</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>バーコードリーダーデバイス名称</td></tr>
+            </tbody>
+        </table>
+
+        <h5>例</h5>
+<pre>
+&lt;root&gt;
+    &lt;bcr&gt;
+        &lt;success&gt;true&lt;/success&gt;
+        &lt;code&gt;0&lt;/code&gt;
+        &lt;claim&gt;true&lt;/claim&gt;
+        &lt;mode&gt;ONCE&lt;/mode&gt;
+        &lt;scanoncetimeout&gt;30000&lt;/scanoncetimeout&gt;
+        &lt;duplicatescandelay&gt;750&lt;/duplicatescandelay&gt;
+        &lt;claimpollingtimeout&gt;30000&lt;/claimpollingtimeout&gt;
+        &lt;symbol&gt;AUSTRALIAN_POST&lt;/symbol&gt;
+        &lt;symbolenable&gt;true&lt;/symbolenable&gt;
+        &lt;bcrdevicename&gt;N5600&lt;/bcrdevicename&gt;
+        &lt;modecapability&gt;f3&lt;/modecapability&gt;
+        &lt;symbolcapability&gt;fffdffffff7&lt;/symbolcapability&gt;
+    &lt;/bcr&gt;
+&lt;/root&gt;
+</pre>
+
+    </div>
+    </article>
+
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
+    </div>
+
+    <article>
+    <div id="bcr-modecapability">
+        <h3>&lt;modecapability&gt;</h3>
+
+        <div class="introduction_3">
+            <p>
+            スキャンモードケイパビリティエレメント
+            </p>
+        </div>
+
+        <h4>属性</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>名称</td><td>説明</td><td>省略時</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>-</td><td>-</td><td>-</td></tr>
+            </tbody>
+        </table>
+
+        <h4>値</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>説明</td></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>スキャンモードケイパビリティ<br />※1文字を4ビットとし、"true"/"false"を"1"/"0"とする。<br />例："f3" … 全てのスキャンモードに対応<br />
+                                                  [1文字目]
+                                                  <ul>
+                                                      <li>1ビット目 … OFF</li>
+                                                      <li>2ビット目 … ONCE</li>
+                                                      <li>3ビット目 … AUTO</li>
+                                                      <li>4ビット目 … CONTINUOUS</li>
+                                                  </ul>
+                                                  [2文字目]
+                                                  <ul>
+                                                      <li>1ビット目 … MOBILE_PHONE</li>
+                                                      <li>2ビット目 … MOBILE_CONTINUOUS</li>
+                                                  </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h5>例</h5>
+<pre>
+&lt;root&gt;
+    &lt;bcr&gt;
+        &lt;success&gt;true&lt;/success&gt;
+        &lt;code&gt;0&lt;/code&gt;
+        &lt;claim&gt;true&lt;/claim&gt;
+        &lt;mode&gt;ONCE&lt;/mode&gt;
+        &lt;scanoncetimeout&gt;30000&lt;/scanoncetimeout&gt;
+        &lt;duplicatescandelay&gt;750&lt;/duplicatescandelay&gt;
+        &lt;claimpollingtimeout&gt;30000&lt;/claimpollingtimeout&gt;
+        &lt;symbol&gt;AUSTRALIAN_POST&lt;/symbol&gt;
+        &lt;symbolenable&gt;true&lt;/symbolenable&gt;
+        &lt;bcrdevicename&gt;N5600&lt;/bcrdevicename&gt;
+        &lt;modecapability&gt;f3&lt;/modecapability&gt;
+        &lt;symbolcapability&gt;fffdffffff7&lt;/symbolcapability&gt;
+    &lt;/bcr&gt;
+&lt;/root&gt;
+</pre>
+
+    </div>
+    </article>
+
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
+    </div>
+
+    <article>
+    <div id="bcr-symbolcapability">
+        <h3>&lt;symbolcapability&gt;</h3>
+
+        <div class="introduction_3">
+            <p>
+            バーコードシンボルケイパビリティエレメント
+            </p>
+        </div>
+
+        <h4>属性</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>名称</td><td>説明</td><td>省略時</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>-</td><td>-</td><td>-</td></tr>
+            </tbody>
+        </table>
+
+        <h4>値</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>説明</td></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>バーコードシンボルケイパビリティ<br />※1文字を4ビットとし、"true"/"false"を"1"/"0"とする。<br />例："ffffffffff7" … 全てのバーコードシンボルに対応<br />
+                                                  [1文字目]
+                                                  <ul>
+                                                      <li>1ビット目 … AUSTRALIAN_POST</li>
+                                                      <li>2ビット目 … AZTEC_CODE</li>
+                                                      <li>3ビット目 … BRITISH_POST</li>
+                                                      <li>4ビット目 … CANADIAN_POST</li>
+                                                  </ul>
+                                                  [2文字目]
+                                                  <ul>
+                                                      <li>1ビット目 … CHINA_POST</li>
+                                                      <li>2ビット目 … CHINESE_SENSIBLE_CODE</li>
+                                                      <li>3ビット目 … CODABAR</li>
+                                                      <li>4ビット目 … CODABLOCK_A</li>
+                                                  </ul>
+                                                  [3文字目]
+                                                  <ul>
+                                                      <li>1ビット目 … CODABLOCK_F</li>
+                                                      <li>2ビット目 … CODE_11</li>
+                                                      <li>3ビット目 … CODE_128</li>
+                                                      <li>4ビット目 … CODE_32</li>
+                                                  </ul>
+                                                  [4文字目]
+                                                  <ul>
+                                                      <li>1ビット目 … CODE_39</li>
+                                                      <li>2ビット目 … CODE_49</li>
+                                                      <li>3ビット目 … CODE_93</li>
+                                                      <li>4ビット目 … DATA_MATRIX</li>
+                                                  </ul>
+                                                  [5文字目]
+                                                  <ul>
+                                                      <li>1ビット目 … EAN_13</li>
+                                                      <li>2ビット目 … EAN_8</li>
+                                                      <li>3ビット目 … INFOMAIL</li>
+                                                      <li>4ビット目 … INTELLIGENT_MAIL_BARCODE</li>
+                                                  </ul>
+                                                  [6文字目]
+                                                  <ul>
+                                                      <li>1ビット目 … INTERLEAVED_2_OF_5</li>
+                                                      <li>2ビット目 … JAPANESE_POST</li>
+                                                      <li>3ビット目 … KIX_POST</li>
+                                                      <li>4ビット目 … KOREA_POST</li>
+                                                  </ul>
+                                                  [7文字目]
+                                                  <ul>
+                                                      <li>1ビット目 … MATRIX_2_OF_5</li>
+                                                      <li>2ビット目 … MAXICODE</li>
+                                                      <li>3ビット目 … MICROPDF417</li>
+                                                      <li>4ビット目 … MSI</li>
+                                                  </ul>
+                                                  [8文字目]
+                                                  <ul>
+                                                      <li>1ビット目 … NEC_2_OF_5</li>
+                                                      <li>2ビット目 … PDF417</li>
+                                                      <li>3ビット目 … PLANET_CODE</li>
+                                                      <li>4ビット目 … POSTAL_4I</li>
+                                                  </ul>
+                                                  [9文字目]
+                                                  <ul>
+                                                      <li>1ビット目 … POSTNET</li>
+                                                      <li>2ビット目 … QR_CODE</li>
+                                                      <li>3ビット目 … STRAIGHT_2_OF_5_IATA</li>
+                                                      <li>4ビット目 … STRAIGHT_2_OF_5_INDUSTRIAL</li>
+                                                  </ul>
+                                                  [10文字目]
+                                                  <ul>
+                                                      <li>1ビット目 … TLC39</li>
+                                                      <li>2ビット目 … TELEPEN</li>
+                                                      <li>3ビット目 … UPC_A</li>
+                                                      <li>4ビット目 … UPC_E</li>
+                                                  </ul>
+                                                  [11文字目]
+                                                  <ul>
+                                                      <li>1ビット目 … GS1_128</li>
+                                                      <li>2ビット目 … GS1_COMPOSIT</li>
+                                                      <li>3ビット目 … GS1_DATABAR</li>
+                                                  </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h5>例</h5>
+<pre>
+&lt;root&gt;
+    &lt;bcr&gt;
+        &lt;success&gt;true&lt;/success&gt;
+        &lt;code&gt;0&lt;/code&gt;
+        &lt;claim&gt;true&lt;/claim&gt;
+        &lt;mode&gt;ONCE&lt;/mode&gt;
+        &lt;scanoncetimeout&gt;30000&lt;/scanoncetimeout&gt;
+        &lt;duplicatescandelay&gt;750&lt;/duplicatescandelay&gt;
+        &lt;claimpollingtimeout&gt;30000&lt;/claimpollingtimeout&gt;
+        &lt;symbol&gt;AUSTRALIAN_POST&lt;/symbol&gt;
+        &lt;symbolenable&gt;true&lt;/symbolenable&gt;
+        &lt;bcrdevicename&gt;N5600&lt;/bcrdevicename&gt;
+        &lt;modecapability&gt;f3&lt;/modecapability&gt;
+        &lt;symbolcapability&gt;fffdffffff7&lt;/symbolcapability&gt;
+    &lt;/bcr&gt;
+&lt;/root&gt;
+</pre>
+
+    </div>
+    </article>
+
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
+    </div>
+
+    <article>
+    <div id="msr">
+        <h3>&lt;msr&gt;</h3>
+
+        <div class="introduction_3">
+            <p>
+            磁気リーダーエレメント
+            </p>
+        </div>
+
+        <h4>属性</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>名称</td><td>説明</td><td>省略時</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>-</td><td>-</td><td>-</td></tr>
+            </tbody>
+        </table>
+
+        <h4>値</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>説明</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>磁気リーダーStarWebPRNT受信エレメント列</td></tr>
+            </tbody>
+        </table>
+
+        <h5>例</h5>
+<pre>
+&lt;root&gt;
+    &lt;msr&gt;
+        &lt;success&gt;true&lt;/success&gt;
+        &lt;code&gt;0&lt;/code&gt;
+        &lt;claim&gt;true&lt;/claim&gt;
+        &lt;claimpollingtimeout&gt;30000&lt;/claimpollingtimeout&gt;
+    &lt;/msr&gt;
+&lt;/root&gt;
+</pre>
+
+    </div>
+    </article>
+    
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
+    </div>
+
+    <article>
+    <div id="msr-success">
+        <h3>&lt;success&gt;</h3>
+
+        <div class="introduction_3">
+            <p>
+            磁気リーダー制御結果エレメント
+            </p>
+        </div>
+
+        <h4>属性</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>名称</td><td>説明</td><td>省略時</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>-</td><td>-</td><td>-</td></tr>
+            </tbody>
+        </table>
+
+        <h4>値</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>説明</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>磁気リーダー制御結果<br /><ul><li>true … 制御成功</li><li>false … 制御失敗</li></ul></td></tr>
+            </tbody>
+        </table>
+
+        <h5>例</h5>
+<pre>
+&lt;root&gt;
+    &lt;msr&gt;
+        &lt;success&gt;true&lt;/success&gt;
+        &lt;code&gt;0&lt;/code&gt;
+        &lt;claim&gt;true&lt;/claim&gt;
+        &lt;claimpollingtimeout&gt;30000&lt;/claimpollingtimeout&gt;
+    &lt;/msr&gt;
+&lt;/root&gt;
+</pre>
+
+    </div>
+    </article>
+    
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
+    </div>
+
+    <article>
+    <div id="msr-code">
+        <h3>&lt;code&gt;</h3>
+
+        <div class="introduction_3">
+            <p>
+            磁気リーダー終了コードエレメント
+            </p>
+        </div>
+
+        <h4>属性</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>名称</td><td>説明</td><td>省略時</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>-</td><td>-</td><td>-</td></tr>
+            </tbody>
+        </table>
+
+        <h4>値</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>説明</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>磁気リーダー終了コード<br /><ul><li>0 … 正常終了</li>
+                                                       <li>1 … 読取済みの磁気データが存在しない</li>
+                                                       <li>1001 … 磁気リーダのClaimが行われていない </li>
+                                                       <li>1002 … 磁気リーダビジー状態<br />　　　　（他の端末機器がClaim開始状態にありデバイス使用中：要再送）</li>
+                                                       <li>1003 … 磁気リーダデバイスがAsuraCPRNTに接続されていないか電源が入っていない </li>
+                                                       <li>1004 … 磁気リーダデバイスがオンライン状態でエラー発生 </li></ul></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h5>例</h5>
+<pre>
+&lt;root&gt;
+    &lt;msr&gt;
+        &lt;success&gt;true&lt;/success&gt;
+        &lt;code&gt;0&lt;/code&gt;
+        &lt;claim&gt;true&lt;/claim&gt;
+        &lt;claimpollingtimeout&gt;30000&lt;/claimpollingtimeout&gt;
+    &lt;/msr&gt;
+&lt;/root&gt;
+</pre>
+
+    </div>
+    </article>
+    
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
+    </div>
+
+    <article>
+    <div id="msr-claim">
+        <h3>&lt;claim&gt;</h3>
+
+        <div class="introduction_3">
+            <p>
+            磁気リーダーClaim状態エレメント
+            </p>
+        </div>
+
+        <h4>属性</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>名称</td><td>説明</td><td>省略時</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>-</td><td>-</td><td>-</td></tr>
+            </tbody>
+        </table>
+
+        <h4>値</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>説明</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>磁気リーダーClaim状態結果<br /><ul><li>true … 制御成功</li><li>false … 制御失敗</li>※磁気リーダー終了コードが0の場合、true/falseに固有IDが付帯します。<br />&nbsp;&nbsp;&nbsp;このIDはStarClaimManagerによって管理されます。</ul></td></tr>
+            </tbody>
+        </table>
+
+        <h5>例</h5>
+<pre>
+&lt;root&gt;
+    &lt;msr&gt;
+        &lt;success&gt;true&lt;/success&gt;
+        &lt;code&gt;0&lt;/code&gt;
+        &lt;claim&gt;true&lt;/claim&gt;
+        &lt;claimpollingtimeout&gt;30000&lt;/claimpollingtimeout&gt;
+    &lt;/msr&gt;
+&lt;/root&gt;
+</pre>
+
+    </div>
+    </article>
+    
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
+    </div>
+
+    <article>
+    <div id="msr-claimpollingtimeout">
+        <h3>&lt;claimpollingtimeout&gt;</h3>
+
+        <div class="introduction_3">
+            <p>
+            磁気リーダーClaim管理用ポーリングタイムアウトエレメント
+            </p>
+        </div>
+
+        <h4>属性</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>名称</td><td>説明</td><td>省略時</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>-</td><td>-</td><td>-</td></tr>
+            </tbody>
+        </table>
+
+        <h4>値</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>説明</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>磁気リーダーClaim管理用ポーリングタイムアウト<br />※1000  ～  2147483647(msec)</td></tr>
+            </tbody>
+        </table>
+
+        <h5>例</h5>
+<pre>
+&lt;root&gt;
+    &lt;msr&gt;
+        &lt;success&gt;true&lt;/success&gt;
+        &lt;code&gt;0&lt;/code&gt;
+        &lt;claim&gt;true&lt;/claim&gt;
+        &lt;claimpollingtimeout&gt;30000&lt;/claimpollingtimeout&gt;
+    &lt;/msr&gt;
+&lt;/root&gt;
+</pre>
+
+    </div>
+    </article>
+    
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
+    </div>
+
+    <article>
+    <div id="msr-data">
+        <h3>&lt;data&gt;</h3>
+
+        <div class="introduction_3">
+            <p>
+            磁気データエレメント
+            </p>
+        </div>
+
+        <h4>属性</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>名称</td><td>説明</td><td>省略時</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>-</td><td>-</td><td>-</td></tr>
+            </tbody>
+        </table>
+
+        <h4>値</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>説明</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>磁気データ<br />※Base64形式</td></tr>
+            </tbody>
+        </table>
+
+        <h5>例</h5>
+
+<pre>
+&lt;root&gt;
+    &lt;msr&gt;
+        &lt;success&gt;true&lt;/success&gt;
+        &lt;code&gt;0&lt;/code&gt;
+        &lt;claim&gt;true&lt;/claim&gt;
+        &lt;data&gt;OzE1OTc4MjEzPw0=&lt;/data&gt;
+        &lt;datacount&gt;0&lt;/datacount&gt;
+    &lt;/msr&gt;
+&lt;/root&gt;
+</pre>
+
+    </div>
+    </article>
+    
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
+    </div>
+
+    <article>
+    <div id="msr-datacount">
+        <h3>&lt;datacount&gt;</h3>
+
+        <div class="introduction_3">
+            <p>
+            磁気データカウントエレメント
+            </p>
+        </div>
+
+        <h4>属性</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>名称</td><td>説明</td><td>省略時</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>-</td><td>-</td><td>-</td></tr>
+            </tbody>
+        </table>
+
+        <h4>値</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>説明</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>現在保持している読取済み磁気データ数</td></tr>
+            </tbody>
+        </table>
+
+        <h5>例</h5>
+
+<pre>
+&lt;root&gt;
+    &lt;msr&gt;
+        &lt;success&gt;true&lt;/success&gt;
+        &lt;code&gt;0&lt;/code&gt;
+        &lt;claim&gt;true&lt;/claim&gt;
+        &lt;data&gt;OzE1OTc4MjEzPw0=&lt;/data&gt;
+        &lt;datacount&gt;0&lt;/datacount&gt;
+    &lt;/msr&gt;
+&lt;/root&gt;
+</pre>
+
+    </div>
+    </article>
+    
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
+    </div>
+
+    <article>
+    <div id="ld">
+        <h3>&lt;ld&gt;</h3>
+
+        <div class="introduction_3">
+            <p>
+            ラインディスプレイエレメント
+            </p>
+        </div>
+
+        <h4>属性</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>名称</td><td>説明</td><td>省略時</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>-</td><td>-</td><td>-</td></tr>
+            </tbody>
+        </table>
+
+        <h4>値</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>説明</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>ラインディスプレイStarWebPRNT受信エレメント列</td></tr>
+            </tbody>
+        </table>
+
+        <h5>例</h5>
+<pre>
+&lt;root&gt;
+    &lt;ld&gt;
+        &lt;success&gt;true&lt;/success&gt;
+        &lt;code&gt;0&lt;/code&gt;
+        &lt;claim&gt;true&lt;/claim&gt;
+        &lt;claimpollingtimeout&gt;30000&lt;/claimpollingtimeout&gt;
+    &lt;/ld&gt;
+&lt;/root&gt;
+</pre>
+
+    </div>
+    </article>
+    
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
+    </div>
+
+    <article>
+    <div id="ld-success">
+        <h3>&lt;success&gt;</h3>
+
+        <div class="introduction_3">
+            <p>
+            ラインディスプレイ制御結果エレメント
+            </p>
+        </div>
+
+        <h4>属性</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>名称</td><td>説明</td><td>省略時</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>-</td><td>-</td><td>-</td></tr>
+            </tbody>
+        </table>
+
+        <h4>値</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>説明</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>ラインディスプレイ制御結果<br /><ul><li>true … 制御成功</li><li>false … 制御失敗</li></ul></td></tr>
+            </tbody>
+        </table>
+
+        <h5>例</h5>
+<pre>
+&lt;root&gt;
+    &lt;ld&gt;
+        &lt;success&gt;true&lt;/success&gt;
+        &lt;code&gt;0&lt;/code&gt;
+        &lt;claim&gt;true&lt;/claim&gt;
+        &lt;claimpollingtimeout&gt;30000&lt;/claimpollingtimeout&gt;
+    &lt;/ld&gt;
+&lt;/root&gt;
+</pre>
+
+    </div>
+    </article>
+    
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
+    </div>
+
+    <article>
+    <div id="ld-code">
+        <h3>&lt;code&gt;</h3>
+
+        <div class="introduction_3">
+            <p>
+            ラインディスプレイ終了コードエレメント
+            </p>
+        </div>
+
+        <h4>属性</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>名称</td><td>説明</td><td>省略時</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>-</td><td>-</td><td>-</td></tr>
+            </tbody>
+        </table>
+
+        <h4>値</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>説明</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>ラインディスプレイ終了コード<br /><ul><li>0 … 正常終了</li>
+                                                            <li>1001 … ラインディスプレイデバイスのClaimが行われていない </li>
+                                                            <li>1002 … ラインディスプレイデバイスビジー状態<br />　　　　（他の端末機器がClaim開始状態にありデバイス使用中：要再送）</li>
+                                                            <li>1003 … ラインディスプレイデバイスがAsuraCPRNTに接続されていないか<br />　　　　電源が入っていない </li>
+                                                            <li>1004 … ラインディスプレイデバイスがオンライン状態でエラー発生 </li></ul></td>                
+                </tr>
+            </tbody>
+        </table>
+
+        <h5>例</h5>
+<pre>
+&lt;root&gt;
+    &lt;ld&gt;
+        &lt;success&gt;true&lt;/success&gt;
+        &lt;code&gt;0&lt;/code&gt;
+        &lt;claim&gt;true&lt;/claim&gt;
+        &lt;claimpollingtimeout&gt;30000&lt;/claimpollingtimeout&gt;
+    &lt;/ld&gt;
+&lt;/root&gt;
+</pre>
+
+    </div>
+    </article>
+    
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
+    </div>
+
+    <article>
+    <div id="ld-claim">
+        <h3>&lt;claim&gt;</h3>
+
+        <div class="introduction_3">
+            <p>
+            ラインディスプレイClaim状態エレメント
+            </p>
+        </div>
+
+        <h4>属性</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>名称</td><td>説明</td><td>省略時</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>-</td><td>-</td><td>-</td></tr>
+            </tbody>
+        </table>
+
+        <h4>値</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>説明</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>ラインディスプレイデバイスのClaim状態結果<br /><ul><li>true … Claim開始</li><li>false … Claim終了</li>※ラインディスプレイ終了コードが0の場合、true/falseに固有IDが付帯します。<br />&nbsp;&nbsp;&nbsp;このIDはStarClaimManagerによって管理されます。</ul></td></tr>
+            </tbody>
+        </table>
+
+        <h5>例</h5>
+<pre>
+&lt;root&gt;
+    &lt;ld&gt;
+        &lt;success&gt;true&lt;/success&gt;
+        &lt;code&gt;0&lt;/code&gt;
+        &lt;claim&gt;true&lt;/claim&gt;
+        &lt;claimpollingtimeout&gt;30000&lt;/claimpollingtimeout&gt;
+    &lt;/ld&gt;
+&lt;/root&gt;
+</pre>
+
+    </div>
+    </article>
+    
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
+    </div>
+
+    <article>
+    <div id="ld-claimpollingtimeout">
+        <h3>&lt;claimpollingtimeout&gt;</h3>
+
+        <div class="introduction_3">
+            <p>
+            ラインディスプレイClaim管理用ポーリングタイムアウトエレメント
+            </p>
+        </div>
+
+        <h4>属性</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>名称</td><td>説明</td><td>省略時</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>-</td><td>-</td><td>-</td></tr>
+            </tbody>
+        </table>
+
+        <h4>値</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>説明</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>ラインディスプレイClaim管理用ポーリングタイムアウト<br />※1000  ～  2147483647(msec)</td></tr>
+            </tbody>
+        </table>
+
+        <h5>例</h5>
+<pre>
+&lt;root&gt;
+    &lt;ld&gt;
+        &lt;success&gt;true&lt;/success&gt;
+        &lt;code&gt;0&lt;/code&gt;
+        &lt;claim&gt;true&lt;/claim&gt;
+        &lt;claimpollingtimeout&gt;30000&lt;/claimpollingtimeout&gt;
+    &lt;/ld&gt;
+&lt;/root&gt;
+</pre>
+
+    </div>
+    </article>
+    
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
+    </div>
 
     </div>    <!-- Main Contents  -->
 
@@ -360,7 +2130,7 @@
 
 <div id="footer">
 <footer>
-<p id="copyright"> &copy; Copyright 2013 - 2014  <a href="http://www.star-m.jp/">Star Micronics Co., Ltd.</a> </p>
+<p id="copyright"> &copy; Copyright 2013 - 2015  <a href="http://www.star-m.jp/">Star Micronics Co., Ltd.</a> </p>
 </footer>
 </div>
 

@@ -74,6 +74,9 @@
 	<li><a href="_StarWebPrintBuilder-js.htm#createRuledLineElement">createRuledLineElement</a></li>
 	<li><a href="_StarWebPrintBuilder-js.htm#createSoundElement">createSoundElement</a></li>
 	<li><a href="_StarWebPrintBuilder-js.htm#createTextElement">createTextElement</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createBarcodeReaderElement">createBarcodeReaderElement</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createMagstripeReaderElement">createMagstripeReaderElement</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createLineDisplayElement">createLineDisplayElement</a></li>
 	</ul>
 	<ul>
 	<li><a href="_StarWebPrintTrader-js.htm">StarWebPrintTrader.js</a></li>
@@ -107,6 +110,24 @@
 	<li><a href="_StarBarcodeEncoder-js.htm#createNW7">createNW7</a></li>
 	</ul>
 	<ul>
+	<li><a href="_StarClaimManager-js.htm">StarClaimManager.js</a></li>
+	<li><a href="_StarClaimManager-js.htm#StarClaimManager">StarClaimManager</a></li>
+	<li><a href="_StarClaimManager-js.htm#sendMessage">sendMessage</a></li>
+	<li><a href="_StarClaimManager-js.htm#isBCRClaimed">isBCRClaimed</a></li>
+	<li><a href="_StarClaimManager-js.htm#isMSRClaimed">isMSRClaimed</a></li>
+	<li><a href="_StarClaimManager-js.htm#isLDClaimed">isLDClaimed</a></li>
+	<li><a href="_StarClaimManager-js.htm#getBCRDeviceNameCapability">getBCRDeviceNameCapability</a></li>
+	<li><a href="_StarClaimManager-js.htm#getBCRModeCapability">getBCRModeCapability</a></li>
+	<li><a href="_StarClaimManager-js.htm#getBCRSymbolCapability">getBCRSymbolCapability</a></li>
+	<li><a href="_StarClaimManager-js.htm#setPollingInterval">setPollingInterval</a></li>
+	<li><a href="_StarClaimManager-js.htm#setBCREventListener">setBCREventListener</a></li>
+	<li><a href="_StarClaimManager-js.htm#setMSREventListener">setMSREventListener</a></li>
+	<li><a href="_StarClaimManager-js.htm#setLDEventListener">setLDEventListener</a></li>
+	<li><a href="_StarClaimManager-js.htm#removeBCREventListener">removeBCREventListener</a></li>
+	<li><a href="_StarClaimManager-js.htm#removeMSREventListener">removeMSREventListener</a></li>
+	<li><a href="_StarClaimManager-js.htm#removeLDEventListener">removeLDEventListener</a></li>
+	</ul>
+	<ul>
 	<li><a href="_StarWebPrintRequestElement.htm">StarWebPRNT送信エレメント</a></li>
 	<li><a href="_StarWebPrintRequestElement.htm#root">&lt;root&gt;</a></li>
 	<li><a href="_StarWebPrintRequestElement.htm#alignment">&lt;alignment&gt;</a></li>
@@ -123,6 +144,9 @@
 	<li><a href="_StarWebPrintRequestElement.htm#ruledline">&lt;ruledline&gt;</a></li>
 	<li><a href="_StarWebPrintRequestElement.htm#sound">&lt;sound&gt;</a></li>
 	<li><a href="_StarWebPrintRequestElement.htm#text">&lt;text&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#barcodereader">&lt;barcodereader&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#magstripereader">&lt;magstripereader&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#linedisplay">&lt;linedisplay&gt;</a></li>
 	</ul>
 	<ul>
 	<li><a href="_StarWebPrintResponseElement.htm">StarWebPRNT受信エレメント</a></li>
@@ -130,6 +154,34 @@
 	<li><a href="_StarWebPrintResponseElement.htm#success">&lt;success&gt;</a></li>
 	<li><a href="_StarWebPrintResponseElement.htm#code">&lt;code&gt;</a></li>
 	<li><a href="_StarWebPrintResponseElement.htm#status">&lt;status&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr">&lt;bcr&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-success">&lt;success&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-code">&lt;code&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-claim">&lt;claim&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-mode">&lt;mode&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-duplicatescandelay">&lt;duplicatescandelay&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-scanoncetimeout">&lt;scanoncetimeout&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-claimpollingtimeout">&lt;claimpollingtimeout&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-symbol">&lt;symbol&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-symbolenable">&lt;symbolenable&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-data">&lt;data&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-datasymbol">&lt;datasymbol&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-datacount">&lt;datacount&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-bcrdevicename">&lt;bcrdevicename&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-modecapability">&lt;modecapability&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-symbolcapability">&lt;symbolcapability&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#msr">&lt;msr&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#msr-success">&lt;success&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#msr-code">&lt;code&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#msr-claim">&lt;claim&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#msr-claimpollingtimeout">&lt;claimpollingtimeout&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#msr-data">&lt;data&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#msr-datacount">&lt;datacount&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#ld">&lt;ld&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#ld-success">&lt;success&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#ld-code">&lt;code&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#ld-claim">&lt;claim&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#ld-claimpollingtimeout">&lt;claimpollingtimeout&gt;</a></li>
 	</ul>
 	<ul>
 	<li><a href="_appendixUTF8.htm">付録 UTF-8対応</a></li>
@@ -198,52 +250,76 @@
         <h5>POSプリンター・AsuraCPRNT</h5>
         <table class="List2">
             <thead>
-                <tr><td>名称</td><td>FVP10</td><td>TSP650II</td><td>TSP700II</td><td>TSP800II</td><td>AsuraCPRNT</td></tr>
+                <tr><td>名称</td><td>FVP10</td><td>TSP650II</td><td>TSP700II</td><td>TSP800II</td><td>mPOP</td><td>AsuraCPRNT</td></tr>
             </thead>
             <tbody>
-            <tr><td><a href="#sendMessage">sendMessage</a>*1</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#isCoverOpen">isCoverOpen</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#isOffLine">isOffLine</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#isCompulsionSwitchClose">isCompulsionSwitchClose</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#isEtbCommandExecute">isEtbCommandExecute</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#isHighTemperatureStop">isHighTemperatureStop</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#isNonRecoverableError">isNonRecoverableError</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#isAutoCutterError">isAutoCutterError</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#isBlackMarkError">isBlackMarkError</a></td><td>○</td><td>-</td><td>○</td><td>○</td><td>-</td></tr>
-            <tr><td><a href="#isPaperEnd">isPaperEnd</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#isPaperNearEnd">isPaperNearEnd</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#extractionEtbCounter">extractionEtbCounter</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>            
+            <tr><td><a href="#sendMessage">sendMessage</a>*1 *2</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#isCoverOpen">isCoverOpen</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#isOffLine">isOffLine</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#isCompulsionSwitchClose">isCompulsionSwitchClose</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#isEtbCommandExecute">isEtbCommandExecute</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#isHighTemperatureStop">isHighTemperatureStop</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#isNonRecoverableError">isNonRecoverableError</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#isAutoCutterError">isAutoCutterError</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#isBlackMarkError">isBlackMarkError</a></td><td>○</td><td>-</td><td>○</td><td>○</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#isPaperEnd">isPaperEnd</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#isPaperNearEnd">isPaperNearEnd</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>-</td><td>○</td></tr>
+            <tr><td><a href="#extractionEtbCounter">extractionEtbCounter</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>            
             </tbody>
         </table>
         <p class="note2">
-            *1 Bluetoothプリンターは印刷完了待ち有効固定<br />
-            　　名前付き引数’checkedblock'は作用しない
+            *1 Bluetoothプリンターは印刷完了待ち有効固定、名前付き引数’checkedblock'は作用しない<br />
+            *2 名前付き引数’blackmark_sensor'は作用しない
         </p>
 
 
-        <h5>モバイルプリンター</h5>
+        <h5>モバイルプリンター (ESC/POS)</h5>
         <table class="List2">
             <thead>
-                <tr><td>名称</td><td>SM-S210i</td><td>SM-S220i<br />(Jpモデル以外)</td><td>SM-T300i</td><td>SM-T400i</td></tr>
+                <tr><td>名称</td><td >SM-S210i</td><td>SM-S220i<br />(Jpモデル<br>以外)</td><td>SM-S230i</td><td>SM-T300i</td><td>SM-T400i</td></tr>
             </thead>
             <tbody>
-            <tr><td><a href="#sendMessage">sendMessage</a>*1</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#isCoverOpen">isCoverOpen</a></td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#isOffLine">isOffLine</a></td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#isCompulsionSwitchClose">isCompulsionSwitchClose</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#isEtbCommandExecute">isEtbCommandExecute</a></td></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#isHighTemperatureStop">isHighTemperatureStop</a></td></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#isNonRecoverableError">isNonRecoverableError</a></td></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#isAutoCutterError">isAutoCutterError</a></td></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#isBlackMarkError">isBlackMarkError</a></td></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#isPaperEnd">isPaperEnd</a></td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#isPaperNearEnd">isPaperNearEnd</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#extractionEtbCounter">extractionEtbCounter</a></td></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>            
+            <tr><td><a href="#sendMessage">sendMessage</a>*1 *2</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#isCoverOpen">isCoverOpen</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#isOffLine">isOffLine</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#isCompulsionSwitchClose">isCompulsionSwitchClose</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#isEtbCommandExecute">isEtbCommandExecute</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#isHighTemperatureStop">isHighTemperatureStop</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#isNonRecoverableError">isNonRecoverableError</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#isAutoCutterError">isAutoCutterError</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#isBlackMarkError">isBlackMarkError</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#isPaperEnd">isPaperEnd</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#isPaperNearEnd">isPaperNearEnd</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#extractionEtbCounter">extractionEtbCounter</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>           
             </tbody>
         </table>
         <p class="note2">
-            *1 印刷完了待ち有効固定<br />
-            　　名前付き引数’checkedblock'は作用しない
+            *1 印刷完了待ち有効固定、名前付き引数’checkedblock'は作用しない<br />
+            *2 名前付き引数’papertype',blackmark_sensor'は作用しない<br />
+        </p>
+
+        <h5>モバイルプリンター (StarPRNT)</h5>
+        <table class="List2">
+            <thead>
+                <tr><td>名称</td><td >SM-S210i</td><td>SM-S220i<br />(Jpモデル<br>以外)</td><td>SM-S230i</td><td>SM-T300i</td><td>SM-T400i</td><td>SM-L200</td></tr>
+            </thead>
+            <tbody>
+            <tr><td><a href="#sendMessage">sendMessage</a>*1</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#isCoverOpen">isCoverOpen</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#isOffLine">isOffLine</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#isCompulsionSwitchClose">isCompulsionSwitchClose</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#isEtbCommandExecute">isEtbCommandExecute</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#isHighTemperatureStop">isHighTemperatureStop</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#isNonRecoverableError">isNonRecoverableError</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#isAutoCutterError">isAutoCutterError</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#isBlackMarkError">isBlackMarkError</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#isPaperEnd">isPaperEnd</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#isPaperNearEnd">isPaperNearEnd</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#extractionEtbCounter">extractionEtbCounter</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>           
+            </tbody>
+        </table>
+        <p class="note2">
+            *1 印刷完了待ち有効固定、名前付き引数’checkedblock'は作用しない<br />
         </p>
 
 
@@ -269,6 +345,7 @@
         <p>
         StarWebPrintTrader(args);
         </p>
+        </div>
     
         <h4>名前付き引数</h4>
         <table class="coder">
@@ -279,8 +356,14 @@
                 <tr><td>url</td><td>StarWebPRNTエンドポイントURL<br />※省略時はsendMessageメソッドで指定すること</td><td>String</td><td>-</td></tr>
                 <tr><td>checkedblock</td><td>印刷完了待ち<br /><ul><li>true … 印刷完了待ち有効</li><li>false … 印刷完了待ち無効</li></ul></td>
                        <td>Boolean</td><td>true</td></tr>
+                <tr><td>papertype</td><td>用紙の種類<br /><ul><li>normal … 普通紙</li><li>black_mark … ブラックマーク紙</li>
+                <li>black_mark_and_detect_at_power_on … ブラックマーク紙 (電源投入時の位置検出有効)</li></ul></td><td>String</td><td>-</td></tr>
+                <tr><td>blackmark_sensor *1</td><td>ブラックマークセンサ種類<br ><ul><li>front_side … 表面マーク検出センサ</li><li>back_side … 裏面マーク検出センサ</li><li>hole_or_gap … ホール・ギャップ検出センサ</li></ul></td><td>String</td><td>front_side</td></tr>
             </tbody>
         </table>
+        <p class="note2">
+            *1 blackmark_sensor属性は、papertype属性に”black_mark”または”black_mark_and_detect_at_power_on”を指定した場合に有効になります。<br />
+        </p>
 
         <h4>戻り値</h4>
         <table class="coder">
@@ -305,7 +388,6 @@ function onSend(url, request) {
 // --&gt;
 &lt;/script&gt;
 </pre>
-    </div>
     </article>
 
     <div class="to_top">
@@ -340,8 +422,17 @@ function onSend(url, request) {
                       <td>印刷完了待ち<br /><ul><li>true … 印刷完了待ち有効</li><li>false … 印刷完了待ち無効</li></ul><br />
                       ※省略時はStarWebPrintTraderコンストラクタで指定された値</td><td>Boolean</td><td>-</td></tr>
                 <tr><td>request</td><td>StarWebPRNT送信エレメント列</td><td>String</td><td>省略不可</td></tr>
+                <tr><td>papertype</td><td>用紙の種類<br /><ul><li>normal … 普通紙</li><li>black_mark … ブラックマーク紙</li>
+                <li>black_mark_and_detect_at_power_on … ブラックマーク紙 (電源投入時の位置検出有効)</li></ul><br />
+                      ※省略時はStarWebPrintTraderコンストラクタで指定された値<br />
+                      StarWebPrintTraderコンストラクタでも指定されていない場合は未設定</td><td>String</td><td>-</td></tr>
+                <tr><td>blackmark_sensor *1</td><td>ブラックマークセンサ種類<br ><ul><li>front_side … 表面マーク検出センサ</li><li>back_side … 裏面マーク検出センサ</li><li>hole_or_gap … ホール・ギャップ検出センサ</li></ul><br />
+                      ※省略時はStarWebPrintTraderコンストラクタで指定された値</td><td>String</td><td>-</td></tr>
             </tbody>
         </table>
+        <p class="note2">
+            *1 blackmark_sensor属性は、papertype属性に”black_mark”または”black_mark_and_detect_at_power_on”を指定した場合に有効になります。<br />
+        </p>
 
         <h4>戻り値</h4>
         <table class="coder">
@@ -1088,11 +1179,56 @@ function onSend(url, request) {
                                                                <li>1100 … プリンターオフライン状態（エラー発生中）</li>
                                                                <li>2001 … プリンタービジー状態（他の端末機器がプリンター使用中：要再送）</li></ul></td><td>Number</td></tr>
                 <tr><td>traderStatus</td><td>スター自動ステータス<br />※コマンド仕様書参照</td><td>String</td></tr>
+                <tr><td>traderBCRSuccess (*1)</td><td>バーコードリーダー制御結果<br /><ul><li>true … 制御成功</li><li>false … 制御失敗</li></ul></td><td>Boolean</td></tr>
+                <tr><td>traderBCRCode (*1)</td><td>バーコードリーダー終了コード<br /><ul><li>0 … 正常終了</li>
+                                                               <li>1 … 読取済みのバーコードデータが存在しない</li>
+                                                               <li>1001 … バーコードリーダのClaimが行われていない </li>
+                                                               <li>1002 … バーコードリーダビジー状態<br />　　　　（他の端末機器がClaim開始状態にありデバイス使用中：要再送）</li>
+                                                               <li>1003 … バーコードリーダデバイスがAsuraCPRNTに接続されていないか電源が入っていない </li>
+                                                               <li>1004 … バーコードリーダデバイスがオンライン状態でエラー発生 </li></ul></td><td>Number</td></tr>
+                <tr><td>traderBCRClaim (*1)</td><td>バーコードリーダーClaim状態結果<br /><ul><li>true … Claim開始</li><li>false … Claim終了</li></ul></td><td>Boolean</td></tr>
+                <tr><td>traderBCRMode (*1)</td><td>スキャンモード<br /><ul><li>OFF … 消灯</li>
+                                                                          <li>ONCE … 1回読取モード</li>
+                                                                          <li>AUTO … 連続読取モード (エイマー有り)</li>
+                                                                          <li>CONTINUOUS … 連続読取モード (エイマー無し)</li>
+                                                                          <li>MOBILE_PHONE … 1回読取モード (モバイル機器画面用)</li>
+                                                                          <li>MOBILE_CONTINUOUS … 連続読取モード (モバイル機器画面用)</li></ul></td><td>String</td></tr>
+                <tr><td>traderBCRData (*1)</td><td>バーコードデータ<br />※Base64形式</td><td>String</td></tr>
+                <tr><td>traderBCRDataSymbol (*1)</td><td>バーコードデータシンボル<br /><ul><li>AUSTRALIAN_POST</li><li>AZTEC_CODE</li><li>BRITISH_POST</li><li>CANADIAN_POST</li><li>CHINA_POST</li><li>CHINESE_SENSIBLE_CODE</li><li>CODABAR</li><li>CODABLOCK_A</li><li>CODABLOCK_F</li><li>CODE_11</li><li>CODE_128</li><li>CODE_32</li><li>CODE_39</li><li>CODE_49</li><li>CODE_93</li><li>DATA_MATRIX</li><li>EAN_13</li><li>EAN_8</li><li>INFOMAIL</li><li>INTELLIGENT_MAIL_BARCODE</li><li>INTERLEAVED_2_OF_5</li><li>JAPANESE_POST</li><li>KIX_POST</li><li>KOREA_POST</li><li>MATRIX_2_OF_5</li><li>MAXICODE</li><li>MICROPDF417</li><li>MSI</li><li>NEC_2_OF_5</li><li>PDF417</li><li>PLANET_CODE</li><li>POSTAL_4I</li><li>POSTNET</li><li>QR_CODE</li><li>STRAIGHT_2_OF_5_IATA</li><li>STRAIGHT_2_OF_5_INDUSTRIAL</li><li>TLC39</li><li>TELEPEN</li><li>UPC_A</li><li>UPC_E</li><li>GS1_128</li><li>GS1_COMPOSIT</li><li>GS1_DATABAR</li></ul></td><td>String</td></tr>
+                <tr><td>traderBCRDataCount (*1)</td><td>現在保持している読取済みバーコードデータ数</td><td>Number</td></tr>
+                <tr><td>traderBCRDuplicateScanDelay (*1)</td><td>同種バーコード二重読取り遅延ミリ秒<br />※0 - 30000 (msec)</td><td>Number</td></tr>
+                <tr><td>traderBCRScanOnceTimeout (*1)</td><td>一回読取モードスキャンタイムアウト<br />※0 - 300000 (msec)</td><td>Number</td></tr>
+                <tr><td>traderBCRSymbol (*1)</td><td>バーコードシンボル<br />※対応シンボルはtraderBCRDataSymbolを参照</td><td>String</td></tr>
+                <tr><td>traderBCRSymbolEnable (*1)</td><td>バーコードシンボル読取有効設定<br /><ul><li>true … 読取有効</li><li>false … 読取無効</li></ul></td><td>Boolean</td></tr>
+                <tr><td>traderBCRClaimPollingTimeout (*1)</td><td>Claim管理用ポーリングタイムアウト<br />※1000　～  2147483647(msec)</td><td>Number</td></tr>
+                <tr><td>traderMSRSuccess (*1)</td><td>磁気リーダー制御結果<br /><ul><li>true … 制御成功</li><li>false … 制御失敗</li></ul></td><td>Boolean</td></tr>
+                <tr><td>traderMSRCode (*1)</td><td>磁気リーダー終了コード<br /><ul><li>0 … 正常終了</li>
+                                                               <li>1 … 読取済みの磁気データが存在しない</li>
+                                                               <li>1001 … 磁気リーダのClaimが行われていない </li>
+                                                               <li>1002 … 磁気リーダビジー状態<br />　　　　（他の端末機器がClaim開始状態にありデバイス使用中：要再送）</li>
+                                                               <li>1003 … 磁気リーダデバイスがAsuraCPRNTに接続されていないか電源が入っていない </li>
+                                                               <li>1004 … 磁気リーダデバイスがオンライン状態でエラー発生 </li></ul></td><td>Number</td></tr>
+                <tr><td>traderMSRClaim (*1)</td><td>磁気リーダーClaim状態結果<br /><ul><li>true … Claim開始</li><li>false … Claim終了</li></ul></td><td>Boolean</td></tr>
+                <tr><td>traderMSRData (*1)</td><td>磁気データ<br />※Base64形式</td><td>String</td></tr>
+                <tr><td>traderMSRDataCount (*1)</td><td>現在保持している読取済み磁気データ数</td><td>Number</td></tr>
+                <tr><td>traderMSRClaimPollingTimeout (*1)</td><td>Claim管理用ポーリングタイムアウト<br />※1000　～  2147483647(msec)</td><td>Number</td></tr>
+                <tr><td>traderLDSuccess (*1) (*2)</td><td>ラインディスプレイ制御結果<br /><ul><li>true … 制御成功</li><li>false … 制御失敗</li></ul></td><td>Boolean</td></tr>
+                <tr><td>traderLDCode (*1) (*2)</td><td>ラインディスプレイ終了コード<br /><ul><li>0 … 正常終了</li>
+                                                               <li>1001 … ラインディスプレイデバイスのClaimが行われていない </li>
+                                                               <li>1002 … ラインディスプレイデバイスビジー状態<br />　　　　（他の端末機器がClaim開始状態にありデバイス使用中：要再送）</li>
+                                                               <li>1003 … ラインディスプレイデバイスがAsuraCPRNTに接続されていないか電源が入っていない </li>
+                                                               <li>1004 … ラインディスプレイデバイスがオンライン状態でエラー発生 </li></ul></td><td>Number</td></tr>
+                <tr><td>traderLDClaim (*1) (*2)</td><td>ラインディスプレイデバイスのClaim状態結果<br /><ul><li>true … Claim開始</li><li>false … Claim終了</li></ul></td><td>Boolean</td></tr>
+                <tr><td>traderLDClaimPollingTimeout (*1) (*2)</td><td>Claim管理用ポーリングタイムアウト<br />※1000　～  2147483647(msec)</td><td>Number</td></tr>
+
                 <tr><td>status</td><td>XMLHttpRequestオブジェクトのstatusプロパティ<br />※XMLHttpRequest仕様参照</td><td>Number</td></tr>
                 <tr><td>responseText</td><td>XMLHttpRequestオブジェクトのresponseTextプロパティ<br />※XMLHttpRequest仕様参照</td><td>String</td></tr>
             </tbody>
         </table>
-    
+        <p class="note2">
+            *1 AsuraCPRNT Linux OS Ver 1.7以降のみ対応<br />
+            *2 AsuraCPRNT Linux OS Ver 1.7以降に搭載の"Line Display"アプリケーション起動時利用可
+        </p>
         <h5>例</h5>
 <pre>
 // --&gt;
@@ -1133,6 +1269,151 @@ function onSend(url, request) {
 // --&gt;
 &lt;/script&gt;
 </pre>
+
+        <h5>例:バーコードリーダー</h5>
+<pre>
+// --&gt;
+&lt;script type='text/javascript' src='js/StarWebPrintTrader.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript' src='js/StarClaimManager.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+var manager = new StarClaimManager();
+
+function onSend(url, request) {
+　　var trader = new StarWebPrintTrader({url:url});
+
+　　trader.onReceive = function (response) {
+        var msg = '- onReceive -\n\n';
+
+        msg += 'TraderBCRSuccess:' + response.traderBCRSuccess + '\n';
+
+　      msg += 'TraderBCRCode:' + response.traderBCRCode + '\n';
+
+        msg += 'TraderBCRClaim:' + response.traderBCRClaim + '\n';
+
+        msg += 'TraderBCRData:' + response.traderBCRData + '\n';
+
+　      msg += 'TraderBCRDataSymbol:' + response.traderBCRDataSymbol + '\n';
+
+        msg += 'TraderBCRDataCount:' + response.traderBCRDataCount + '\n';
+
+        msg += 'TraderBCRDuplicateScanDelay:' + response.traderBCRDuplicateScanDelay + '\n';
+
+        msg += 'TraderBCRScanOnceTimeout:' + response.traderBCRScanOnceTimeout + '\n';
+
+　      msg += 'TraderBCRSymbol:' + response.traderBCRSymbol + '\n';
+
+　      msg += 'TraderBCRSymbolEnable:' + response.traderBCRSymbolEnable + '\n';
+
+　      msg += 'TraderBCRClaimPollingTimeout:' + response.traderBCRClaimPollingTimeout + '\n';
+
+        alert(msg);
+　　}
+
+    trader.onError = function (response) {
+        var msg = '- onError -\n\n';
+
+        msg += '\tStatus:' + response.status + '\n';
+
+        msg += '\tResponseText:' + response.responseText;
+
+        alert(msg);
+    }
+
+    manager.sendMessage({request:request, trader:trader});
+}
+// --&gt;
+&lt;/script&gt;
+</pre>
+
+        <h5>例:磁気リーダー</h5>
+<pre>
+// --&gt;
+&lt;script type='text/javascript' src='js/StarWebPrintTrader.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript' src='js/StarClaimManager.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+var manager = new StarClaimManager();
+
+function onSend(url, request) {
+　　var trader = new StarWebPrintTrader({url:url});
+
+　　trader.onReceive = function (response) {
+        var msg = '- onReceive -\n\n';
+
+        msg += 'TraderMSRSuccess:' + response.traderMSRSuccess + '\n';
+
+　      msg += 'TraderMSRCode:' + response.traderMSRCode + '\n';
+
+        msg += 'TraderMSRClaim:' + response.traderMSRClaim + '\n';
+
+        msg += 'TraderMSRData:' + response.traderMSRData + '\n';
+
+　      msg += 'TraderMSRDataCount:' + response.traderMSRDataCount + '\n';
+
+        msg += 'TraderMSRClaimPollingTimeout:' + response.traderMSRClaimPollingTimeout + '\n';
+
+        alert(msg);
+　　}
+
+    trader.onError = function (response) {
+        var msg = '- onError -\n\n';
+
+        msg += '\tStatus:' + response.status + '\n';
+
+        msg += '\tResponseText:' + response.responseText;
+
+        alert(msg);
+    }
+
+    manager.sendMessage({request:request, trader:trader});
+}
+// --&gt;
+&lt;/script&gt;
+</pre>
+
+        <h5>例:ラインディスプレイ</h5>
+<pre>
+// --&gt;
+&lt;script type='text/javascript' src='js/StarWebPrintTrader.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript' src='js/StarClaimManager.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+var manager = new StarClaimManager();
+
+function onSend(url, request) {
+　　var trader = new StarWebPrintTrader({url:url});
+
+　　trader.onReceive = function (response) {
+        var msg = '- onReceive -\n\n';
+
+        msg += 'TraderLDSuccess:' + response.traderLDSuccess + '\n';
+
+　      msg += 'TraderLDCode:' + response.traderLDCode + '\n';
+
+        msg += 'TraderLDClaim:' + response.traderLDClaim + '\n';
+
+        msg += 'traderLDClaimPollingTimeout:' + response.traderLDClaimPollingTimeout + '\n';
+
+        alert(msg);
+　　}
+
+    trader.onError = function (response) {
+        var msg = '- onError -\n\n';
+
+        msg += '\tStatus:' + response.status + '\n';
+
+        msg += '\tResponseText:' + response.responseText;
+
+        alert(msg);
+    }
+
+    manager.sendMessage({request:request, trader:trader});
+}
+// --&gt;
+&lt;/script&gt;
+</pre>
+
     </article>
 
     <div class="to_top">
@@ -1219,7 +1500,7 @@ function onSend(url, request) {
 </div>		<!-- Wrapp -->
 
 <footer id="footer">
-<p id="copyright"> &copy; Copyright 2013 - 2014  <a href="http://www.star-m.jp/">Star Micronics Co., Ltd.</a> </p>
+<p id="copyright"> &copy; Copyright 2013 - 2015  <a href="http://www.star-m.jp/">Star Micronics Co., Ltd.</a> </p>
 </footer>
 
 </body>

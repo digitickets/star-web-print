@@ -1,0 +1,143 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+body {
+	line-height:1.6;
+}
+.container {
+	margin:0 auto;
+	padding: 0 15px 0px 15px;
+}
+
+#canvasFrame {
+}
+#canvasPaper {
+    border:3px solid #a0a0a0;
+	max-width: 95%;
+    height: auto;
+
+}
+.wrapper {
+     float: left;
+     width: 100%;
+     margin-right: -300px;
+}
+
+#canvasBlock {
+     margin-right: 300px;
+}
+
+#optionBlock {
+     float: right;
+     width: 300px;
+	 font-size:15px;
+}
+#clearBtnBlock {
+	display:block;
+}
+#module0 {
+	width:60px;
+}
+#module1 {
+	width:60px;
+}
+#module2 {
+	width:60px;
+}
+#drawBtn {
+	width:100%;
+	height:40px;
+	margin:5px 0 0 0;
+	font-size:100%;
+}
+#clearBtn {
+	width:100%;
+	height:40px;
+	margin:5px 0 0 0;
+	font-size:100%;
+}
+#url {
+	width:80%;
+}
+#papertype {
+	margin-bottom:10px;
+}
+
+#sendBtn{
+	width:100%;
+	height:60px;
+	margin:5px 0 0 0;
+	background: -webkit-gradient(linear, left top, left bottom, from(#aebfdd), to(#9ba9cd));
+	-webkit-border-radius: 10px;
+	font-size:100%;
+}
+
+footer {
+     clear: both;
+}
+hr {
+	display:none;
+}
+dl{
+	margin:0 0 10px 0;
+}
+dt{
+	width:130px;
+	font-weight:bold;
+	float:left;
+}
+dd{
+}
+.note{
+	line-height:1.4;
+	font-size:10px;
+}
+
+@media (max-width: 1023px) {
+	#canvasFrame {
+		padding:0 5px 0 0;
+	}
+	#canvasPaper {
+		max-width:100%;
+	}
+	.wrapper, #canvasBlock, #optionBlock {
+          float: none;
+          margin: 0;
+          width: auto;
+	}
+	hr {
+		display:block;
+		height:1px;
+		border:0;
+		border-top:1px solid #cccccc;
+		margin:1em 0;
+		padding:0;
+	}
+}
+
+/* add */
+.to_top {
+	width:90%;
+	max-width: 800px;
+	margin: 40px auto 10px;
+	text-align: right;
+	font-style: italic;
+	font-size: 80%;
+	color: #666666;
+}
+#canvasPaper {
+	background-color: #fff;
+}
+#optionBlock dt{
+	width:100px;
+}
+input{
+	padding:2px;
+}
+input#data{
+	width:100px;
+}
+input[type=text]{
+	font-size:100%;
+}

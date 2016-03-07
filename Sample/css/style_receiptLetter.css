@@ -1,0 +1,143 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*
+ * "ipag" is lisenced under the IPA Font License 1.0
+ *  by http://ipafont.ipa.go.jp/ipa_font_license_v1.html
+ *  Original download URL is http://ipafont.ipa.go.jp/node17#jp
+ */
+@font-face {
+    font-family: 'IPAexゴシック';
+    src: url('../fonts/ipag.ttf');
+}
+
+body {
+	line-height:1.6;
+}
+.container {
+	margin:0 auto;
+	padding: 0 15px 0px 15px;
+}
+#canvasFrame {
+}
+#canvasPaper {
+    border:3px solid #a0a0a0;
+	max-width: 95%;
+    height: auto;
+}
+.wrapper {
+     float: left;
+     width: 100%;
+     margin-right: -300px;
+}
+ 
+#canvasBlock {
+     margin-right: 300px;
+}
+ 
+#optionBlock {
+     float: right;
+     width: 300px;
+	 font-size:15px;
+}
+#clearBtnBlock {
+	display:block;
+}
+#drawBtn {
+	width:100%;
+	height:40px;
+	margin:5px 0 0 0;
+}
+#clearBtn {
+	width:100%;
+	height:40px;
+	margin:5px 0 0 0;
+}
+#url {
+	width:80%;
+}
+#textData {
+    font-family: 'IPAexゴシック';
+}
+
+
+#sendBtnAscii,#sendBtnKanji{
+	width:100%;
+	height:60px;
+	margin:5px 0 0 0;
+	background: -webkit-gradient(linear, left top, left bottom, from(#aebfdd), to(#9ba9cd));
+	-webkit-border-radius: 10px;
+	font-size:100%;
+}
+ 
+textarea {
+    resize: none;
+}
+footer {
+     clear: both; 
+}
+hr {
+	display:block;
+	height:1px;
+	border:0;   
+	border-top:1px solid #cccccc;
+	margin:1em 0;
+	padding:0;
+}
+dl{
+	margin:0 0 10px 0;
+    font-family: 'IPAexゴシック';
+}
+dt{
+	width:80px;
+	font-weight:bold;
+	float:left;
+    font-family: 'IPAexゴシック';
+}
+dd{
+}
+.note{
+	line-height:1.4;
+	font-size:10px;
+}
+#papertype {
+	margin-bottom:10px;
+}
+
+@media (max-width: 1023px) {
+	#canvasFrame {
+		padding:0 5px 0 0;
+	}
+	#canvasPaper {
+		max-width:100%;
+	}
+	.wrapper, #canvasBlock, #optionBlock {
+          float: none;
+          margin: 0;
+          width: auto;
+	}
+}
+
+/* add */
+.to_top {
+	width:90%;
+	max-width: 800px;
+	margin: 40px auto 10px;
+	text-align: right;
+	font-style: italic;
+	font-size: 80%;
+	color: #666666;
+}
+#canvasPaper {
+	background-color: #fff;
+}
+#optionBlock dt{
+	width:100px;
+}
+input{
+	padding:2px;
+}
+
+input[type=text]{
+	font-size:100%;
+}

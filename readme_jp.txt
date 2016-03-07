@@ -1,10 +1,10 @@
 ************************************************************
-      Star WebPRNT SDK  -  Ver 1.1.0
+      Star WebPRNT SDK  -  Ver 1.2.1
          readme_jp.txt                  スター精密（株）
 ************************************************************
 
  1. 概要
- 2. Ver 1.1.0 についての変更点
+ 2. Ver 1.2.1 についての変更点
  3. 内容
  4. 適用
  5. 制約事項
@@ -27,20 +27,23 @@
 
 
 ================================
- 2. Ver 1.1.0 についての変更点
+ 2. Ver 1.2.1 についての変更点
 ================================
-   - サンプルコンテンツのレイアウトを変更
-   - Androidデバイス対応を追加
 
   [SDK]
-   - コンテンツの表示サイズを、閲覧デバイスの画面サイズに合わせて自動変更する機能追加
-   - Androidデバイスにおける表示に関する不具合を修正
+   - ブラックマーク用紙のデフォルト設定を修正
+     WebPRNT BrowserにてMSW設定を利用して
+     ブラックマーク用紙を使用できるように対応
+
+  [User's Manual]
+   - ブラックマークに関するAPIのリファレンスを修正
+   - StarPRNTモードに関するリファレンスを追加
 
 ==========
  3. 内容
 ==========
 
-  WebPRNT SDK
+  StarWebPRNT_WebContents_V1.2.1
   |
   | Readme_En.txt                       // リリースノート(英語)
   | Readme_Jp.txt                       // リリースノート(日本語)
@@ -58,30 +61,35 @@
  4. 適用
 =============
   ■ 対象プリンタモデル
-   ◇ プリンタモデル    (F/W ver)
-       SM-S210I         (Ver1.0以上)    (*1)
-       SM-S220I         (Ver2.0以上)    (*1)
-       SM-T300I         (Ver2.4以上)    (*1)
-       SM-T400I         (Ver2.4以上)    (*1)
+   ◇ プリンタモデル
+       SM-S210I         (F/W Ver1.0以上)    (*1)
+       SM-S220I         (F/W Ver2.0以上)    (*1)
+       SM-S230I         (F/W Ver1.0以上)    (*1)
+       SM-T300I         (F/W Ver2.4以上)    (*1)
+       SM-T400I         (F/W Ver2.4以上)    (*1)
+       SM-L200          (F/W Ver1.0以上)    (*1)
 
-       FVP10            (Ethernet: Ver1.5以上)
-       TSP650II         (Ethernet: Ver1.2以上, Bluetooth: Ver1.0以上)
-       TSP700II         (Ethernet: Ver4.1以上, Bluetooth: Ver4.0以上)
-       TSP800II         (Ethernet: Ver1.6以上, Bluetooth: Ver2.0以上)
+       FVP10            (Ethernet利用時: F/W Ver1.5以上, Bluetooth利用時: F/W Ver2.0以上)　(*1)
+       TSP650II         (Ethernet利用時: F/W Ver1.2以上, Bluetooth利用時: F/W Ver1.0以上)　(*1)
+       TSP700II         (Ethernet利用時: F/W Ver4.1以上, Bluetooth利用時: F/W Ver4.0以上)　(*1)
+       TSP800II         (Ethernet利用時: F/W Ver1.6以上, Bluetooth利用時: F/W Ver2.0以上)　(*1)
+       mPOP             (F/W Ver1.0以上)    (*1)
 
-       SP700            (Ethernet: Ver3.0以上, Bluetooth: Ver4.0以上)   
+       SP700            (Ethernet利用時: F/W Ver3.0以上, Bluetooth利用時: F/W Ver4.0以上)　(*2)
 
        ASR10            (Linux OS Ver1.6以降)
 
-  ◇ 対応インターフェース
-       Ethernet:  IFBD-HE07X/HE08X/BE07X    (Ver3.1.0以上）
-       Bluetooth: IFBD-HB03/HB05            (Ver1.0.0以上) (*1)
-                  IFBD-HB04/HB06            (Ver1.0.0以上) (*2)
+    <Bluetoothをご使用の場合>
+      印刷するには、Star WebPRNT Browserが必要です。
+      対応しているデバイスは注記の通りです。
 
-       (*1)iOSデバイスおよびAndroidにおいてサポートされており、印刷には
-           Star WebPRNT Browserが必要です。
-       (*2)iOSデバイスにおいてサポートされており、印刷には
-           iOS版 Star WebPRNT Browserが必要です。
+        *1 iOSおよびAndroidデバイスにおいてサポートされています。
+　    　*2 iOSデバイスにおいてサポートされています。
+
+  ◇ 対応インターフェースカード
+       Ethernet:  IFBD-HE07X/HE08X/BE07X    (Ver3.1.0以上)
+       Bluetooth: IFBD-HB03/HB04            (Ver1.0.0以上)
+                  IFBD-HB05/HB06/BB05       (Ver1.0.0以上)
 
 
 =============
@@ -94,12 +102,30 @@
  6. 著作権
 ===========
 
-  スター精密（株）Copyright 2014-2015
+  スター精密（株）Copyright 2014-2016
 
 
 =============
  7. 更新履歴
 =============
+
+ Ver 1.2.1
+  2016/02/08 : [SDK]
+                - ブラックマーク用紙のデフォルト設定を修正
+                  WebPRNT BrowserにてMSW設定を利用して
+                  ブラックマーク用紙を使用できるように対応
+
+               [User's Manual]
+                - ブラックマークに関するAPIのリファレンスを修正
+                - StarPRNTモードに関するリファレンスを追加
+
+ Ver 1.2.0   
+  2015/11/06 : [SDK]
+                - ブラックマーク用紙対応
+
+               [User's Manual]
+                - ブラックマークに関するAPIのリファレンスを追加
+
  Ver 1.1.0   
   2015/02/20 : [SDK]
                 - コンテンツの表示サイズを、閲覧デバイスの画面サイズに合わせて

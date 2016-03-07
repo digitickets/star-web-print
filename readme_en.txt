@@ -1,10 +1,10 @@
 ************************************************************
-      Star WebPRNT SDK  -  Ver 1.1.0
+      Star WebPRNT SDK  -  Ver 1.2.1
          readme_en.txt             Star Micronics Co., Ltd.
 ************************************************************
 
  1. Overview
- 2. Ver 1.1.0 Changes
+ 2. Ver 1.2.1 Changes
  3. Contents
  4. Scope
  5. Remarks
@@ -18,28 +18,29 @@
 
   Using this software, provide you a multi platform solution to print directly
   from various devices such as PCs and tablets via a web browser.
-  You can print receipts by embeding JavaScript in this SDK package into your
+  You can print receipts by embedding JavaScript in this SDK package into your
   HTML file. And you can control your printer. It allows you to print receipts
   Using your web programming knowledge, you can control printer.
   No printer drivers or plug-ins are required.
 
 
 =======================
- 2. Ver 1.1.0 Changes
+ 2. Ver 1.2.1 Changes
 =======================
 
-   - Changed the layout of sample contents.
-   - Support Android device.
-
   [SDK]
-   - Add the function to adjust screen size automatically.
-   - Fix display bug on Android WebPRNT Browser.
+   - Modified default setting of BM.
+     With WebPRNT Browser, enabled to use BM, setting by MSW.
+
+  [User's Manual]
+   - Revise reference of API related with BM.
+   - Added reference related with StarPRNT mode.
 
 =============
  3. Contents
 =============
 
-  WebPRNT SDK
+  StarWebPRNT_WebContents_V1.2.1
   |
   | Readme_En.txt                       // Release Note(English)
   | Readme_Jp.txt                       // Release Note(Japanese)
@@ -48,7 +49,7 @@
   |
   +- UsersManual
   |  |  jp                              // Master help file(English)
-  |  +- en                              // Master help file(Japnese)
+  |  +- en                              // Master help file(Japanese)
   |
   +- Sample                             // WebPRNT sample program
 
@@ -60,26 +61,30 @@
   [Printer Model]
        SM-S210I         (Ver1.0 or later)    (*1)
        SM-S220I         (Ver2.0 or later)    (*1)
+       SM-S230I         (Ver1.0 or later)    (*1)
        SM-T300I         (Ver2.4 or later)    (*1)
        SM-T400I         (Ver2.4 or later)    (*1)
+       SM-L200          (Ver1.0 or later)    (*1)
 
-       FVP10            (Ethernet: Ver1.5 or later)
-       TSP650II         (Ethernet: Ver1.2 or later, Bluetooth: Ver1.0 or later)
-       TSP700II         (Ethernet: Ver4.1 or later, Bluetooth: Ver4.0 or later)
-       TSP800II         (Ethernet: Ver1.6 or later, Bluetooth: Ver2.0 or later)
+       FVP10            (Ethernet: Ver1.5 or later, Bluetooth: Ver2.0 or later)  (*1)
+       TSP650II         (Ethernet: Ver1.2 or later, Bluetooth: Ver1.0 or later)  (*1)
+       TSP700II         (Ethernet: Ver4.1 or later, Bluetooth: Ver4.0 or later)  (*1)
+       TSP800II         (Ethernet: Ver1.6 or later, Bluetooth: Ver2.0 or later)  (*1)
+       mPOP             (Ver1.0 or later)    (*1)
 
-       SP700            (Ethernet: Ver3.0 or later, Bluetooth: Ver4.0 or later)
+       SP700            (Ethernet: Ver3.0 or later, Bluetooth: Ver4.0 or later)  (*2)
 
        ASR10            (Linux OS Ver1.6 or later)
 
-  [Interface]
+       <Notification of Bluetooth I/F>
+         To print data, "Star WebPRNT Browser" is required.
+           *1: Support both iOS and Android devices.
+           *2: Support iOS devices only.
+
+  [Interface Card]
        LAN:       IFBD-HE07X/HE08X/BE07X    (Ver3.1.0 or later)
-       Bluetooth: IFBD-HB03/HB05            (Ver1.0.0 or later)  (*1)
-                  IFBD-HB04/HB06            (Ver1.0.0 or later)  (*2)
-
-       (*1)Supported in iOS and Android. Star WebPRNT Browser is necessary for print.
-       (*2)Supported only in iOS. Star WebPRNT Browser for iOS is necessary for print.
-
+       Bluetooth: IFBD-HB03/HB04            (Ver1.0.0 or later)
+                  IFBD-HB05/HB06/BB05       (Ver1.0.0 or later)
 
 =============
   5. Remarks
@@ -91,12 +96,28 @@
  6. Copyright
 ==============
 
-  Copyright 2014-2015 Star Micronics Co., Ltd. All rights reserved.
+  Copyright 2014-2016 Star Micronics Co., Ltd. All rights reserved.
 
 
 ====================
  7. Release History
 ====================
+
+ Ver 1.2.1   
+ 02/08/2016   : [SDK]
+                 - Modified default setting of BM.
+                   With WebPRNT Browser, enabled to use BM, setting by MSW.
+
+                [User's Manual]
+                 - Revise reference of API related with BM.
+                 - Added reference related with StarPRNT mode.
+
+ Ver 1.2.0   
+ 11/06/2015   : [SDK]
+                - Support black mark function.
+
+                [User's Manual]
+                - Added API reference for black mark function.
 
  Ver 1.1.0   
  02/20/2015   : [SDK]

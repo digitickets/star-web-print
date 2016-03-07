@@ -74,6 +74,9 @@
 	<li><a href="_StarWebPrintBuilder-js.htm#createRuledLineElement">createRuledLineElement</a></li>
 	<li><a href="_StarWebPrintBuilder-js.htm#createSoundElement">createSoundElement</a></li>
 	<li><a href="_StarWebPrintBuilder-js.htm#createTextElement">createTextElement</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createBarcodeReaderElement">createBarcodeReaderElement</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createMagstripeReaderElement">createMagstripeReaderElement</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createLineDisplayElement">createLineDisplayElement</a></li>
 	</ul>
 	<ul>
 	<li><a href="_StarWebPrintTrader-js.htm">StarWebPrintTrader.js</a></li>
@@ -107,6 +110,24 @@
 	<li><a href="_StarBarcodeEncoder-js.htm#createNW7">createNW7</a></li>
 	</ul>
 	<ul>
+	<li><a href="_StarClaimManager-js.htm">StarClaimManager.js</a></li>
+	<li><a href="_StarClaimManager-js.htm#StarClaimManager">StarClaimManager</a></li>
+	<li><a href="_StarClaimManager-js.htm#sendMessage">sendMessage</a></li>
+	<li><a href="_StarClaimManager-js.htm#isBCRClaimed">isBCRClaimed</a></li>
+	<li><a href="_StarClaimManager-js.htm#isMSRClaimed">isMSRClaimed</a></li>
+	<li><a href="_StarClaimManager-js.htm#isLDClaimed">isLDClaimed</a></li>
+	<li><a href="_StarClaimManager-js.htm#getBCRDeviceNameCapability">getBCRDeviceNameCapability</a></li>
+	<li><a href="_StarClaimManager-js.htm#getBCRModeCapability">getBCRModeCapability</a></li>
+	<li><a href="_StarClaimManager-js.htm#getBCRSymbolCapability">getBCRSymbolCapability</a></li>
+	<li><a href="_StarClaimManager-js.htm#setPollingInterval">setPollingInterval</a></li>
+	<li><a href="_StarClaimManager-js.htm#setBCREventListener">setBCREventListener</a></li>
+	<li><a href="_StarClaimManager-js.htm#setMSREventListener">setMSREventListener</a></li>
+	<li><a href="_StarClaimManager-js.htm#setLDEventListener">setLDEventListener</a></li>
+	<li><a href="_StarClaimManager-js.htm#removeBCREventListener">removeBCREventListener</a></li>
+	<li><a href="_StarClaimManager-js.htm#removeMSREventListener">removeMSREventListener</a></li>
+	<li><a href="_StarClaimManager-js.htm#removeLDEventListener">removeLDEventListener</a></li>
+	</ul>
+	<ul>
 	<li><a href="_StarWebPrintRequestElement.htm">StarWebPRNT Request Element</a></li>
 	<li><a href="_StarWebPrintRequestElement.htm#root">&lt;root&gt;</a></li>
 	<li><a href="_StarWebPrintRequestElement.htm#alignment">&lt;alignment&gt;</a></li>
@@ -123,6 +144,9 @@
 	<li><a href="_StarWebPrintRequestElement.htm#ruledline">&lt;ruledline&gt;</a></li>
 	<li><a href="_StarWebPrintRequestElement.htm#sound">&lt;sound&gt;</a></li>
 	<li><a href="_StarWebPrintRequestElement.htm#text">&lt;text&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#barcodereader">&lt;barcodereader&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#magstripereader">&lt;magstripereader&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#linedisplay">&lt;linedisplay&gt;</a></li>
 	</ul>
 	<ul>
 	<li><a href="_StarWebPrintResponseElement.htm">StarWebPRNT Response Element</a></li>
@@ -130,6 +154,34 @@
 	<li><a href="_StarWebPrintResponseElement.htm#success">&lt;success&gt;</a></li>
 	<li><a href="_StarWebPrintResponseElement.htm#code">&lt;code&gt;</a></li>
 	<li><a href="_StarWebPrintResponseElement.htm#status">&lt;status&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr">&lt;bcr&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-success">&lt;success&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-code">&lt;code&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-claim">&lt;claim&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-mode">&lt;mode&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-duplicatescandelay">&lt;duplicatescandelay&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-scanoncetimeout">&lt;scanoncetimeout&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-claimpollingtimeout">&lt;claimpollingtimeout&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-symbol">&lt;symbol&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-symbolenable">&lt;symbolenable&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-data">&lt;data&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-datasymbol">&lt;datasymbol&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-datacount">&lt;datacount&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-bcrdevicename">&lt;bcrdevicename&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-modecapability">&lt;modecapability&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-symbolcapability">&lt;symbolcapability&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#msr">&lt;msr&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#msr-success">&lt;success&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#msr-code">&lt;code&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#msr-claim">&lt;claim&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#msr-claimpollingtimeout">&lt;claimpollingtimeout&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#msr-data">&lt;data&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#msr-datacount">&lt;datacount&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#ld">&lt;ld&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#ld-success">&lt;success&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#ld-code">&lt;code&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#ld-claim">&lt;claim&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#ld-claimpollingtimeout">&lt;claimpollingtimeout&gt;</a></li>
 	</ul>
         <ul>
         <li><a href="_appendixUTF8.htm">Appendix UTF-8</a></li>

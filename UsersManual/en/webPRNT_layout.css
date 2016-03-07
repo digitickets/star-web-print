@@ -15,7 +15,7 @@ body {
 	margin:0;
 	padding:0;
 	background:#fff;
-    max-width: 960px;
+    max-width: 1000px;
 }
 
 
@@ -34,14 +34,39 @@ p {
 	margin: 10px 0;
 }
 
-
-
+	
 .clear {
 	clear: both;
 }
 
 
+/* ----------------------------------------------------
+/*  subNum     Numの中のNum                                 */
+/* -------------------------------------------------- */
 
+.subNum{
+	margin: 0;
+	padding: 1em;
+	list-style:none;
+	text-indent:-1.5em;
+}
+
+.subNum p{
+	padding-top: 0.8em;
+	padding-bottom: 0.3em;
+}
+
+.button-boder{
+	border: #888 solid 2px;
+	border-radius:5px;
+	padding: 6px 12px;
+	margin-right:0.3em;
+}
+
+.menu-icon{
+	position: relative;
+	left: 1.3em;
+}
 
 /* ----------------------------------------------------
 /*  for link (a)                                         */
@@ -122,6 +147,17 @@ h1 {
 	font-weight:normal;
 }
 
+
+
+h5 {
+	margin: 30px 0px 2px 5px;
+	padding: 0 0 2px 18px;
+	background-image: url('../illust/BlueSquare5.png');
+	background-position: 0px 6px;
+	background-repeat: no-repeat;
+	color: #333;
+	font-size: 80%;
+}
 
 
 .summary h5{
@@ -228,31 +264,15 @@ h4 {
 	margin: 30px 0px 2px 0px;
 	padding: 0 0 2px 18px;
 	background-image: url('../illust/BlueSquare4.png');
-	/*background-position: 0px 6px;*/
+	background-position: 0px 6px;
 	background-repeat: no-repeat;
 	color: #333;
 	font-weight:bold;
 }
-
-h5 {
-	margin: 30px 0px 2px 5px;
-	padding: 0 0 2px 18px;
-	background-image: url('../illust/BlueSquare5.png');
-	/*background-position: 0px 6px;*/
-	background-repeat: no-repeat;
-	color: #333;
-	font-size: 80%;
-	font-weight:bold;
-}
-
-
-
-
-
-
 
 #howToUse h4{
     margin: 50px 0px 5px 0px;
+	font-size:1.2em;
 }
 
 .introduction_2 {
@@ -404,6 +424,12 @@ h5 {
 /*  Class  numOperation   */
 /* -------------------------  */
 
+/*.numOperation{
+	border:#EEE 5px solid;
+	border-radius:3em;
+	padding:2em 1em;
+}*/
+
 .numOperation li {
 	margin-top: 25px;
 	margin-left: 30px;
@@ -515,7 +541,7 @@ infoBox noteBox    Style
 .noteBox{
 	/*background-color: #FFFBD8;*/
 	border-radius: 20px;
-	border:#FC991B solid 2px;
+	border:#CEF7A2 solid 3px;
 }
 
 .noteBox2{
@@ -527,13 +553,13 @@ infoBox noteBox    Style
 	font-weight:bold;
 	font-size:1.3em;
 	margin-top:1em;
-	margin-left:2em;
+	margin-left:1em;
 }
 
 .noteTitle:before{
     font-family: 'FontAwesome','Lucida Grande', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
-    content:"\f05a";
-	color:#FC991B;
+    content:"\f040";
+	color:#8aed20;
 	font-size:1.3em;
 	padding-right:0.3em;
 	font-weight:normal;
@@ -700,7 +726,6 @@ infoBox noteBox    Style
     border-spacing: 0;
     border: 1px solid #aaa;
             border-radius: 5px;
-    box-shadow: 0 1px 1px #CCC;	
 }
 
 .List1 thead,
@@ -725,9 +750,31 @@ infoBox noteBox    Style
 	vertical-align:middle;
     background:#F0F8FF;
     background-color: #b9d6e8;
-    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8) inset;
 }
 
 .List2 thead :first-child {
 	text-align:center;
+}
+
+/*----------------------------------------------------------------------
+/*        linkList   #How to use のリンクリスト (Sample Program)
+/*-----------------------------------------------------------------------*/
+.linkList li{
+	color: #333;
+	list-style:none;
+	font-size:1.1em;
+	line-height:1.9em;
+}
+
+.linkList li:before{
+    font-family: 'FontAwesome','Lucida Grande', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+	content:"\f0a9";
+	color:#8FC5E7;
+	font-size:1.2em;
+	padding-right:0.5em;
+	padding-bottom:0.5em;
+}
+
+.linkList a:hover{
+	text-decoration:none;
 }
