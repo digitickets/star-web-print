@@ -1,0 +1,418 @@
+﻿<!DOCTYPE html>
+<!--
+//
+// StarWebPRNT Sample(API Receipt)
+//
+// Version 0.3.0
+//
+// Copyright (C) 2012-2013 STAR MICRONICS CO., LTD. All Rights Reserved.
+//
+-->
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+<meta name='viewport' content='width=device-width, initial-scale=1.0' />
+<title>StarWebPRNT Sample(API Receipt)</title>
+<style type='text/css'>
+<!--
+body {
+}
+table {
+    border:solid 3px #000000;
+    border-collapse:collapse;
+    text-align:center;
+}
+td {
+    border-top:solid 1px #800000;
+    border-left:solid 1px #c0c0c0;
+    background-color:#f0f0ff;
+}
+th {
+    color:#ffffff;
+    background-color:#0000ff;
+}
+.left {
+    text-align:left;
+}
+.center {
+    text-align:center;
+}
+.right {
+    text-align:right;
+}
+-->
+</style>
+<script type='text/javascript' src='js/StarWebPrintBuilder.js'></script>
+<script type='text/javascript' src='js/StarWebPrintTrader.js'></script>
+<script type='text/javascript'>
+<!--
+function sendMessage(request) {
+    var url = document.getElementById('url').value;
+
+    var trader = new StarWebPrintTrader({url:url});
+
+    trader.onReceive = function (response) {
+        var msg = '- onReceive -\n\n';
+
+        msg += 'TraderSuccess : [ ' + response.traderSuccess + ' ]\n';
+
+//      msg += 'TraderCode : [ ' + response.traderCode + ' ]\n';
+
+        msg += 'TraderStatus : [ ' + response.traderStatus + ',\n';
+
+        if (trader.isCoverOpen            ({traderStatus:response.traderStatus})) {msg += '\tCoverOpen,\n';}
+        if (trader.isOffLine              ({traderStatus:response.traderStatus})) {msg += '\tOffLine,\n';}
+        if (trader.isCompulsionSwitchClose({traderStatus:response.traderStatus})) {msg += '\tCompulsionSwitchClose,\n';}
+        if (trader.isEtbCommandExecute    ({traderStatus:response.traderStatus})) {msg += '\tEtbCommandExecute,\n';}
+        if (trader.isHighTemperatureStop  ({traderStatus:response.traderStatus})) {msg += '\tHighTemperatureStop,\n';}
+        if (trader.isNonRecoverableError  ({traderStatus:response.traderStatus})) {msg += '\tNonRecoverableError,\n';}
+        if (trader.isAutoCutterError      ({traderStatus:response.traderStatus})) {msg += '\tAutoCutterError,\n';}
+        if (trader.isBlackMarkError       ({traderStatus:response.traderStatus})) {msg += '\tBlackMarkError,\n';}
+        if (trader.isPaperEnd             ({traderStatus:response.traderStatus})) {msg += '\tPaperEnd,\n';}
+        if (trader.isPaperNearEnd         ({traderStatus:response.traderStatus})) {msg += '\tPaperNearEnd,\n';}
+
+        msg += '\tEtbCounter = ' + trader.extractionEtbCounter({traderStatus:response.traderStatus}).toString() + ' ]\n';
+
+//      msg += 'Status : [ ' + response.status + ' ]\n';
+//
+//      msg += 'ResponseText : [ ' + response.responseText + ' ]\n';
+
+        alert(msg);
+    }
+
+    trader.onError = function (response) {
+        var msg = '- onError -\n\n';
+
+        msg += '\tStatus:' + response.status + '\n';
+
+        msg += '\tResponseText:' + response.responseText;
+
+        alert(msg);
+    }
+
+    trader.sendMessage({request:request});
+}
+
+function onSendAscii() {
+    var builder = new StarWebPrintBuilder();
+
+    var request = '';
+
+    request += builder.createInitializationElement();
+
+    switch (document.getElementById('paperWidth').value) {
+        case 'inch3DotImpact' :
+            request += builder.createTextElement({characterspace:2});
+
+            request += builder.createAlignmentElement({position:'right'});
+            request += builder.createLogoElement({number:1});
+            request += builder.createTextElement({data:'TEL 9999-99-9999\n'});
+            request += builder.createAlignmentElement({position:'left'});
+
+            request += builder.createTextElement({data:'\n'});
+
+            request += builder.createAlignmentElement({position:'center'});
+            request += builder.createTextElement({data:'Thank you for your coming. \n'});
+            request += builder.createTextElement({data:"We hope you'll visit again.\n"});
+            request += builder.createAlignmentElement({position:'left'});
+
+            request += builder.createTextElement({data:'\n'});
+
+            request += builder.createTextElement({data:'Apple                               $20.00\n'});
+            request += builder.createTextElement({data:'Banana                              $30.00\n'});
+            request += builder.createTextElement({data:'Grape                               $40.00\n'});
+            request += builder.createTextElement({data:'Lemon                               $50.00\n'});
+            request += builder.createTextElement({data:'Orange                              $60.00\n'});
+            request += builder.createTextElement({emphasis:true, data:'Subtotal                           $200.00\n'});
+            request += builder.createTextElement({data:'\n'});
+
+            request += builder.createTextElement({underline:true, data:'Tax                                 $10.00\n'});
+            request += builder.createTextElement({underline:false});
+
+            request += builder.createTextElement({emphasis:true});
+            request += builder.createTextElement({width:2, data:'Total         $210.00\n'});
+            request += builder.createTextElement({width:1});
+            request += builder.createTextElement({emphasis:false});
+
+            request += builder.createTextElement({data:'\n'});
+
+            request += builder.createTextElement({data:'Received                           $300.00\n'});
+
+            request += builder.createTextElement({width:2, data:'Change         $90.00\n'});
+            request += builder.createTextElement({width:1});
+            request += builder.createTextElement({data:'\n'});
+            break;
+        default :
+            request += builder.createTextElement({characterspace:0});
+
+            request += builder.createAlignmentElement({position:'right'});
+            request += builder.createLogoElement({number:1});
+            request += builder.createTextElement({data:'TEL 9999-99-9999\n'});
+            request += builder.createAlignmentElement({position:'left'});
+
+            request += builder.createTextElement({data:'\n'});
+
+            request += builder.createAlignmentElement({position:'center'});
+            request += builder.createTextElement({data:'Thank you for your coming. \n'});
+            request += builder.createTextElement({data:"We hope you'll visit again.\n"});
+            request += builder.createAlignmentElement({position:'left'});
+
+            request += builder.createTextElement({data:'\n'});
+
+            request += builder.createTextElement({data:'Apple                                     $20.00\n'});
+            request += builder.createTextElement({data:'Banana                                    $30.00\n'});
+            request += builder.createTextElement({data:'Grape                                     $40.00\n'});
+            request += builder.createTextElement({data:'Lemon                                     $50.00\n'});
+            request += builder.createTextElement({data:'Orange                                    $60.00\n'});
+            request += builder.createTextElement({emphasis:true, data:'Subtotal                                 $200.00\n'});
+            request += builder.createTextElement({data:'\n'});
+
+            request += builder.createTextElement({underline:true, data:'Tax                                       $10.00\n'});
+            request += builder.createTextElement({underline:false});
+
+            request += builder.createTextElement({emphasis:true});
+            request += builder.createTextElement({width:2, data:'Total            $210.00\n'});
+            request += builder.createTextElement({width:1});
+            request += builder.createTextElement({emphasis:false});
+
+            request += builder.createTextElement({data:'\n'});
+
+            request += builder.createTextElement({data:'Received                                 $300.00\n'});
+
+            request += builder.createTextElement({width:2, data:'Change            $90.00\n'});
+            request += builder.createTextElement({width:1});
+            request += builder.createTextElement({data:'\n'});
+            break;
+        case 'inch4' :
+            request += builder.createTextElement({characterspace:1});
+
+            request += builder.createAlignmentElement({position:'right'});
+            request += builder.createLogoElement({number:1});
+            request += builder.createTextElement({data:'TEL 9999-99-9999\n'});
+            request += builder.createAlignmentElement({position:'left'});
+
+            request += builder.createTextElement({data:'\n'});
+
+            request += builder.createAlignmentElement({position:'center'});
+            request += builder.createTextElement({data:'Thank you for your coming. \n'});
+            request += builder.createTextElement({data:"We hope you'll visit again.\n"});
+            request += builder.createAlignmentElement({position:'left'});
+
+            request += builder.createTextElement({data:'\n'});
+
+            request += builder.createTextElement({data:'Apple                                                     $20.00\n'});
+            request += builder.createTextElement({data:'Banana                                                    $30.00\n'});
+            request += builder.createTextElement({data:'Grape                                                     $40.00\n'});
+            request += builder.createTextElement({data:'Lemon                                                     $50.00\n'});
+            request += builder.createTextElement({data:'Orange                                                    $60.00\n'});
+            request += builder.createTextElement({emphasis:true, data:'Subtotal                                                 $200.00\n'});
+            request += builder.createTextElement({data:'\n'});
+
+            request += builder.createTextElement({underline:true, data:'Tax                                                       $10.00\n'});
+            request += builder.createTextElement({underline:false});
+
+            request += builder.createTextElement({emphasis:true});
+            request += builder.createTextElement({width:2, data:'Total                    $210.00\n'});
+            request += builder.createTextElement({width:1});
+            request += builder.createTextElement({emphasis:false});
+
+            request += builder.createTextElement({data:'\n'});
+
+            request += builder.createTextElement({data:'Received                                                 $300.00\n'});
+
+            request += builder.createTextElement({width:2, data:'Change                    $90.00\n'});
+            request += builder.createTextElement({width:1});
+            request += builder.createTextElement({data:'\n'});
+            break;
+    }
+
+    request += builder.createCutPaperElement({feed:true});
+
+    sendMessage(request);
+}
+
+function onSendKanji() {
+    var builder = new StarWebPrintBuilder();
+
+    var request = '';
+
+    request += builder.createInitializationElement();
+
+    switch (document.getElementById('paperWidth').value) {
+        case 'inch3DotImpact' :
+            request += builder.createTextElement({characterspace:2, codepage:'utf8'});
+
+            request += builder.createAlignmentElement({position:'right'});
+            request += builder.createLogoElement({number:1});
+            request += builder.createTextElement({data:'TEL 9999-99-9999\n'});
+            request += builder.createAlignmentElement({position:'left'});
+
+            request += builder.createTextElement({data:'\n'});
+
+            request += builder.createAlignmentElement({position:'center'});
+            request += builder.createTextElement({data:'お買い上げありがとうございました。\n'});
+            request += builder.createTextElement({data:'またのご来店をお待ちしております。\n'});
+            request += builder.createAlignmentElement({position:'left'});
+
+            request += builder.createTextElement({data:'\n'});
+
+            request += builder.createTextElement({data:'りんご                              \\2,000\n'});
+            request += builder.createTextElement({data:'バナナ                              \\3,000\n'});
+            request += builder.createTextElement({data:'ぶどう                              \\4,000\n'});
+            request += builder.createTextElement({data:'レモン                              \\5,000\n'});
+            request += builder.createTextElement({data:'みかん                              \\6,000\n'});
+            request += builder.createTextElement({emphasis:true, data:'小計                               \\20,000\n'});
+            request += builder.createTextElement({data:'\n'});
+
+            request += builder.createTextElement({underline:true, data:'消費税                              \\1,000\n'});
+            request += builder.createTextElement({underline:false});
+
+            request += builder.createTextElement({emphasis:true});
+            request += builder.createTextElement({width:2, data:'合計          \\21,000\n'});
+            request += builder.createTextElement({width:1});
+            request += builder.createTextElement({emphasis:false});
+
+            request += builder.createTextElement({data:'\n'});
+
+            request += builder.createTextElement({data:'お預かり                           \\30,000\n'});
+
+            request += builder.createTextElement({width:2, data:'お釣り         \\9,000\n'});
+            request += builder.createTextElement({width:1});
+            request += builder.createTextElement({data:'\n'});
+            break;
+        default :
+            request += builder.createTextElement({characterspace:0, codepage:'utf8'});
+
+            request += builder.createAlignmentElement({position:'right'});
+            request += builder.createLogoElement({number:1});
+            request += builder.createTextElement({data:'TEL 9999-99-9999\n'});
+            request += builder.createAlignmentElement({position:'left'});
+
+            request += builder.createTextElement({data:'\n'});
+
+            request += builder.createAlignmentElement({position:'center'});
+            request += builder.createTextElement({data:'お買い上げありがとうございました。\n'});
+            request += builder.createTextElement({data:'またのご来店をお待ちしております。\n'});
+            request += builder.createAlignmentElement({position:'left'});
+
+            request += builder.createTextElement({data:'\n'});
+
+            request += builder.createTextElement({data:'りんご                                    \\2,000\n'});
+            request += builder.createTextElement({data:'バナナ                                    \\3,000\n'});
+            request += builder.createTextElement({data:'ぶどう                                    \\4,000\n'});
+            request += builder.createTextElement({data:'レモン                                    \\5,000\n'});
+            request += builder.createTextElement({data:'みかん                                    \\6,000\n'});
+            request += builder.createTextElement({emphasis:true, data:'小計                                     \\20,000\n'});
+            request += builder.createTextElement({data:'\n'});
+
+            request += builder.createTextElement({underline:true, data:'消費税                                    \\1,000\n'});
+            request += builder.createTextElement({underline:false});
+
+            request += builder.createTextElement({emphasis:true});
+            request += builder.createTextElement({width:2, data:'合計             \\21,000\n'});
+            request += builder.createTextElement({width:1});
+            request += builder.createTextElement({emphasis:false});
+
+            request += builder.createTextElement({data:'\n'});
+
+            request += builder.createTextElement({data:'お預かり                                 \\30,000\n'});
+
+            request += builder.createTextElement({width:2, data:'お釣り            \\9,000\n'});
+            request += builder.createTextElement({width:1});
+            request += builder.createTextElement({data:'\n'});
+            break;
+        case 'inch4' :
+            request += builder.createTextElement({characterspace:1, codepage:'utf8'});
+
+            request += builder.createAlignmentElement({position:'right'});
+            request += builder.createLogoElement({number:1});
+            request += builder.createTextElement({data:'TEL 9999-99-9999\n'});
+            request += builder.createAlignmentElement({position:'left'});
+
+            request += builder.createTextElement({data:'\n'});
+
+            request += builder.createAlignmentElement({position:'center'});
+            request += builder.createTextElement({data:'お買い上げありがとうございました。\n'});
+            request += builder.createTextElement({data:'またのご来店をお待ちしております。\n'});
+            request += builder.createAlignmentElement({position:'left'});
+
+            request += builder.createTextElement({data:'\n'});
+
+            request += builder.createTextElement({data:'りんご                                                    \\2,000\n'});
+            request += builder.createTextElement({data:'バナナ                                                    \\3,000\n'});
+            request += builder.createTextElement({data:'ぶどう                                                    \\4,000\n'});
+            request += builder.createTextElement({data:'レモン                                                    \\5,000\n'});
+            request += builder.createTextElement({data:'みかん                                                    \\6,000\n'});
+            request += builder.createTextElement({emphasis:true, data:'小計                                                     \\20,000\n'});
+            request += builder.createTextElement({data:'\n'});
+
+            request += builder.createTextElement({underline:true, data:'消費税                                                    \\1,000\n'});
+            request += builder.createTextElement({underline:false});
+
+            request += builder.createTextElement({emphasis:true});
+            request += builder.createTextElement({width:2, data:'合計                     \\21,000\n'});
+            request += builder.createTextElement({width:1});
+            request += builder.createTextElement({emphasis:false});
+
+            request += builder.createTextElement({data:'\n'});
+
+            request += builder.createTextElement({data:'お預かり                                                 \\30,000\n'});
+
+            request += builder.createTextElement({width:2, data:'お釣り                    \\9,000\n'});
+            request += builder.createTextElement({width:1});
+            request += builder.createTextElement({data:'\n'});
+            break;
+    }
+
+    request += builder.createCutPaperElement({feed:true});
+
+    sendMessage(request);
+}
+// -->
+</script>
+<noscript>
+    Your browser does not support JavaScript!
+</noscript> 
+</head>
+<body>
+    <form onsubmit='return false;'>
+        <table style='width:100%'>
+            <thead>
+                <tr>
+                    <th colspan='2'>
+                        API : Receipt
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style='border-top:solid 3px #000000'>
+                    <td style='width:20%'>
+                        URL
+                    </td>
+                    <td style='width:80%'>
+                        <input id='url' style='width:98%' type='text' value='http://localhost/StarWebPRNT/SendMessage' />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan='2'>
+                        <input type='button' style='width:98%; height:40px' value='Send (Ascii)' onclick='onSendAscii()' />
+                        <br />
+                        <br />
+                        <input type='button' style='width:98%; height:40px' value='Send (Kanji)' onclick='onSendKanji()' />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan='2' align='left'>
+                        &nbsp;&nbsp;&nbsp;Paper Width :
+                        <select id='paperWidth'>
+                            <option value='inch3DotImpact'>3 Inch (DotImpact)</option>
+                            <option value='inch3' selected='selected'>3 Inch</option>
+                            <option value='inch4'>4 Inch</option>
+                        </select>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</body>
+</html>

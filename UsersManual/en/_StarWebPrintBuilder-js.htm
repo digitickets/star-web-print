@@ -1,0 +1,1188 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  lang="ja" xml:lang="ja">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Star WebPRNT User's Manual</title>
+    <link href="html5reset-1.6.1.css" rel="stylesheet" type="text/css" />
+    <link href="webPRNT_layout.css" rel="stylesheet" type="text/css" />
+    <link href="webPRNT_print_layout.css" rel="stylesheet" type="text/css" media="print" />
+    
+   <!--[if IE ]>
+        <link rel="stylesheet" type="text/css" href="webPRNT_layout_ie.css"></script>
+        <link rel="stylesheet" type="text/css" href="webPRNT_print_layout_ie.css" media="print"></script>
+    <![endif]-->
+    
+    <script src="jquery-1.10.2.min.js"></script>
+    <script>
+    
+    $(function tggleNavi() {
+        $('#naviArrow').click(function(){
+           $('#mainNavi').slideToggle('slow');
+           
+       });
+    });
+
+    </script>
+    
+</head>
+
+
+<body>
+
+<div id="toTop">
+    <a href="index.htm"><img id="webPRNTLogo" src="../illust/WebPRNT_Logo.png" /></a>
+    <h1> Star WebPRNT User's Manual </h1>
+
+    <div class="clear"></div>
+</div>
+
+<div id="naviArrowSection">
+    <a id="naviArrow" onclick="tggleNavi()"><h5> Contents Show / Hide</h5></a>
+</div>
+
+<!-- wrapp : mainNavi + mainContents-->
+<div id="wrapp" class="clear">
+    
+
+<!-- mainNavi -->
+
+    <div id="mainNavi">
+	<navi>
+	<ul>
+	<li><a href="_sampleProgram.htm">Star WebPRNT SDK</a></li>
+	<li><a href="_sampleProgram.htm#sampleProgramConcept">Example of system configuration</a></li>
+	<li><a href="_sampleProgram.htm#sampleProgramList">Sample Program List</a></li>
+	<li><a href="_sampleProgram.htm#webServerRegistration">Web Server Registration</a></li>
+	<li><a href="_sampleProgram.htm#howToUse">How to use</a></li>
+	</ul>
+	<ul>
+	<li><a href="_StarWebPrintBuilder-js.htm">StarWebPrintBuilder.js</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#StarWebPrintBuilder">StarWebPrintBuilder</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createAlignmentElement">createAlignmentElement</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createBarcodeElement">createBarcodeElement</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createBitImageElement">createBitImageElement</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createCutPaperElement">createCutPaperElement</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createFeedElement">createFeedElement</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createInitializationElement">createInitializationElement</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createLogoElement">createLogoElement</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createPdf417Element">createPdf417Element</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createPeripheralElement">createPeripheralElement</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createQrCodeElement">createQrCodeElement</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createRawDataElement">createRawDataElement</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createRuledLineElement">createRuledLineElement</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createSoundElement">createSoundElement</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createTextElement">createTextElement</a></li>
+	</ul>
+	<ul>
+	<li><a href="_StarWebPrintTrader-js.htm">StarWebPrintTrader.js</a></li>
+	<li><a href="_StarWebPrintTrader-js.htm#StarWebPrintTrader">StarWebPrintTrader</a></li>
+	<li><a href="_StarWebPrintTrader-js.htm#sendMessage">sendMessage</a></li>
+	<li><a href="_StarWebPrintTrader-js.htm#isCoverOpen">isCoverOpen</a></li>
+	<li><a href="_StarWebPrintTrader-js.htm#isOffLine">isOffLine</a></li>
+	<li><a href="_StarWebPrintTrader-js.htm#isCompulsionSwitchClose">isCompulsionSwitchClose</a></li>
+	<li><a href="_StarWebPrintTrader-js.htm#isEtbCommandExecute">isEtbCommandExecute</a></li>
+	<li><a href="_StarWebPrintTrader-js.htm#isHighTemperatureStop">isHighTemperatureStop</a></li>
+	<li><a href="_StarWebPrintTrader-js.htm#isNonRecoverableError">isNonRecoverableError</a></li>
+	<li><a href="_StarWebPrintTrader-js.htm#isAutoCutterError">isAutoCutterError</a></li>
+	<li><a href="_StarWebPrintTrader-js.htm#isBlackMarkError">isBlackMarkError</a></li>
+	<li><a href="_StarWebPrintTrader-js.htm#isPaperEnd">isPaperEnd</a></li>
+	<li><a href="_StarWebPrintTrader-js.htm#isPaperNearEnd">isPaperNearEnd</a></li>
+	<li><a href="_StarWebPrintTrader-js.htm#extractionEtbCounter">extractionEtbCounter</a></li>
+	<li><a href="_StarWebPrintTrader-js.htm#onReceive">onReceive</a></li>
+	<li><a href="_StarWebPrintTrader-js.htm#onError">onError</a></li>
+	</ul>
+	<ul>
+	<li><a href="_StarBarcodeEncoder-js.htm">StarBarcodeEncoder.js</a></li>
+	<li><a href="_StarBarcodeEncoder-js.htm#StarBarcodeEncoder">StarBarcodeEncoder</a></li>
+	<li><a href="_StarBarcodeEncoder-js.htm#createUPCE">createUPCE</a></li>
+	<li><a href="_StarBarcodeEncoder-js.htm#createUPCA">createUPCA</a></li>
+	<li><a href="_StarBarcodeEncoder-js.htm#createJAN8">createJAN8</a></li>
+	<li><a href="_StarBarcodeEncoder-js.htm#createJAN13">createJAN13</a></li>
+	<li><a href="_StarBarcodeEncoder-js.htm#createCode39">createCode39</a></li>
+	<li><a href="_StarBarcodeEncoder-js.htm#createITF">createITF</a></li>
+	<li><a href="_StarBarcodeEncoder-js.htm#createCode128">createCode128</a></li>
+	<li><a href="_StarBarcodeEncoder-js.htm#createCode93">createCode93</a></li>
+	<li><a href="_StarBarcodeEncoder-js.htm#createNW7">createNW7</a></li>
+	</ul>
+	<ul>
+	<li><a href="_StarWebPrintRequestElement.htm">StarWebPRNT Request Element</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#root">&lt;root&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#alignment">&lt;alignment&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#barcode">&lt;barcode&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#bitImage">&lt;bitImage&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#cutpaper">&lt;cutpaper&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#feed">&lt;feed&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#initialization">&lt;initialization&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#logo">&lt;logo&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#pdf417">&lt;pdf417&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#peripheral">&lt;peripheral&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#qrcode">&lt;qrcode&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#rawdata">&lt;rawdata&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#ruledline">&lt;ruledline&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#sound">&lt;sound&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#text">&lt;text&gt;</a></li>
+	</ul>
+	<ul>
+	<li><a href="_StarWebPrintResponseElement.htm">StarWebPRNT Response Element</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#root-response">&lt;root&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#success">&lt;success&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#code">&lt;code&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#status">&lt;status&gt;</a></li>
+	</ul>
+        <ul>
+        <li><a href="_appendixUTF8.htm">Appendix UTF-8</a></li>
+        </ul>
+
+	</navi>
+</div>
+
+
+<div id="mainContents">
+
+
+    <article> 
+    <div id="starWebPrintBuilder-js">
+        <h2>StarWebPrintBuilder.js</h2>
+    
+        <div class="introduction_2">
+            <p>
+            Creates StarWebPRNT Request Element.
+            </p>
+        </div>
+    
+
+        <h4>Constructor</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>Name</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+                <tr><td><a href="#StarWebPrintBuilder">StarWebPrintBuilder</a></td><td>Creates StarWebPrintBuilder object.</td></tr>
+            </tbody>
+        </table>
+    
+
+        <h4>Method</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>Name</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+            <tr><td><a href="#createAlignmentElement">createAlignmentElement</a></td><td>Creates Alignment element.</td></tr>
+            <tr><td><a href="#createBarcodeElement">createBarcodeElement</a></td><td>Creates Barcode element.</td></tr>
+            <tr><td><a href="#createBitImageElement">createBitImageElement</td><td>Creates Bitimage element.</td></tr>
+            <tr><td><a href="#createCutPaperElement">createCutPaperElement</a></td><td>Creates Cut paper element.</td></tr>
+            <tr><td><a href="#createFeedElement">createFeedElement</a></td><td>Creates Feed element.</td></tr>
+            <tr><td><a href="#createInitializationElement">createInitializationElement</a></td><td>Creates Initialization element.</td></tr>
+            <tr><td><a href="#createLogoElement">createLogoElement</a></td><td>Creates Logo element.</td></tr>
+            <tr><td><a href="#createPdf417Element">createPdf417Element</a></td><td>Creates PDF417 element.</td></tr>
+            <tr><td><a href="#createPeripheralElement">createPeripheralElement</a></td><td>Creates Peripheral element.</td></tr>
+            <tr><td><a href="#createQrCodeElement">createQrCodeElement</a></td><td>Creates QR code element.</td></tr>
+            <tr><td><a href="#createRawDataElement">createRawDataElement</a></td><td>Creates Raw data element.</td></tr>
+            <tr><td><a href="#createRuledLineElement">createRuledLineElement</a></td><td>Creates Horizontal ruled line element.</td></tr>
+            <tr><td><a href="#createSoundElement">createSoundElement</a></td><td>Creates Sound element.</td></tr>
+            <tr><td><a href="#createTextElement">createTextElement</a></td><td>Creates Text element.</td></tr>
+            </tbody>
+        </table>
+
+    </div>
+    </article>
+
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
+    </div>
+    
+    <article>
+    <div id="StarWebPrintBuilder">
+        <h3>StarWebPrintBuilder</h3>
+    
+        <div class="introduction_3">
+            <p>
+            Creates StarWebPrintBuilder object.
+            </p>
+        </div>
+    
+        <div class="syntax">
+        <h4>Syntax</h4>
+        <p>
+        StarWebPrintBuilder();
+        </p>
+    
+        <h4>Parameter</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>Name</td><td>Description</td><td>Object type</td><td>Omission</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            </tbody>
+        </table>
+
+        <h4>Return value</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>Description</td><td>Object type</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>StarWebPrintBuilder object</td><td>StarWebPrintBuilder</td></tr>
+            </tbody>
+        </table>
+
+        <h5>Example</h5>
+<pre>
+&lt;script type='text/javascript' src='js/StarWebPrintBuilder.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+function onBuild() {
+    var builder = new StarWebPrintBuilder();
+}
+// --&gt;
+&lt;/script&gt;
+</pre>
+
+    </div>
+    </article>
+
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
+    </div>
+
+    <article>
+    <div id="createAlignmentElement">
+        <h3>createAlignmentElement</h3>
+
+        <div class="introduction_3">
+            <p>
+            Creates Alignment element.
+            </p>
+        </div>
+    
+        <div class="syntax">
+            <h4>syntax</h4>
+            <p>
+            createAlignmentElement(args);
+            </p>
+        </div>
+    
+        <h4>Parameter</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>Name</td><td>Description</td><td>Object type</td><td>Omission</td></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>poistion</td>
+                    <td>Specifies position alignment<br />
+                       <ul><li>'left' … Left alignment</li><li>'center' … Center alignment</li><li>'right' … Right alignment</li></ul></td>
+                    <td>String</td>
+                    <td>'left'</td></tr>
+            </tbody>
+        </table>
+    
+        <h4>Return value</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>Description</td><td>Object type</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>Created element character string</td><td>String</td></tr>
+            </tbody>
+        </table>
+    
+        <h5>Example</h5>
+<pre>
+&lt;script type='text/javascript' src='js/StarWebPrintBuilder.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+function onBuild() {
+    var builder = new StarWebPrintBuilder();
+
+　　var request = builder.createAlignmentElement({position:'center'});
+}
+// --&gt;
+&lt;/script&gt;
+</pre>
+
+    </div>
+    </article>
+
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
+    </div>
+    
+    <article>
+    <div id="createBarcodeElement">
+    
+        <h3>createBarcodeElement</h3>
+        
+        <div class="introduction_3">
+            <p>
+            Creates Barcode element.
+            </p>
+        </div>
+        
+        <div class="syntax">
+            <h4>syntax</h4>
+            <p>
+            createBarcodeElement(args);
+            </p>
+        </div>
+        
+        <h4>Parameter</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>Name</td><td>Description</td><td>Object type</td><td>Omission</td></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>symbology</td>
+                    <td>シンボル<br />
+                       <ul><li>'UPCE' … UPC-E</li><li>'UPCA' … UPC-A</li><li>'JAN8' … JAN/EAN8</li>
+                               <li>'JAN13' … JAN/EAN13</li><li>'Code39' … Code39</li><li>'ITF' … ITF</li>
+                               <li>'Code128' … Code128</li><li>'Code93' … Code93</li><li>'NW7' … NW-7</li>
+                       </ul></td>
+                    <td>String</td>
+                    <td>'UPCE'</td></tr>
+                <tr>
+                    <td>width</td>
+                    <td>Specifies barcode width<br />
+                       <ul>
+                           <li>'width2' … Minimum module 2dots</li><li>'width3' … Minimum module 3dots</li><li>'width4' … Minimum module 4dots</li>
+                           <li>'width_mode1' … Mode1</li><li>'width_mode2' … Mode2</li><li>'width_mode3' … Mode3</li><li>'width_mode4' … Mode4</li>
+                           <li>'width_mode5' … Mode5</li><li>'width_mode6' … Mode6</li><li>'width_mode7' … Mode7</li>
+                           <li>'width_mode8' … Mode8</li><li>'width_mode9' … Mode9</li></ul>Note. Refer to the command specifications.</td>
+                    <td>String</td>
+                    <td>'width3'</td></tr>
+                <tr>
+                    <td>height</td><td>Specifies barcode height (Unit of dot)</td><td>Number</td><td>162</td></tr>
+                <tr>
+                    <td>hri</td><td>Specifies HRI characters<br />
+                    <ul><li>true … Adds HRI characters</li><li>false … No  added HRI characters</li></ul></td><td>Boolean</td><td>true</td></tr>
+                <tr>
+                    <td>data</td><td>Specifies barcode data<br />Note. Refer to the command specifications.</td><td>String</td><td>Can't be omitted</td></tr>               
+            </tbody>
+        </table>
+    
+        <h4>Return value</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>Description</td><td>Object type</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>Created element character string</td><td>String</td></tr>
+            </tbody>
+        </table>
+    
+        <h5>Example</h5>
+<pre>
+&lt;script type='text/javascript' src='js/StarWebPrintBuilder.js'&gt;&lt;/script&gt;&lt;script type='text/javascript'&gt;
+&lt;!--
+function onBuild() {
+    var builder = new StarWebPrintBuilder();
+
+　　var request = builder.createBarcodeElement({symbology:'JAN13', width:'width2', height:40, hri:false, data:'012345678901'});
+}
+// --&gt;
+&lt;/script&gt;
+</pre>
+
+    </div>
+    </article>
+
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
+    </div>
+    
+    <article>
+    <div id="createBitImageElement">
+    
+        <h3>createBitImageElement</h3>
+        
+        <div class="introduction_3">
+            <p>
+            Creates Bitimage element.
+            </p>
+        </div>
+        
+        <div class="syntax">
+            <h4>syntax</h4>
+            <p>
+            createBitImageElement(args);
+            </p>
+        </div>
+        
+        <h4>Parameter</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>Name</td><td>Description</td><td>Object type</td><td>Omission</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>context</td><td>HTML5 Canvas 2D Context</td><td>Canvas</td><td>Can't be omitted</td></tr>
+                <tr><td>x</td><td>Horizontal direction starting point of the image (Unit of dot)</td><td>Number</td><td>0</td></tr>
+                <tr><td>y</td><td>Vertical direction starting point of the image (Unit of dot)</td><td>Number</td><td>0</td></tr>
+                <tr><td>width</td><td>Specifies the image width (Unit of dot)</td><td>Number</td><td>0</td></tr>
+                <tr><td>height</td><td>Specifies the image height (Unit of dot)</td><td>Number</td><td>0</td></tr>
+            </tbody>
+        </table>
+    
+        <h4>Return value</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>Description</td><td>Object type</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>Created element character string</td><td>String</td></tr>
+            </tbody>
+        </table>
+    
+        <h5>Example</h5>
+<pre>
+&lt;script type='text/javascript' src='js/StarWebPrintBuilder.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+function onBuild() {
+    var builder = new StarWebPrintBuilder();
+
+　　var request = builder.createBitImageElement({context:canvas.getContext('2d'), x:0, y:0, width:200, height:50});
+}
+// --&gt;
+&lt;/script&gt;
+</pre>
+
+    </div>
+    </article>
+
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
+    </div>
+    
+    <article>
+    <div id="createCutPaperElement">
+    
+        <h3>createCutPaperElement</h3>
+        
+        <div class="introduction_3">
+            <p>
+            Creates Cut paper element.
+            </p>
+        </div>
+        
+        <div class="syntax">
+            <h4>syntax</h4>
+            <p>
+            createCutPaperElement(args);
+            </p>
+        </div>
+        
+        <h4>Parameter</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>Name</td><td>Description</td><td>Object type</td><td>Omission</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>type</td><td>Specifies cut type</br><ul><li>'full' … Full cut</li><li>'partial' … Partial cut</li></ul></td><td>String</td><td>'full'</td></tr>
+                <tr><td>feed</td><td>Specifies feed to cut position</br><ul><li>true … Feed</li><li>false … No feed (Current position)</li></ul></td><td>Boolean</td><td>true</td></tr>
+            </tbody>
+        </table>
+
+        <h4>Return value</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>Description</td><td>Object type</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>Created element character string</td><td>String</td></tr>
+            </tbody>
+        </table>
+    
+        <h5>Example</h5>
+<pre>
+&lt;script type='text/javascript' src='js/StarWebPrintBuilder.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+function onBuild() {
+    var builder = new StarWebPrintBuilder();
+
+　　var request = builder.createCutPaperElement({feed:true, type:'partial'});
+}
+// --&gt;
+&lt;/script&gt;
+</pre>
+
+    </div>
+    </article>
+
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
+    </div>
+    
+    <article>
+    <div id="createFeedElement">
+    
+        <h3>createFeedElement</h3>
+        
+        <div class="introduction_3">
+            <p>
+            Creates Feed element.
+            </p>
+        </div>
+        
+        <div class="syntax">
+            <h4>syntax</h4>
+            <p>
+            createFeedElement(args);
+            </p>
+        </div>
+        
+        <h4>Parameter</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>Name</td><td>Description</td><td>Object type</td><td>Omission</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>line</td><td>Specifies the paper feed space (Unit of line)</td><td>Number</td><td>0</td></tr>
+                <tr><td>unit</td><td>Specifies the paper feed space (Unit of dot)</td><td>Number</td><td>0</td></tr>
+            </tbody>
+        </table>
+
+        <h4>Return value</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>Description</td><td>Object type</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>Created element character string</td><td>String</td></tr>
+            </tbody>
+        </table>
+    
+        <h5>Example</h5>
+<pre>
+&lt;script type='text/javascript' src='js/StarWebPrintBuilder.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+function onBuild() {
+    var builder = new StarWebPrintBuilder();
+
+　　var request = builder.createFeedElement({line:2, unit:8});
+}
+// --&gt;
+&lt;/script&gt;
+</pre>
+
+    </div>
+    </article>
+
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
+    </div>
+    
+    <article>
+    <div id="createInitializationElement">
+    
+        <h3>createInitializationElement</h3>
+        
+        <div class="introduction_3">
+            <p>
+            Creates Initialization element.
+            </p>
+        </div>
+        
+        <div class="syntax">
+            <h4>syntax</h4>
+            <p>
+            createInitializationElement(args);
+            </p>
+        </div>
+        
+        <h4>Parameter</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>Name</td><td>Description</td><td>Object type</td><td>Omission</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>reset</td>
+                       <td>Specifies hardware reset</br><ul><li>true … Execute hardware reset</li>
+                       <li>false … Not execute hardware reset (Only command initialization)</li></ul></td>
+                       <td>Boolean</td><td>false</td></tr>
+                <tr><td>print</td>
+                        <td>Self printing after hardware reset</br><ul><li>true …Execute self print</li><li>false … Not execute self print</li></ul></td>
+                        <td>Boolean</td><td>false</td></tr>
+            </tbody>
+        </table>
+
+        <h4>Return value</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>Description</td><td>Object type</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>Created element character string</td><td>String</td></tr>
+            </tbody>
+        </table>
+    
+        <h5>Example</h5>
+<pre>
+&lt;script type='text/javascript' src='js/StarWebPrintBuilder.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+function onBuild() {
+    var builder = new StarWebPrintBuilder();
+
+　　var request = builder.createInitializationElement({reset:true, print:true});
+}
+// --&gt;
+&lt;/script&gt;
+</pre>
+
+    </div>
+    </article>
+
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
+    </div>
+    
+    <article>
+    <div id="createLogoElement">
+    
+        <h3>createLogoElement</h3>
+        
+        <div class="introduction_3">
+            <p>
+            Creates Logo element.
+            </p>
+        </div>
+        
+        <div class="syntax">
+            <h4>syntax</h4>
+            <p>
+            createLogoElement(args);
+            </p>
+        </div>
+        
+        <h4>Parameter</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>Name</td><td>Description</td><td>Object type</td><td>Omission</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>number</td><td>Specifies the number of logo registration</td><td>Number</td><td>1</td></tr>
+                <tr><td>width</td><td>Specifies width</br><ul><li>'single' … Single width</li><li>'double' … Double width</li></ul></td>
+                <td>String</td><td>'single'</td></tr>
+                <tr><td>height</td><td>Specifies height</br><ul><li>'single' … Single height</li><li>'double' … Double height</li></ul></td>
+                <td>String</td><td>'single'</td></tr>
+            </tbody>
+        </table>
+
+        <h4>Return value</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>Description</td><td>Object type</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>Created element character string</td><td>String</td></tr>
+            </tbody>
+        </table>
+    
+        <h5>Example</h5>
+<pre>
+&lt;script type='text/javascript' src='js/StarWebPrintBuilder.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+function onBuild() {
+    var builder = new StarWebPrintBuilder();
+
+    var request = builder.createLogoElement({number:1, width:'single', height:'single'});
+}
+// --&gt;
+&lt;/script&gt;
+</pre>
+    </div>
+    </article>
+
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
+    </div>
+    
+    <article>
+    <div id="createPdf417Element">
+    
+        <h3>createPdf417Element</h3>
+        
+        <div class="introduction_3">
+            <p>
+            Creates PDF417 element.
+            </p>
+        </div>
+        
+        <div class="syntax">
+            <h4>syntax</h4>
+            <p>
+            createPdf417Element(args);
+            </p>
+        </div>
+        
+        <h4>Parameter</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>Name</td><td>Description</td><td>Object type</td><td>Omission</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>line</td><td>Specifies number of lines<br />Note. Refer to the command specifications.</td><td>Number</td><td>0</td></tr>
+                <tr><td>column</td><td>Specifies number of columns<br />Note. Refer to the command specifications.</td><td>Number</td><td>0</td></tr>
+                <tr><td>level</td>
+                       <td>Specifies security level</br>
+                               <ul><li>'level0' … Security level0</li><li>'level1' … Security level1</li><li>'level2' … Security level2</li><li>'level3' … Security level3</li>
+                               <li>'level4' … Security level4</li><li>'level5' … Security level5</li><li>'level6' … Security level6</li><li>'level7' … Security level7</li>
+                               <li>'level8' … Security level8</li></ul></td>
+                       <td>String</td><td>'level1'</td></tr>
+                <tr><td>module</td><td>Specifies module size (Unit of dot)</td><td>Number</td><td>2</td></tr>
+                <tr><td>aspect</td><td>Specifies aspect ratio</td><td>Number</td><td>3</td></tr>
+                <tr><td>data</td><td>Specifies PDF417 data<br />Note. Refer to the command specifications.</td><td>String</td><td>Can't be omitted</td></tr>
+            </tbody>
+        </table>
+
+        <h4>Return value</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>Description</td><td>Object type</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>Created element character string</td><td>String</td></tr>
+            </tbody>
+        </table>
+    
+        <h5>Example</h5>
+<pre>
+&lt;script type='text/javascript' src='js/StarWebPrintBuilder.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+function onBuild() {
+    var builder = new StarWebPrintBuilder();
+
+　　var request = builder.createPdf417Element({level:'level1', line:0, column:0, module:2, aspect:3, data:'http://www.starmicronics.com/'});
+}
+// --&gt;
+&lt;/script&gt;
+</pre>
+    </div>
+    </article>
+
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
+    </div>
+    
+    <article>
+    <div id="createPeripheralElement">
+    
+        <h3>createPeripheralElement</h3>
+        
+        <div class="introduction_3">
+            <p>
+            Creates Peripheral element.
+            </p>
+        </div>
+        
+        <div class="syntax">
+            <h4>syntax</h4>
+            <p>
+            createPeripheralElement(args);
+            </p>
+        </div>
+        
+        <h4>Parameter</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>Name</td><td>Description</td><td>Object type</td><td>Omission</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>channel</td><td>Specifies the drive terminal of the peripheral</br>
+                <ul><li>1 … Peripheral drive terminal1</li><li>2 … Peripheral drive terminal2 (Energizing time and Delay time ignore)</li></ul>
+                </td><td>Number</td><td>1</td></tr>
+                <tr><td>on</td><td>Energizing time (Unit of 1mSec)</td><td>Number</td><td>200</td></tr>
+                <tr><td>off</td><td>Delay time (Unit of 1mSec)</td><td>Number</td><td>200</td></tr>
+            </tbody>
+        </table>
+
+        <h4>Return value</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>Description</td><td>Object type</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>Created element character string</td><td>String</td></tr>
+            </tbody>
+        </table>
+    
+        <h5>Example</h5>
+<pre>
+&lt;script type='text/javascript' src='js/StarWebPrintBuilder.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+function onBuild() {
+    var builder = new StarWebPrintBuilder();
+
+    var request = builder.createPeripheralElement({channel:1, on:200, off:200});
+}
+// --&gt;
+&lt;/script&gt;
+</pre>
+    </div>
+    </article>
+
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
+    </div>
+    
+    <article>
+    <div id="createQrCodeElement">
+    
+        <h3>createQrCodeElement</h3>
+        
+        <div class="introduction_3">
+            <p>
+            Creates QR code element.
+            </p>
+        </div>
+        
+        <div class="syntax">
+            <h4>syntax</h4>
+            <p>
+            createQrCodeElement(args);
+            </p>
+        </div>
+        
+        <h4>Parameter</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>Name</td><td>Description</td><td>Object type</td><td>Omission</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>model</td><td>Specifies model</br><ul><li>'model1' … Model1</li><li>'model2' … Model2</li></ul></td><td>String</td><td>'model2'</td></tr>
+                <tr><td>level</td><td>Specifies mistake correction level</br>
+                        <ul><li>'level_l' … Mistake Correction LevelL</li><li>'level_m' … Mistake Correction LevelM</li><li>'level_q' … Mistake Correction LevelQ</li>
+                        <li>'level_h' … Mistake Correction LevelH</li></ul></td><td>String</td><td>'level_l'</td></tr>
+                <tr><td>cell</td><td>Specifies cell size (Unit of dot)</td><td>Number</td><td>3</td></tr>
+                <tr><td>data</td><td>Specifies QR code data<br />Note. Refer to the command specifications.</td><td>String</td><td>Can't be omitted</td></tr>
+            </tbody>
+        </table>
+
+        <h4>Return value</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>Description</td><td>Object type</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>Created element character string</td><td>String</td></tr>
+            </tbody>
+        </table>
+    
+        <h5>Example</h5>
+<pre>
+&lt;script type='text/javascript' src='js/StarWebPrintBuilder.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+function onBuild() {
+    var builder = new StarWebPrintBuilder();
+
+　　var request = builder.createQrCodeElement({model:'model2', level:'level_l', cell:3, data:'http://www.starmicronics.com/'});
+}
+// --&gt;
+&lt;/script&gt;
+</pre>
+    </div>
+    </article>
+
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
+    </div>
+    
+    <article>
+    <div id="createRawDataElement">
+    
+        <h3>createRawDataElement</h3>
+        
+        <div class="introduction_3">
+            <p>
+            Creates Raw data element.
+            </p>
+        </div>
+        
+        <div class="syntax">
+            <h4>syntax</h4>
+            <p>
+            createRawDataElement(args);
+            </p>
+        </div>
+        
+        <h4>Parameter</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>Name</td><td>Description</td><td>Object type</td><td>Omission</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>data</td><td>Raw data</br>*16Hex '\x00'-'\xff', Horizontal tab '\t', Line feed '\n', Carriage return '\r', Backslash '\\'</td>
+                <td>String</td><td>Can't be omitted</td></tr>
+            </tbody>
+        </table>
+
+        <h4>Return value</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>Description</td><td>Object type</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>Created element character string</td><td>String</td></tr>
+            </tbody>
+        </table>
+    
+        <h5>Example</h5>
+<pre>
+&lt;script type='text/javascript' src='js/StarWebPrintBuilder.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+function onBuild() {
+    var builder = new StarWebPrintBuilder();
+
+　　var request = builder.createRawDataElement({data:\x30\x31\x32\x33\x34\x35\x36\x37\x38\x39\n')});
+}
+// --&gt;
+&lt;/script&gt;
+</pre>
+    </div>
+    </article>
+
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
+    </div>
+    
+    <article>
+    <div id="createRuledLineElement">
+    
+        <h3>createRuledLineElement</h3>
+        
+        <div class="introduction_3">
+            <p>
+            Creates Horizontal ruled line element.
+            </p>
+        </div>
+        
+        <div class="syntax">
+            <h4>syntax</h4>
+            <p>
+            createRuledLineElement(args);
+            </p>
+        </div>
+        
+        <h4>Parameter</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>Name</td><td>Description</td><td>Object type</td><td>Omission</td></tr>
+            </thead>
+            <tbody>
+                 <tr><td>thickness</td>
+                       <td>Specifies ruled line</br>
+                               <ul><li>'thin' … Thin line</li><li>'medium' … Medium line</li><li>'thick' … Thick line</li><li>'double_thin' … Thin, double line</li>
+                                       <li>'double_medium' … Medium, double line</li><li>'double_thick' … Thick, double line</li></ul></td>
+                       <td>String</td><td>'medium'</td></tr>
+                <tr><td>width</td><td>Specifies width (Unit of dot)</td><td>Number</td><td>832</td></tr>
+            </tbody>
+        </table>
+
+        <h4>Return value</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>Description</td><td>Object type</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>Created element character string</td><td>String</td></tr>
+            </tbody>
+        </table>
+    
+        <h5>Example</h5>
+<pre>
+&lt;script type='text/javascript' src='js/StarWebPrintBuilder.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+function onBuild() {
+    var builder = new StarWebPrintBuilder();
+
+　　var request = builder.createRuledLineElement({thickness:'thin', width:200});
+}
+// --&gt;
+&lt;/script&gt;
+</pre>
+    </div>
+    </article>
+
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
+    </div>
+    
+    <article>
+    <div id="createSoundElement">
+    
+        <h3>createSoundElement</h3>
+        
+        <div class="introduction_3">
+            <p>
+            Creates Sound element.
+            </p>
+        </div>
+        
+        <div class="syntax">
+            <h4>syntax</h4>
+            <p>
+            createSoundElement(args);
+            </p>
+        </div>
+        
+        <h4>Parameter</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>Name</td><td>Description</td><td>Object type</td><td>Omission</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>channel</td><td>Specifies the drive terminal of the buzzer</br>
+                <ul><li>1 … Buzzer drive terminal1</li><li>2 … Buzzer drive terminal2</li></ul></td><td>Number</td><td>1</td></tr>
+                <tr><td>repeat</td><td>Specifies the number of repeats</td><td>Number</td><td>1</td></tr>
+            </tbody>
+        </table>
+
+        <h4>Return value</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>Description</td><td>Object type</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>Created element character string</td><td>String</td></tr>
+            </tbody>
+        </table>
+    
+        <h5>Example</h5>
+<pre>
+&lt;script type='text/javascript' src='js/StarWebPrintBuilder.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+function onBuild() {
+    var builder = new StarWebPrintBuilder();
+
+　　var request = builder.createSoundElement({channel:1, repeat:1});
+}
+// --&gt;
+&lt;/script&gt;
+</pre>
+    </div>
+    </article>
+
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
+    </div>
+    
+    <article>
+    <div id="createTextElement">
+    
+        <h3>createTextElement</h3>
+        
+        <div class="introduction_3">
+            <p>
+            Creates Text element.
+            </p>
+        </div>
+        
+        <div class="syntax">
+            <h4>syntax</h4>
+            <p>
+            createTextElement(args);
+            </p>
+        </div>
+        
+        <h4>Parameter</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>Name</td><td>Description</td><td>Object type</td><td>Omission</td></tr>
+            </thead>
+            <tbody>
+                 <tr><td>codepage</td><td>Specifies CodePage</br><ul>
+                    <li>'utf8' … UTF-8</li><li>'cp437' … CodePage437</li><li>'cp737' … CodePage737</li><li>'cp772' … CodePage772</li><li>'cp774' … CodePage774</li><li>'cp851' … CodePage851</li>
+                    <li>'cp852' … CodePage852</li><li>'cp855' … CodePage855</li><li>'cp857' … CodePage857</li><li>'cp858' … CodePage858</li><li>'cp860' ～ 'cp866' … CodePage860 - 866</li>
+                    <li>'cp869' … CodePage869</li><li>'cp874' … CodePage874</li><li>'cp928' … CodePage928</li><li>'cp932' … CodePage932(Katakana)</li><li>'cp998' … CodePage998(Normal)</li>
+                    <li>'cp999' … CodePage999</li><li>'cp1001' … CodePage1001</li><li>'cp1250' - 'cp1252' … CodePage1250 - 1252</li><li>'cp2001' … CodePage2001</li><li>'cp3001' … CodePage3001</li>
+                    <li>'cp3002' … CodePage3002</li><li>'cp3011' … CodePage3011</li><li>'cp3012' … CodePage3012</li><li>'cp3021' … CodePage3021</li><li>'cp3041' … CodePage3041</li>
+                    <li>'cp3840' … CodePage3840</li><li>'cp3841' … CodePage3841</li><li>'cp3843' - 'cp3848' … CodePage3843 - 3848</li><li>'blank' … User Setting (Blank CodePage)</li></ul></td>
+                    <td>String</td><td>Unchanged</td></tr>
+                <tr><td>international</td><td>Specifies international characters</br><ul>
+                   <li>'usa' … USA</li><li>'france' … France</li><li>'germany' … Germany</li><li>'uk' … UK</li><li>'denmark' … Denmark</li>
+                   <li>'sweden' … Sweden</li><li>'italy' … Italy</li><li>'spain' … Spain</li><li>'japan' … Japan</li><li>'norway' … Norway</li>
+                   <li>'denmark2' … Denmark II</li><li>'spain2' … Spain II</li><li>'latin_america' … Latin America</li><li>'korea' … Korea</li>
+                   <li>'ireland' … Ireland</li><li>'legal' … Legal</li></ul></td>
+                   <td>String</td><td>Unchanged</td></tr>
+                <tr><td>characterspace</td><td>Specifies character space (Unit of dot)</td><td>Number</td><td>Unchanged</td></tr>
+                <tr><td>emphasis</td><td>Specifies emphasized<br /><ul><li>true … Specifies emphasized</li><li>false … Cancels emphasized</li></ul></td><td>Boolean</td><td>Unchanged</td></tr>
+                <tr><td>invert</td><td>Specifies inversion<br /><ul><li>true … Specifies inversion</li><li>false … Cancels inversion</li></ul></td><td>Boolean</td><td>Unchanged</td></tr>
+                <tr><td>linespace</td><td>Specifies line space (Unit of dot)<br /><ul><li>24 … Specifies 3mm line feed amount</li><li>32 … Specifies 4mm line feed amount</li></ul></td>
+                   <td>Number</td><td>Unchanged</td></tr>
+                <tr><td>width</td><td>Specifies expanded width</br>
+                        <ul><li>1 … Cancels expanded width</li><li>2 … Specifies 2x width expansion</li><li>3 … Specifies 3x width expansion</li><li>4 … Specifies 4x width expansion</li>
+                           <li>5 … Specifies 5x width expansion</li><li>6 … Specifies 6x width expansion</li></ul>
+                        </td><td>Number</td><td>Unchanged</td></tr>
+                <tr><td>height</td><td>Specifies expanded height</br>
+                        <ul><li>1 … Cancels expanded height</li><li>2 … Specifies 2x height expansion</li><li>3 … Specifies 3x height expansion</li><li>4 … Specifies 4x height expansion</li>
+                           <li>5 … Specifies 5x height expansion</li><li>6 … Specifies 6x height expansion</li></ul>
+                        </td><td>Number</td><td>Unchanged</td></tr>
+                <tr><td>font</td><td>Specifies font style<br /><ul><li>'font_a' … Font-A (12 x 24 dots)</li><li>'font_b' … Font-B (9 x 24 dots)</li></ul><td>String</td><td>Unchanged</td></tr>
+                <tr><td>undelline</td><td>Specifies underline<br /><ul><li>true … Specifies underline</li><li>false … Cancels underline</li></ul><td>Boolean</td><td>Unchanged</td></tr>
+                <tr><td>binary</td><td>binary data encoding<br/>(effective range:0x00-0x20,0x26,0x3c,0x3e,0x7f-0xff)<br />
+                                                                <ul><li>true … Keep the value <br/>
+                                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       
+                                                                        which are the specified binary data of "data"</li>
+                                                                    <li>false … JavaScript's utf encoding<br/>
+                                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                        for the specified binary data of "data"<br/></li></ul>
+                                                                </td><td>Boolean</td><td>false</td></tr>                
+                <tr><td>data</td><td>Specifies text data</td><td>String</td><td>-</td></tr>
+            </tbody>
+        </table>
+
+        <h4>Return value</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>Description</td><td>Object type</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>Created element character string</td><td>String</td></tr>
+            </tbody>
+        </table>
+    
+        <h5>Example</h5>
+<pre>
+&lt;script type='text/javascript' src='js/StarWebPrintBuilder.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+function onBuild() {
+    var builder = new StarWebPrintBuilder();
+
+　　var request = builder.createTextElement({codepage:'cp998', international:'usa', characterspace:0, emphasis:false, invert:false, linespace:32, width:1, height:1, font:'font_a', underline:false, data:'Star Micronics\n'});
+}
+// --&gt;
+&lt;/script&gt;
+</pre>
+    </div>
+    </article>
+
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
+    </div>
+    
+
+    </div>    <!-- Main Contents  -->
+
+</div>		<!-- Wrapp -->
+
+<div id="footer">
+<footer>
+<p id="copyright"> &copy; Copyright 2013 - 2014  <a href="http://www.star-m.jp/">Star Micronics Co., Ltd.</a> </p>
+</footer>
+</div>
+
+</body>
+</html>

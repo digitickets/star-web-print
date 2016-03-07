@@ -1,0 +1,2826 @@
+
+
+
+
+
+
+StarWebPRNT User’s Manual
+
+July 08, 2013
+
+
+
+Abstract
+This paper provides information about the StarWebPRNT.
+It provides guidelines for our customers to build the printing application.
+
+
+Version History 
+Release Date
+Update
+July 08, 2013
+Initial Release
+
+
+Contents
+1	Sample Program	5
+1.1	Sample Program List	5
+1.2	Web Server Registration	5
+1.3	Hou to use	6
+2	StarWebPrintBuilder.js	7
+2.1	StarWebPrintBuilder	7
+2.2	createAlignmentElement	8
+2.3	createBarcodeElement	9
+2.4	createBitImageElement	10
+2.5	createCutPaperElement	11
+2.6	createFeedElement	12
+2.7	createInitializationElement	13
+2.8	createLogoElement	14
+2.9	createPdf417Element	15
+2.10	createPeripheralElement	16
+2.11	createQrCodeElement	17
+2.12	createRawDataElement	18
+2.13	createRuledLineElement	19
+2.14	createSoundElement	20
+2.15	createTextElement	21
+3	StarWebPrintTrader.js	24
+3.1	StarWebPrintTrader	25
+3.2	sendRequest	26
+3.3	isCoverOpen	27
+3.4	isOffLine	28
+3.5	isCompulsionSwitchClose	29
+3.6	isEtbCommandExecute	30
+3.7	isHighTemperatureStop	31
+3.8	isNonRecoverableError	32
+3.9	isAutoCutterError	33
+3.10	isBlackMarkError	34
+3.11	isPaperEnd	35
+3.12	isPaperNearEnd	36
+3.13	extractionEtbCounter	37
+3.14	onReceive	38
+3.15	onError	40
+4	StarBarcodeEncoder.js	41
+4.1	StarBarcodeEncoder	41
+4.2	createUPCE	42
+4.3	createUPCA	43
+4.4	createJAN8	44
+4.5	createJAN13	45
+4.6	createCode39	46
+4.7	createITF	47
+4.8	createCode128	48
+4.9	createCode93	49
+4.10	createNW7	50
+5	StarWebPRNT Request Element	51
+5.1	<root>	51
+5.2	<alignment>	52
+5.3	<barcode>	53
+5.4	<bitImage>	54
+5.5	<cutpaper>	55
+5.6	<feed>	55
+5.7	<initialization>	56
+5.8	<logo>	56
+5.9	<pdf417>	57
+5.10	<peripheral>	58
+5.11	<qrcode>	58
+5.12	<rawdata>	59
+5.13	<ruledline>	59
+5.14	<sound>	60
+5.15	<text>	61
+6	StarWebPRNT Response Element	64
+6.1	<root>	64
+6.2	<success>	64
+6.3	<code>	65
+6.4	<status>	66
+
+
+1 Sample Program
+1.1 Sample Program List
+HTML File
+Name
+Description
+ComparisonReceiptDesign.html
+Confirms if it is possible to print with device fonts and Canvas drawing
+
+JavaScript File
+Name
+Description
+StarWebPrintBuilder.js
+Creates StarWebPRNT request element
+StarWebPrintTrader.js
+Sends StarWebPRNT request element and checks status from received StarWebPRNT request element
+StarBarcodeEncoder.js
+Creates barcode module for drawing to a HTML5 Canvas 2D context
+
+1.2 Web Server Registration
+Copy all sample program files for the Public folder according to the Web server operating manual.
+
+
+1.3 How to use
+1. Open CompariosReceiptDesign.html on your server and check if the JavaScript/Canvas works properly with your browser.
+* If the message "Your browser does not support JavaScript!" appears on your browser, check the JavaScript setting and make it valid.
+* If the message "Your browser does not support Canvas!" appears on your application, change (or upgrade) your browser to one which supports Canvas function.
+
+
+2. Edit the StarWebPRNT end point URL in accordance with the IP address of the printer.
+
+
+3. Press the “Send (API)” button to check if it is possible to print with device fonts
+4. Press the “Send (Canvas)” button to check if it is possible to print with Canvas drawing.
+
+
+2 StarWebPrintBuilder.js
+Creates StarWebPRNT Request Element.
+
+Constructor
+Name
+Description
+StarWebPrintBuilder
+Creates StarWebPrintBuilder object.
+
+Method
+Name
+Description
+createAlignmentElement
+Creates Alignment element.
+createBarcodeElement
+Creates Barcode element.
+createBitImageElement
+Creates Bitimage element.
+createCutPaperElement
+Creates Cut paper element.
+createFeedElement
+Creates Feed element.
+createInitializationElement
+Creates Initialization element.
+createLogoElement
+Creates Logo element.
+createPdf417Element
+Creates PDF417 element.
+createPeripheralElement
+Creates Peripheral element.
+createQrCodeElement
+Creates QR code element.
+createRawDataElement
+Creates Raw data element.
+createRuledLineElement
+Creates Horizontal ruled line element.
+createSoundElement
+Creates Sound element.
+createTextElement
+Creates Text element.
+
+2.1 StarWebPrintBuilder
+Creates StarWebPrintBuilder object.
+
+Syntax
+StarWebPrintBuilder();
+
+Parameter
+Name
+Description
+Object type
+Omission
+-
+-
+-
+-
+
+Return value
+Description
+Object type
+StarWebPrintBuilder object
+StarWebPrintBuilder
+
+Example
+<script type='text/javascript' src='js/StarWebPrintBuilder.js'></script>
+<script type='text/javascript'>
+<!--
+function onBuild() {
+    var builder = new StarWebPrintBuilder();
+}
+// -->
+</script>
+
+
+2.2 createAlignmentElement
+Creates Alignment element.
+
+Syntax
+createAlignmentElement(args);
+
+Parameter
+Name
+Description
+Object type
+Omission
+poistion
+Specifies position alignment
+* 'left' … Left alignment
+* 'center' … Center alignment
+* 'right' … Right alignment
+String
+'left'
+
+Return value
+Description
+Object type
+Created element character string
+String
+
+Example
+<script type='text/javascript' src='js/StarWebPrintBuilder.js'></script>
+<script type='text/javascript'>
+<!--
+function onBuild() {
+    var builder = new StarWebPrintBuilder();
+
+    var request = builder.createAlignmentElement({position:'center'});
+}
+// -->
+</script>
+
+
+2.3 createBarcodeElement
+Creates Barcode element.
+
+Syntax
+createBarcodeElement(args);
+
+Parameter
+Name
+Description
+Object type
+Omission
+symbology
+Specifies barcode symbol
+* 'UPCE' … UPC-E
+* 'UPCA' … UPC-A
+* 'JAN8' … JAN/EAN8
+* 'JAN13' … JAN/EAN13
+* 'Code39' … Code39
+* 'ITF' … ITF
+* 'Code128' … Code128
+* 'Code93' … Code93
+* 'NW7' … NW-7
+String
+'UPCE'
+width
+Specifies barcode width
+* 'width2' … Minimum module 2dots
+* 'width3' … Minimum module 3dots
+* 'width4' … Minimum module 4dots
+* 'width_mode1' … Mode1
+* 'width_mode2' … Mode2
+* 'width_mode3' … Mode3
+* 'width_mode4' … Mode4
+* 'width_mode5' … Mode5
+* 'width_mode6' … Mode6
+* 'width_mode7' … Mode7
+* 'width_mode8' … Mode8
+* 'width_mode9' … Mode9
+
+Note. Refer to the command specifications.
+String
+'width3'
+height
+Specifies barcode height (Unit of dot)
+Number
+162
+hri
+Specifies HRI characters
+* true … Adds HRI characters
+* false … No  added HRI characters
+Boolean
+True
+data
+Specifies barcode data
+
+Note. Refer to the command specifications.
+String
+Can't be omitted
+
+Return value
+Description
+Object type
+Created element character string
+String
+
+
+Example
+<script type='text/javascript' src='js/StarWebPrintBuilder.js'></script>
+<script type='text/javascript'>
+<!--
+function onBuild() {
+    var builder = new StarWebPrintBuilder();
+
+    var request = builder.createBarcodeElement({symbology:'JAN13', width:'width2', height:40, hri:false, data:'012345678901'});
+}
+// -->
+</script>
+
+2.4 createBitImageElement
+Creates Bitimage element.
+
+Syntax
+createBitImageElement(args);
+
+Parameter
+Name
+Description
+Object type
+Omission
+context
+HTML5 Canvas 2D Context
+Canvas
+Can't be omitted
+x
+Horizontal direction starting point of the image (Unit of dot)
+Number
+0
+y
+Vertical direction starting point of the image (Unit of dot)
+Number
+0
+width
+Specifies the image width (Unit of dot)
+Number
+0
+height
+Specifies the image height (Unit of dot)
+Number
+0
+
+Return value
+Description
+Object type
+Created element character string
+String
+
+Example
+<script type='text/javascript' src='js/StarWebPrintBuilder.js'></script>
+<script type='text/javascript'>
+<!--
+function onBuild() {
+    var builder = new StarWebPrintBuilder();
+
+    var request = builder.createBitImageElement({context:canvas.getContext('2d'), x:0, y:0, width:200, height:50});
+}
+// -->
+</script>
+
+
+2.5 createCutPaperElement
+Creates Cut paper element.
+
+Syntax
+createCutPaperElement(args);
+
+Parameter
+Name
+Description
+Object type
+Omission
+type
+Specifies cut type
+* 'full' … Full cut
+* 'partial' … Partial cut
+String
+'full'
+feed
+Specifies feed to cut position
+* true … Feed
+* false … No feed (Current position)
+Boolean
+true
+
+Return value
+Description
+Object type
+Created element character string
+String
+
+Example
+<script type='text/javascript' src='js/StarWebPrintBuilder.js'></script>
+<script type='text/javascript'>
+<!--
+function onBuild() {
+    var builder = new StarWebPrintBuilder();
+
+    var request = builder.createCutPaperElement({feed:true, type:'partial'});
+}
+// -->
+</script>
+
+
+2.6 createFeedElement
+Creates Feed element.
+
+Syntax
+createFeedElement(args);
+
+Parameter
+Name
+Description
+Object type
+Omission
+line
+Specifies the paper feed space (Unit of line)
+Number
+0
+unit
+Specifies the paper feed space (Unit of dot)
+Number
+0
+
+Return value
+Description
+Object type
+Created element character string
+String
+
+Example
+<script type='text/javascript' src='js/StarWebPrintBuilder.js'></script>
+<script type='text/javascript'>
+<!--
+function onBuild() {
+    var builder = new StarWebPrintBuilder();
+
+    var request = builder.createFeedElement({line:2, unit:8});
+}
+// -->
+</script>
+
+
+2.7 createInitializationElement
+Creates Initialization element.
+
+Syntax
+createInitializationElement(args);
+
+Parameter
+Name
+Description
+Object type
+Omission
+reset
+Specifies hardware reset
+* true … Execute hardware reset
+* false … Not execute hardware reset (Only command initialization)
+Boolean
+False
+print
+Self printing after hardware reset
+* true … Execute self print
+* false … Not execute self print
+Boolean
+False
+
+Return value
+Description
+Object type
+Created element character string
+String
+
+Example
+<script type='text/javascript' src='js/StarWebPrintBuilder.js'></script>
+<script type='text/javascript'>
+<!--
+function onBuild() {
+    var builder = new StarWebPrintBuilder();
+
+    var request = builder.createInitializationElement({reset:true, print:true});
+}
+// -->
+</script>
+
+
+2.8 createLogoElement
+Creates Logo element.
+
+Syntax
+createLogoElement(args);
+
+Parameter
+Name
+Description
+Object type
+Omission
+number
+Specifies the number of logo registration
+Number
+1
+width
+Specifies width
+* 'single' … Single width
+* 'double' … Double width
+String
+'single'
+height
+Specifies height
+* 'single' … Single height
+* 'double' … Double height
+String
+'single'
+
+Return value
+Description
+Object type
+Created element character string
+String
+
+Example
+<script type='text/javascript' src='js/StarWebPrintBuilder.js'></script>
+<script type='text/javascript'>
+<!--
+function onBuild() {
+    var builder = new StarWebPrintBuilder();
+
+    var request = builder.createLogoElement({number:1, width:'single', height:'single'});
+}
+// -->
+</script>
+
+
+2.9 createPdf417Element
+Creates PDF417 element.
+
+Syntax
+createPdf417Element(args);
+
+Parameter
+Name
+Description
+Object type
+Omission
+line
+Specifies number of lines
+
+Note. Refer to the command specifications.
+Number
+0
+column
+Specifies number of columns
+
+Note. Refer to the command specifications.
+Number
+0
+level
+Specifies security level
+* 'level0' … Security level0
+* 'level1' … Security level1
+* 'level2' … Security level2
+* 'level3' … Security level3
+* 'level4' … Security level4
+* 'level5' … Security level5
+* 'level6' … Security level6
+* 'level7' … Security level7
+* 'level8' … Security level8
+String
+'level1'
+module
+Specifies module size (Unit of dot)
+Number
+2
+aspect
+Specifies aspect ratio
+Number
+3
+data
+Specifies PDF417 data
+
+Note. Refer to the command specifications.
+String
+Can't be omitted
+
+Return value
+Description
+Object type
+Created element character string
+String
+
+Example
+<script type='text/javascript' src='js/StarWebPrintBuilder.js'></script>
+<script type='text/javascript'>
+<!--
+function onBuild() {
+    var builder = new StarWebPrintBuilder();
+
+    var request = builder.createPdf417Element({level:'level1', line:0, column:0, module:2, aspect:3, data:'http://www.starmicronics.com/'});
+}
+// -->
+</script>
+
+
+2.10 createPeripheralElement
+Creates Peripheral element.
+
+Syntax
+createPeripheralElement(args);
+
+Parameter
+Name
+Description
+Object type
+Omission
+channel
+Specifies the drive terminal of the peripheral
+* '1' … Peripheral drive terminal1
+* ‘2' … Peripheral drive terminal2 (Energizing time and Delay time ignore)
+Number
+1
+on
+Energizing time (Unit of 1mSec)
+Number
+200
+off
+Delay time (Unit of 1mSec)
+Number
+200
+
+Return value
+Description
+Object type
+Created element character string
+String
+
+Example
+<script type='text/javascript' src='js/StarWebPrintBuilder.js'></script>
+<script type='text/javascript'>
+<!--
+function onBuild() {
+    var builder = new StarWebPrintBuilder();
+
+    var request = builder.createPeripheralElement({channel:1, on:200, off:200});
+}
+// -->
+</script>
+
+
+2.11 createQrCodeElement
+Creates QR code element.
+
+Syntax
+createQrCodeElement(args);
+
+Parameter
+Name
+Description
+Object type
+Omission
+model
+Specifies model
+* 'model1' … Model1
+* 'model2' … Model2
+String
+'model2'
+level
+Specifies mistake correction level
+* 'level_l' … Mistake Correction LevelL
+* 'level_m' … Mistake Correction LevelM
+* 'level_q' … Mistake Correction LevelQ
+* 'level_h' … Mistake Correction LevelH
+String
+'level_l'
+cell
+Specifies cell size (Unit of dot)
+Number
+3
+data
+Specifies QR code data
+
+Note. Refer to the command specifications.
+String
+Can't be omitted
+
+Return value
+Description
+Object type
+Created element character string
+String
+
+Example
+<script type='text/javascript' src='js/StarWebPrintBuilder.js'></script>
+<script type='text/javascript'>
+<!--
+function onBuild() {
+    var builder = new StarWebPrintBuilder();
+
+    var request = builder.createQrCodeElement({model:'model2', level:'level_l', cell:3, data:'http://www.starmicronics.com/'});
+}
+// -->
+</script>
+
+
+2.12 createRawDataElement
+Creates Raw data element.
+
+Syntax
+createRawDataElement(args);
+
+Parameter
+Name
+Description
+Object type
+Omission
+Data
+Raw data
+*16Hex '\x00'-'\xff', Horizontal tab '\t', Line feed '\n', Carriage return '\r', Backslash '\\'
+String
+Can't be omitted
+
+Return value
+Description
+Object type
+Created element character string
+String
+
+Example
+<script type='text/javascript' src='js/StarWebPrintBuilder.js'></script>
+<script type='text/javascript'>
+<!--
+function onBuild() {
+    var builder = new StarWebPrintBuilder();
+
+    var request = builder.createRawDataElement({data:\x30\x31\x32\x33\x34\x35\x36\x37\x38\x39\n')});
+}
+// -->
+</script>
+
+
+2.13 createRuledLineElement
+Creates Horizontal ruled line element.
+
+Syntax
+createRuledLineElement(args);
+
+Parameter
+Name
+Description
+Object type
+Omission
+thickness
+Specifies ruled line
+* 'thin' … Thin line
+* 'medium' … Medium line
+* 'thick' … Thick line
+* 'double_thin' … Thin, double line
+* 'double_medium' … Medium, double line
+* 'double_thick' … Thick, double line
+String
+'medium'
+width
+Specifies width (Unit of dot)
+Number
+832
+
+Return value
+Description
+Object type
+Created element character string
+String
+
+Example
+<script type='text/javascript' src='js/StarWebPrintBuilder.js'></script>
+<script type='text/javascript'>
+<!--
+function onBuild() {
+    var builder = new StarWebPrintBuilder();
+
+    var request = builder.createRuledLineElement({thickness:'thin', width:200});
+}
+// -->
+</script>
+
+
+2.14 createSoundElement
+Creates Sound element.
+
+Syntax
+createSoundElement(args);
+
+Parameter
+Name
+Description
+Object type
+Omission
+channel
+Specifies the drive terminal of the buzzer
+* '1' … Buzzer drive terminal1
+* '2' … Buzzer drive terminal2
+Number
+1
+repeat
+Specifies the number of repeats
+Number
+1
+
+Return value
+Description
+Object type
+Created element character string
+String
+
+Example
+<script type='text/javascript' src='js/StarWebPrintBuilder.js'></script>
+<script type='text/javascript'>
+<!--
+function onBuild() {
+    var builder = new StarWebPrintBuilder();
+
+    var request = builder.createSoundElement({channel:1, repeat:1});
+}
+// -->
+</script>
+
+
+2.15 createTextElement
+Creates Text element.
+
+Syntax
+createTextElement(args);
+
+Parameter
+Name
+Description
+Object type
+Omission
+codepage
+Specifies CodePage
+* 'cp437' … CodePage437
+* 'cp737' … CodePage737
+* 'cp772' … CodePage772
+* 'cp774' … CodePage774
+* 'cp851' … CodePage851
+* 'cp852' … CodePage852
+* 'cp855' … CodePage855
+* 'cp857' … CodePage857
+* 'cp858' … CodePage858
+* 'cp860' - 'cp866' … CodePage860 - 866
+* 'cp869' … CodePage869
+* 'cp874' … CodePage874
+* 'cp928' … CodePage928
+* 'cp932' … CodePage932 (Katakana)
+* 'cp998' … CodePage998 (Normal)
+* 'cp999' … CodePage999
+* 'cp1001' … CodePage1001
+* 'cp1250' - 'cp1252' … CodePage1250 - 1252
+* 'cp2001' … CodePage2001
+* 'cp3001' … CodePage3001
+* 'cp3002' … CodePage3002
+* 'cp3011' … CodePage3011
+* 'cp3012' … CodePage3012
+* 'cp3021' … CodePage3021
+* 'cp3041' … CodePage3041
+* 'cp3840' … CodePage3840
+* 'cp3841' … CodePage3841
+* 'cp3843' - 'cp3848' … CodePage3843 - 3848
+* 'blank' …  User Setting (Blank CodePage)
+String
+Unchanged
+international
+Specifies international characters
+* 'usa' … USA
+* 'france' … France
+* 'germany' … Germany
+* 'uk' … UK
+* 'denmark' … Denmark
+* 'sweden' … Sweden
+* 'italy' … Italy
+* 'spain' … Spain
+* 'japan' … Japan
+* 'norway' … Norway
+* 'denmark2' … Denmark II
+* 'spain2' … Spain II
+* 'latin_america' … Latin America
+* 'korea' … Korea
+* 'ireland' … Ireland
+* 'legal' … Legal
+String
+Unchanged
+characterspace
+Specifies character space (Unit of dot)
+Number
+Unchanged
+emphasis
+Specifies emphasized
+* true … Specifies emphasized
+* false … Cancels emphasized
+Boolean
+Unchanged
+invert
+Specifies inversion
+* 'true' … Specifies inversion
+* 'false' … Cancels inversion
+Boolean
+Unchanged
+linespace
+Specifies line space (Unit of dot)
+* 24 … Specifies 3mm line feed amount
+* 32 … Specifies 4mm line feed amount
+Number
+Unchanged
+width
+Specifies expanded width
+* 1 … Cancels expanded width
+* 2 … Specifies 2x width expansion
+* 3 … Specifies 3x width expansion
+* 4 … Specifies 4x width expansion
+* 5 … Specifies 5x width expansion
+* 6 … Specifies 6x width expansion
+Number
+Unchanged
+height
+Specifies expanded height
+* 1 … Cancels expanded height
+* 2 … Specifies 2x height expansion
+* 3 … Specifies 3x height expansion
+* 4 … Specifies 4x height expansion
+* 5 … Specifies 5x height expansion
+* 6 … Specifies 6x height expansion
+Number
+Unchanged
+font
+Specifies font style
+* 'font_a' … Font-A (12 x 24 dots)
+* 'font_b' … Font-B (9 x 24 dots)
+String
+Unchanged
+undelline
+Specifies underline
+* true … Specifies underline
+* false … Cancels underline
+Boolean
+Unchanged
+data
+Specifies text data
+String
+Can't be omitted
+
+Return value
+Description
+Object type
+Created element character string
+String
+
+Example
+<script type='text/javascript' src='js/StarWebPrintBuilder.js'></script>
+<script type='text/javascript'>
+<!--
+function onBuild() {
+    var builder = new StarWebPrintBuilder();
+
+    var request = builder.createTextElement({codepage:'cp998', international:'usa', characterspace:0, emphasis:false, invert:false, linespace:32, width:1, height:1, font:'font_a', underline:false, data:'Star Micronics\n'});
+}
+// -->
+</script>
+
+
+3 StarWebPrintTrader.js
+Sends StarWebPRNT request element and checks status from received StarWebPRNT request element.
+
+Constructor
+Name
+Description
+StarWebPrintTrader
+Creates StarWebPrintTrader object.
+
+Method
+Name
+Description
+sendMessage
+sendMessage  Sends StarWebPRNT request element.
+isCoverOpen
+Cover open is checked.
+isOffLine
+Offline/Online is checked.
+isCompulsionSwitchClose
+Compulsion switch is checked.
+isEtbCommandExecute
+ETB command execute is checked.
+isHighTemperatureStop
+High temperature stop is checked.
+isNonRecoverableError
+Non recoverable error is checked.
+isAutoCutterError
+Auto cutter error is checked.
+isBlackMarkError
+Black mark error is checked.
+isPaperEnd
+Paper end is checked.
+isPaperNearEnd
+Paper near end is checked.
+extractionEtbCounter
+ETB counter is extracted.
+
+Property
+Name
+Description
+onReceive
+Communication success event
+onError
+Communication error event.
+
+
+3.1 StarWebPrintTrader
+Creates StarWebPrintTrader object.
+
+Syntax
+StarWebPrintTrader(args);
+
+Parameter
+Name
+Description
+Object type
+Omission
+url
+Specifies StarWebPRNT endpoint URL
+Note: When a url is omitted, it should be specified by sendMessage method.
+String
+-
+checkedblock
+Specifies waiting for the completion of printing
+* true … Wait for the completion of printing
+* false … Not wait for the completion of printing
+Boolean
+True
+
+Return value
+Description
+Object type
+StarWebPrintTrader object
+StarWebPrintTrader
+
+Example
+<script type='text/javascript' src='js/StarWebPrintTrader.js'></script>
+<script type='text/javascript'>
+<!--
+function onSend(url, request) {
+    var trader = new StarWebPrintTrader({url:url});
+
+    trader.sendMessage({request:request});
+}
+// -->
+</script>
+
+
+3.2 sendMessage
+Sends StarWebPRNT request element and checks status from received StarWebPRNT request element.
+
+Syntax
+sendMessage(args);
+
+Parameter
+Name
+Description
+Object type
+Omission
+url
+Specifies StarWebPRNT endpoint URL
+Note: When a url is omitted, it should be specified by StarWebPrintTrader constructor.
+String
+-
+checkedblock
+Specifies waiting for the completion of printing
+* true … Wait for the completion of printing
+* false … Not wait for the completion of printing
+Note: When a url is omitted, the value specified by StarWebPrintTrader constructor should be used.
+Boolean
+-
+request
+List of StarWebPRNT request element
+String
+Can't be omitted
+
+Return value
+Description
+Object type
+-
+-
+
+Example
+<script type='text/javascript' src='js/StarWebPrintTrader.js'></script>
+<script type='text/javascript'>
+<!--
+function onSend(url, request) {
+    var trader = new StarWebPrintTrader({url:url});
+
+    trader.sendMessage({request:request});
+}
+// -->
+</script>
+
+
+3.3 isCoverOpen
+Cover open is checked.
+
+Syntax
+isCoverOpen(args);
+
+Parameter
+Name
+Description
+Object type
+Omission
+traderStatus
+traderStatus property of response passed to the onReceive event
+String
+Can't be omitted
+
+Return value
+Description
+Object type
+Cover status
+* true … Open
+* false … Close
+Boolean
+
+Example
+<script type='text/javascript' src='js/StarWebPrintTrader.js'></script>
+<script type='text/javascript'>
+<!--
+function onSend(url, request) {
+    var trader = new StarWebPrintTrader({url:url});
+
+    trader.onReceive = function (response) {
+        if (trader.isCoverOpen({traderStatus:response.traderStatus})) {
+            alert('CoverOpen');
+        }
+    }
+
+    trader.sendMessage({request:request});
+}
+// -->
+</script>
+
+
+3.4 isOffLine
+Offline/Online is checked.
+
+Syntax
+isOffLine(args);
+
+Parameter
+Name
+Description
+Object type
+Omission
+traderStatus
+traderStatus property of response passed to the onReceive event
+String
+Can't be omitted
+
+Return value
+Description
+Object type
+Offline/Online status
+* true … Offline
+* false … Online
+Boolean
+
+Example
+<script type='text/javascript' src='js/StarWebPrintTrader.js'></script>
+<script type='text/javascript'>
+<!--
+function onSend(url, request) {
+    var trader = new StarWebPrintTrader({url:url});
+
+    trader.onReceive = function (response) {
+        if (trader.isOffLine({traderStatus:response.traderStatus})) {
+            alert('OffLine');
+        }
+    }
+
+    trader.sendMessage({request:request});
+}
+// -->
+</script>
+
+
+3.5 isCompulsionSwitchClose
+Compulsion switch close is checked.
+
+Syntax
+isCompulsionSwitchClose(args);
+
+Parameter
+Name
+Description
+Object type
+Omission
+traderStatus
+traderStatus property of response passed to the onReceive event
+String
+Can't be omitted
+
+Return value
+Description
+Object type
+Compulsion switch
+* true … Close
+* false … open
+Boolean
+
+Example
+<script type='text/javascript' src='js/StarWebPrintTrader.js'></script>
+<script type='text/javascript'>
+<!--
+function onSend(url, request) {
+    var trader = new StarWebPrintTrader({url:url});
+
+    trader.onReceive = function (response) {
+        if (trader.isCompulsionSwitchClose({traderStatus:response.traderStatus})) {
+            alert('CompulsionSwitchClose');
+        }
+    }
+
+    trader.sendMessage({request:request});
+}
+// -->
+</script>
+
+
+3.6 isEtbCommandExecute
+ETB command execute is checked.
+
+Syntax
+isEtbCommandExecute(args);
+
+Parameter
+Name
+Description
+Object type
+Omission
+traderStatus
+traderStatus property of response passed to the onReceive event
+String
+Can't be omitted
+
+Return value
+Description
+Object type
+ETB command
+* true … Executed
+* false … Not executed
+Boolean
+
+Example
+// -->
+<script type='text/javascript' src='js/StarWebPrintTrader.js'></script>
+<script type='text/javascript'>
+<!--
+function onSend(url, request) {
+    var trader = new StarWebPrintTrader({url:url});
+
+    trader.onReceive = function (response) {
+        if (trader.isEtbCommandExecute({traderStatus:response.traderStatus})) {
+            alert('EtbCommandExecute');
+        }
+    }
+
+    trader.sendMessage({request:request});
+}
+// -->
+</script>
+
+
+3.7 isHighTemperatureStop
+High temperature stop is checked.
+
+Syntax
+isHighTemperatureStop(args);
+
+Parameter
+Name
+Description
+Object type
+Omission
+traderStatus
+traderStatus property of response passed to the onReceive event
+String
+Can't be omitted
+
+Return value
+Description
+Object type
+Stopped by high head temperature
+* true … Yes
+* false … No
+Boolean
+
+Example
+// -->
+<script type='text/javascript' src='js/StarWebPrintTrader.js'></script>
+<script type='text/javascript'>
+<!--
+function onSend(url, request) {
+    var trader = new StarWebPrintTrader({url:url});
+
+    trader.onReceive = function (response) {
+        if (trader.isHighTemperatureStop({traderStatus:response.traderStatus})) {
+            alert('HighTemperatureStop');
+        }
+    }
+
+    trader.sendMessage({request:request});
+}
+// -->
+</script>
+
+
+3.8 isNonRecoverableError
+Non recoverable error is checked.
+
+Syntax
+isNonRecoverableError(args);
+
+Parameter
+Name
+Description
+Object type
+Omission
+traderStatus
+traderStatus property of response passed to the onReceive event
+String
+Can't be omitted
+
+Return value
+Description
+Object type
+Non recoverable error
+* true … Yes
+* false … No
+Boolean
+
+Example
+// -->
+<script type='text/javascript' src='js/StarWebPrintTrader.js'></script>
+<script type='text/javascript'>
+<!--
+function onSend(url, request) {
+    var trader = new StarWebPrintTrader({url:url});
+
+    trader.onReceive = function (response) {
+        if (trader.isNonRecoverableError({traderStatus:response.traderStatus})) {
+            alert('NonRecoverableError');
+        }
+    }
+
+    trader.sendMessage({request:request});
+}
+// -->
+</script>
+
+
+3.9 isAutoCutterError
+Auto cutter error is checked.
+
+Syntax
+isAutoCutterError(args);
+
+Parameter
+Name
+Description
+Object type
+Omission
+traderStatus
+traderStatus property of response passed to the onReceive event
+String
+Can't be omitted
+
+Return value
+Description
+Object type
+Auto cutter error
+* true … Yes
+* false … No
+Boolean
+
+Example
+// -->
+<script type='text/javascript' src='js/StarWebPrintTrader.js'></script>
+<script type='text/javascript'>
+<!--
+function onSend(url, request) {
+    var trader = new StarWebPrintTrader({url:url});
+
+    trader.onReceive = function (response) {
+        if (trader.isAutoCutterError({traderStatus:response.traderStatus})) {
+            alert('AutoCutterError');
+        }
+    }
+
+    trader.sendMessage({request:request});
+}
+// -->
+</script>
+
+
+3.10 isBlackMarkError
+Black mark error is checked.
+
+Syntax
+isBlackMarkError(args);
+
+Parameter
+Name
+Description
+Object type
+Omission
+traderStatus
+traderStatus property of response passed to the onReceive event
+String
+Can't be omitted
+
+Return value
+Description
+Object type
+Black mark error
+* true … Yes
+* false … No
+Boolean
+
+Example
+// -->
+<script type='text/javascript' src='js/StarWebPrintTrader.js'></script>
+<script type='text/javascript'>
+<!--
+function onSend(url, request) {
+    var trader = new StarWebPrintTrader({url:url});
+
+    trader.onReceive = function (response) {
+        if (trader.isBlackMarkError({traderStatus:response.traderStatus})) {
+            alert('BlackMarkError');
+        }
+    }
+
+    trader.sendMessage({request:request});
+}
+// -->
+</script>
+
+
+3.11 isPaperEnd
+Paper end is checked.
+
+Syntax
+isPaperEnd(args);
+
+Parameter
+Name
+Description
+Object type
+Omission
+traderStatus
+traderStatus property of response passed to the onReceive event
+String
+Can't be omitted
+
+Return value
+Description
+Object type
+Paper end
+* true … Yes
+* false … No
+Boolean
+
+Example
+// -->
+<script type='text/javascript' src='js/StarWebPrintTrader.js'></script>
+<script type='text/javascript'>
+<!--
+function onSend(url, request) {
+    var trader = new StarWebPrintTrader({url:url});
+
+    trader.onReceive = function (response) {
+        if (trader.isPaperEnd({traderStatus:response.traderStatus})) {
+            alert('PaperEnd');
+        }
+    }
+
+    trader.sendMessage({request:request});
+}
+// -->
+</script>
+
+
+3.12 isPaperNearEnd
+Paper near end is checked.
+
+Syntax
+isPaperNearEnd(args);
+
+Parameter
+Name
+Description
+Object type
+Omission
+traderStatus
+traderStatus property of response passed to the onReceive event
+String
+Can't be omitted
+
+Return value
+Description
+Object type
+Paper near end
+* true … Yes
+* false … No
+Boolean
+
+Example
+// -->
+<script type='text/javascript' src='js/StarWebPrintTrader.js'></script>
+<script type='text/javascript'>
+<!--
+function onSend(url, request) {
+    var trader = new StarWebPrintTrader({url:url});
+
+    trader.onReceive = function (response) {
+        if (trader.isPaperNearEnd({traderStatus:response.traderStatus})) {
+            alert('PaperNearEnd');
+        }
+    }
+
+    trader.sendMessage({request:request});
+}
+// -->
+</script>
+
+
+3.13 extractionEtbCounter
+ETB counter is extracted.
+
+Syntax
+extractionEtbCounter(args);
+
+Parameter
+Name
+Description
+Object type
+Omission
+traderStatus
+traderStatus property of response passed to the onReceive event
+String
+Can't be omitted
+
+Return value
+Description
+Object type
+ETB counter
+Number
+
+Example
+// -->
+<script type='text/javascript' src='js/StarWebPrintTrader.js'></script>
+<script type='text/javascript'>
+<!--
+function onSend(url, request) {
+    var trader = new StarWebPrintTrader({url:url});
+
+    trader.onReceive = function (response) {
+        alert('EtbCounter = ' + trader.extractionEtbCounter({traderStatus:response.traderStatus}).toString();
+    }
+
+    trader.sendMessage({request:request});
+}
+// -->
+</script>
+
+
+3.14 onReceive
+Communication success event.
+
+Syntax
+function(response);
+
+Parameter
+Name
+Description
+Object type
+traderSuccess
+Success code
+* true … Printing succeeded
+* false … Printing failed
+Boolean
+traderCode
+Result code
+* 0 … Success
+Number
+traderStatus
+Star Automatic Status
+
+Note. Refer to the command specifications.
+String
+status
+Status property of XMLHttpRequest
+
+Note. Refer to the XMLHttpRequest specifications.
+Number
+responseText
+ResponseText property of XMLHttpRequest
+
+Note. Refer to the XMLHttpRequest specifications.
+String
+
+
+
+Example
+// -->
+<script type='text/javascript' src='js/StarWebPrintTrader.js'></script>
+<script type='text/javascript'>
+<!--
+function onSend(url, request) {
+    var trader = new StarWebPrintTrader({url:url});
+
+    trader.onReceive = function (response) {
+        var msg = '- onReceive -\n\n';
+
+        msg += 'TraderSuccess:' + response.traderSuccess + '\n';
+
+        msg += 'TraderCode:' + response.traderCode + '\n';
+
+        msg += 'TraderStatus:' + response.traderStatus + '\n';
+
+        msg += 'Status:' + response.status + '\n';
+
+        msg += 'ResponseText:' + response.responseText;
+
+        alert(msg);
+    }
+
+    trader.onError = function (response) {
+        var msg = '- onError -\n\n';
+
+        msg += '\tStatus:' + response.status + '\n';
+
+        msg += '\tResponseText:' + response.responseText;
+
+        alert(msg);
+    }
+
+    trader.sendMessage({request:request});
+}
+// -->
+</script>
+
+
+3.15 onError
+Communication error event.
+
+Syntax
+function(response);
+
+Parameter
+Name
+Description
+Object type
+status
+Status property of XMLHttpRequest
+
+Note. Refer to the XMLHttpRequest specifications.
+Number
+responseText
+ResponseText property of XMLHttpRequest
+
+Note. Refer to the XMLHttpRequest specifications.
+String
+
+Example
+// -->
+<script type='text/javascript' src='js/StarWebPrintTrader.js'></script>
+<script type='text/javascript'>
+<!--
+function onSend(url, request) {
+    var trader = new StarWebPrintTrader({url:url});
+
+    trader.onReceive = function (response) {
+        var msg = '- onReceive -\n\n';
+
+        msg += 'TraderSuccess:' + response.traderSuccess + '\n';
+
+        msg += 'TraderCode:' + response.traderCode + '\n';
+
+        msg += 'TraderStatus:' + response.traderStatus + '\n';
+
+        msg += 'Status:' + response.status + '\n';
+
+        msg += 'ResponseText:' + response.responseText;
+
+        alert(msg);
+    }
+
+    trader.onError = function (response) {
+        var msg = '- onError -\n\n';
+
+        msg += '\tStatus:' + response.status + '\n';
+
+        msg += '\tResponseText:' + response.responseText;
+
+        alert(msg);
+    }
+
+    trader.sendMessage({request:request});
+}
+// -->
+</script>
+
+
+4 StarBarcodeEncoder.js
+The list of barcode module for  drawing to a HTML5 Canvas 2D context is generated.
+
+Constructor
+Name
+Description
+StarBarcodeEncoder
+Creates StarBarcodeEncoder object.
+
+Method
+Name
+Description
+createUPCE
+Creates module list of UPCE barcode .
+createUPCA
+Creates module list of UPCA barcode.
+createJAN8
+Creates module list of JAN/EAN8 barcode.
+createJAN13
+Creates module list of JAN/EAN13 barcode.
+createCode39
+Creates module list of Code39 barcode.
+createITF
+Creates module list of ITF barcode.
+createCode128
+Creates module list of Code128 barcode.
+createCode93
+Creates module list of Code93 barcode.
+createNW7
+Creates module list of NW7 barcode.
+
+4.1 StarBarcodeEncoder
+Creates StarBarcodeEncoder object.
+
+Syntax
+StarBarcodeEncoder();
+
+Parameter
+Name
+Description
+Object type
+Omission
+-
+-
+-
+-
+
+Return value
+Description
+Object type
+StarBarcodeEncoder object
+StarBarcodeEncoder
+
+Example
+<script type='text/javascript' src='js/StarBarcodeEncoder.js'></script>
+<script type='text/javascript'>
+<!--
+function onBuild() {
+    var builder = new StarBarcodeEncoder();
+}
+// -->
+</script>
+
+
+4.2 createUPCE
+Creates module list of UPCE barcode.
+
+Syntax
+createUPCE(args);
+
+Parameter
+Name
+Description
+Object type
+Omission
+data
+Specifies UPCE barcode data
+String
+Can't be omitted
+
+Return value
+Description
+Object type
+Module list of barcode
+* '1' … Bar
+* '0' … Space
+String
+
+Example
+<script type='text/javascript' src='js/StarBarcodeEncoder.js'></script>
+<script type='text/javascript'>
+<!--
+function onBuild() {
+    var encoder = new StarBarcodeEncoder();
+
+    var lineImage = encoder.createUPCE({data:'01234500006'});
+}
+// -->
+</script>
+
+
+4.3 createUPCA
+Creates module list of UPCA barcode.
+
+Syntax
+createUPCA(args);
+
+Parameter
+Name
+Description
+Object type
+Omission
+data
+Specifies UPCA barcode data
+String
+Can't be omitted
+
+Return value
+Description
+Object type
+Module list of barcode
+* '1' … Bar
+* '0' … Space
+String
+
+Example
+<script type='text/javascript' src='js/StarBarcodeEncoder.js'></script>
+<script type='text/javascript'>
+<!--
+function onBuild() {
+    var encoder = new StarBarcodeEncoder();
+
+    var lineImage = encoder.createUPCA({data:'01234567890'});
+}
+// -->
+</script>
+
+
+4.4 createJAN8
+Creates module list of JAN/EAN8 barcode.
+
+Syntax
+createJAN8(args);
+
+Parameter
+Name
+Description
+Object type
+Omission
+data
+Specifies JAN/EAN8 barcode data
+String
+Can't be omitted
+
+Return value
+Description
+Object type
+Module list of barcode
+* '1' … Bar
+* '0' … Space
+String
+
+Example
+<script type='text/javascript' src='js/StarBarcodeEncoder.js'></script>
+<script type='text/javascript'>
+<!--
+function onBuild() {
+    var encoder = new StarBarcodeEncoder();
+
+    var lineImage = encoder.createJAN8({data:'0123456'});
+}
+// -->
+</script>
+
+
+4.5 createJAN13
+Creates module list of JAN/EAN13 barcode.
+
+Syntax
+createJAN13(args);
+
+Parameter
+Name
+Description
+Object type
+Omission
+data
+Specifies JAN/EAN13 barcode data
+String
+Can't be omitted
+
+Return value
+Description
+Object type
+Module list of barcode
+* '1' … Bar
+* '0' … Space
+String
+
+Example
+<script type='text/javascript' src='js/StarBarcodeEncoder.js'></script>
+<script type='text/javascript'>
+<!--
+function onBuild() {
+    var encoder = new StarBarcodeEncoder();
+
+    var lineImage = encoder.createJAN13({data:'01234567890'});
+}
+// -->
+</script>
+
+
+4.6 createCode39
+Creates module list of Code39 barcode.
+
+Syntax
+createCode39(args);
+
+Parameter
+Name
+Description
+Object type
+Omission
+data
+Specifies Code39 barcode data
+String
+Can't be omitted
+
+Return value
+Description
+Object type
+Module list of barcode
+* 'N' … Narrow bar
+* 'n' … Narrow space
+* 'W' … Wide bar
+* 'w' … Wide space
+String
+
+Example
+<script type='text/javascript' src='js/StarBarcodeEncoder.js'></script>
+<script type='text/javascript'>
+<!--
+function onBuild() {
+    var encoder = new StarBarcodeEncoder();
+
+    var lineImage = encoder.createCode39({data:'0123456789'});
+}
+// -->
+</script>
+
+
+4.7 createITF
+Creates module list of ITF barcode.
+
+Syntax
+createITF(args);
+
+Parameter
+Name
+Description
+Object type
+Omission
+data
+Specifies ITF barcode data
+String
+Can't be omitted
+
+Return value
+Description
+Object type
+Module list of barcode
+* 'N' … Narrow bar
+* 'n' … Narrow space
+* 'W' … Wide bar
+* 'w' … Wide space
+String
+
+Example
+<script type='text/javascript' src='js/StarBarcodeEncoder.js'></script>
+<script type='text/javascript'>
+<!--
+function onBuild() {
+    var encoder = new StarBarcodeEncoder();
+
+    var lineImage = encoder.createITF({data:'0123456789'});
+}
+// -->
+</script>
+
+
+4.8 createCode128
+Creates module list of Code128 barcode.
+
+Syntax
+createCode128(args);
+
+Parameter
+Name
+Description
+Object type
+Omission
+data
+Specifies Code128 barcode data
+String
+Can't be omitted
+
+Return value
+Description
+Object type
+Module list of barcode
+* '1' … Bar
+* '0' … Space
+String
+
+Example
+<script type='text/javascript' src='js/StarBarcodeEncoder.js'></script>
+<script type='text/javascript'>
+<!--
+function onBuild() {
+    var encoder = new StarBarcodeEncoder();
+
+    var lineImage = encoder.createCode128({data:'{B0123456789'});
+}
+// -->
+</script>
+
+
+4.9 createCode93
+Creates module list of Code93 barcode.
+
+Syntax
+createCode93(args);
+
+Parameter
+Name
+Description
+Object type
+Omission
+data
+Specifies Code93 barcode data
+String
+Can't be omitted
+
+Return value
+Description
+Object type
+Module list of barcode
+* '1' … Bar
+* '0' … Space
+String
+
+Example
+<script type='text/javascript' src='js/StarBarcodeEncoder.js'></script>
+<script type='text/javascript'>
+<!--
+function onBuild() {
+    var encoder = new StarBarcodeEncoder();
+
+    var lineImage = encoder.createCode93({data:'0123456789'});
+}
+// -->
+</script>
+
+
+4.10 createNW7
+Creates module list of NW7 barcode.
+
+Syntax
+createNW7(args);
+
+Parameter
+Name
+Description
+Object type
+Omission
+data
+Specifies NW7 barcode data
+String
+Can't be omitted
+
+Return value
+Description
+Object type
+Module list of barcode
+* 'N' … Narrow bar
+* 'n' … Narrow space
+* 'W' … Wide bar
+* 'w' … Wide space
+String
+
+Example
+<script type='text/javascript' src='js/StarBarcodeEncoder.js'></script>
+<script type='text/javascript'>
+<!--
+function onBuild() {
+    var encoder = new StarBarcodeEncoder();
+
+    var lineImage = encoder.createUPCE({data:'A0123456789B'});
+}
+// -->
+</script>
+
+
+5 StarWebPRNT Request Element
+
+Name
+Description
+<root>
+Root Element
+<alignment>
+Alignment Element
+<barcode>
+Barcode Element
+<bitimage>
+Bitimage Element
+<cutpaper>
+Cut paper Element
+<feed>
+Feed Element
+<initialization>
+Initialization Element
+<logo>
+Logo Element
+<pdf417>
+PDF417Element
+<peripheral>
+Peripheral Element
+<qrcode>
+QR code Element
+<rawdata>
+Raw data Element
+<ruledline>
+Horizontal ruled line Element
+<sound>
+Sound Element
+<text>
+Text Element
+
+5.1 <root>
+Root Element
+
+Attribute
+Name
+Description
+Omission
+checkedblock
+Specifies waiting for the completion of printing
+* 'true' … Wait for the completion of printing
+* 'false' … Not wait for the completion of printing
+'true'
+
+Value
+Description
+List of StarWebPRNT Request Element
+
+Example
+<root>
+    <alignment position='center'/>
+    <text>Star Micronics\x0a</text>
+    <cutpaper feed='true' type='partial'/>
+</root>
+
+
+5.2 <alignment>
+Alignment Element
+
+Attribute
+Name
+Description
+Omission
+poistion
+Specifies position alignment
+* 'left' … Left alignment
+* 'center' … Center alignment
+* 'right' … Right alignment
+'left'
+
+Value
+Description
+Ignore
+
+Example
+<root>
+    <alignment position='center'/>
+</root>
+
+
+5.3 <barcode>
+Barcode Element
+
+Attribute
+Name
+Description
+Omission
+symbology
+Specifies barcode symbol
+* 'UPCE' … UPC-E
+* 'UPCA' … UPC-A
+* 'JAN8' … JAN/EAN8
+* 'JAN13' … JAN/EAN13
+* 'Code39' … Code39
+* 'ITF' … ITF
+* 'Code128' … Code128
+* 'Code93' … Code93
+* 'NW7' … NW-7
+'UPCE'
+width
+Specifies barcode width
+* 'width2' … Minimum module 2dots
+* 'width3' … Minimum module 3dots
+* 'width4' … Minimum module 4dots
+* 'width_mode1' … Mode1
+* 'width_mode2' … Mode2
+* 'width_mode3' … Mode3
+* 'width_mode4' … Mode4
+* 'width_mode5' … Mode5
+* 'width_mode6' … Mode6
+* 'width_mode7' … Mode7
+* 'width_mode8' … Mode8
+* 'width_mode9' … Mode9
+
+Note. Refer to the command specifications.
+'width3'
+height
+Specifies barcode height (Unit of dot)
+'162'
+hri
+Specifies HRI characters
+* true … Adds HRI characters
+* false … No  added HRI characters
+'true'
+
+Value
+Description
+Specifies barcode data
+
+Note. Refer to the command specifications.
+
+Example
+<root>
+    <barcode symbology='JAN13' width='width2' hri='false' height='40'>012345678901</barcode>
+</root>
+
+
+5.4 <bitImage>
+Bitimage Element
+
+Attribute
+Name
+Description
+Omission
+width
+Specifies the image width (Unit of dot)
+'0'
+height
+Specifies the image height (Unit of dot)
+'0'
+
+Value
+Description
+Specifies raster graphic image data
+
+Note.Base64 encoding
+
+Example
+<root>
+    <bitimage width='200' height='50'>f////////////////////////////////4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAAAAA/j+AAAAAAAAAAAAAAAAAAAGAGAAAAAAAAP4/gAAAAAAAAAAAAAAAAAAHgBgAAAAAAAD+P4AAAAAAAAAAAAAAAAAAHYAYAAAAAAAA/j+AAAAAAAAAAAAAAAAAADkAGAAAAAAAAP4/gAAAAAAAAAAAAAAAAADnABgAAAAAAAD+P4AAAAAAAAAAAAAAAAADnAAYAAAH///4/j//4AAf9+AAD+HwP/fgBzAAGAAAf///+P4//+AD///+AA/h8f//4BzgABgAAP////j+P//gD////8AP4f/8ACAzgAAYAAP8AAAAAAAAAH/+A//wD+H/wAfgYwAAGAAH4AAAAAAAAAD/wAAf/A/h/AeP47OAABgAB+P///j+P//j/gf/A/4P4eB//y/4wAAYAAfD///4/j//5/h//+D/D+GD/+c8AHAAGAAH4///+P4//+/x///4f4/hD//hM/wYABgAB/B/AAD+P4AH4/8H/D+P4D/AAQ4f9gAYAAP8D/AA/j+AH8f4AP4fz+B/AAE4AH4AGAAA/4H+AP4/gB/H8AB/H8/g/gABYAAAABgAAD/4f8D+P4Afh+AAfw/P4fwAAcAAAAAYAAAH/g/g/j+AH8fwAH8Pz+F4AAEAAAAAGAAAAH/D+P4/gB/H+AB/D8/h+AAAAAAAABgAAAAf4fz+P8Af4/4Gfw/P4fgAAAAAAAAYAAf///j8/j//z+H//n8Pz+H4AAAAAAAAGAAH///w/PYX/8f49/Z3D8/h+AAAAAAAABgAB///8Pz/B//D/B/+fw/P4fgAAAAAAAAYAAAAAAH8f8AAAf+AAH8Pz+H4AAAAAAAAGAAAAAAP+D/8AAD/+AB/D8/h+AAAAAAAABgAB////+AP///AH//+fw/P4fgAAAAAAAAYAAf///+AAf//wAf//n8Pz+H4AAAAAAAAGAAH///4AAAf/8AAf/x/D8/h+AAAAAAAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAf////////////////////////////////8=</bitimage>
+</root>
+
+
+5.5 <cutpaper>
+Cut paper Element
+
+Attribute
+Name
+Description
+Omission
+type
+Specifies cut type
+* 'full' … Full cut
+* 'partial' … Partial cut
+'full'
+feed
+Specifies feed to cut position
+* 'true' … Feed
+* 'false' … No feed (Current position)
+'true'
+
+Value
+Description
+Ignore
+
+Example
+<root>
+    <cutpaper feed='true' type='partial'/>
+</root>
+
+5.6 <feed>
+Feed Element
+
+Attribute
+Name
+Description
+Omission
+line
+Specifies the paper feed space (Unit of line)
+'0'
+unit
+Specifies the paper feed space (Unit of dot)
+'0'
+
+Value
+Description
+Ignore
+
+Example
+<root>
+    <feed line='2' unit='8'/>
+</root>
+
+
+5.7 <initialization>
+Initialization Element
+
+Attribute
+Name
+Description
+Omission
+Reset
+Specifies hardware reset
+* true … Execute hardware reset
+* false … Not execute hardware reset (Only command initialization)
+'false'
+Print
+Self printing after hardware reset
+* true … Execute self print
+* false … Not execute self print
+'false'
+
+Value
+Description
+Ignore
+
+Example
+<root>
+    <initialization reset='false' print='false'/>
+</root>
+
+5.8 <logo>
+Logo Element
+
+Attribute
+Name
+Description
+Omission
+number
+Specifies the number of logo registration
+'1'
+Width
+Specifies width
+* 'single' … Single width
+* 'double' … Double width
+'single'
+Height
+Specifies height
+* 'single' … Single height
+* 'double' … Double height
+'single'
+
+Value
+Description
+Ignore
+
+Example
+<root>
+    <logo number='1' width='single' height='single'/>
+</root>
+
+
+5.9 <pdf417>
+PDF417Element
+
+Attribute
+Name
+Description
+Omission
+line
+Specifies number of lines
+
+Note. Refer to the command specifications.
+'0'
+column
+Specifies number of columns
+
+Note. Refer to the command specifications.
+'0'
+level
+Specifies security level
+* 'level0' … Security level0
+* 'level1' … Security level1
+* 'level2' … Security level2
+* 'level3' … Security level3
+* 'level4' … Security level4
+* 'level5' … Security level5
+* 'level6' … Security level6
+* 'level7' … Security level7
+* 'level8' … Security level8
+'level1'
+module
+Specifies module size (Unit of dot)
+'2'
+aspect
+Specifies aspect ratio
+'3'
+
+Value
+Description
+Specifies PDF417 data
+
+Note. Refer to the command specifications.
+
+Example
+<root>
+    <pdf417 level='level1' line='0' column='0' module='2' aspect='3'>http://www.starmicronics.com/</pdf417>
+</root>
+
+
+5.10 <peripheral>
+Peripheral Element
+
+Attribute
+Name
+Description
+Omission
+channel
+Specifies the drive terminal of the peripheral
+* '1' … Peripheral drive terminal1
+* ‘2' … Peripheral drive terminal2 (Energizing time and Delay time ignore)
+'1'
+on
+Energizing time (Unit of 1mSec)
+'200'
+off
+Delay time  (Unit of 1mSec)
+'200'
+
+Value
+Description
+Ignore
+
+Example
+<root>
+    <peripheral channel='1' on='200' off='200'/>
+</root>
+
+5.11 <qrcode>
+QR code Element
+
+Attribute
+Name
+Description
+Omission
+model
+Specifies model
+* 'model1' … Model1
+* 'model2' … Model2
+'model2'
+level
+Specifies mistake correction level
+* 'level_l' … Mistake Correction LevelL
+* 'level_m' … Mistake Correction LevelM
+* 'level_q' … Mistake Correction LevelQ
+* 'level_h' … Mistake Correction LevelH
+'level_l'
+cell
+Specifies cell size (Unit of dot)
+'3'
+
+Value
+Description
+Specifies Qr code data
+
+Note. Refer to the command specifications.
+
+Example
+<root>
+    <qrcode model='model2' level='level_l' cell='3'>http://www.starmicronics.com/</qrcode>
+</root>
+
+
+5.12 <rawdata>
+Raw data Element
+
+Attribute
+Name
+Description
+Omission
+-
+-
+-
+
+Value
+Description
+Specifies raw data
+
+Note.Base64 encoding
+
+Example
+<root>
+　　<rawdata>MTIzNDU=</rawdata>
+</root>
+
+5.13 <ruledline>
+Horizontal ruled line Element
+
+Attribute
+Name
+Description
+Omission
+thickness
+Specifies ruled line
+* 'thin' … Thin line
+* 'medium' … Medium line
+* 'thick' … Thick line
+* 'double_thin' … Thin, double line
+* 'double_medium' … Medium, double line
+* 'double_thick' … Thick, double line
+'medium'
+width
+Specifies width (Unit of dot)
+'832'
+
+Value
+Description
+Ignore
+
+Example
+<root>
+    <ruledline thickness='thin' width='200'/>
+</root>
+
+
+5.14 <sound>
+Sound Element
+
+Attribute
+Name
+Description
+Omission
+channel
+Specifies the drive terminal of the buzzer
+* '1' … Buzzer drive terminal1
+* '2' … Buzzer drive terminal2
+'1'
+repeat
+Specifies the number of repeats
+'1'
+
+Value
+Description
+Ignore
+
+Example
+<root>
+    <sound channel='1' repeat='1'/>
+</root>
+
+
+5.15 <text>
+Text Element
+
+Attribute
+Name
+Description
+Omission
+codepage
+Specifies CodePage
+* 'cp437' … CodePage437
+* 'cp737' … CodePage737
+* 'cp772' … CodePage772
+* 'cp774' … CodePage774
+* 'cp851' … CodePage851
+* 'cp852' … CodePage852
+* 'cp855' … CodePage855
+* 'cp857' … CodePage857
+* 'cp858' … CodePage858
+* 'cp860' - 'cp866' … CodePage860 - 866
+* 'cp869' … CodePage869
+* 'cp874' … CodePage874
+* 'cp928' … CodePage928
+* 'cp932' … CodePage932 (Katakana)
+* 'cp998' … CodePage998 (Normal)
+* 'cp999' … CodePage999
+* 'cp1001' … CodePage1001
+* 'cp1250' - 'cp1252' … CodePage1250 - 1252
+* 'cp2001' … CodePage2001
+* 'cp3001' … CodePage3001
+* 'cp3002' … CodePage3002
+* 'cp3011' … CodePage3011
+* 'cp3012' … CodePage3012
+* 'cp3021' … CodePage3021
+* 'cp3041' … CodePage3041
+* 'cp3840' … CodePage3840
+* 'cp3841' … CodePage3841
+* 'cp3843' - 'cp3848' … CodePage3843 - 3848
+* 'blank' … User Setting (Blank CodePage)
+Unchanged
+international
+Specifies international characters
+* 'usa' … USA
+* 'france' … France
+* 'germany' … Germany
+* 'uk' … UK
+* 'denmark' … Denmark
+* 'sweden' … Sweden
+* 'italy' … Italy
+* 'spain' … Spain
+* 'japan' … Japan
+* 'norway' … Norway
+* 'denmark2' … Denmark II
+* 'spain2' … Spain II
+* 'latin_america' … Latin America
+* 'korea' … Korea
+* 'ireland' … Ireland
+* 'legal' … Legal
+Unchanged
+characterspace
+Specifies character space (Unit of dot)
+Unchanged
+emphasis
+Specifies emphasized
+* 'true' … Specifies emphasized
+* 'false' … Cancels emphasized
+Unchanged
+invert
+Specifies inversion
+* 'true' … Specifies inversion
+* 'false' … Cancels inversion
+Unchanged
+linespace
+Specifies line space (Unit of dot)
+* '24' … Specifies 3mm line feed amount
+* '32' … Specifies 4mm line feed amount
+Unchanged
+width
+Specifies expanded width
+* '1' … Cancels expanded width
+* '2' … Specifies 2x width expansion
+* '3' … Specifies 3x width expansion
+* '4' … Specifies 4x width expansion
+* '5' … Specifies 5x width expansion
+* '6' … Specifies 6x width expansion
+Unchanged
+height
+Specifies expanded height
+* '1' … Cancels expanded height
+* '2' … Specifies 2x height expansion
+* '3' … Specifies 3x height expansion
+* '4' … Specifies 4x height expansion
+* '5' … Specifies 5x height expansion
+* '6' … Specifies 6x height expansion
+Unchanged
+font
+Specifies font style
+* 'font_a' … Font-A (12 x 24 dots)
+* 'font_b' … Font-B (9 x 24 dots)
+Unchanged
+undelline
+Specifies underline
+* 'true' … Specifies underline
+* 'false' … Cancels underline
+Unchanged
+
+Value
+Description
+Specifies text data
+
+Example
+<root>
+    <text codepage='cp998' international='usa' characterspace='0' emphasis='false' invert='false' linespace='32' width='1' height='1' font='font_a' underline='false'>Star Micronics\x0a</text>
+</root>
+
+
+6 StarWebPRNT Response Element
+
+Name
+Description
+<root>
+Root Element
+<success>
+Success code Element
+<code>
+Result code Element
+<status>
+Star Automatic Status Element
+
+6.1 <root>
+Root Element
+
+Attribute
+Name
+Description
+Omission
+-
+-
+-
+
+Value
+Description
+List of StarWebPRNT Response Element
+
+Example
+<root>
+    <success>true</success>
+    <code>0</code>
+    <status>2386000000000000000000</status>
+</root>
+
+6.2 <success>
+Success code Element
+
+Attribute
+Name
+Description
+Omission
+-
+-
+-
+
+Value
+Description
+Success code
+* true … Printing succeeded
+* false … Printing failed
+
+Example
+<root>
+    <success>true</success>
+    <code>0</code>
+    <status>2386000000000000000000</status>
+</root>
+
+
+6.3 <code>
+Result code Element
+
+Attribute
+Name
+Description
+Omission
+-
+-
+-
+
+Value
+Description
+Result code
+* 0 … Success
+
+Example
+<root>
+    <success>true</success>
+    <code>0</code>
+    <status>2386000000000000000000</status>
+</root>
+
+
+6.4 <status>
+Star Automatic Status Element
+
+Attribute
+Name
+Description
+Omission
+-
+-
+-
+
+Value
+Description
+Star Automatic Status
+
+Note. Refer to the command specifications.
+
+Example
+<root>
+    <success>true</success>
+    <code>0</code>
+    <status>2386000000000000000000</status>
+</root>
+
+
+July 08, 2013
+? 2013 Star Micronics. All rights reserved.
+
+ 66 / 66
+July 08, 2013
+? 2013 Star Micronics. All rights reserved.
+

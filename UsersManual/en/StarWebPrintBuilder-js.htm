@@ -1,0 +1,2960 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  lang="ja" xml:lang="ja">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Star WebPRNT ユーザーズマニュアル</title>
+    <link href="webPRNT_layout.css" rel="stylesheet" type="text/css" />
+    <link href="../SharedResources/print_layout.css" rel="stylesheet" type="text/css" media="print" />
+    
+   <!--[if IE ]>
+        <link rel="stylesheet" type="text/css" href="webPRNT_layout_ie.css"></script>
+    <![endif]-->
+    
+    <!--
+    <script src="lib/jquery-1.10.2.min.js"></script>
+    <script>
+    
+    function tggleNavi() {
+        $('#naviArrow').click(function(){
+           $('#mainNavi').slideToggle('slow');
+           
+       });
+    });
+
+    -->
+    </script>
+    
+</head>
+<body>
+
+<header>
+<img id="webPRNTLogo" src="../illust/WebPRNT_Logo.png" />
+<h1> Star WebPRNT User's Manual </h1>
+<!--
+<a id="naviArrow" onclick="tggleNavi()"> Naviを非表示にする</a>
+-->
+<div class="clear"></div>
+</header>
+
+<!-- wrapp : mainNavi + mainContents-->
+<div id="wrapp" class="clear">
+    
+
+<!-- mainNavi -->
+
+<div id="mainNavi">
+	<navi>
+	<h5>Contents</h5>
+	<ul>
+	<li><a href="sampleProgram.htm">サンプルプログラム</a></li>
+	<li><a href="sampleProgram.htm#sampleProgramList">プログラムファイルリスト</a></li>
+	<li><a href="sampleProgram.htm#webServerRegistration">Webサーバへの登録</a></li>
+	<li><a href="sampleProgram.htm#howToUse">使用方法</a></li>
+	</ul>
+	<ul>
+	<li><a href="StarWebPrintBuilder-js.htm">StarWebPrintBuilder.js</a></li>
+	<li><a href="StarWebPrintBuilder-js.htm#StarWebPrintBuilder">StarWebPrintBuilder</a></li>
+	<li><a href="StarWebPrintBuilder-js.htm#createAlignmentElement">createAlignmentElement</a></li>
+	<li><a href="StarWebPrintBuilder-js.htm#createBarcodeElement">createBarcodeElement</a></li>
+	<li><a href="StarWebPrintBuilder-js.htm#createBitImageElement">createBitImageElement</a></li>
+	<li><a href="StarWebPrintBuilder-js.htm#createCutPaperElement">createCutPaperElement</a></li>
+	<li><a href="StarWebPrintBuilder-js.htm#createFeedElement">createFeedElement</a></li>
+	<li><a href="StarWebPrintBuilder-js.htm#createInitializationElement">createInitializationElement</a></li>
+	<li><a href="StarWebPrintBuilder-js.htm#createLogoElement">createLogoElement</a></li>
+	<li><a href="StarWebPrintBuilder-js.htm#createPdf417Element">createPdf417Element</a></li>
+	<li><a href="StarWebPrintBuilder-js.htm#createPeripheralElement">createPeripheralElement</a></li>
+	<li><a href="StarWebPrintBuilder-js.htm#createQrCodeElement">createQrCodeElement</a></li>
+	<li><a href="StarWebPrintBuilder-js.htm#createRawDataElement">createRawDataElement</a></li>
+	<li><a href="StarWebPrintBuilder-js.htm#createRuledLineElement">createRuledLineElement</a></li>
+	<li><a href="StarWebPrintBuilder-js.htm#createSoundElement">createSoundElement</a></li>
+	<li><a href="StarWebPrintBuilder-js.htm#createTextElement">createTextElement</a></li>
+	</ul>
+	<ul>
+	<li><a href="StarWebPrintTrader-js.htm">StarWebPrintTrader.js</a></li>
+	<li><a href="StarWebPrintTrader-js.htm#StarWebPrintTrader">StarWebPrintTrader</a></li>
+	<li><a href="StarWebPrintTrader-js.htm#sendMessage">sendMessage</a></li>
+	<li><a href="StarWebPrintTrader-js.htm#isCoverOpen">isCoverOpen</a></li>
+	<li><a href="StarWebPrintTrader-js.htm#isOffLine">isOffLine</a></li>
+	<li><a href="StarWebPrintTrader-js.htm#isCompulsionSwitchClose">isCompulsionSwitchClose</a></li>
+	<li><a href="StarWebPrintTrader-js.htm#isEtbCommandExecute">isEtbCommandExecute</a></li>
+	<li><a href="StarWebPrintTrader-js.htm#isHighTemperatureStop">isHighTemperatureStop</a></li>
+	<li><a href="StarWebPrintTrader-js.htm#isNonRecoverableError">isNonRecoverableError</a></li>
+	<li><a href="StarWebPrintTrader-js.htm#isAutoCutterError">isAutoCutterError</a></li>
+	<li><a href="StarWebPrintTrader-js.htm#isBlackMarkError">isBlackMarkError</a></li>
+	<li><a href="StarWebPrintTrader-js.htm#isPaperEnd">isPaperEnd</a></li>
+	<li><a href="StarWebPrintTrader-js.htm#isPaperNearEnd">isPaperNearEnd</a></li>
+	<li><a href="StarWebPrintTrader-js.htm#extractionEtbCounter">extractionEtbCounter</a></li>
+	<li><a href="StarWebPrintTrader-js.htm#onReceive">onReceive</a></li>
+	<li><a href="StarWebPrintTrader-js.htm#onError">onError</a></li>
+	</ul>
+	<ul>
+	<li><a href="StarBarcodeEncoder-js.htm">StarBarcodeEncoder.js</a></li>
+	<li><a href="StarBarcodeEncoder-js.htm#StarBarcodeEncoder">StarBarcodeEncoder</a></li>
+	<li><a href="StarBarcodeEncoder-js.htm#createUPCE">createUPCE</a></li>
+	<li><a href="StarBarcodeEncoder-js.htm#createUPCA">createUPCA</a></li>
+	<li><a href="StarBarcodeEncoder-js.htm#createJAN8">createJAN8</a></li>
+	<li><a href="StarBarcodeEncoder-js.htm#createJAN13">createJAN13</a></li>
+	<li><a href="StarBarcodeEncoder-js.htm#createCode39">createCode39</a></li>
+	<li><a href="StarBarcodeEncoder-js.htm#createITF">createITF</a></li>
+	<li><a href="StarBarcodeEncoder-js.htm#createCode128">createCode128</a></li>
+	<li><a href="StarBarcodeEncoder-js.htm#createCode93">createCode93</a></li>
+	<li><a href="StarBarcodeEncoder-js.htm#createNW7">createNW7</a></li>
+	</ul>
+	<ul>
+	<li><a href="StarWebPrntRequestElement.htm">StarWebPRNT送信エレメント</a></li>
+	<li><a href="StarWebPrntRequestElement.htm#root">&lt;root&gt;</a></li>
+	<li><a href="StarWebPrntRequestElement.htm#alignment">&lt;alignment&gt;</a></li>
+	<li><a href="StarWebPrntRequestElement.htm#barcode">&lt;barcode&gt;</a></li>
+	<li><a href="StarWebPrntRequestElement.htm#bitImage">&lt;bitImage&gt;</a></li>
+	<li><a href="StarWebPrntRequestElement.htm#cutpaper">&lt;cutpaper&gt;</a></li>
+	<li><a href="StarWebPrntRequestElement.htm#feed">&lt;feed&gt;</a></li>
+	<li><a href="StarWebPrntRequestElement.htm#initialization">&lt;initialization&gt;</a></li>
+	<li><a href="StarWebPrntRequestElement.htm#logo">&lt;logo&gt;</a></li>
+	<li><a href="StarWebPrntRequestElement.htm#pdf417">&lt;pdf417&gt;</a></li>
+	<li><a href="StarWebPrntRequestElement.htm#peripheral">&lt;peripheral&gt;</a></li>
+	<li><a href="StarWebPrntRequestElement.htm#qrcode">&lt;qrcode&gt;</a></li>
+	<li><a href="StarWebPrntRequestElement.htm#rawdata">&lt;rawdata&gt;</a></li>
+	<li><a href="StarWebPrntRequestElement.htm#ruledline">&lt;ruledline&gt;</a></li>
+	<li><a href="StarWebPrntRequestElement.htm#sound">&lt;sound&gt;</a></li>
+	<li><a href="StarWebPrntRequestElement.htm#text">&lt;text&gt;</a></li>
+	</ul>
+	<ul>
+	<li><a href="StarWebPrintResponseElement.htm">StarWebPRNT受信エレメント</a></li>
+	<li><a href="StarWebPrintResponseElement.htm#root-response">&lt;root&gt;</a></li>
+	<li><a href="StarWebPrintResponseElement.htm#success">&lt;success&gt;</a></li>
+	<li><a href="StarWebPrintResponseElement.htm#code">&lt;code&gt;</a></li>
+	<li><a href="StarWebPrintResponseElement.htm#status">&lt;status&gt;</a></li>
+	</ul>
+
+	</navi>
+</div>
+
+<div id="mainContents">
+
+<article>
+ 
+    <div id="mainIntroduction">
+    <img src="../illust/WebPRNT-tree.png" />
+    <p>
+    このマニュアルはStarWebPRNTに関する情報を提供するものです。<br />
+    ユーザー向けに印刷アプリケーションの構築に関するガイドラインを示します。
+    </p>
+    </div>
+</article>
+
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+
+<article id="documentSection">
+
+    <div id="sampleProgram">
+    <h2>サンプルプログラム</h2>
+    
+    <section id="sampleProgramList">
+        <h3>プログラムファイルリスト</h3>
+
+        <h4>HTMLファイル</h4>
+        <table class="coder">
+            <thead>
+                 <tr><td>Name</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>ComparisonReceiptDesign.html</td><td>デバイスフォントおよびCanvas描画による印刷が行えることを確認します。</td></tr>
+            </tbody>
+        </table>
+        <br />
+
+        <h4>JavaScriptファイル</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>Name</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>StarWebPrintBuilder.js</td><td>StarWebPRNT送信エレメントを生成します。</td></tr>
+                <tr><td>StarWebPrintTrader.js</td><td>StarWebPRNT送信エレメント列を送信したり、受信したStarWebPRNT受信エレメント列から状態を確認/抽出します。</td></tr>
+                <tr><td>StarBarcodeEncoder.js</td><td>HTML5 Canvas 2Dコンテキストへのバーコード描画を補うバーコードモジュール列を生成します。</td></tr>
+            </tbody>
+        </table>
+        <br />
+    </section>
+
+    
+    <section id="webServerRegistration">
+        <h3>Webサーバへの登録</h3>
+    
+        <div class="introduction_3">
+        <p>Webサーバの運用マニュアルを参考にサンプルプログラム一式を公開フォルダ用にコピーします。</p>
+        </div>
+    </section>
+    
+    
+    <section id="howToUse">
+        <h3>使用方法</h3>
+    
+        <div class="numOperation">
+            <ol>
+            <li>Webブラウザで公開したComparisonReceiptDesign.htmlを開き、JavaScript/Canvasのサポートに問題のないことを確認します。<br />
+            <img src="../illust/CheckYourBrowser.png" class="numOpeFig" alt="ComparisonReceiptDesign エラー画面"><br />
+            <p class="note">
+                  *"Your browser does not support JavaScript!"と表示された場合には、お使いのWebブラウザのJavascript設定が無効になっていますので、JavaScriptを有効に変更してください。</p>
+            <p class="note">
+                  *"Your browser does not support Canvas!"と表示された場合には、Canvas機能に対応したWebブラウザへ変更してください。</p>
+            </li>
+            <li>starWebPRNTエンドポイントURLをプリンタのIPアドレスに合わせて編集します。<br />
+            <img src="../illust/Set_IP-Address.png" class="numOpeFig" alt="ComparisonReceiptSesign 設定画面"></li>
+            <li>Send（API）ボタンでデバイスフォントによる印刷が行えることを確認します。</li>
+            <li>Send（Canvas）ボタンでCanvas描画による印刷が行えることを確認します。</li>
+            </ol>
+        </div>
+    </section>
+    
+</article>
+
+
+
+<article>
+
+    <div id="starWebPrintBuilder-js">
+    <h2>StarWebPrintBuilder.js</h2>
+    
+    <div class="introduction_2">
+    <p>
+        StarWebPRNT送信エレメントを生成します。
+    </p>
+    </div>
+    
+
+    <h4>コンストラクタ</h4>
+    <table class="coder">
+        <thead>
+            <tr><td>Name</td><td>Description</td></tr>
+        </thead>
+        <tbody>
+            <tr><td><a href="#StarWebPrintBuilder">StarWebPrintBuilder</a></td><td>StarWebPrintBuilderオブジェクトを生成します。</td></tr>
+        </tbody>
+    </table>
+    
+
+    <h4>メソッド</h4>
+    <table class="coder">
+        <thead>
+            <tr><td>Name</td><td>Description</td></tr>
+        </thead>
+        <tbody>
+            <tr><td><a href="#createAlignmentElement">createAlignmentElement</a></td><td>位置揃えエレメントを生成します。</td></tr>
+            <tr><td><a href="createBarcodeElement.htm">createBarcodeElement</a></td><td>バーコードエレメントを生成します。</td></tr>
+            <tr><td><a href="createBitImageElement.htm">createBitImageElement</td><td>ビットイメージエレメントを生成します。</td></tr>
+            <tr><td><a href="createCutPaperElement.htm">createCutPaperElement</a></td><td>用紙カットエレメントを生成します。</td></tr>
+            <tr><td><a href="createFeedElement.htm">createFeedElement</a></td><td>用紙送りエレメントを生成します。</td></tr>
+            <tr><td><a href="createInitializationElement.htm">createInitializationElement</a></td><td>初期化エレメントを生成します。</td></tr>
+            <tr><td><a href="createLogoElement.htm">createLogoElement</a></td><td>ロゴエレメントを生成します。</td></tr>
+            <tr><td><a href="createPdf417Element.htm">createPdf417Element</a></td><td>PDF417エレメントを生成します。</td></tr>
+            <tr><td><a href="createPeripheralElement.htm">createPeripheralElement</a></td><td>外部機器エレメントを生成します。</td></tr>
+            <tr><td><a href="createQrCodeElement.htm">createQrCodeElement</a></td><td>QRコードエレメントを生成します。</td></tr>
+            <tr><td><a href="createRawDataElement.htm">createRawDataElement</a></td><td>生データエレメントを生成します。</td></tr>
+            <tr><td><a href="createRuledLineElement.htm">createRuledLineElement</a></td><td>横罫線エレメントを生成します。</td></tr>
+            <tr><td><a href="createSoundElement.htm">createSoundElement</a></td><td>ブザーエレメントを生成します。</td></tr>
+            <tr><td><a href="createTextElement.htm">createTextElement</a></td><td>テキストエレメントを生成します。</td></tr>
+        </tbody>
+    </table>
+
+</article>
+
+<article>
+
+    <div id="starWebPrintBuilder">
+    <h3>StarWebPrintBuilder</h3>
+    
+    <div class="introduction_3">
+    <p>
+    StarWebPrintBuilderオブジェクトを生成します。
+    </p>
+    </div>
+    
+    <div class="syntax">
+    <h4>syntax</h4>
+    <p>
+    StarWebPrintBuilder();
+    </p>
+    
+    <h4>Parameter</h4>
+    <table class="coder">
+        <thead>
+            <tr><td>Name</td><td>Description</td><td>Object type</td><td>Omission</td></tr>
+        </thead>
+        <tbody>
+            <tr><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+        </tbody>
+    </table>
+
+    <h4>Return value</h4>
+    <table class="coder">
+        <thead>
+            <tr><td>Description</td><td>Object type</td></tr>
+        </thead>
+        <tbody>
+            <tr><td>StarWebPrintBuilderオブジェクト</td><td>StarWebPrintBuilder</td></tr>
+        </tbody>
+    </table>
+
+    <h5>Example</h5>
+<pre>
+&lt;script type='text/javascript' src='js/StarWebPrintBuilder.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+function onBuild() {
+    var builder = new StarWebPrintBuilder();
+}
+// --&gt;
+&lt;/script&gt;
+</pre>
+
+    </div>
+</article>
+
+<article>
+    <div id="createAlignmentElement">
+    <h3>createAlignmentElement</h3>
+
+    <div class="introduction_3">
+    <p>
+    位置揃えエレメントを生成します。
+    </p>
+    
+    <div class="syntax">
+    <h4>syntax</h4>
+    <p>
+    createAlignmentElement(args);
+    </p>
+    
+    <h4>Parameter</h4>
+    <table class="coder">
+        <thead>
+            <tr><td>Name</td><td>Description</td><td>Object type</td><td>Omission</td></tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>poistion</td>
+                <td>位置揃え指定<br />
+                   <ul><li>'left' … 左揃え</li><li>'center' … 中央揃え</li><li>'right' … 右揃え</li></ul></td>
+                <td>String</td>
+                <td>'left'</td></tr>
+        </tbody>
+    </table>
+    
+    <h4>Return value</h4>
+    <table class="coder">
+        <thead>
+            <tr><td>Description</td><td>Object type</td></tr>
+        </thead>
+        <tbody>
+            <tr><td>生成したエレメント文字列</td><td>String</td></tr>
+        </tbody>
+    </table>
+    
+    <h5>Example</h5>
+<pre>
+&lt;script type='text/javascript' src='js/StarWebPrintBuilder.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+function onBuild() {
+    var builder = new StarWebPrintBuilder();
+
+　　var request = builder.createAlignmentElement({position:'center'});
+}
+// --&gt;
+&lt;/script&gt;
+</pre>
+
+    </div>
+</article>
+
+2.3 createBarcodeElement
+バーコードエレメントを生成します。
+
+syntax
+createBarcodeElement(args);
+
+名前付き引数
+名称
+説明
+型
+省略時
+symbology
+シンボル
+* 'UPCE' … UPC-E
+* 'UPCA' … UPC-A
+* 'JAN8' … JAN/EAN8
+* 'JAN13' … JAN/EAN13
+* 'Code39' … Code39
+* 'ITF' … ITF
+* 'Code128' … Code128
+* 'Code93' … Code93
+* 'NW7' … NW-7
+String
+'UPCE'
+width
+幅
+* 'width2' … 最小モジュール2ドット
+* 'width3' … 最小モジュール3ドット
+* 'width4' … 最小モジュール4ドット
+* 'width_mode1' … モード1
+* 'width_mode2' … モード2
+* 'width_mode3' … モード3
+* 'width_mode4' … モード4
+* 'width_mode5' … モード5
+* 'width_mode6' … モード6
+* 'width_mode7' … モード7
+* 'width_mode8' … モード8
+* 'width_mode9' … モード9
+※コマンド仕様書参照
+String
+'width3'
+height
+高さ（ドット単位指定）
+Number
+162
+hri
+HRIキャラクタ
+* true … HRIキャラクタあり
+* false … HRIキャラクタなし
+Boolean
+true
+data
+バーコードデータ
+※コマンド仕様書参照
+String
+省略不可
+
+戻り値
+説明
+型
+生成したエレメント文字列
+String
+
+
+例
+&lt;script type='text/javascript' src='js/StarWebPrintBuilder.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+function onBuild() {
+    var builder = new StarWebPrintBuilder();
+
+　　var request = builder.createBarcodeElement({symbology:'JAN13', width:'width2', height:40, hri:false, data:'012345678901'});
+}
+// --&gt;
+&lt;/script&gt;
+
+2.4 createBitImageElement
+ビットイメージエレメントを生成します。
+
+syntax
+createBitImageElement(args);
+
+名前付き引数
+名称
+説明
+型
+省略時
+context
+HTML5 Canvas 2Dコンテキスト
+Canvas
+省略不可
+x
+印刷領域横方向開始位置（ドット単位指定）
+Number
+0
+y
+印刷領域縦方向開始位置（ドット単位指定）
+Number
+0
+width
+印刷領域幅（ドット単位指定）
+Number
+0
+height
+印刷領域高さ（ドット単位指定）
+Number
+0
+
+戻り値
+説明
+型
+生成したエレメント文字列
+String
+
+例
+&lt;script type='text/javascript' src='js/StarWebPrintBuilder.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+function onBuild() {
+    var builder = new StarWebPrintBuilder();
+
+　　var request = builder.createBitImageElement({context:canvas.getContext('2d'), x:0, y:0, width:200, height:50});
+}
+// --&gt;
+&lt;/script&gt;
+
+
+2.5 createCutPaperElement
+用紙カットエレメントを生成します。
+
+syntax
+createCutPaperElement(args);
+
+名前付き引数
+名称
+説明
+型
+省略時
+type
+カット種
+* 'full' … フルカット
+* 'partial' … パーシャルカット
+String
+'full'
+feed
+カット前の用紙送り
+* true … 用紙送りあり
+* false … 用紙送りなし
+Boolean
+true
+
+戻り値
+説明
+型
+生成したエレメント文字列
+String
+
+例
+&lt;script type='text/javascript' src='js/StarWebPrintBuilder.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+function onBuild() {
+    var builder = new StarWebPrintBuilder();
+
+　　var request = builder.createCutPaperElement({feed:true, type:'partial'});
+}
+// --&gt;
+&lt;/script&gt;
+
+
+2.6 createFeedElement
+用紙送りエレメントを生成します。
+
+syntax
+createFeedElement(args);
+
+名前付き引数
+名称
+説明
+型
+省略時
+line
+行単位紙送り量（行単位指定）
+Number
+0
+unit
+ドット単位紙送り量（ドット単位指定）
+Number
+0
+
+戻り値
+説明
+型
+生成したエレメント文字列
+String
+
+例
+&lt;script type='text/javascript' src='js/StarWebPrintBuilder.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+function onBuild() {
+    var builder = new StarWebPrintBuilder();
+
+　　var request = builder.createFeedElement({line:2, unit:8});
+}
+// --&gt;
+&lt;/script&gt;
+
+
+2.7 createInitializationElement
+初期化エレメントを生成します。
+
+syntax
+createInitializationElement(args);
+
+名前付き引数
+名称
+説明
+型
+省略時
+reset
+ハードウェアリセット
+* true … ハードウェアリセット実施
+* false … ハードウェアリセット未実施（コマンドの初期化のみ）
+Boolean
+false
+print
+ハードウェアリセット後の自己印字
+* true …ハードウェアリセット後の自己印字実施
+* false … ハードウェアリセット後の自己印字未実施
+Boolean
+false
+
+戻り値
+説明
+型
+生成したエレメント文字列
+String
+
+例
+&lt;script type='text/javascript' src='js/StarWebPrintBuilder.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+function onBuild() {
+    var builder = new StarWebPrintBuilder();
+
+　　var request = builder.createInitializationElement({reset:true, print:true});
+}
+// --&gt;
+&lt;/script&gt;
+
+
+2.8 createLogoElement
+ロゴエレメントを生成します。
+
+syntax
+createLogoElement(args);
+
+名前付き引数
+名称
+説明
+型
+省略時
+number
+登録番号
+Number
+1
+width
+幅
+* 'single' … 等倍幅
+* 'double' … 2倍幅
+String
+'single'
+height
+高さ
+* 'single' … 等倍高
+* 'double' … 2倍高
+String
+'single'
+
+戻り値
+説明
+型
+生成したエレメント文字列
+String
+
+例
+&lt;script type='text/javascript' src='js/StarWebPrintBuilder.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+function onBuild() {
+    var builder = new StarWebPrintBuilder();
+
+    var request = builder.createLogoElement({number:1, width:'single', height:'single'});
+}
+// --&gt;
+&lt;/script&gt;
+
+
+2.9 createPdf417Element
+PDF417エレメントを生成します。
+
+syntax
+createPdf417Element(args);
+
+名前付き引数
+名称
+説明
+型
+省略時
+line
+ライン数
+※コマンド仕様書参照
+Number
+0
+column
+カラム数
+※コマンド仕様書参照
+Number
+0
+level
+セキュリティレベル
+* 'level0' … セキュリティレベル0
+* 'level1' … セキュリティレベル1
+* 'level2' … セキュリティレベル2
+* 'level3' … セキュリティレベル3
+* 'level4' … セキュリティレベル4
+* 'level5' … セキュリティレベル5
+* 'level6' … セキュリティレベル6
+* 'level7' … セキュリティレベル7
+* 'level8' … セキュリティレベル8
+String
+'level1'
+module
+モジュールサイズ（ドット単位指定）
+Number
+2
+aspect
+アスペクト比
+Number
+3
+data
+PDF417データ
+※コマンド仕様書参照
+String
+省略不可
+
+戻り値
+説明
+型
+生成したエレメント文字列
+String
+
+例
+&lt;script type='text/javascript' src='js/StarWebPrintBuilder.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+function onBuild() {
+    var builder = new StarWebPrintBuilder();
+
+　　var request = builder.createPdf417Element({level:'level1', line:0, column:0, module:2, aspect:3, data:'http://www.starmicronics.com/'});
+}
+// --&gt;
+&lt;/script&gt;
+
+
+2.10 createPeripheralElement
+外部機器エレメントを生成します。
+
+syntax
+createPeripheralElement(args);
+
+名前付き引数
+名称
+説明
+型
+省略時
+channel
+外部機器
+* 1 … チャンネル1番
+* 2 … チャンネル2番（通電時間/ディレイ時間無効）
+Number
+1
+on
+通電時間（1mSec単位指定）
+Number
+200
+off
+ディレイ時間（1mSec単位指定）
+Number
+200
+
+戻り値
+説明
+型
+生成したエレメント文字列
+String
+
+例
+&lt;script type='text/javascript' src='js/StarWebPrintBuilder.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+function onBuild() {
+    var builder = new StarWebPrintBuilder();
+
+    var request = builder.createPeripheralElement({channel:1, on:200, off:200});
+}
+// --&gt;
+&lt;/script&gt;
+
+
+2.11 createQrCodeElement
+QRコードエレメントを生成します。
+
+syntax
+
+createQrCodeElement(args);
+
+名前付き引数
+名称
+説明
+型
+省略時
+model
+モデル
+* 'model1' … モデル1
+* 'model2' … モデル2
+String
+'model2'
+level
+誤り訂正レベル
+* 'level_l' … 誤り訂正レベルL
+* 'level_m' … 誤り訂正レベルM
+* 'level_q' … 誤り訂正レベルQ
+* 'level_h' … 誤り訂正レベルH
+String
+'level_l'
+cell
+セルサイズ（ドット単位指定）
+Number
+3
+data
+QRコードデータ
+※コマンド仕様書参照
+String
+省略不可
+
+戻り値
+説明
+型
+生成したエレメント文字列
+String
+
+例
+&lt;script type='text/javascript' src='js/StarWebPrintBuilder.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+function onBuild() {
+    var builder = new StarWebPrintBuilder();
+
+　　var request = builder.createQrCodeElement({model:'model2', level:'level_l', cell:3, data:'http://www.starmicronics.com/'});
+}
+// --&gt;
+&lt;/script&gt;
+
+
+2.12 createRawDataElement
+生データエレメントを生成します。
+
+syntax
+createRawDataElement(args);
+
+名前付き引数
+名称
+説明
+型
+省略時
+data
+生データ
+※16進数'\x00'-'\xff'、水平タブ'\t'、改行'\n'、キャリッジリターン'\r'、バックスラッシュ'\\'
+String
+省略不可
+
+戻り値
+説明
+型
+生成したエレメント文字列
+String
+
+例
+&lt;script type='text/javascript' src='js/StarWebPrintBuilder.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+function onBuild() {
+    var builder = new StarWebPrintBuilder();
+
+　　var request = builder.createRawDataElement({data:\x30\x31\x32\x33\x34\x35\x36\x37\x38\x39\n')});
+}
+// --&gt;
+&lt;/script&gt;
+
+
+2.13 createRuledLineElement
+横罫線エレメントを生成します。
+
+syntax
+createRuledLineElement(args);
+
+名前付き引数
+名称
+説明
+型
+省略時
+thickness
+線種
+* 'thin' … 細線
+* 'medium' … 中線
+* 'thick' … 太線
+* 'double_thin' … 二重細線
+* 'double_medium' … 二重中線
+* 'double_thick' … 二重太線
+String
+'medium'
+width
+長さ（ドット単位指定）
+Number
+832
+
+戻り値
+説明
+型
+生成したエレメント文字列
+String
+
+例
+&lt;script type='text/javascript' src='js/StarWebPrintBuilder.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+function onBuild() {
+    var builder = new StarWebPrintBuilder();
+
+　　var request = builder.createRuledLineElement({thickness:'thin', width:200});
+}
+// --&gt;
+&lt;/script&gt;
+
+
+2.14 createSoundElement
+ブザーエレメントを生成します。
+
+syntax
+createSoundElement(args);
+
+名前付き引数
+名称
+説明
+型
+省略時
+channel
+外部機器
+* 1 … チャンネル1番
+* 2 … チャンネル2番
+Number
+1
+repeat
+繰り返し回数
+Number
+1
+
+戻り値
+説明
+型
+生成したエレメント文字列
+String
+
+例
+&lt;script type='text/javascript' src='js/StarWebPrintBuilder.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+function onBuild() {
+    var builder = new StarWebPrintBuilder();
+
+　　var request = builder.createSoundElement({channel:1, repeat:1});
+}
+// --&gt;
+&lt;/script&gt;
+
+
+2.15 createTextElement
+テキストエレメントを生成します。
+
+syntax
+createTextElement(args);
+
+名前付き引数
+名称
+説明
+型
+省略時
+codepage
+コードページ
+* 'cp437' … コードページ437
+* 'cp737' … コードページ737
+* 'cp772' … コードページ772
+* 'cp774' … コードページ774
+* 'cp851' … コードページ851
+* 'cp852' … コードページ852
+* 'cp855' … コードページ855
+* 'cp857' … コードページ857
+* 'cp858' … コードページ858
+* 'cp860' ～ 'cp866' … コードページ860 ～ 866
+* 'cp869' … コードページ869
+* 'cp874' … コードページ874
+* 'cp928' … コードページ928
+* 'cp932' … コードページ932(Katakana)
+* 'cp998' … コードページ998(Normal)
+* 'cp999' … コードページ999
+* 'cp1001' … コードページ1001
+* 'cp1250' ～ 'cp1252' … コードページ1250 ～ 1252
+* 'cp2001' … コードページ2001
+* 'cp3001' … コードページ3001
+* 'cp3002' … コードページ3002
+* 'cp3011' … コードページ3011
+* 'cp3012' … コードページ3012
+* 'cp3021' … コードページ3021
+* 'cp3041' … コードページ3041
+* 'cp3840' … コードページ3840
+* 'cp3841' … コードページ3841
+* 'cp3843' ～ 'cp3848' … コードページ3843 ～ 3848
+* 'blank' … ユーザ設定（空白コードページ)
+String
+未設定
+international
+国際文字
+* 'usa' … USA
+* 'france' … フランス
+* 'germany' … ドイツ
+* 'uk' … イギリス
+* 'denmark' … デンマーク
+* 'sweden' … スウェーデン
+* 'italy' … イタリア
+* 'spain' … スペイン
+* 'japan' … 日本
+* 'norway' … ノルウェー
+* 'denmark2' … デンマークⅡ
+* 'spain2' … スペインⅡ
+* 'latin_america' … ラテンアメリカ
+* 'korea' … 韓国
+* 'ireland' … アイルランド
+* 'legal' … リーガル
+String
+未設定
+characterspace
+文字間スペース（ドット単位指定）
+Number
+未設定
+emphasis
+強調印字
+* true … 強調印字有効
+* false … 強調印字無効
+Boolean
+未設定
+invert
+白黒反転印字
+* true … 白黒反転印字有効
+* false … 白黒反転印字無効
+Boolean
+未設定
+linespace
+行間スペース（ドット単位指定）
+* 24 … 3mm改行
+* 32 … 4mm改行
+Number
+未設定
+width
+横倍率
+* 1 … 等倍幅
+* 2 … 2倍幅
+* 3 … 3倍幅
+* 4 … 4倍幅
+* 5 … 5倍幅
+* 6 … 6倍幅
+Number
+未設定
+height
+縦倍率
+* 1 … 等倍高
+* 2 … 2倍高
+* 3 … 3倍高
+* 4 … 4倍高
+* 5 … 5倍高
+* 6 … 6倍高
+Number
+未設定
+font
+フォント種
+* 'font_a' … フォントA（12×24ドット）
+* 'font_b' … フォントB（9×24ドット）
+String
+未設定
+undelline
+下線印字
+* true … 下線印字有効
+* false … 下線印字無効
+Boolean
+未設定
+data
+テキストデータ
+String
+省略不可
+
+戻り値
+説明
+型
+生成したエレメント文字列
+String
+
+例
+&lt;script type='text/javascript' src='js/StarWebPrintBuilder.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+function onBuild() {
+    var builder = new StarWebPrintBuilder();
+
+　　var request = builder.createTextElement({codepage:'cp998', international:'usa', characterspace:0, emphasis:false, invert:false, linespace:32, width:1, height:1, font:'font_a', underline:false, data:'Star Micronics\n'});
+}
+// --&gt;
+&lt;/script&gt;
+
+
+3 StarWebPrintTrader.js
+StarWebPRNT送信エレメント列を送信したり、受信したStarWebPRNT受信エレメント列から状態を確認/抽出します。
+
+コンストラクタ
+名称
+説明
+StarWebPrintTrader
+StarWebPrintTraderオブジェクトを生成します。
+
+メソッド
+名称
+説明
+sendMessage
+StarWebPRNT送信エレメント列を送信します。
+isCoverOpen
+StarWebPRNT受信エレメント列からカバーオープンか確認します。
+isOffLine
+StarWebPRNT受信エレメント列からオフラインか確認します。
+isCompulsionSwitchClose
+StarWebPRNT受信エレメント列からコンパルジョンスイッチがクローズしているか確認します。
+isEtbCommandExecute
+StarWebPRNT受信エレメント列からETBコマンド実行済みか確認します。
+isHighTemperatureStop
+StarWebPRNT受信エレメント列から印字ヘッド高温停止中か確認します。
+isNonRecoverableError
+StarWebPRNT受信エレメント列から復帰不可能エラーか確認します。
+isAutoCutterError
+StarWebPRNT受信エレメント列から用紙カッターエラーか確認します。
+isBlackMarkError
+StarWebPRNT受信エレメント列からブラックマークエラーか確認します。
+isPaperEnd
+StarWebPRNT受信エレメント列から用紙エンドか確認します。
+isPaperNearEnd
+StarWebPRNT受信エレメント列から用紙ニアエンドか確認します。
+extractionEtbCounter
+StarWebPRNT受信エレメント列からETBカウンタを抽出します。
+
+プロパティ
+名称
+説明
+onReceive
+正常受信イベント
+onError
+異常受信イベント
+
+
+3.1 StarWebPrintTrader
+StarWebPrintTraderオブジェクトを生成します。
+
+syntax
+StarWebPrintTrader(args);
+
+名前付き引数
+名称
+説明
+型
+省略時
+url
+StarWebPRNTエンドポイントURL
+※省略時はsendMessageメソッドで指定すること
+String
+-
+checkedblock
+印刷完了待ち
+* true … 印刷完了待ち有効
+* false … 印刷完了待ち無効
+Boolean
+true
+
+戻り値
+説明
+型
+StarWebPrintTraderオブジェクト
+StarWebPrintTrader
+
+例
+&lt;script type='text/javascript' src='js/StarWebPrintTrader.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+function onSend(url, request) {
+　　var trader = new StarWebPrintTrader({url:url});
+
+    trader.sendMessage({request:request});
+}
+// --&gt;
+&lt;/script&gt;
+
+
+3.2 sendMessage
+StarWebPRNT送信エレメント列を送信します。
+
+syntax
+sendMessage(args);
+
+名前付き引数
+名称
+説明
+型
+省略時
+url
+StarWebPRNTエンドポイントURL
+※省略時はStarWebPrintTraderコンストラクタで指定すること
+String
+-
+checkedblock
+印刷完了待ち
+* true … 印刷完了待ち有効
+* false … 印刷完了待ち無効
+※省略時はStarWebPrintTraderコンストラクタで指定された値
+Boolean
+-
+request
+StarWebPRNT送信エレメント列
+String
+省略不可
+
+戻り値
+説明
+型
+-
+-
+
+例
+&lt;script type='text/javascript' src='js/StarWebPrintTrader.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+function onSend(url, request) {
+　　var trader = new StarWebPrintTrader({url:url});
+
+    trader.sendMessage({request:request});
+}
+// --&gt;
+&lt;/script&gt;
+
+
+3.3 isCoverOpen
+StarWebPRNT受信エレメント列からカバーオープンか確認します。
+
+syntax
+isCoverOpen(args);
+
+名前付き引数
+名称
+説明
+型
+省略時
+traderStatus
+onReceiveイベントに渡されたresponseのtraderStatusプロパティ
+String
+省略不可
+
+戻り値
+説明
+型
+カバーオープン状態
+* true … カバーオープン
+* false … カバークローズ
+Boolean
+
+例
+&lt;script type='text/javascript' src='js/StarWebPrintTrader.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+function onSend(url, request) {
+　　var trader = new StarWebPrintTrader({url:url});
+
+　　trader.onReceive = function (response) {
+        if (trader.isCoverOpen({traderStatus:response.traderStatus})) {
+            alert('CoverOpen');
+　　　　}
+　　}
+
+    trader.sendMessage({request:request});
+}
+// --&gt;
+&lt;/script&gt;
+
+
+3.4 isOffLine
+StarWebPRNT受信エレメント列からオフラインか確認します。
+
+syntax
+isOffLine(args);
+
+名前付き引数
+名称
+説明
+型
+省略時
+traderStatus
+onReceiveイベントに渡されたresponseのtraderStatusプロパティ
+String
+省略不可
+
+戻り値
+説明
+型
+オフライン状態
+* true … オフライン
+* false … オンライン
+Boolean
+
+例
+&lt;script type='text/javascript' src='js/StarWebPrintTrader.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+function onSend(url, request) {
+　　var trader = new StarWebPrintTrader({url:url});
+
+　　trader.onReceive = function (response) {
+　　    if (trader.isOffLine({traderStatus:response.traderStatus})) {
+　　　　　　alert('OffLine');
+　　　　}
+　　}
+
+    trader.sendMessage({request:request});
+}
+// --&gt;
+&lt;/script&gt;
+
+
+3.5 isCompulsionSwitchClose
+StarWebPRNT受信エレメント列からコンパルジョンスイッチがクローズしているか確認します。
+
+syntax
+isCompulsionSwitchClose(args);
+
+名前付き引数
+名称
+説明
+型
+省略時
+traderStatus
+onReceiveイベントに渡されたresponseのtraderStatusプロパティ
+String
+省略不可
+
+戻り値
+説明
+型
+コンパルジョンスイッチ状態
+* true … コンパルジョンスイッチクローズ
+* false … コンパルジョンスイッチオープン
+Boolean
+
+例
+&lt;script type='text/javascript' src='js/StarWebPrintTrader.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+function onSend(url, request) {
+　　var trader = new StarWebPrintTrader({url:url});
+
+　　trader.onReceive = function (response) {
+　　    if (trader.isCompulsionSwitchClose({traderStatus:response.traderStatus})) {
+　　　　　　alert('CompulsionSwitchClose');
+　　　　}
+　　}
+
+    trader.sendMessage({request:request});
+}
+// --&gt;
+&lt;/script&gt;
+
+
+3.6 isEtbCommandExecute
+StarWebPRNT受信エレメント列からETBコマンド実行済みか確認します。
+
+syntax
+isEtbCommandExecute(args);
+
+名前付き引数
+名称
+説明
+型
+省略時
+traderStatus
+onReceiveイベントに渡されたresponseのtraderStatusプロパティ
+String
+省略不可
+
+戻り値
+説明
+型
+ETBコマンド実行状態
+* true … ETBコマンド実行済み
+* false … ETBコマンド未実行
+Boolean
+
+例
+// --&gt;
+&lt;script type='text/javascript' src='js/StarWebPrintTrader.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+function onSend(url, request) {
+　　var trader = new StarWebPrintTrader({url:url});
+
+　　trader.onReceive = function (response) {
+　　    if (trader.isEtbCommandExecute({traderStatus:response.traderStatus})) {
+　　　　　　alert('EtbCommandExecute');
+　　　　}
+　　}
+
+    trader.sendMessage({request:request});
+}
+// --&gt;
+&lt;/script&gt;
+
+
+3.7 isHighTemperatureStop
+StarWebPRNT受信エレメント列から印字ヘッド高温停止中か確認します。
+
+syntax
+isHighTemperatureStop(args);
+
+名前付き引数
+名称
+説明
+型
+省略時
+traderStatus
+onReceiveイベントに渡されたresponseのtraderStatusプロパティ
+String
+省略不可
+
+戻り値
+説明
+型
+印字ヘッド高温停止状態
+* true … 印字ヘッド高温停止
+* false … 印字ヘッド高温未停止
+Boolean
+
+例
+// --&gt;
+&lt;script type='text/javascript' src='js/StarWebPrintTrader.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+function onSend(url, request) {
+　　var trader = new StarWebPrintTrader({url:url});
+
+　　trader.onReceive = function (response) {
+　　    if (trader.isHighTemperatureStop({traderStatus:response.traderStatus})) {
+　　　　　　alert('HighTemperatureStop');
+　　　　}
+　　}
+
+    trader.sendMessage({request:request});
+}
+// --&gt;
+&lt;/script&gt;
+
+
+3.8 isNonRecoverableError
+StarWebPRNT受信エレメント列から復帰不可能エラーか確認します。
+
+syntax
+isNonRecoverableError(args);
+
+名前付き引数
+名称
+説明
+型
+省略時
+traderStatus
+onReceiveイベントに渡されたresponseのtraderStatusプロパティ
+String
+省略不可
+
+戻り値
+説明
+型
+復帰不可能エラー状態
+* true … 復帰不可能エラー発生
+* false … 復帰不可能エラー未発生
+Boolean
+
+例
+// --&gt;
+&lt;script type='text/javascript' src='js/StarWebPrintTrader.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+function onSend(url, request) {
+　　var trader = new StarWebPrintTrader({url:url});
+
+　　trader.onReceive = function (response) {
+　　    if (trader.isNonRecoverableError({traderStatus:response.traderStatus})) {
+　　　　　　alert('NonRecoverableError');
+　　　　}
+　　}
+
+    trader.sendMessage({request:request});
+}
+// --&gt;
+&lt;/script&gt;
+
+
+3.9 isAutoCutterError
+StarWebPRNT受信エレメント列から用紙カッターエラーか確認します。
+
+syntax
+isAutoCutterError(args);
+
+名前付き引数
+名称
+説明
+型
+省略時
+traderStatus
+onReceiveイベントに渡されたresponseのtraderStatusプロパティ
+String
+省略不可
+
+戻り値
+説明
+型
+用紙カッターエラー状態
+* true … 用紙カッターエラー発生
+* false … 用紙カッターエラー未発生
+Boolean
+
+例
+// --&gt;
+&lt;script type='text/javascript' src='js/StarWebPrintTrader.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+function onSend(url, request) {
+　　var trader = new StarWebPrintTrader({url:url});
+
+　　trader.onReceive = function (response) {
+　　    if (trader.isAutoCutterError({traderStatus:response.traderStatus})) {
+　　　　　　alert('AutoCutterError');
+　　　　}
+　　}
+
+    trader.sendMessage({request:request});
+}
+// --&gt;
+&lt;/script&gt;
+
+
+3.10 isBlackMarkError
+StarWebPRNT受信エレメント列からブラックマークエラーか確認します。
+
+syntax
+isBlackMarkError(args);
+
+名前付き引数
+名称
+説明
+型
+省略時
+traderStatus
+onReceiveイベントに渡されたresponseのtraderStatusプロパティ
+String
+省略不可
+
+戻り値
+説明
+型
+ブラックマークエラー状態
+* true … ブラックマークエラー発生
+* false … ブラックマークエラー未発生
+Boolean
+
+例
+// --&gt;
+&lt;script type='text/javascript' src='js/StarWebPrintTrader.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+function onSend(url, request) {
+　　var trader = new StarWebPrintTrader({url:url});
+
+　　trader.onReceive = function (response) {
+　　    if (trader.isBlackMarkError({traderStatus:response.traderStatus})) {
+　　　　　　alert('BlackMarkError');
+　　　　}
+　　}
+
+    trader.sendMessage({request:request});
+}
+// --&gt;
+&lt;/script&gt;
+
+
+3.11 isPaperEnd
+StarWebPRNT受信エレメント列から用紙エンドか確認します。
+
+syntax
+isPaperEnd(args);
+
+名前付き引数
+名称
+説明
+型
+省略時
+traderStatus
+onReceiveイベントに渡されたresponseのtraderStatusプロパティ
+String
+省略不可
+
+戻り値
+説明
+型
+用紙エンド状態
+* true … 用紙エンド発生
+* false … 用紙エンド未発生
+Boolean
+
+例
+// --&gt;
+&lt;script type='text/javascript' src='js/StarWebPrintTrader.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+function onSend(url, request) {
+　　var trader = new StarWebPrintTrader({url:url});
+
+　　trader.onReceive = function (response) {
+　　    if (trader.isPaperEnd({traderStatus:response.traderStatus})) {
+　　　　　　alert('PaperEnd');
+　　　　}
+　　}
+
+    trader.sendMessage({request:request});
+}
+// --&gt;
+&lt;/script&gt;
+
+
+3.12 isPaperNearEnd
+StarWebPRNT受信エレメント列から用紙ニアエンドか確認します。
+
+syntax
+isPaperNearEnd(args);
+
+名前付き引数
+名称
+説明
+型
+省略時
+traderStatus
+onReceiveイベントに渡されたresponseのtraderStatusプロパティ
+String
+省略不可
+
+戻り値
+説明
+型
+用紙ニアエンド状態
+* true … 用紙ニアエンド発生
+* false … 用紙ニアエンド未発生
+Boolean
+
+例
+// --&gt;
+&lt;script type='text/javascript' src='js/StarWebPrintTrader.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+function onSend(url, request) {
+　　var trader = new StarWebPrintTrader({url:url});
+
+　　trader.onReceive = function (response) {
+　　    if (trader.isPaperNearEnd({traderStatus:response.traderStatus})) {
+            alert('PaperNearEnd');
+　　　　}
+　　}
+
+    trader.sendMessage({request:request});
+}
+// --&gt;
+&lt;/script&gt;
+
+
+3.13 extractionEtbCounter
+StarWebPRNT受信エレメント列からETBカウンタを抽出します。
+
+syntax
+extractionEtbCounter(args);
+
+名前付き引数
+名称
+説明
+型
+省略時
+traderStatus
+onReceiveイベントに渡されたresponseのtraderStatusプロパティ
+String
+省略不可
+
+戻り値
+説明
+型
+ETBカウンタ値
+Number
+
+例
+// --&gt;
+&lt;script type='text/javascript' src='js/StarWebPrintTrader.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+function onSend(url, request) {
+　　var trader = new StarWebPrintTrader({url:url});
+
+　　trader.onReceive = function (response) {
+　　    alert('EtbCounter = ' + trader.extractionEtbCounter({traderStatus:response.traderStatus}).toString();
+　　}
+
+    trader.sendMessage({request:request});
+}
+// --&gt;
+&lt;/script&gt;
+
+
+3.14 onReceive
+正常受信イベント
+
+syntax
+function(response);
+
+名前付き引数
+名称
+説明
+型
+traderSuccess
+印刷結果
+* true … 印刷成功
+* false … 印刷失敗
+Boolean
+traderCode
+終了コード
+* 0 … 正常終了
+* 'EPTR_AUTOMATICAL' … 自動復帰エラー発生
+* 'EPTR_CUTTER' … オートカッターエラー発生
+* 'EPTR_MECHANICAL' … メカニカルエラー発生
+* 'EPTR_REC_EMPTY' … ロール紙エンド検出器に用紙なし
+* 'EPTR_UNRECOVERABLE' … 復帰不可能エラー発生
+* 'SchemaError' … 要求ドキュメントのsyntaxに誤りがある
+* 'DeviceNotFound' … デバイス ID で指定したプリンターが存在しない
+* 'PrintSystemError' … 印刷システムにエラーが発生
+* 'EX_BADPORT' … 通信ポートに異常を検出
+Number
+traderStatus
+スター自動ステータス
+※コマンド仕様書参照
+String
+status
+XMLHttpRequestオブジェクトのstatusプロパティ
+※XMLHttpRequest仕様参照
+Number
+responseText
+XMLHttpRequestオブジェクトのresponseTextプロパティ
+※XMLHttpRequest仕様参照
+String
+
+
+例
+// --&gt;
+&lt;script type='text/javascript' src='js/StarWebPrintTrader.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+function onSend(url, request) {
+　　var trader = new StarWebPrintTrader({url:url});
+
+　　trader.onReceive = function (response) {
+        var msg = '- onReceive -\n\n';
+
+        msg += 'TraderSuccess:' + response.traderSuccess + '\n';
+
+　      msg += 'TraderCode:' + response.traderCode + '\n';
+
+        msg += 'TraderStatus:' + response.traderStatus + '\n';
+
+        msg += 'Status:' + response.status + '\n';
+
+　      msg += 'ResponseText:' + response.responseText;
+
+        alert(msg);
+　　}
+
+    trader.onError = function (response) {
+        var msg = '- onError -\n\n';
+
+        msg += '\tStatus:' + response.status + '\n';
+
+        msg += '\tResponseText:' + response.responseText;
+
+        alert(msg);
+    }
+
+    trader.sendMessage({request:request});
+}
+// --&gt;
+&lt;/script&gt;
+
+
+3.15 onError
+異常受信イベント
+
+syntax
+function(response);
+
+名前付き引数
+名称
+説明
+型
+status
+XMLHttpRequestオブジェクトのstatusプロパティ
+※XMLHttpRequest仕様参照
+Number
+responseText
+XMLHttpRequestオブジェクトのresponseTextプロパティ
+※XMLHttpRequest仕様参照
+String
+
+例
+// --&gt;
+&lt;script type='text/javascript' src='js/StarWebPrintTrader.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+function onSend(url, request) {
+　　var trader = new StarWebPrintTrader({url:url});
+
+　　trader.onReceive = function (response) {
+        var msg = '- onReceive -\n\n';
+
+        msg += 'TraderSuccess:' + response.traderSuccess + '\n';
+
+　      msg += 'TraderCode:' + response.traderCode + '\n';
+
+        msg += 'TraderStatus:' + response.traderStatus + '\n';
+
+        msg += 'Status:' + response.status + '\n';
+
+　      msg += 'ResponseText:' + response.responseText;
+
+        alert(msg);
+　　}
+
+    trader.onError = function (response) {
+        var msg = '- onError -\n\n';
+
+        msg += '\tStatus:' + response.status + '\n';
+
+        msg += '\tResponseText:' + response.responseText;
+
+        alert(msg);
+    }
+
+    trader.sendMessage({request:request});
+}
+// --&gt;
+&lt;/script&gt;
+
+
+4 StarBarcodeEncoder.js
+HTML5 Canvas 2Dコンテキストへのバーコード描画を補うバーコードモジュール列を生成します。
+
+コンストラクタ
+名称
+説明
+StarBarcodeEncoder
+StarBarcodeEncoderオブジェクトを生成します。
+
+メソッド
+名称
+説明
+createUPCE
+UPCEバーコードを生成します。
+createUPCA
+UPCAバーコードを生成します。
+createJAN8
+JAN/EAN8バーコードを生成します。
+createJAN13
+JAN/EAN13バーコードを生成します。
+createCode39
+Code39バーコードを生成します。
+createITF
+ITFバーコードを生成します。
+createCode128
+Code128バーコードを生成します。
+createCode93
+Code93バーコードを生成します。
+createNW7
+NW7バーコードを生成します。
+
+4.1 StarBarcodeEncoder
+StarBarcodeEncoderオブジェクトを生成します。
+
+syntax
+StarBarcodeEncoder();
+
+名前付き引数
+名称
+説明
+型
+省略時
+-
+-
+-
+-
+
+戻り値
+説明
+型
+StarBarcodeEncoderオブジェクト
+StarBarcodeEncoder
+
+例
+&lt;script type='text/javascript' src='js/StarBarcodeEncoder.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+function onBuild() {
+    var builder = new StarBarcodeEncoder();
+}
+// --&gt;
+&lt;/script&gt;
+
+
+4.2 createUPCE
+UPCEバーコードモジュールを生成します。
+
+syntax
+createUPCE(args);
+
+名前付き引数
+名称
+説明
+型
+省略時
+data
+UPCEバーコードデータ
+String
+省略不可
+
+戻り値
+説明
+型
+生成したバーコードモジュール列
+* '1' … モジュールあり
+* '0' … モジュールなし
+String
+
+例
+&lt;script type='text/javascript' src='js/StarBarcodeEncoder.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+function onBuild() {
+    var encoder = new StarBarcodeEncoder();
+
+　　var lineImage = encoder.createUPCE({data:'01234500006'});
+}
+// --&gt;
+&lt;/script&gt;
+
+
+4.3 createUPCA
+UPCAバーコードモジュールを生成します。
+
+syntax
+createUPCA(args);
+
+名前付き引数
+名称
+説明
+型
+省略時
+data
+UPCAバーコードデータ
+String
+省略不可
+
+戻り値
+説明
+型
+生成したバーコードモジュール列
+* '1' … モジュールあり
+* '0' … モジュールなし
+String
+
+例
+&lt;script type='text/javascript' src='js/StarBarcodeEncoder.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+function onBuild() {
+    var encoder = new StarBarcodeEncoder();
+
+　　var lineImage = encoder.createUPCA({data:'01234567890'});
+}
+// --&gt;
+&lt;/script&gt;
+
+
+4.4 createJAN8
+JAN/EAN8バーコードを生成します。
+
+syntax
+createJAN8(args);
+
+名前付き引数
+名称
+説明
+型
+省略時
+data
+JAN/EAN8バーコードデータ
+String
+省略不可
+
+戻り値
+説明
+型
+生成したバーコードモジュール列
+* '1' … モジュールあり
+* '0' … モジュールなし
+String
+
+例
+&lt;script type='text/javascript' src='js/StarBarcodeEncoder.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+function onBuild() {
+    var encoder = new StarBarcodeEncoder();
+
+　　var lineImage = encoder.createJAN8({data:'0123456'});
+}
+// --&gt;
+&lt;/script&gt;
+
+
+4.5 createJAN13
+JAN/EAN13バーコードを生成します。
+
+syntax
+createJAN13(args);
+
+名前付き引数
+名称
+説明
+型
+省略時
+data
+JAN/EAN13バーコードデータ
+String
+省略不可
+
+戻り値
+説明
+型
+生成したバーコードモジュール列
+* '1' … モジュールあり
+* '0' … モジュールなし
+String
+
+例
+&lt;script type='text/javascript' src='js/StarBarcodeEncoder.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+function onBuild() {
+    var encoder = new StarBarcodeEncoder();
+
+　　var lineImage = encoder.createJAN13({data:'01234567890'});
+}
+// --&gt;
+&lt;/script&gt;
+
+
+4.6 createCode39
+Code39バーコードを生成します。
+
+syntax
+createCode39(args);
+
+名前付き引数
+名称
+説明
+型
+省略時
+data
+Code39バーコードデータ
+String
+省略不可
+
+戻り値
+説明
+型
+生成したバーコードモジュール列
+* 'N' … ナローバー
+* 'n' … ナロースペース
+* 'W' … ワイドバー
+* 'w' … ワイドスペース
+String
+
+例
+&lt;script type='text/javascript' src='js/StarBarcodeEncoder.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+function onBuild() {
+    var encoder = new StarBarcodeEncoder();
+
+　　var lineImage = encoder.createCode39({data:'0123456789'});
+}
+// --&gt;
+&lt;/script&gt;
+
+
+4.7 createITF
+ITFバーコードを生成します。
+
+syntax
+createITF(args);
+
+名前付き引数
+名称
+説明
+型
+省略時
+data
+ITFバーコードデータ
+String
+省略不可
+
+戻り値
+説明
+型
+生成したバーコードモジュール列
+* 'N' … ナローバー
+* 'n' … ナロースペース
+* 'W' … ワイドバー
+* 'w' … ワイドスペース
+String
+
+例
+&lt;script type='text/javascript' src='js/StarBarcodeEncoder.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+function onBuild() {
+    var encoder = new StarBarcodeEncoder();
+
+　　var lineImage = encoder.createITF({data:'0123456789'});
+}
+// --&gt;
+&lt;/script&gt;
+
+
+4.8 createCode128
+Code128バーコードを生成します。
+
+syntax
+createCode128(args);
+
+名前付き引数
+名称
+説明
+型
+省略時
+data
+Code128バーコードデータ
+String
+省略不可
+
+戻り値
+説明
+型
+生成したバーコードモジュール列
+* '1' … モジュールあり
+* '0' … モジュールなし
+String
+
+例
+&lt;script type='text/javascript' src='js/StarBarcodeEncoder.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+function onBuild() {
+    var encoder = new StarBarcodeEncoder();
+
+　　var lineImage = encoder.createCode128({data:'{B0123456789'});
+}
+// --&gt;
+&lt;/script&gt;
+
+
+4.9 createCode93
+Code93バーコードを生成します。
+
+syntax
+createCode93(args);
+
+名前付き引数
+名称
+説明
+型
+省略時
+data
+Code93バーコードデータ
+String
+省略不可
+
+戻り値
+説明
+型
+生成したバーコードモジュール列
+* '1' … モジュールあり
+* '0' … モジュールなし
+String
+
+例
+&lt;script type='text/javascript' src='js/StarBarcodeEncoder.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+function onBuild() {
+    var encoder = new StarBarcodeEncoder();
+
+　　var lineImage = encoder.createCode93({data:'0123456789'});
+}
+// --&gt;
+&lt;/script&gt;
+
+
+4.10 createNW7
+NW7バーコードを生成します。
+
+syntax
+createNW7(args);
+
+名前付き引数
+名称
+説明
+型
+省略時
+data
+NW7バーコードデータ
+String
+省略不可
+
+戻り値
+説明
+型
+生成したバーコードモジュール列
+* 'N' … ナローバー
+* 'n' … ナロースペース
+* 'W' … ワイドバー
+* 'w' … ワイドスペース
+String
+
+例
+&lt;script type='text/javascript' src='js/StarBarcodeEncoder.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+function onBuild() {
+    var encoder = new StarBarcodeEncoder();
+
+　　var lineImage = encoder.createUPCE({data:'A0123456789B'});
+}
+// --&gt;
+&lt;/script&gt;
+
+
+5 StarWebPRNT送信エレメント
+
+名称
+説明
+&lt;root&gt;
+ルートエレメント
+&lt;alignment&gt;
+位置揃えエレメント
+&lt;barcode&gt;
+バーコードエレメント
+&lt;bitimage&gt;
+ビットイメージエレメント
+&lt;cutpaper&gt;
+用紙カットエレメント
+&lt;feed&gt;
+用紙送りエレメント
+&lt;initialization&gt;
+初期化エレメント
+&lt;logo&gt;
+ロゴエレメント
+&lt;pdf417&gt;
+PDF417エレメント
+&lt;peripheral&gt;
+外部機器エレメント
+&lt;qrcode&gt;
+QRコードエレメント
+&lt;rawdata&gt;
+生データエレメント
+&lt;ruledline&gt;
+横罫線エレメント
+&lt;sound&gt;
+ブザーエレメント
+&lt;text&gt;
+テキストエレメント
+
+5.1 &lt;root&gt;
+ルートエレメント
+
+属性
+名称
+説明
+省略時
+checkedblock
+印刷完了待ち
+* 'true' … 印刷完了待ち有効
+* 'false' … 印刷完了待ち無効
+'true'
+
+値
+説明
+StarWebPRNT送信エレメント列
+
+例
+&lt;root&gt;
+　　&lt;alignment position='center'/&gt;
+　　&lt;text&gt;Star Micronics\x0a&lt;/text&gt;
+　　&lt;cutpaper feed='true' type='partial'/&gt;
+&lt;/root&gt;
+
+
+5.2 &lt;alignment&gt;
+位置揃えエレメント
+
+属性
+名称
+説明
+省略時
+poistion
+位置揃え指定
+* 'left' … 左揃え
+* 'center' … 中央揃え
+* 'right' … 右揃え
+'left'
+
+値
+説明
+無視
+
+例
+&lt;root&gt;
+　　&lt;alignment position='center'/&gt;
+&lt;/root&gt;
+
+
+5.3 &lt;barcode&gt;
+バーコードエレメント
+
+属性
+名称
+説明
+省略時
+symbology
+シンボル
+* 'UPCE' … UPC-E
+* 'UPCA' … UPC-A
+* 'JAN8' … JAN/EAN8
+* 'JAN13' … JAN/EAN13
+* 'Code39' … Code39
+* 'ITF' … ITF
+* 'Code128' … Code128
+* 'Code93' … Code93
+* 'NW7' … NW-7
+'UPCE'
+width
+幅
+* 'width2' … 最小モジュール2ドット
+* 'width3' … 最小モジュール3ドット
+* 'width4' … 最小モジュール4ドット
+* 'width_mode1' … モード1
+* 'width_mode2' … モード2
+* 'width_mode3' … モード3
+* 'width_mode4' … モード4
+* 'width_mode5' … モード5
+* 'width_mode6' … モード6
+* 'width_mode7' … モード7
+* 'width_mode8' … モード8
+* 'width_mode9' … モード9
+※コマンド仕様書参照
+'width3'
+height
+高さ（ドット単位指定）
+'162'
+hri
+HRIキャラクタ
+* 'true' … HRIキャラクタあり
+* 'false' … HRIキャラクタなし
+'true'
+
+値
+説明
+バーコードデータ
+※コマンド仕様書参照
+
+例
+&lt;root&gt;
+　　&lt;barcode symbology='JAN13' width='width2' hri='false' height='40'&gt;012345678901&lt;/barcode&gt;
+&lt;/root&gt;
+
+
+5.4 &lt;bitImage&gt;
+ビットイメージエレメント
+
+属性
+名称
+説明
+省略時
+width
+印刷領域幅（ドット単位指定）
+'0'
+height
+印刷領域高さ（ドット単位指定）
+'0'
+
+値
+説明
+ラスタグラフィックイメージデータ
+※Base64エンコード
+
+例
+&lt;root&gt;
+　　&lt;bitimage width='200' height='50'&gt;f////////////////////////////////4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAAAAA/j+AAAAAAAAAAAAAAAAAAAGAGAAAAAAAAP4/gAAAAAAAAAAAAAAAAAAHgBgAAAAAAAD+P4AAAAAAAAAAAAAAAAAAHYAYAAAAAAAA/j+AAAAAAAAAAAAAAAAAADkAGAAAAAAAAP4/gAAAAAAAAAAAAAAAAADnABgAAAAAAAD+P4AAAAAAAAAAAAAAAAADnAAYAAAH///4/j//4AAf9+AAD+HwP/fgBzAAGAAAf///+P4//+AD///+AA/h8f//4BzgABgAAP////j+P//gD////8AP4f/8ACAzgAAYAAP8AAAAAAAAAH/+A//wD+H/wAfgYwAAGAAH4AAAAAAAAAD/wAAf/A/h/AeP47OAABgAB+P///j+P//j/gf/A/4P4eB//y/4wAAYAAfD///4/j//5/h//+D/D+GD/+c8AHAAGAAH4///+P4//+/x///4f4/hD//hM/wYABgAB/B/AAD+P4AH4/8H/D+P4D/AAQ4f9gAYAAP8D/AA/j+AH8f4AP4fz+B/AAE4AH4AGAAA/4H+AP4/gB/H8AB/H8/g/gABYAAAABgAAD/4f8D+P4Afh+AAfw/P4fwAAcAAAAAYAAAH/g/g/j+AH8fwAH8Pz+F4AAEAAAAAGAAAAH/D+P4/gB/H+AB/D8/h+AAAAAAAABgAAAAf4fz+P8Af4/4Gfw/P4fgAAAAAAAAYAAf///j8/j//z+H//n8Pz+H4AAAAAAAAGAAH///w/PYX/8f49/Z3D8/h+AAAAAAAABgAB///8Pz/B//D/B/+fw/P4fgAAAAAAAAYAAAAAAH8f8AAAf+AAH8Pz+H4AAAAAAAAGAAAAAAP+D/8AAD/+AB/D8/h+AAAAAAAABgAB////+AP///AH//+fw/P4fgAAAAAAAAYAAf///+AAf//wAf//n8Pz+H4AAAAAAAAGAAH///4AAAf/8AAf/x/D8/h+AAAAAAAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAf////////////////////////////////8=&lt;/bitimage&gt;
+&lt;/root&gt;
+
+
+5.5 &lt;cutpaper&gt;
+用紙カットエレメント
+
+属性
+名称
+説明
+省略時
+type
+カット種
+* 'full' … フルカット
+* 'partial' … パーシャルカット
+'full'
+feed
+カット前の用紙送り
+* 'true' … 用紙送りあり
+* 'false' … 用紙送りなし
+'true'
+
+値
+説明
+無視
+
+例
+&lt;root&gt;
+　　&lt;cutpaper feed='true' type='partial'/&gt;
+&lt;/root&gt;
+
+5.6 &lt;feed&gt;
+用紙送りエレメント
+
+属性
+名称
+説明
+省略時
+line
+行単位紙送り量（行単位指定）
+'0'
+unit
+ドット単位紙送り量（ドット単位指定）
+'0'
+
+値
+説明
+無視
+
+例
+&lt;root&gt;
+　　&lt;feed line='2' unit='8'/&gt;
+&lt;/root&gt;
+
+
+5.7 &lt;initialization&gt;
+初期化エレメント
+
+属性
+名称
+説明
+省略時
+reset
+ハードウェアリセット
+* 'true' … ハードウェアリセット実施
+* 'false' … ハードウェアリセット未実施（コマンドの初期化のみ）
+'false'
+print
+ハードウェアリセット後の自己印字
+* 'true' …ハードウェアリセット後の自己印字実施
+* 'false' … ハードウェアリセット後の自己印字未実施
+'false'
+
+値
+説明
+無視
+
+例
+&lt;root&gt;
+　　&lt;initialization reset='false' print='false'/&gt;
+&lt;/root&gt;
+
+5.8 &lt;logo&gt;
+ロゴエレメント
+
+属性
+名称
+説明
+省略時
+number
+登録番号
+'1'
+width
+幅
+* 'single' … 等倍幅
+* 'double' … 2倍幅
+'single'
+height
+高さ
+* 'single' … 等倍高
+* 'double' … 2倍高
+'single'
+
+値
+説明
+無視
+
+例
+&lt;root&gt;
+　　&lt;logo number='1' width='single' height='single'/&gt;
+&lt;/root&gt;
+
+
+5.9 &lt;pdf417&gt;
+PDF417エレメント
+
+属性
+名称
+説明
+省略時
+line
+ライン数
+※コマンド仕様書参照
+'0'
+column
+カラム数
+※コマンド仕様書参照
+'0'
+level
+セキュリティレベル
+* 'level0' … セキュリティレベル0
+* 'level1' … セキュリティレベル1
+* 'level2' … セキュリティレベル2
+* 'level3' … セキュリティレベル3
+* 'level4' … セキュリティレベル4
+* 'level5' … セキュリティレベル5
+* 'level6' … セキュリティレベル6
+* 'level7' … セキュリティレベル7
+* 'level8' … セキュリティレベル8
+'level1'
+module
+モジュールサイズ（ドット単位指定）
+'2'
+aspect
+アスペクト比
+'3'
+
+値
+説明
+PDF417データ
+※コマンド仕様書参照
+
+例
+&lt;root&gt;
+　　&lt;pdf417 level='level1' line='0' column='0' module='2' aspect='3'&gt;http://www.starmicronics.com/&lt;/pdf417&gt;
+&lt;/root&gt;
+
+
+5.10 &lt;peripheral&gt;
+外部機器エレメント
+
+属性
+名称
+説明
+省略時
+channel
+外部機器
+* '1' … チャンネル1番
+* '2' … チャンネル2番（通電時間/ディレイ時間無効）
+'1'
+on
+通電時間（1mSec単位指定）
+'200'
+off
+ディレイ時間（1mSec単位指定）
+'200'
+
+値
+説明
+無視
+
+例
+&lt;root&gt;
+　　&lt;peripheral channel='1' on='200' off='200'/&gt;
+&lt;/root&gt;
+
+5.11 &lt;qrcode&gt;
+QRコードエレメント
+
+属性
+名称
+説明
+省略時
+model
+モデル
+* 'model1' … モデル1
+* 'model2' … モデル2
+'model2'
+level
+誤り訂正レベル
+* 'level_l' … 誤り訂正レベルL
+* 'level_m' … 誤り訂正レベルM
+* 'level_q' … 誤り訂正レベルQ
+* 'level_h' … 誤り訂正レベルH
+'level_l'
+cell
+セルサイズ（ドット単位指定）
+'3'
+
+値
+説明
+QRコードデータ
+※コマンド仕様書参照
+
+例
+&lt;root&gt;
+　　&lt;qrcode model='model2' level='level_l' cell='3'&gt;http://www.starmicronics.com/&lt;/qrcode&gt;
+&lt;/root&gt;
+
+
+5.12 &lt;rawdata&gt;
+生データエレメント
+
+属性
+名称
+説明
+省略時
+-
+-
+-
+
+値
+説明
+生データ
+※Base64エンコード
+
+例
+&lt;root&gt;
+　　&lt;rawdata&gt;MTIzNDU=&lt;/rawdata&gt;
+&lt;/root&gt;
+
+5.13 &lt;ruledline&gt;
+横罫線エレメント
+
+属性
+名称
+説明
+省略時
+thickness
+線種
+* 'thin' … 細線
+* 'medium' … 中線
+* 'thick' … 太線
+* 'double_thin' … 二重細線
+* 'double_medium' … 二重中線
+* 'double_thick' … 二重太線
+'medium'
+width
+長さ（ドット単位指定）
+'832'
+
+値
+説明
+無視
+
+例
+&lt;root&gt;
+　　&lt;ruledline thickness='thin' width='200'/&gt;
+&lt;/root&gt;
+
+
+5.14 &lt;sound&gt;
+ブザーエレメント
+
+属性
+名称
+説明
+省略時
+channel
+外部機器
+* '1' … チャンネル1番
+* '2' … チャンネル2番
+'1'
+repeat
+繰り返し回数
+'1'
+
+値
+説明
+無視
+
+例
+&lt;root&gt;
+　　&lt;sound channel='1' repeat='1'/&gt;
+&lt;/root&gt;
+
+
+5.15 &lt;text&gt;
+テキストエレメント
+
+属性
+名称
+説明
+省略時
+codepage
+コードページ
+* 'cp437' … コードページ437
+* 'cp737' … コードページ737
+* 'cp772' … コードページ772
+* 'cp774' … コードページ774
+* 'cp851' … コードページ851
+* 'cp852' … コードページ852
+* 'cp855' … コードページ855
+* 'cp857' … コードページ857
+* 'cp858' … コードページ858
+* 'cp860' ～ 'cp866' … コードページ860 ～ 866
+* 'cp869' … コードページ869
+* 'cp874' … コードページ874
+* 'cp928' … コードページ928
+* 'cp932' … コードページ932(Katakana)
+* 'cp998' … コードページ998(Normal)
+* 'cp999' … コードページ999
+* 'cp1001' … コードページ1001
+* 'cp1250' ～ 'cp1252' … コードページ1250 ～ 1252
+* 'cp2001' … コードページ2001
+* 'cp3001' … コードページ3001
+* 'cp3002' … コードページ3002
+* 'cp3011' … コードページ3011
+* 'cp3012' … コードページ3012
+* 'cp3021' … コードページ3021
+* 'cp3041' … コードページ3041
+* 'cp3840' … コードページ3840
+* 'cp3841' … コードページ3841
+* 'cp3843' ～ 'cp3848' … コードページ3843 ～ 3848
+* 'blank' … ユーザ設定（空白コードページ)
+未設定
+international
+国際文字
+* 'usa' … USA
+* 'france' … フランス
+* 'germany' … ドイツ
+* 'uk' … イギリス
+* 'denmark' … デンマーク
+* 'sweden' … スウェーデン
+* 'italy' … イタリア
+* 'spain' … スペイン
+* 'japan' … 日本
+* 'norway' … ノルウェー
+* 'denmark2' … デンマークⅡ
+* 'spain2' … スペインⅡ
+* 'latin_america' … ラテンアメリカ
+* 'korea' … 韓国
+* 'ireland' … アイルランド
+* 'legal' … リーガル
+未設定
+characterspace
+文字間スペース（ドット単位指定）
+未設定
+emphasis
+強調印字
+* 'true' … 強調印字有効
+* 'false' … 強調印字無効
+未設定
+invert
+白黒反転印字
+* 'true' … 白黒反転印字有効
+* 'false' … 白黒反転印字無効
+未設定
+linespace
+行間スペース（ドット単位指定）
+* 24 … 3mm改行
+* 32 … 4mm改行
+未設定
+width
+横倍率
+* 1 … 等倍幅
+* 2 … 2倍幅
+* 3 … 3倍幅
+* 4 … 4倍幅
+* 5 … 5倍幅
+* 6 … 6倍幅
+未設定
+height
+縦倍率
+* 1 … 等倍高
+* 2 … 2倍高
+* 3 … 3倍高
+* 4 … 4倍高
+* 5 … 5倍高
+* 6 … 5倍高
+未設定
+font
+フォント種
+* 'font_a' … フォントA（12×24ドット）
+* 'font_b' … フォントB（9×24ドット）
+未設定
+undelline
+下線印字
+* 'true' … 下線印字有効
+* 'false' … 下線印字無効
+未設定
+
+値
+説明
+テキストデータ
+
+例
+&lt;root&gt;
+　　&lt;text codepage='cp998' international='usa' characterspace='0' emphasis='false' invert='false' linespace='32' width='1' height='1' font='font_a' underline='false'&gt;Star Micronics\x0a&lt;/text&gt;
+&lt;/root&gt;
+
+
+6 StarWebPRNT受信エレメント
+
+名称
+説明
+&lt;root&gt;
+ルートエレメント
+&lt;success&gt;
+印刷結果エレメント
+&lt;code&gt;
+終了コードエレメント
+&lt;status&gt;
+スター自動ステータスエレメント
+
+6.1 &lt;root&gt;
+ルートエレメント
+
+属性
+名称
+説明
+省略時
+-
+-
+-
+
+値
+説明
+StarWebPRNT受信エレメント列
+
+例
+&lt;root&gt;
+　　&lt;success&gt;true&lt;/success&gt;
+　　&lt;code&gt;0&lt;/code&gt;
+　　&lt;status&gt;2386000000000000000000&lt;/status&gt;
+&lt;/root&gt;
+
+6.2 &lt;success&gt;
+印刷結果エレメント
+
+属性
+名称
+説明
+省略時
+-
+-
+-
+
+値
+説明
+印刷結果
+* true … 印刷成功
+* false … 印刷失敗
+
+例
+&lt;root&gt;
+　　&lt;success&gt;true&lt;/success&gt;
+　　&lt;code&gt;0&lt;/code&gt;
+　　&lt;status&gt;2386000000000000000000&lt;/status&gt;
+&lt;/root&gt;
+
+
+6.3 &lt;code&gt;
+終了コードエレメント
+
+属性
+名称
+説明
+省略時
+-
+-
+-
+
+値
+説明
+終了コード
+* 0 … 正常終了
+* 'EPTR_AUTOMATICAL' … 自動復帰エラー発生
+* 'EPTR_CUTTER' … オートカッターエラー発生
+* 'EPTR_MECHANICAL' … メカニカルエラー発生
+* 'EPTR_REC_EMPTY' … ロール紙エンド検出器に用紙なし
+* 'EPTR_UNRECOVERABLE' … 復帰不可能エラー発生
+* 'SchemaError' … 要求ドキュメントのsyntaxに誤りがある
+* 'DeviceNotFound' … デバイス ID で指定したプリンターが存在しない
+* 'PrintSystemError' … 印刷システムにエラーが発生
+* 'EX_BADPORT' … 通信ポートに異常を検出
+* 'EX_TIMEOUT' … 印刷タイムアウトが発生
+
+例
+&lt;root&gt;
+　　&lt;success&gt;true&lt;/success&gt;
+　　&lt;code&gt;0&lt;/code&gt;
+　　&lt;status&gt;2386000000000000000000&lt;/status&gt;
+&lt;/root&gt;
+
+
+6.4 &lt;status&gt;
+スター自動ステータスエレメント
+
+属性
+名称
+説明
+省略時
+-
+-
+-
+
+値
+説明
+スター自動ステータス
+※コマンド仕様書参照
+
+例
+&lt;root&gt;
+　　&lt;success&gt;true&lt;/success&gt;
+　　&lt;code&gt;0&lt;/code&gt;
+　　&lt;status&gt;2386000000000000000000&lt;/status&gt;
+&lt;/root&gt;
+
+
+</div>
+
+</div>
+
+<div id="footer">
+<footer>
+<p id="copyright"> Copyright 2013 Star Micronics Co., Ltd. </p>
+</footer>
+</div>
+
+</body>
+</html>
+

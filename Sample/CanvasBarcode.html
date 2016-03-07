@@ -1,0 +1,422 @@
+﻿<!DOCTYPE html>
+<!--
+//
+// StarWebPRNT Sample(Canvas Barcode)
+//
+// Version 0.3.0
+//
+// Copyright (C) 2012-2013 STAR MICRONICS CO., LTD. All Rights Reserved.
+//
+-->
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+<meta name='viewport' content='width=device-width, initial-scale=1.0' />
+<title>StarWebPRNT Sample(Canvas Barcode)</title>
+<style type='text/css'>
+<!--
+body {
+}
+table {
+    border:solid 3px #000000;
+    border-collapse:collapse;
+    text-align:center;
+}
+td {
+    border-top:solid 1px #800000;
+    border-left:solid 1px #c0c0c0;
+    background-color:#f0f0ff;
+}
+th {
+    color:#ffffff;
+    background-color:#0000ff;
+}
+.left {
+    text-align:left;
+}
+.center {
+    text-align:center;
+}
+.right {
+    text-align:right;
+}
+#canvasFrame {
+    width:616px;
+    height:360px;
+}
+#canvasPaper {
+    border:3px solid #a0a0a0;
+    position:absolute;
+    width:576px;
+    height:320px;
+    margin-left:20px;
+    margin-top:20px;
+    background-color:white;
+}
+-->
+</style>
+<script type='text/javascript' src='js/StarWebPrintBuilder.js'></script>
+<script type='text/javascript' src='js/StarWebPrintTrader.js'></script>
+<script type='text/javascript' src='js/StarBarcodeEncoder.js'></script>
+<script type='text/javascript'>
+<!--
+function encodeEscapeSequence(data) {
+    var regexp = /\\[tnr\\]/g;
+
+    if (regexp.test(data)) {
+        data = data.replace(regexp, function (match) {
+            switch (match) {
+                case '\\t' : return '\\x09';
+                case '\\n' : return '\\x0a';
+                case '\\r' : return '\\x0d';
+            }
+
+            return '\\x5c';
+        });
+    }
+
+    var regexp = /\\[Xx][0-9A-Fa-f]{2}/g;
+
+    if (regexp.test(data)) {
+        data = data.replace(regexp, function (match) {
+            return String.fromCharCode(parseInt(match.slice(2), 16));
+        });
+    }
+
+    return data;
+}
+
+function onChangeSymbology() {
+    switch (document.getElementById('symbology').value) {
+        default          :     // 'UPC-E'
+//      case 'UPC-A'     :
+//      case 'JAN/EAN8'  :
+//      case 'JAN/EAN13' :
+//      case 'Code128'   :
+//      case 'Code93'    :
+            document.getElementById('module0').disabled = false;
+            document.getElementById('module1').disabled = true;
+            document.getElementById('module2').disabled = true;
+            break;
+        case 'Code39' :
+        case 'NW-7'   :
+            document.getElementById('module0').disabled = true;
+            document.getElementById('module1').disabled = false;
+            document.getElementById('module2').disabled = true;
+            break;
+        case 'ITF' :
+            document.getElementById('module0').disabled = true;
+            document.getElementById('module1').disabled = true;
+            document.getElementById('module2').disabled = false;
+            break;
+    }
+}
+
+function onExampleData() {
+    switch (document.getElementById('symbology').value) {
+        default          : document.getElementById('data').value = '01234500006';  break;     // 'UPC-E'
+        case 'UPC-A'     : document.getElementById('data').value = '01234567890';  break;
+        case 'JAN/EAN8'  : document.getElementById('data').value = '0123456';      break;
+        case 'JAN/EAN13' : document.getElementById('data').value = '012345678901'; break;
+        case 'Code39'    : document.getElementById('data').value = '0123456789';   break;
+        case 'ITF'       : document.getElementById('data').value = '0123456789';   break;
+        case 'Code128'   : document.getElementById('data').value = '{B0123456789'; break;
+        case 'Code93'    : document.getElementById('data').value = '0123456789';   break;
+        case 'NW-7'      : document.getElementById('data').value = 'A0123456789B'; break;
+    }
+}
+
+function onDrawBarcode() {
+    var canvas = document.getElementById('canvasPaper');
+
+    if (canvas.getContext) {
+        var context = canvas.getContext('2d');
+
+        try {
+            var x = parseInt(document.getElementById('positionX').value);
+            var y = parseInt(document.getElementById('positionY').value);
+
+            var moduleSize       = 0;
+            var narrowModuleSize = 0;
+            var wideModuleSize   = 0;
+
+            switch (document.getElementById('symbology').value) {
+                default          :     // 'UPC-E'
+//              case 'UPC-A'     :
+//              case 'JAN/EAN8'  :
+//              case 'JAN/EAN13' :
+//              case 'Code128'   :
+//              case 'Code93'    :
+                    var module = document.getElementById('module0').value;
+
+                    moduleSize = parseInt(module);
+                    break;
+                case 'Code39' :
+                case 'NW-7'   :
+                    var module = document.getElementById('module1').value;
+
+                    narrowModuleSize = parseInt(module.split(':')[0]);
+                    wideModuleSize   = parseInt(module.split(':')[1]);
+                    break;
+                case 'ITF' :
+                    var module = document.getElementById('module2').value;
+
+                    narrowModuleSize = parseInt(module.split(':')[0]);
+                    wideModuleSize   = parseInt(module.split(':')[1]);
+                    break;
+            }
+
+            var height = parseInt(document.getElementById('height').value);
+
+            var encoder = new StarBarcodeEncoder();
+
+            var lineImage = '';
+
+            var data = encodeEscapeSequence(document.getElementById('data').value);
+
+            switch (document.getElementById('symbology').value) {
+                default          : lineImage = encoder.createUPCE   ({data:data}); break;     // 'UPC-E'
+                case 'UPC-A'     : lineImage = encoder.createUPCA   ({data:data}); break;
+                case 'JAN/EAN8'  : lineImage = encoder.createJAN8   ({data:data}); break;
+                case 'JAN/EAN13' : lineImage = encoder.createJAN13  ({data:data}); break;
+                case 'Code39'    : lineImage = encoder.createCode39 ({data:data}); break;
+                case 'ITF'       : lineImage = encoder.createITF    ({data:data}); break;
+                case 'Code128'   : lineImage = encoder.createCode128({data:data}); break;
+                case 'Code93'    : lineImage = encoder.createCode93 ({data:data}); break;
+                case 'NW-7'      : lineImage = encoder.createNW7    ({data:data}); break;
+            }
+
+            var pos = x;
+
+            for (var i = 0; i < lineImage.length; i++) {
+                if (lineImage.charAt(i).match(/[1WN]/g)) {
+                    context.fillStyle = '#000000';
+                }
+
+                switch (lineImage.charAt(i)) {
+                    case '1' :
+                        context.fillRect(pos, y, moduleSize, height);
+//                      break;     // through!!!
+                    case '0' :
+                        pos += moduleSize;
+                        break;
+                    case 'N' :
+                        context.fillRect(pos, y, narrowModuleSize, height);
+//                      break;     // through!!!
+                    case 'n' :
+                        pos += narrowModuleSize;
+                        break;
+                    case 'W' :
+                        context.fillRect(pos, y, wideModuleSize, height);
+//                      break;     // through!!!
+                    case 'w' :
+                        pos += wideModuleSize;
+                        break;
+                }
+            }
+
+            document.getElementById('positionY').value = y + height + 16;
+//          document.getElementById('positionY').value = y + height;
+        }
+        catch (e) {
+            alert(e.message);
+        }
+    }
+}
+
+function onClearCanvas() {
+    var canvas = document.getElementById('canvasPaper');
+
+    if (canvas.getContext) {
+        var context = canvas.getContext('2d');
+
+        context.clearRect(0, 0, canvas.width, canvas.height);
+
+        document.getElementById('positionX').value = 0;
+        document.getElementById('positionY').value = 0;
+    }
+}
+
+function onSendMessage() {
+    var url = document.getElementById('url').value;
+
+    var trader = new StarWebPrintTrader({url:url});
+
+    trader.onReceive = function (response) {
+        var msg = '- onReceive -\n\n';
+
+        msg += 'TraderSuccess : [ ' + response.traderSuccess + ' ]\n';
+
+//      msg += 'TraderCode : [ ' + response.traderCode + ' ]\n';
+
+        msg += 'TraderStatus : [ ' + response.traderStatus + ',\n';
+
+        if (trader.isCoverOpen            ({traderStatus:response.traderStatus})) {msg += '\tCoverOpen,\n';}
+        if (trader.isOffLine              ({traderStatus:response.traderStatus})) {msg += '\tOffLine,\n';}
+        if (trader.isCompulsionSwitchClose({traderStatus:response.traderStatus})) {msg += '\tCompulsionSwitchClose,\n';}
+        if (trader.isEtbCommandExecute    ({traderStatus:response.traderStatus})) {msg += '\tEtbCommandExecute,\n';}
+        if (trader.isHighTemperatureStop  ({traderStatus:response.traderStatus})) {msg += '\tHighTemperatureStop,\n';}
+        if (trader.isNonRecoverableError  ({traderStatus:response.traderStatus})) {msg += '\tNonRecoverableError,\n';}
+        if (trader.isAutoCutterError      ({traderStatus:response.traderStatus})) {msg += '\tAutoCutterError,\n';}
+        if (trader.isBlackMarkError       ({traderStatus:response.traderStatus})) {msg += '\tBlackMarkError,\n';}
+        if (trader.isPaperEnd             ({traderStatus:response.traderStatus})) {msg += '\tPaperEnd,\n';}
+        if (trader.isPaperNearEnd         ({traderStatus:response.traderStatus})) {msg += '\tPaperNearEnd,\n';}
+
+        msg += '\tEtbCounter = ' + trader.extractionEtbCounter({traderStatus:response.traderStatus}).toString() + ' ]\n';
+
+//      msg += 'Status : [ ' + response.status + ' ]\n';
+//
+//      msg += 'ResponseText : [ ' + response.responseText + ' ]\n';
+
+        alert(msg);
+    }
+
+    trader.onError = function (response) {
+        var msg = '- onError -\n\n';
+
+        msg += '\tStatus:' + response.status + '\n';
+
+        msg += '\tResponseText:' + response.responseText;
+
+        alert(msg);
+    }
+
+    try {
+        var canvas = document.getElementById('canvasPaper');
+
+        if (canvas.getContext) {
+            var context = canvas.getContext('2d');
+
+            var builder = new StarWebPrintBuilder();
+
+            var request = '';
+
+            request += builder.createInitializationElement();
+
+            request += builder.createBitImageElement({context:context, x:0, y:0, width:canvas.width, height:canvas.height});
+
+            request += builder.createCutPaperElement({feed:true});
+
+            trader.sendMessage({request:request});
+        }
+    }
+    catch (e) {
+        alert(e.message);
+    }
+}
+// -->
+</script>
+<noscript>
+    Your browser does not support JavaScript!
+</noscript> 
+</head>
+<body>
+    <form onsubmit='return false;'>
+        <table style='width:100%'>
+            <thead>
+                <tr>
+                    <th colspan='2'>
+                        Canvas : Barcode
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style='border-top:solid 3px #000000'>
+                    <td colspan='2' class='left'>
+                        <div id='canvasFrame'>
+                            <canvas id='canvasPaper' width='576' height='320'>
+                                Your browser does not support Canvas!
+                            </canvas>
+                        </div>
+                        Symbology :
+                        <select id='symbology' onchange='onChangeSymbology()'>
+                            <option>UPC-E</option>
+                            <option>UPC-A</option>
+                            <option>JAN/EAN8</option>
+                            <option selected='selected'>JAN/EAN13</option>
+                            <option>Code39</option>
+                            <option>ITF</option>
+                            <option>Code128</option>
+                            <option>Code93</option>
+                            <option>NW-7</option>
+                        </select>
+                        <br />
+                        <br />
+                        Module :
+                        <select id='module0'>
+                            <option selected='selected'>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                        </select> dots, 
+                        <select id='module1' disabled='disabled'>
+                            <option selected='selected'>2:6</option>
+                            <option>3:9</option>
+                            <option>4:12</option>
+                            <option>2:5</option>
+                            <option>3:8</option>
+                            <option>4:10</option>
+                            <option>2:4</option>
+                            <option>3:6</option>
+                            <option>4:8</option>
+                        </select> dots,
+                        <select id='module2' disabled='disabled'>
+                            <option selected='selected'>2:5</option>
+                            <option>4:10</option>
+                            <option>6:15</option>
+                            <option>2:4</option>
+                            <option>4:8</option>
+                            <option>6:12</option>
+                            <option>2:6</option>
+                            <option>3:9</option>
+                            <option>4:12</option>
+                        </select> dots
+                        <br />
+                        <br />
+                        Height :
+                        <select id='height'>
+                            <option>20</option>
+                            <option selected='selected'>40</option>
+                            <option>60</option>
+                            <option>80</option>
+                            <option>100</option>
+                            <option>120</option>
+                        </select> dots
+                        <br />
+                        <br />
+                        Data :
+                        <input id='data' type='text' size='30' value='012345678901' />
+                        <input type='button' value='Example' onclick='onExampleData()' />
+                        <br />
+                        Hexadecimal:'\x00'-'\xff', HorizontalTab:'\t', LineFeed:'\n', CarriageReturn:'\r', BackSlash:'\\'
+                        <br />
+                        <br />
+                        X :
+                        <input id='positionX' type='text' size='5' value='0' />
+                        Y :
+                        <input id='positionY' type='text' size='5' value='0' />
+                        <br />
+                        <br />
+                        <input type='button' value='Draw' onclick='onDrawBarcode()' />
+                        <br />
+                        <br />
+                        <input type='button' value='Clear' onclick='onClearCanvas()' />
+                    </td>
+                </tr>
+                <tr style='border-top:solid 3px #000000'>
+                    <td style='width:20%'>
+                        URL
+                    </td>
+                    <td style='width:80%'>
+                        <input id='url' style='width:98%' type='text' value='http://localhost/StarWebPRNT/SendMessage' />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan='2'>
+                        <input type='button' style='width:98%; height:40px' value='Send' onclick='onSendMessage()' />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</body>
+</html>

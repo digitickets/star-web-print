@@ -1,0 +1,511 @@
+@charset "utf-8";
+/* ----------------------------------------------------
+*  ** en **  reset style
+* -------------------------------------------------- */
+
+/* for new HTML5 elements */
+section, article, aside, hgroup, header, footer, nav, figure, figcaption, summary { 
+	display: block; 
+}
+
+body {
+	font-family:  Verdana, Meiryo, "ÉÅÉCÉäÉI", "ÇlÇr ÇoÉSÉVÉbÉN", Verdana, Geneva, Arial, Helvetica;
+	font-size: 90%;
+	line-height: 1.5em;
+	margin:0;
+	padding:0;
+	background:#fff;
+}
+
+
+/* ----   Initiallize    ---- */
+ul {
+	margin: 0;
+	padding: 10px;
+}
+
+img {
+	border: none;
+}
+
+p {
+	line-height:1.5em;
+	margin: 10px 0;
+}
+
+
+
+.clear {
+	clear: both;
+}
+
+
+
+
+/* ----------------------------------------------------
+/*  for link (a)                                         */
+* -------------------------------------------------- */
+
+a{
+	color: #006699;
+	text-decoration: none;
+}
+
+a:link{
+	color: #006699;
+	text-decoration: none;
+}
+
+a:visited{
+	color: #006699;
+	text-decoration: none;
+}
+
+a:hover{
+	color: #006699;
+	text-decoration: underline;
+}
+
+
+
+
+
+/* -------------------------  */
+/* ----    header   ----  */
+/* -------------------------  */
+#webPRNTLogo {
+	float: right;
+	height: 84px;
+	width: 288px;
+	margin-right: 10pt;
+	margin-bottom: 5pt;
+	border: 0;
+}
+
+h1 {
+	padding-top: 15pt;
+	margin-left: 50pt;
+	font-size: 160%;
+	color: #555;
+	text-shadow: 1px 1px 2px #aaa;
+	-ms-text-shadow: 3px 3px 3px #aaa;
+	
+}
+
+#naviArrowSection {
+	padding-left: 10px;
+}
+
+h5 {
+	margin: 30px 0px 2px 5px;
+	padding: 0 0 2px 18px;
+	background-image: url('../illust/BlueSquare5.png');
+	background-position: 0px 6px;
+	background-repeat: no-repeat;
+	color: #333;
+	font-size: 80%;
+	
+}
+
+/* -------------------------  */
+/* ---- page footer    ---- */
+/* -------------------------  */
+#footer {
+	clear: both;
+	margin: 0;
+	width: 100%;
+}
+
+#copyright {
+	text-align: right;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding-right: 10px;
+	font-style:italic;
+	font-size: 80%;
+	color:#666666;
+}
+
+#footer a{
+	color: gray;
+	text-decoration: none;
+}
+
+#footer a:link{
+	color: gray;
+	text-decoration: none;
+}
+
+#footer a:visited{
+	color: gray;
+	text-decoration: none;
+}
+
+#footer a:hover{
+	color: gray;
+	text-decoration: underline;
+}
+
+
+
+
+
+
+/* -------------------------  */
+/*    wrapp                      */
+/* -------------------------  */
+ 
+
+#wrapp {
+	display: box;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-box;
+	display: -ms-flexbox;
+
+}
+
+
+/* -------------------------  */
+/*   mainContents   */
+/* -------------------------  */
+
+#mainContents {
+	margin: 5px 25px 25px 25px;
+	padding-right: 25px;
+	box-flex: 1;
+	box-ordinal-group: 2;
+	-webkit-box-flex: 1;
+	-webkit-box-ordinal-group: 2;
+	-moz-box-flex: 1;
+	-moz-box-ordinal-group: 2;
+	-ms-box-flex: 1;
+	-ms-flex-order:: 2;
+}
+
+h2 {
+	margin: 10px 10px 15px 0px;
+	padding: 10px 0 10px 5px;
+	border-bottom: solid 1px #265d7f;
+	color: #333;
+	font-size: 150%;
+}
+
+h3 {
+	margin: 80px 0px 15px 0px;
+	padding: 30px 0 10px 5px;
+	border-bottom: solid 1px #bbb;
+	color: #333;
+	font-size: 150%;
+}
+
+h4 {
+	margin: 30px 0px 2px 0px;
+	padding: 0 0 2px 18px;
+	background-image: url('../illust/BlueSquare4.png');
+	background-position: 0px 6px;
+	background-repeat: no-repeat;
+	color: #333;
+	
+}
+
+
+
+
+.introduction_2 {
+	margin: 20px 15px;
+}
+
+.introduction_3 {
+	margin: 20px 15px 30px;
+}
+
+
+.syntax p {
+	color: #265d7f;
+	font-weight: bold;
+	margin: 10px 15px 30px;
+}
+
+.coder ul {
+	margin: 0 30px;
+	line-height: 1.5;
+	padding: 0;
+	list-style-type: disc;
+}
+
+/* -------------------------  */
+/*  mainNavi   */
+/* -------------------------  */
+
+#mainNavi {
+	width:210px;
+	margin: 10px;
+	background-color: #fff;
+	box-ordinal-group: 1;
+	-webkit-box-ordinal-group: 1;
+	-moz-box-ordinal-group: 1;
+	-ms-box-ordinal-group: 1;
+
+}
+
+#mainNavi h5 {
+	margin: 1em 0em 0em 0.5em;
+	font-size:100%;
+	color: #555;
+}	
+
+#mainNavi li {
+	font-size: 80%;
+	line-height: 1.3em;
+	padding-left: 20px;
+	margin-top: 0.2em;
+	margin-bottom:0.2em;
+	border-bottom: dotted 1px #ccc;
+	list-style-type:none;
+	
+}
+
+#mainNavi li:first-child {
+	padding-left: 8px;
+}
+
+
+
+
+/* -------------------------  */
+/*  Class  to_top              */
+/* -------------------------  */
+
+.to_top   {
+	margin: 40px 30px 10px 0;
+	text-align: right;
+	padding-right: 30px;
+	font-style:italic;
+	font-size: 80%;
+	color:#666666;
+
+	
+}
+
+
+
+/* -------------------------  */
+/*  Class  numOperation   */
+/* -------------------------  */
+
+.numOperation li {
+	margin-top: 25px;
+	margin-left: 30px;
+	
+}
+
+.note {
+	margin-left: 10px;
+	margin-top: 5px;
+	font-size: 80%;
+	line-height: 1.5em;
+	text-indent: -1em;
+}
+
+.numOpeFig {
+	margin-top: 8px;
+}
+
+
+/* ----------------------------------  */
+/*  pre (for sample program)         */
+/* ---------------------------------  */
+
+pre {
+	width: 80%; 
+	margin:0 0 20px 10px;
+	border:1px solid #999;
+	border-radius:5px;
+	padding:10px 10px 20px 10px;
+	font-family: Courier,"Courier New",monospace;
+	font-size:80%;
+	line-height: 1.2em;
+	background-color: #F5F5F5;
+	color: #444;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	word-break: break-all;
+	box-shadow: 0 1px 1px #CCC;
+}
+
+/* -------------------------------------  */
+/*   index.html mainIntroduction     */
+/* -------------------------------------  */
+
+#mainIntroduction p{
+	margin: 5px 25px 25px 25px;
+}
+
+
+#conceptIllust {
+	margin: 30px 0;
+	width: 510px;
+	height: 425px;
+}
+
+#AsuraCPRNTconceptIllust {
+	margin: 30px 0;
+	width: 482px;
+	height: 283px;
+}
+
+.conceptDescription li {
+	margin-top : 10px;
+	margin-bottom: 10px;
+	margin-right: 20px;
+	margin-left: 30px;
+	padding-left: 10px;
+}
+
+.concept a{
+	color: black;
+	text-decoration: none;
+}
+
+.concept a:hover{
+	background-color: #e5f0ff;
+}
+
+
+
+/* --------------------------------------------------
+   coder Table    
+-------------------------------------------------- */
+.coder {
+    margin-left: 0px;
+    font-size: 90%;
+    text-align: top;
+    min-width: 80%;
+    border-spacing: 0;
+    border: 1px solid #aaa;
+    -webkit-border-radius: 5px;
+       -moz-border-radius: 5px;
+         -o-border-radius: 5px;
+            border-radius: 5px;
+    box-shadow: 0 1px 1px #CCC;	
+}
+.coder thead,
+.coder td {
+    padding-top:3px;
+    padding-left:8px;
+    padding-right:8px;
+    padding-bottom:3px;
+    border-bottom:solid 1px #aaa;
+    border-right:solid 1px #aaa;
+}
+.coder thead {
+    font-weight: bold;
+    vertical-align: top;
+    background:#F0F8FF;
+    background-color: #b9d6e8;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8) inset;
+}
+
+/* -----------------------
+  left-top
+----------------------- */
+
+.coder tr:first-child th:first-child,
+.coder tr:first-child td:first-child {
+    -webkit-border-radius: 5px 0 0 0;
+       -moz-border-radius: 5px 0 0 0;
+         -o-border-radius: 5px 0 0 0;
+            border-radius: 5px 0 0 0;
+}
+/* -----------------------
+  right-top
+----------------------- */
+.coder tr:first-child th:last-child,
+.coder tr:first-child td:last-child {
+    -webkit-border-radius: 0 5px 0 0;
+       -moz-border-radius: 0 5px 0 0;
+         -o-border-radius: 0 5px 0 0;
+            border-radius: 0 5px 0 0;
+}
+/* -----------------------
+ left-bottom
+----------------------- */
+.coder tr:last-child th:first-child,
+.coder tr:last-child td:first-child {
+    -webkit-border-radius: 0 0 0 5px;
+       -moz-border-radius: 0 0 0 5px;
+         -o-border-radius: 0 0 0 5px;
+            border-radius: 0 0 0 5px;
+}
+/* -----------------------
+  right-bottom
+----------------------- */
+.coder tr:last-child th:last-child,
+.coder tr:last-child td:last-child {
+    -webkit-border-radius: 0 0 5px 0;
+       -moz-border-radius: 0 0 5px 0;
+         -o-border-radius: 0 0 5px 0;
+            border-radius: 0 0 5px 0;
+}
+/* --------------------------------------------
+  thaed,tbody
+-------------------------------------------- */
+
+.coder thead th {background-color:#F0F8FF;}
+.coder thead+tbody th {background:#f4ede6;}
+.coder tbody th {text-align:left;}/*IE*/
+/* -----------------------
+  left-top thead
+----------------------- */
+
+.coder thead tr:first-child th:first-child,
+.coder thead tr:first-child td:first-child {
+    -webkit-border-radius: 5px 0 0 0;
+       -moz-border-radius: 5px 0 0 0;
+         -o-border-radius: 5px 0 0 0;
+            border-radius: 5px 0 0 0;
+}
+/* -----------------------
+  right-top thead
+----------------------- */
+.coder thead tr:first-child th:last-child,
+.coder thead tr:first-child td:last-child {
+    -webkit-border-radius: 0 5px 0 0;
+       -moz-border-radius: 0 5px 0 0;
+         -o-border-radius: 0 5px 0 0;
+            border-radius: 0 5px 0 0;
+}
+/* -----------------------
+  thaed after tbody
+----------------------- */
+.coder thead+tbody tr:first-child th:first-child,
+.coder thead+tbody tr:first-child td:first-child,
+.coder thead+tbody tr:first-child th:last-child,
+.coder thead+tbody tr:first-child td:last-child {
+    -webkit-border-radius:0px;
+       -moz-border-radius:0px;
+         -o-border-radius:0px;
+            border-radius:0px;
+}
+/* -----------------------
+  left-bottom thaed after tbody
+----------------------- */
+.coder thead+tbody tr:last-child th:first-child,
+.coder thead+tbody tr:last-child td:first-child {
+    -webkit-border-radius: 0 0 0 5px;
+       -moz-border-radius: 0 0 0 5px;
+         -o-border-radius: 0 0 0 5px;
+            border-radius: 0 0 0 5px;
+}
+/* -----------------------
+  right-bottom thaed after  tbody
+----------------------- */
+.coder thead+tbody tr:last-child th:last-child,
+.coder thead+tbody tr:last-child td:last-child {
+    -webkit-border-radius: 0 0 5px 0;
+       -moz-border-radius: 0 0 5px 0;
+         -o-border-radius: 0 0 5px 0;
+            border-radius: 0 0 5px 0;
+}           

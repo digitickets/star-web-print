@@ -1,0 +1,775 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  lang="ja" xml:lang="ja">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Star WebPRNT ユーザーズマニュアル</title>
+    <link href="html5reset-1.6.1.css" rel="stylesheet" type="text/css" />
+    <link href="webPRNT_layout.css" rel="stylesheet" type="text/css" />
+    <link href="webPRNT_print_layout.css" rel="stylesheet" type="text/css" media="print" />
+    
+   <!--[if IE ]>
+        <link rel="stylesheet" type="text/css" href="webPRNT_layout_ie.css"></script>
+        <link rel="stylesheet" type="text/css" href="webPRNT_print_layout_ie.css" media="print"></script>
+    <![endif]-->
+    
+    <script src="jquery-1.10.2.min.js"></script>
+    <script>
+    
+    $(function tggleNavi() {
+        $('#naviArrow').click(function(){
+           $('#mainNavi').slideToggle('slow');
+           
+       });
+    });
+
+    </script>
+    
+</head>
+
+
+<body>
+
+<div id="toTop">
+    <a href="index.htm"><img id="webPRNTLogo" src="../illust/WebPRNT_Logo.png" /></a>
+    <h1> Star WebPRNT User's Manual </h1>
+
+    <div class="clear"></div>
+</div>
+
+<div id="naviArrowSection">
+    <a id="naviArrow" onclick="tggleNavi()"><h5> Contents 表示/非表示</h5></a>
+</div>
+
+<!-- wrapp : mainNavi + mainContents-->
+<div id="wrapp" class="clear">
+    
+
+<!-- mainNavi -->
+
+    <div id="mainNavi">
+	<navi>
+	<ul>
+	<li><a href="_sampleProgram.htm">Star WebPRNT SDK</a></li>
+	<li><a href="_sampleProgram.htm#sampleProgramConcept">システム構築例</a></li>
+	<li><a href="_sampleProgram.htm#sampleProgramList">プログラムファイルリスト</a></li>
+	<li><a href="_sampleProgram.htm#webServerRegistration">Webサーバへの登録</a></li>
+	<li><a href="_sampleProgram.htm#howToUse">使用方法</a></li>
+	</ul>
+	<ul>
+	<li><a href="_StarWebPrintBuilder-js.htm">StarWebPrintBuilder.js</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#StarWebPrintBuilder">StarWebPrintBuilder</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createAlignmentElement">createAlignmentElement</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createBarcodeElement">createBarcodeElement</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createBitImageElement">createBitImageElement</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createCutPaperElement">createCutPaperElement</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createFeedElement">createFeedElement</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createInitializationElement">createInitializationElement</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createLogoElement">createLogoElement</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createPdf417Element">createPdf417Element</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createPeripheralElement">createPeripheralElement</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createQrCodeElement">createQrCodeElement</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createRawDataElement">createRawDataElement</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createRuledLineElement">createRuledLineElement</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createSoundElement">createSoundElement</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createTextElement">createTextElement</a></li>
+	</ul>
+	<ul>
+	<li><a href="_StarWebPrintTrader-js.htm">StarWebPrintTrader.js</a></li>
+	<li><a href="_StarWebPrintTrader-js.htm#StarWebPrintTrader">StarWebPrintTrader</a></li>
+	<li><a href="_StarWebPrintTrader-js.htm#sendMessage">sendMessage</a></li>
+	<li><a href="_StarWebPrintTrader-js.htm#isCoverOpen">isCoverOpen</a></li>
+	<li><a href="_StarWebPrintTrader-js.htm#isOffLine">isOffLine</a></li>
+	<li><a href="_StarWebPrintTrader-js.htm#isCompulsionSwitchClose">isCompulsionSwitchClose</a></li>
+	<li><a href="_StarWebPrintTrader-js.htm#isEtbCommandExecute">isEtbCommandExecute</a></li>
+	<li><a href="_StarWebPrintTrader-js.htm#isHighTemperatureStop">isHighTemperatureStop</a></li>
+	<li><a href="_StarWebPrintTrader-js.htm#isNonRecoverableError">isNonRecoverableError</a></li>
+	<li><a href="_StarWebPrintTrader-js.htm#isAutoCutterError">isAutoCutterError</a></li>
+	<li><a href="_StarWebPrintTrader-js.htm#isBlackMarkError">isBlackMarkError</a></li>
+	<li><a href="_StarWebPrintTrader-js.htm#isPaperEnd">isPaperEnd</a></li>
+	<li><a href="_StarWebPrintTrader-js.htm#isPaperNearEnd">isPaperNearEnd</a></li>
+	<li><a href="_StarWebPrintTrader-js.htm#extractionEtbCounter">extractionEtbCounter</a></li>
+	<li><a href="_StarWebPrintTrader-js.htm#onReceive">onReceive</a></li>
+	<li><a href="_StarWebPrintTrader-js.htm#onError">onError</a></li>
+	</ul>
+	<ul>
+	<li><a href="_StarBarcodeEncoder-js.htm">StarBarcodeEncoder.js</a></li>
+	<li><a href="_StarBarcodeEncoder-js.htm#StarBarcodeEncoder">StarBarcodeEncoder</a></li>
+	<li><a href="_StarBarcodeEncoder-js.htm#createUPCE">createUPCE</a></li>
+	<li><a href="_StarBarcodeEncoder-js.htm#createUPCA">createUPCA</a></li>
+	<li><a href="_StarBarcodeEncoder-js.htm#createJAN8">createJAN8</a></li>
+	<li><a href="_StarBarcodeEncoder-js.htm#createJAN13">createJAN13</a></li>
+	<li><a href="_StarBarcodeEncoder-js.htm#createCode39">createCode39</a></li>
+	<li><a href="_StarBarcodeEncoder-js.htm#createITF">createITF</a></li>
+	<li><a href="_StarBarcodeEncoder-js.htm#createCode128">createCode128</a></li>
+	<li><a href="_StarBarcodeEncoder-js.htm#createCode93">createCode93</a></li>
+	<li><a href="_StarBarcodeEncoder-js.htm#createNW7">createNW7</a></li>
+	</ul>
+	<ul>
+	<li><a href="_StarWebPrintRequestElement.htm">StarWebPRNT送信エレメント</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#root">&lt;root&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#alignment">&lt;alignment&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#barcode">&lt;barcode&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#bitImage">&lt;bitImage&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#cutpaper">&lt;cutpaper&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#feed">&lt;feed&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#initialization">&lt;initialization&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#logo">&lt;logo&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#pdf417">&lt;pdf417&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#peripheral">&lt;peripheral&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#qrcode">&lt;qrcode&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#rawdata">&lt;rawdata&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#ruledline">&lt;ruledline&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#sound">&lt;sound&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#text">&lt;text&gt;</a></li>
+	</ul>
+	<ul>
+	<li><a href="_StarWebPrintResponseElement.htm">StarWebPRNT受信エレメント</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#root-response">&lt;root&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#success">&lt;success&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#code">&lt;code&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#status">&lt;status&gt;</a></li>
+	</ul>
+	<ul>
+	<li><a href="_appendixUTF8.htm">付録 UTF-8対応</a></li>
+	</ul>
+
+	</navi>
+</div>
+
+
+<div id="mainContents">
+
+    <article>
+    <div id="StarBarcodeEncoder-js">
+        <h2>StarBarcodeEncoder.js</h2>
+        
+        <div class="introduction_2">
+            <p>
+            HTML5 Canvas 2Dコンテキストへのバーコード描画を補うバーコードモジュール列を生成します。
+            </p>
+        </div>
+        
+        <h4>コンストラクタ</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>名称</td><td>説明</td></tr>
+            </thead>
+            <tbody>
+                <tr><td><a href="#StarBarcodeEncoder">StarBarcodeEncoder</a></td><td>StarBarcodeEncoderオブジェクトを生成します。</td></tr>
+            </tbody>
+        </table>
+    
+
+        <h4>メソッド</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>名称</td><td>説明</td></tr>
+            </thead>
+            <tbody>
+            <tr><td><a href="#createUPCE">createUPCE</a></td><td>UPCEバーコードを生成します。</td></tr>
+            <tr><td><a href="#createUPCA">createUPCA</a></td><td>UPCAバーコードを生成します。</td></tr>
+            <tr><td><a href="#createJAN8">createJAN8</a></td><td>JAN/EAN8バーコードを生成します。</td></tr>
+            <tr><td><a href="#createJAN13">createJAN13</a></td><td>JAN/EAN13バーコードを生成します。</td></tr>
+            <tr><td><a href="#createCode39">createCode39</a></td><td>Code39バーコードを生成します。</td></tr>
+            <tr><td><a href="#createITF">createITF</a></td><td>ITFバーコードを生成します。</td></tr>
+            <tr><td><a href="#createCode128">createCode128</a></td><td>Code128バーコードを生成します。</td></tr>
+            <tr><td><a href="#createCode93">createCode93</a></td><td>Code93バーコードを生成します。</td></tr>
+            <tr><td><a href="#createNW7">createNW7</a></td><td>NW7バーコードを生成します。</td></tr>
+            </tbody>
+        </table>
+
+        
+    </div>
+    </article>
+
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
+    </div>
+    
+
+    <article>
+    <div id="StarBarcodeEncoder">
+        <h3>StarBarcodeEncoder</h3>
+    
+        <div class="introduction_3">
+            <p>
+            StarBarcodeEncoderオブジェクトを生成します。
+            </p>
+        </div>
+    
+        <div class="syntax">
+        <h4>構文</h4>
+        <p>
+        StarBarcodeEncoder();
+        </p>
+    
+        <h4>名前付き引数</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>名称</td><td>説明</td><td>型</td><td>省略時</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            </tbody>
+        </table>
+
+        <h4>戻り値</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>説明</td><td>型</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>StarBarcodeEncoderオブジェクト</td><td>StarBarcodeEncoder</td></tr>
+            </tbody>
+        </table>
+
+        <h5>例</h5>
+<pre>
+&lt;script type='text/javascript' src='js/StarBarcodeEncoder.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+function onBuild() {
+    var builder = new StarBarcodeEncoder();
+}
+// --&gt;
+&lt;/script&gt;
+</pre>
+    </div>
+    </article>
+
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
+    </div>
+    
+
+    <article>
+    <div id="createUPCE">
+        <h3>createUPCE</h3>
+    
+        <div class="introduction_3">
+            <p>
+            UPCEバーコードモジュールを生成します。
+            </p>
+        </div>
+    
+        <div class="syntax">
+        <h4>構文</h4>
+        <p>
+        createUPCE(args);
+        </p>
+    
+        <h4>名前付き引数</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>名称</td><td>説明</td><td>型</td><td>省略時</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>data</td><td>UPCEバーコードデータ</td><td>String</td><td>省略不可</td></tr>
+            </tbody>
+        </table>
+
+        <h4>戻り値</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>説明</td><td>型</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>生成したバーコードモジュール列<br /><ul><li>'1' … モジュールあり</li><li>'0' … モジュールなし</li></ul></td><td>String</td></tr>
+            </tbody>
+        </table>
+
+        <h5>例</h5>
+<pre>
+&lt;script type='text/javascript' src='js/StarBarcodeEncoder.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+function onBuild() {
+    var encoder = new StarBarcodeEncoder();
+
+　　var lineImage = encoder.createUPCE({data:'01234500006'});
+}
+// --&gt;
+&lt;/script&gt;
+</pre>
+    </div>
+    </article>
+
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
+    </div>
+    
+
+    <article>
+    <div id="createUPCA">
+        <h3>createUPCA</h3>
+    
+        <div class="introduction_3">
+            <p>
+            UPCAバーコードモジュールを生成します。
+            </p>
+        </div>
+    
+        <div class="syntax">
+        <h4>構文</h4>
+        <p>
+        createUPCA(args);
+        </p>
+    
+        <h4>名前付き引数</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>名称</td><td>説明</td><td>型</td><td>省略時</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>data</td><td>UPCAバーコードデータ</td><td>String</td><td>省略不可</td></tr>
+            </tbody>
+        </table>
+
+        <h4>戻り値</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>説明</td><td>型</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>生成したバーコードモジュール列<br /><ul><li>'1' … モジュールあり</li><li>'0' … モジュールなし</li></ul></td><td>String</td></tr>
+            </tbody>
+        </table>
+
+        <h5>例</h5>
+<pre>
+&lt;script type='text/javascript' src='js/StarBarcodeEncoder.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+function onBuild() {
+    var encoder = new StarBarcodeEncoder();
+
+　　var lineImage = encoder.createUPCA({data:'01234567890'});
+}
+// --&gt;
+&lt;/script&gt;
+</pre>
+    </div>
+    </article>
+
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
+    </div>
+    
+
+    <article>
+    <div id="createJAN8">
+        <h3>createJAN8</h3>
+    
+        <div class="introduction_3">
+            <p>
+            JAN/EAN8バーコードを生成します。
+            </p>
+        </div>
+    
+        <div class="syntax">
+        <h4>構文</h4>
+        <p>
+        createJAN8(args);
+        </p>
+    
+        <h4>名前付き引数</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>名称</td><td>説明</td><td>型</td><td>省略時</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>data</td><td>JAN/EAN8バーコードデータ</td><td>String</td><td>省略不可</td></tr>
+            </tbody>
+        </table>
+
+        <h4>戻り値</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>説明</td><td>型</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>生成したバーコードモジュール列<br /><ul><li>'1' … モジュールあり</li><li>'0' … モジュールなし</li></ul></td><td>String</td></tr>
+            </tbody>
+        </table>
+
+        <h5>例</h5>
+<pre>
+&lt;script type='text/javascript' src='js/StarBarcodeEncoder.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+function onBuild() {
+    var encoder = new StarBarcodeEncoder();
+
+　　var lineImage = encoder.createJAN8({data:'0123456'});
+}
+// --&gt;
+&lt;/script&gt;
+</pre>
+    </div>
+    </article>
+
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
+    </div>
+    
+
+    <article>
+    <div id="createJAN13">
+        <h3>createJAN13</h3>
+    
+        <div class="introduction_3">
+            <p>
+            JAN/EAN13バーコードを生成します。
+            </p>
+        </div>
+    
+        <div class="syntax">
+        <h4>構文</h4>
+        <p>
+        createJAN13(args);
+        </p>
+    
+        <h4>名前付き引数</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>名称</td><td>説明</td><td>型</td><td>省略時</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>data</td><td>JAN/EAN13バーコードデータ</td><td>String</td><td>省略不可</td></tr>
+            </tbody>
+        </table>
+
+        <h4>戻り値</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>説明</td><td>型</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>生成したバーコードモジュール列<br /><ul><li>'1' … モジュールあり</li><li>'0' … モジュールなし</li></ul></td><td>String</td></tr>
+            </tbody>
+        </table>
+
+        <h5>例</h5>
+<pre>
+&lt;script type='text/javascript' src='js/StarBarcodeEncoder.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+function onBuild() {
+    var encoder = new StarBarcodeEncoder();
+
+　　var lineImage = encoder.createJAN13({data:'01234567890'});
+}
+// --&gt;
+&lt;/script&gt;
+</pre>
+    </div>
+    </article>
+
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
+    </div>
+    
+
+    <article>
+    <div id="createCode39">
+        <h3>createCode39</h3>
+    
+        <div class="introduction_3">
+            <p>
+            Code39バーコードを生成します。
+            </p>
+        </div>
+    
+        <div class="syntax">
+        <h4>構文</h4>
+        <p>
+        createCode39(args);
+        </p>
+    
+        <h4>名前付き引数</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>名称</td><td>説明</td><td>型</td><td>省略時</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>data</td><td>Code39バーコードデータ</td><td>String</td><td>省略不可</td></tr>
+            </tbody>
+        </table>
+
+        <h4>戻り値</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>説明</td><td>型</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>生成したバーコードモジュール列<br />
+                <ul><li>'N' … ナローバー</li><li>'n' … ナロースペース</li>
+                      <li>'W' … ワイドバー</li><li>'w' … ワイドスペース</li></ul></td><td>String</td></tr>
+            </tbody>
+        </table>
+
+        <h5>例</h5>
+<pre>
+&lt;script type='text/javascript' src='js/StarBarcodeEncoder.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+function onBuild() {
+    var encoder = new StarBarcodeEncoder();
+
+　　var lineImage = encoder.createCode39({data:'0123456789'});
+}
+// --&gt;
+&lt;/script&gt;
+</pre>
+    </div>
+    </article>
+
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
+    </div>
+    
+
+    <article>
+    <div id="createITF">
+        <h3>createITF</h3>
+    
+        <div class="introduction_3">
+            <p>
+            ITFバーコードを生成します。
+            </p>
+        </div>
+    
+        <div class="syntax">
+        <h4>構文</h4>
+        <p>
+        createITF(args);
+        </p>
+    
+        <h4>名前付き引数</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>名称</td><td>説明</td><td>型</td><td>省略時</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>data</td><td>ITFバーコードデータ</td><td>String</td><td>省略不可</td></tr>
+            </tbody>
+        </table>
+
+        <h4>戻り値</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>説明</td><td>型</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>生成したバーコードモジュール列<br />
+                <ul><li>'N' … ナローバー</li><li>'n' … ナロースペース</li>
+                      <li>'W' … ワイドバー</li><li>'w' … ワイドスペース</li></ul></td><td>String</td></tr>
+            </tbody>
+        </table>
+
+        <h5>例</h5>
+<pre>
+&lt;script type='text/javascript' src='js/StarBarcodeEncoder.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+function onBuild() {
+    var encoder = new StarBarcodeEncoder();
+
+　　var lineImage = encoder.createITF({data:'0123456789'});
+}
+// --&gt;
+&lt;/script&gt;
+</pre>
+    </div>
+    </article>
+
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
+    </div>
+    
+
+    <article>
+    <div id="createCode128">
+        <h3>createCode128</h3>
+    
+        <div class="introduction_3">
+            <p>
+            Code128バーコードを生成します。
+            </p>
+        </div>
+    
+        <div class="syntax">
+        <h4>構文</h4>
+        <p>
+        createCode128(args);
+        </p>
+    
+        <h4>名前付き引数</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>名称</td><td>説明</td><td>型</td><td>省略時</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>data</td><td>Code128バーコードデータ</td><td>String</td><td>省略不可</td></tr>
+            </tbody>
+        </table>
+
+        <h4>戻り値</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>説明</td><td>型</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>生成したバーコードモジュール列<br /><ul><li>'1' … モジュールあり</li><li>'0' … モジュールなし</li></ul></td><td>String</td></tr>
+            </tbody>
+        </table>
+
+        <h5>例</h5>
+<pre>
+&lt;script type='text/javascript' src='js/StarBarcodeEncoder.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+function onBuild() {
+    var encoder = new StarBarcodeEncoder();
+
+　　var lineImage = encoder.createCode128({data:'{B0123456789'});
+}
+// --&gt;
+&lt;/script&gt;
+</pre>
+    </div>
+    </article>
+
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
+    </div>
+    
+
+    <article>
+    <div id="createCode93">
+        <h3>createCode93</h3>
+    
+        <div class="introduction_3">
+            <p>
+            Code93バーコードを生成します。
+            </p>
+        </div>
+    
+        <div class="syntax">
+        <h4>構文</h4>
+        <p>
+        createCode93(args);
+        </p>
+    
+        <h4>名前付き引数</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>名称</td><td>説明</td><td>型</td><td>省略時</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>data</td><td>Code93バーコードデータ</td><td>String</td><td>省略不可</td></tr>
+            </tbody>
+        </table>
+
+        <h4>戻り値</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>説明</td><td>型</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>生成したバーコードモジュール列<br /><ul><li>'1' … モジュールあり</li><li>'0' … モジュールなし</li></ul></td><td>String</td></tr>
+            </tbody>
+        </table>
+
+        <h5>例</h5>
+<pre>
+&lt;script type='text/javascript' src='js/StarBarcodeEncoder.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+function onBuild() {
+    var encoder = new StarBarcodeEncoder();
+
+　　var lineImage = encoder.createCode93({data:'0123456789'});
+}
+// --&gt;
+&lt;/script&gt;
+</pre>
+    </div>
+    </article>
+
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
+    </div>
+    
+
+    <article>
+    <div id="createNW7">
+        <h3>createNW7</h3>
+    
+        <div class="introduction_3">
+            <p>
+            NW7バーコードを生成します。
+            </p>
+        </div>
+    
+        <div class="syntax">
+        <h4>構文</h4>
+        <p>
+        createNW7(args);
+        </p>
+    
+        <h4>名前付き引数</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>名称</td><td>説明</td><td>型</td><td>省略時</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>data</td><td>NW7バーコードデータ</td><td>String</td><td>省略不可</td></tr>
+            </tbody>
+        </table>
+
+        <h4>戻り値</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>説明</td><td>型</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>生成したバーコードモジュール列<br />
+                <ul><li>'N' … ナローバー</li><li>'n' … ナロースペース</li>
+                      <li>'W' … ワイドバー</li><li>'w' … ワイドスペース</li></ul></td><td>String</td></tr>
+            </tbody>
+        </table>
+
+        <h5>例</h5>
+<pre>
+&lt;script type='text/javascript' src='js/StarBarcodeEncoder.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+&lt;!--
+function onBuild() {
+    var encoder = new StarBarcodeEncoder();
+
+　　var lineImage = encoder.createUPCE({data:'A0123456789B'});
+}
+// --&gt;
+&lt;/script&gt;
+</pre>
+    </div>
+    </article>
+
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
+    </div>
+
+
+    </div>    <!-- Main Contents  -->
+
+</div>		<!-- Wrapp -->
+
+<div id="footer">
+<footer>
+<p id="copyright"> &copy; Copyright 2013 - 2014  <a href="http://www.star-m.jp/">Star Micronics Co., Ltd.</a> </p>
+</footer>
+</div>
+
+</body>
+</html>

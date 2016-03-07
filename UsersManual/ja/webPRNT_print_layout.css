@@ -1,0 +1,458 @@
+@charset "utf-8";
+/* ----------------------------------------------------
+* ** ja print **   reset style
+* -------------------------------------------------- */
+
+
+body {
+	font-family:  Verdana, Meiryo, "ÉÅÉCÉäÉI", "ÇlÇr ÇoÉSÉVÉbÉN",  Geneva, Arial, Helvetica;
+	font-size: 90%;
+	line-height: 1.5em;
+	margin:0;
+	padding:0;
+	background:#fff;
+}
+
+
+/* ----   Initiallize    ---- */
+ul {
+	margin: 0;
+	padding: 10px;
+}
+
+img {
+	border: none;
+}
+
+p {
+	line-height:1.5em;
+	margin: 10px 0;
+}
+
+
+
+.clear {
+	clear: both;
+}
+
+
+
+
+/* ----------------------------------------------------
+/*  for link ( a)                                        */
+* -------------------------------------------------- */
+
+a{
+	color: Black;
+	text-decoration: none;
+}
+
+a:link{
+	color: Black;
+	text-decoration: none;
+}
+
+a:visited{
+	color: Black;
+	text-decoration: none;
+}
+
+a:hover{
+	color: Black;
+	text-decoration: underline;
+}
+
+
+
+
+
+/* -------------------------  */
+/* ----    header   ----  */
+/* -------------------------  */
+#webPRNTLogo {
+	float: right;
+	height: 84px;
+	width: 288px;
+	margin-right: 10pt;
+	margin-bottom: 5pt;
+	border: 0;
+}
+
+h1 {
+	padding-top: 15pt;
+	margin-left: 50pt;
+	font-size: 160%;
+	color: #555;
+	text-shadow: 1px 1px 2px #aaa;
+	-ms-text-shadow: 3px 3px 3px #aaa;
+	
+}
+
+#naviArrowSection {
+	display: none;
+}
+
+h5 {
+	margin: 30px 0px 2px 5px;
+	padding: 0 0 2px 18px;
+	background-image: url('../illust/BlueSquare5.png');
+	background-position: 0px 6px;
+	background-repeat: no-repeat;
+	color: #333;
+	font-size: 80%;
+	
+}
+
+/* -------------------------  */
+/* ---- page footer    ---- */
+/* -------------------------  */
+#footer {
+	clear: both;
+	margin: 0;
+	width: 100%;
+}
+
+#copyright {
+	text-align: right;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding-right: 10px;
+	font-style:italic;
+	font-size: 80%;
+	color:#666666;
+}
+
+#footer a{
+	color: gray;
+	text-decoration: none;
+}
+
+#footer a:link{
+	color: gray;
+	text-decoration: none;
+}
+
+#footer a:visited{
+	color: gray;
+	text-decoration: none;
+}
+
+#footer a:hover{
+	color: gray;
+	text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+/* -------------------------  */
+/*   mainContents   */
+/* -------------------------  */
+
+#mainContents {
+	margin: 5px 25px 25px 25px;
+	padding-right: 25px;
+}
+
+h2 {
+	margin: 25px 10px 15px 0px;
+	padding: 10px 0 10px 5px;
+	border-bottom: solid 1px #265d7f;
+	color: #333;
+	font-size: 150%;
+}
+
+h3 {
+	margin: 25px 0px 15px 0px;
+	padding: 10px 0 10px 5px;
+	border-bottom: solid 1px #bbb;
+	color: #333;
+	font-size: 150%;
+}
+
+h4 {
+	margin: 15px 0px 2px 0px;
+	padding: 0 0 2px 18px;
+	background-image: url('../illust/BlueSquare4.png');
+	background-position: 0px 6px;
+	background-repeat: no-repeat;
+	color: #333;
+	
+}
+
+
+
+
+.introduction_2 {
+	margin: 20px 15px;
+}
+
+.introduction_3 {
+	margin: 20px 15px 30px;
+}
+
+
+.syntax p {
+	color: #265d7f;
+	font-weight: bold;
+	margin: 10px 15px 30px;
+}
+
+.coder ul {
+	margin: 0 30px;
+	line-height: 1.5;
+	padding: 0;
+	list-style-type: disc;
+}
+
+/* -------------------------  */
+/*  mainNavi   */
+/* -------------------------  */
+
+#mainNavi {
+	display:none;
+
+}
+
+
+
+/* -------------------------  */
+/*  Class  to_top              */
+/* -------------------------  */
+
+.to_top   {
+	display: none;
+
+	
+}
+
+
+
+/* -------------------------  */
+/*  Class  numOperation   */
+/* -------------------------  */
+
+.numOperation li {
+	margin-top: 25px;
+	margin-left: 35px;
+	
+}
+
+.note {
+	margin-left: 10px;
+	margin-top: 5px;
+	font-size: 80%;
+	line-height: 1.5em;
+	text-indent: -1em;
+}
+
+.numOpeFig {
+	margin-top: 8px;
+}
+
+
+/* ----------------------------------  */
+/*  pre (for Sample Program)      */
+/* ---------------------------------  */
+
+pre {
+	width: 80%; 
+	margin:0 0 20px 10px;
+	border:1px solid #999;
+	border-radius:5px;
+	padding:10px 10px 20px 10px;
+	font-family: Courier,"Courier New",monospace;
+	font-size:80%;
+	line-height: 1.2em;
+	background-color: #F5F5F5;
+	color: #444;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	word-break: break-all;
+	box-shadow: 0 1px 1px #CCC;
+
+}
+
+
+/* -------------------------------------  */
+/*   index.html mainIntroduction     */
+/* -------------------------------------  */
+
+#mainIntroduction p{
+	margin: 5px 25px 25px 25px;
+}
+
+
+#conceptIllust {
+	margin: 30px 0;
+}
+
+#conceptDescription li{
+	margin: 20px 20px;
+}
+
+#concept a{
+	color: black;
+	text-decoration: none;
+}
+
+#concept a:hover{
+	background-color: #e5f0ff;
+}
+
+
+
+/* --------------------------------------------------
+   coder Table   
+-------------------------------------------------- */
+.coder {
+    margin-left: 0px;
+    font-size: 90%;
+    text-align: top;
+    min-width: 80%;
+    border-spacing: 0;
+    border: 1px solid #aaa;
+    -webkit-border-radius: 0;
+       -moz-border-radius: 0;
+         -o-border-radius: 0;
+            border-radius: 0;
+    box-shadow: none;	
+}
+.coder thead,
+.coder td {
+    padding-top:3px;
+    padding-left:8px;
+    padding-right:8px;
+    padding-bottom:3px;
+    border-bottom:solid 1px #aaa;
+    border-right:solid 1px #aaa;
+}
+
+/*----
+Centering ÇµÇΩÇ¢ÇÒÇæÇØÇ«Ç‡....
+-----*/
+.r-element td{
+    text-justify: auto;
+    text-align: left;
+}
+
+
+.coder thead {
+    font-weight: bold;
+    vertical-align: center;
+    background:#F0F8FF;
+    background-color: #b9d6e8;
+    box-shadow: none;
+}
+
+.coder r-element thead {
+    vertical-align: top;
+}
+
+/* -----------------------
+  left-top
+----------------------- */
+
+.coder tr:first-child th:first-child,
+.coder tr:first-child td:first-child {
+    -webkit-border-radius: 0 0 0 0;
+       -moz-border-radius: 0 0 0 0;
+         -o-border-radius: 0 0 0 0;
+            border-radius: 0 0 0 0;
+}
+/* -----------------------
+  right-top
+----------------------- */
+.coder tr:first-child th:last-child,
+.coder tr:first-child td:last-child {
+    -webkit-border-radius: 0 0 0 0;
+       -moz-border-radius: 0 0 0 0;
+         -o-border-radius: 0 0 0 0;
+            border-radius: 0 0 0 0;
+}
+/* -----------------------
+ left-bottom
+----------------------- */
+.coder tr:last-child th:first-child,
+.coder tr:last-child td:first-child {
+    -webkit-border-radius: 0 0 0 0;
+       -moz-border-radius: 0 0 0 0;
+         -o-border-radius: 0 0 0 0;
+            border-radius: 0 0 0 0;
+}
+/* -----------------------
+  right-bottom
+----------------------- */
+.coder tr:last-child th:last-child,
+.coder tr:last-child td:last-child {
+    -webkit-border-radius: 0 0 0 0;
+       -moz-border-radius: 0 0 0 0;
+         -o-border-radius: 0 0 0 0;
+            border-radius: 0 0 0 0;
+}
+/* --------------------------------------------
+  thaed,tbody
+-------------------------------------------- */
+
+.coder thead th {background-color:#F0F8FF;}
+.coder thead+tbody th {background:#f4ede6;}
+.coder tbody th {text-align:left;}/*IE*/
+/* -----------------------
+  left-top thead
+----------------------- */
+
+.coder thead tr:first-child th:first-child,
+.coder thead tr:first-child td:first-child {
+    -webkit-border-radius: 0 0 0 0;
+       -moz-border-radius: 0 0 0 0;
+         -o-border-radius: 0 0 0 0;
+            border-radius: 0 0 0 0;
+}
+/* -----------------------
+  right-top thead
+----------------------- */
+.coder thead tr:first-child th:last-child,
+.coder thead tr:first-child td:last-child {
+    -webkit-border-radius: 0 0 0 0;
+       -moz-border-radius: 0 0 0 0;
+         -o-border-radius: 0 0 0 0;
+            border-radius: 0 0 0 0;
+}
+/* -----------------------
+  thaed after tbody
+----------------------- */
+.coder thead+tbody tr:first-child th:first-child,
+.coder thead+tbody tr:first-child td:first-child,
+.coder thead+tbody tr:first-child th:last-child,
+.coder thead+tbody tr:first-child td:last-child {
+    -webkit-border-radius:0px;
+       -moz-border-radius:0px;
+         -o-border-radius:0px;
+            border-radius:0px;
+}
+/* -----------------------
+  left-bottom thaed after tbody
+----------------------- */
+.coder thead+tbody tr:last-child th:first-child,
+.coder thead+tbody tr:last-child td:first-child {
+    -webkit-border-radius: 0 0 0 0;
+       -moz-border-radius: 0 0 0 0;
+         -o-border-radius: 0 0 0 0;
+            border-radius: 0 0 0 0;
+}
+/* -----------------------
+  right-bottom thaed after  tbody
+----------------------- */
+.coder thead+tbody tr:last-child th:last-child,
+.coder thead+tbody tr:last-child td:last-child {
+    -webkit-border-radius: 0 0 0 0;
+       -moz-border-radius: 0 0 0 0;
+         -o-border-radius: 0 0 0 0;
+            border-radius: 0 0 0 0;
+}           
+

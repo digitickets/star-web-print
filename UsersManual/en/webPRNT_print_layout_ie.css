@@ -1,0 +1,36 @@
+@charset "utf-8";
+/* ----------------------------------------------------
+*   IE style for print  ( Width : 680px )
+* -------------------------------------------------- */
+
+/*   All    */
+body {
+	width: 680px;
+	margin: 0px auto; 
+}
+
+#wrapp {
+	width: 670px;
+}
+
+
+/*   mainContents   */
+
+#mainContents {
+	width: 650px;
+	float: left;
+}
+
+/*  mainNavi   */
+
+#mainNavi {
+	float: left;
+	width:15px;
+}
+
+/*  page footer   */
+#footer {
+	clear: both;
+	width: 670px;
+}
+
