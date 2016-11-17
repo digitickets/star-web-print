@@ -1,10 +1,10 @@
 ************************************************************
-      Star WebPRNT SDK  -  Ver 1.2.1
+      Star WebPRNT SDK  -  Ver 1.3.1
          readme_en.txt             Star Micronics Co., Ltd.
 ************************************************************
 
  1. Overview
- 2. Ver 1.2.1 Changes
+ 2. Ver 1.3.1 Changes
  3. Contents
  4. Scope
  5. Remarks
@@ -25,22 +25,20 @@
 
 
 =======================
- 2. Ver 1.2.1 Changes
+ 2. Ver 1.3.1 Changes
 =======================
 
   [SDK]
-   - Modified default setting of BM.
-     With WebPRNT Browser, enabled to use BM, setting by MSW.
+   - Added annotation when selecting codepage attribute in text elements.
 
   [User's Manual]
-   - Revise reference of API related with BM.
-   - Added reference related with StarPRNT mode.
+   - Added annotation when selecting codepage attribute in text elements.
 
 =============
  3. Contents
 =============
 
-  StarWebPRNT_WebContents_V1.2.1
+  StarWebPRNT_WebContents_V1.3.1
   |
   | Readme_En.txt                       // Release Note(English)
   | Readme_Jp.txt                       // Release Note(Japanese)
@@ -102,6 +100,22 @@
 ====================
  7. Release History
 ====================
+
+ Ver 1.3.1   
+ 09/30/2016   : [SDK]
+                 - Added annotation when selecting codepage attribute in text elements.
+
+                [User's Manual]
+                 - Added annotation when selecting codepage attribute in text elements.
+
+ Ver 1.3.0   
+ 09/01/2016   : [SDK]
+                 - Added status monitoring function.
+                 - Added character code support in text element.
+
+                [User's Manual]
+                 - Added reference related with BCR status monitoring.
+                 - Added reference related with character code.
 
  Ver 1.2.1   
  02/08/2016   : [SDK]

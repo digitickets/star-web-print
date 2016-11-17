@@ -8,6 +8,7 @@
 // Copyright (C) 2012-2015 STAR MICRONICS CO., LTD. All Rights Reserved.
 //
 -->
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
@@ -470,7 +471,7 @@ function onClearMessage() {
 function onSendMessage() {
     updateSampleCode();
 
-	nowPrinting();
+	showNowPrinting();
     var url              = document.getElementById('url').value;
     var papertype        = document.getElementById('papertype').value;
     var blackmark_sensor = document.getElementById('blackmark_sensor').value;
@@ -478,6 +479,8 @@ function onSendMessage() {
     var trader = new StarWebPrintTrader({url:url, papertype:papertype, blackmark_sensor:blackmark_sensor});
 
     trader.onReceive = function (response) {
+        hideNowPrinting();
+
         var msg = '- onReceive -\n\n';
 
         msg += 'TraderSuccess : [ ' + response.traderSuccess + ' ]\n';
@@ -507,6 +510,8 @@ function onSendMessage() {
     }
 
     trader.onError = function (response) {
+        hideNowPrinting();
+
         var msg = '- onError -\n\n';
 
         msg += '\tStatus:' + response.status + '\n';
@@ -523,20 +528,19 @@ function nowLoading(){
 	document.getElementById('overlay').style.display="none";
 	document.getElementById('nowLoadingWrapper').style.display="none";
 }
-function nowPrinting(){
-	document.getElementById('overlay').style.display="block";
-	document.getElementById('nowPrintingWrapper').style.display="table";
-	timer = setTimeout(function (){
-		document.getElementById('overlay').style.opacity= 0.0;
-		document.getElementById('overlay').style.transition= "all 0.3s";
-		intimer = setTimeout(function (){
-			document.getElementById('overlay').style.display="none";
-		document.getElementById('overlay').style.opacity= 1;
-	        clearTimeout(intimer);
-		}, 300);
-		document.getElementById('nowPrintingWrapper').style.display="none";
-        clearTimeout(timer);
-	}, 7000);
+function showNowPrinting(){
+    document.getElementById('overlay').style.display="block";
+    document.getElementById('nowPrintingWrapper').style.display="table";
+}
+function hideNowPrinting(){
+    document.getElementById('overlay').style.opacity= 0.0;
+    document.getElementById('overlay').style.transition= "all 0.3s";
+    intimer = setTimeout(function (){
+        document.getElementById('overlay').style.display="none";
+    document.getElementById('overlay').style.opacity= 1;
+        clearTimeout(intimer);
+    }, 300);
+    document.getElementById('nowPrintingWrapper').style.display="none";
 }
 window.onload = function() {
 	nowLoading();
@@ -652,7 +656,7 @@ window.onload = function() {
                             <option value='cp874'>CodePage874</option>
                             <option value='cp928'>CodePage928</option>
                             <option value='cp932'>CodePage932</option>
-                            <option value='cp998' selected='selected'>CodePage998</option>
+                            <option value='cp998'>CodePage998</option>
                             <option value='cp999'>CodePage999</option>
                             <option value='cp1001'>CodePage1001</option>
                             <option value='cp1250'>CodePage1250</option>
@@ -674,7 +678,12 @@ window.onload = function() {
                             <option value='cp3847'>CodePage3847</option>
                             <option value='cp3848'>CodePage3848</option>
                             <option value='utf8' selected='selected'>UTF-8</option>
-                            <option value='blank'>BlankCodePage</option>
+                            <option value='shift_jis'>shift_jis</option>
+                            <option value='gb18030'  >gb18030</option>
+                            <option value='gb2312'   >gb2312</option>
+                            <option value='big5'     >big5</option>
+                            <option value='korea'    >korea</option>
+                            <option value='blank'    >BlankCodePage</option>
                         </select>
 					</dd>
 

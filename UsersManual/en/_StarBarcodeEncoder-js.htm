@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"  lang="ja" xml:lang="ja">
+<html xmlns="http://www.w3.org/1999/xhtml"  lang="en" xml:lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Star WebPRNT User's Manual</title>
@@ -183,6 +183,50 @@
 	<li><a href="_StarWebPrintResponseElement.htm#ld-claim">&lt;claim&gt;</a></li>
 	<li><a href="_StarWebPrintResponseElement.htm#ld-claimpollingtimeout">&lt;claimpollingtimeout&gt;</a></li>
 	</ul>
+	<ul>
+	<li><a href="_StarWebPrintExtManager-js.htm">StarWebPrintExtManager.js</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#StarWebPrintExtManager">StarWebPrintExtManager</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#connect">connect</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#disconnect">disconnect</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onReceive">onReceive</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onError">onError</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onPrinterImpossible">onPrinterImpossible</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onPrinterOnline">onPrinterOnline</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onPrinterOffline">onPrinterOffline</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onPrinterPaperReady">onPrinterPaperReady</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onPrinterPaperNearEmpty">onPrinterPaperNearEmpty</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onPrinterPaperEmpty">onPrinterPaperEmpty</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onPrinterCoverOpen">onPrinterCoverOpen</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onPrinterCoverClose">onPrinterCoverClose</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onCashDrawerOpen">onCashDrawerOpen</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onCashDrawerClose">onCashDrawerClose</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onBarcodeReaderImpossible">onBarcodeReaderImpossible</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onBarcodeReaderConnect">onBarcodeReaderConnect</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onBarcodeReaderDisconnect">onBarcodeReaderDisconnect</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onBarcodeDataReceive">onBarcodeDataReceive</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onAccessoryConnectSuccess">onAccessoryConnectSuccess</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onAccessoryConnectFailure">onAccessoryConnectFailure</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onAccessoryDisconnect">onAccessoryDisconnect</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onStatusUpdate">onStatusUpdate</a></li>
+	</ul>
+	<ul>
+	<li><a href="_StarWebPRNTExtManagerRequestElement.htm">StarWebPRNTEXTManager Request Element</a></li>
+	<li><a href="_StarWebPRNTExtManagerRequestElement.htm#root">&lt;root&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerRequestElement.htm#extmanager">&lt;extmanager&gt;</a></li>
+	</ul>
+	<ul>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm">StarWebPRNTExtManager Response Element</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#root">&lt;root&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#success">&lt;success&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#code">&lt;code&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#claim">&lt;claim&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#claimid">&lt;claimid&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#eventcount">&lt;eventcount&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#event">&lt;event&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#action">&lt;action&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#data">&lt;data&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#number">&lt;number&gt;</a></li>
+	</ul>
         <ul>
         <li><a href="_appendixUTF8.htm">Appendix UTF-8</a></li>
         </ul>
@@ -236,7 +280,45 @@
         <h5>POS Printer and AsuraCPRNT</h5>
         <table class="List2">
             <thead>
-                <tr><td>Name</td><td>FVP10</td><td>TSP650II</td><td>TSP700II</td><td>TSP800II</td><td>AsuraCPRNT</td></tr>
+                <tr><td>Name</td><td>FVP10</td><td>TSP650II</td><td>TSP700II</td><td>TSP800II</td><td>mPOP</td><td>AsuraCPRNT</td></tr>
+            </thead>
+            <tbody>
+             <tr><td><a href="#createUPCE">createUPCE</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createUPCA">createUPCA</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createJAN8">createJAN8</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createJAN13">createJAN13</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createCode39">createCode39</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createITF">createITF</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createCode128">createCode128</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createCode93">createCode93</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createNW7">createNW7</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            </tbody>
+        </table>
+        <br />
+        
+        <h5>Mobile Printer (ESC/POS)</h5>
+        <table class="List2">
+            <thead>
+                <tr><td>Name</td><td>SM-S220i<br />(Excluding Jp model)</td><td>SM-S230i</td><td>SM-T300i</td><td>SM-T400i</td></tr>
+            </thead>
+            <tbody>
+             <tr><td><a href="#createUPCE">createUPCE</a></td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createUPCA">createUPCA</a></td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createJAN8">createJAN8</a></td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createJAN13">createJAN13</a></td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createCode39">createCode39</a></td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createITF">createITF</a></td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createCode128">createCode128</a></td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createCode93">createCode93</a></td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createNW7">createNW7</a></td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            </tbody>
+        </table>
+        <br>
+
+        <h5>Mobile Printer (StarPRNT)</h5>
+        <table class="List2">
+            <thead>
+                <tr><td>Name</td><td>SM-S220i<br />(Excluding Jp model)</td><td>SM-S230i</td><td>SM-T300i</td><td>SM-T400i</td><td>SM-L200</td></tr>
             </thead>
             <tbody>
              <tr><td><a href="#createUPCE">createUPCE</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
@@ -248,25 +330,6 @@
             <tr><td><a href="#createCode128">createCode128</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
             <tr><td><a href="#createCode93">createCode93</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
             <tr><td><a href="#createNW7">createNW7</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            </tbody>
-        </table>
-        <br />
-        
-        <h5>Mobile Printer</h5>
-        <table class="List2">
-            <thead>
-                <tr><td>Name</td><td>SM-S220i<br />(Excluding Jp model)</td><td>SM-T300i</td><td>SM-T400i</td></tr>
-            </thead>
-            <tbody>
-             <tr><td><a href="#createUPCE">createUPCE</a></td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createUPCA">createUPCA</a></td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createJAN8">createJAN8</a></td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createJAN13">createJAN13</a></td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createCode39">createCode39</a></td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createITF">createITF</a></td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createCode128">createCode128</a></td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createCode93">createCode93</a></td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createNW7">createNW7</a></td><td>○</td><td>○</td><td>○</td></tr>
             </tbody>
         </table>
         

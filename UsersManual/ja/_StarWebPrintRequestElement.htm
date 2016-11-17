@@ -184,6 +184,50 @@
 	<li><a href="_StarWebPrintResponseElement.htm#ld-claimpollingtimeout">&lt;claimpollingtimeout&gt;</a></li>
 	</ul>
 	<ul>
+	<li><a href="_StarWebPrintExtManager-js.htm">StarWebPrintExtManager.js</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#StarWebPrintExtManager">StarWebPrintExtManager</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#connect">connect</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#disconnect">disconnect</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onReceive">onReceive</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onError">onError</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onPrinterImpossible">onPrinterImpossible</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onPrinterOnline">onPrinterOnline</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onPrinterOffline">onPrinterOffline</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onPrinterPaperReady">onPrinterPaperReady</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onPrinterPaperNearEmpty">onPrinterPaperNearEmpty</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onPrinterPaperEmpty">onPrinterPaperEmpty</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onPrinterCoverOpen">onPrinterCoverOpen</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onPrinterCoverClose">onPrinterCoverClose</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onCashDrawerOpen">onCashDrawerOpen</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onCashDrawerClose">onCashDrawerClose</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onBarcodeReaderImpossible">onBarcodeReaderImpossible</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onBarcodeReaderConnect">onBarcodeReaderConnect</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onBarcodeReaderDisconnect">onBarcodeReaderDisconnect</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onBarcodeDataReceive">onBarcodeDataReceive</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onAccessoryConnectSuccess">onAccessoryConnectSuccess</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onAccessoryConnectFailure">onAccessoryConnectFailure</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onAccessoryDisconnect">onAccessoryDisconnect</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onStatusUpdate">onStatusUpdate</a></li>
+	</ul>
+	<ul>
+	<li><a href="_StarWebPRNTExtManagerRequestElement.htm">StarWebPRNTEXTManager送信エレメント</a></li>
+	<li><a href="_StarWebPRNTExtManagerRequestElement.htm#root">&lt;root&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerRequestElement.htm#extmanager">&lt;extmanager&gt;</a></li>
+	</ul>
+	<ul>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm">StarWebPRNTExtManager受信エレメント</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#root">&lt;root&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#success">&lt;success&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#code">&lt;code&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#claim">&lt;claim&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#claimid">&lt;claimid&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#eventcount">&lt;eventcount&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#event">&lt;event&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#action">&lt;action&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#data">&lt;data&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#number">&lt;number&gt;</a></li>
+	</ul>
+	<ul>
 	<li><a href="_appendixUTF8.htm">付録 UTF-8対応</a></li>
 	</ul>
 
@@ -196,10 +240,14 @@
     <article>
     <div id="StarWebPrintRequestElement">
         <h2>StarWebPRNT送信エレメント</h2>
+
+        <div class="introduction_2">
+            <br />
+        </div>
         
         <table class="coder">
             <thead>
-                <tr><td>名称</td><td>説明</td><td>WebPRNT対応<br/>Star<br/>Thermal Printer</td><td>AsuraCPRNT</td></tr>
+                <tr><td>名称</td><td>説明</td><td>WebPRNT対応<br/>Starプリンター</td><td>AsuraCPRNT</td></tr>
             </thead>
             <tbody>
                 <tr><td><a href="#root">&lt;root&gt;</a></td><td>ルートエレメント</td><td>○</td><td>○</td></tr>
@@ -230,9 +278,10 @@
         <p class="note">
             *3 初期化コマンド(ESC @)は送信しないでください。その場合&lt;initialization&gt;(初期化エレメント)を利用してください。</p>
         <p class="note">
-            *4 AsuraCPRNT およびHE07/08XではUTF-8文字コードの印刷に対応しております。ただし漢字(日本語/中国語(簡体字/繁体字)/韓国語)のみです。<br/>
-            &nbsp;&nbsp;またAsuraCPRNTをご利用の場合、コンフィグレーションの”StarWebPRNT”の項目にて言語設定を行ってください。<br/>
-            &nbsp;&nbsp;各機種のUTF-8対応状況は<a href="_appendixUTF8.htm">付録 UTF-8対応</a>を参照してください。</p>
+            *4 各機種のUTF-8対応状況は<a href="_appendixUTF8.htm">付録 UTF-8対応</a>を参照してください。<br/>
+            &nbsp;&nbsp;AsuraCPRNTをご利用の場合、コンフィグレーションの”StarWebPRNT”の項目にて言語設定を行ってください。<br/>
+            &nbsp;&nbsp;CodePage属性の値のうち、shift_jis,gb18030,gb2312,big5,koreaはStar WebPRNT Browserのみ対応しています。<br/>
+            &nbsp;&nbsp;WebPRNT Browserをご利用の場合、UTF8に対応していないプリンターではcodepage属性をutf8に指定しないでください。</p>
         <p class="note">
             *5 AsuraCPRNT Linux OS Ver 1.7以降のみ対応<br />
             &nbsp;&nbsp;また各デバイスの対応状況は<a href="http://www.star-m.jp/products/s_print/sp01_09.html">AsuraCPRNTデベロッパーサイト</a>の仕様書をご確認ください<br /></p>
@@ -411,7 +460,7 @@
             </thead>
             <tbody>
                 <tr><td>width</td><td>印刷領域幅（ドット単位指定）</td><td>'0'</td></tr>
-                <tr><td>height</td><td>印刷領域高さ（ドット単位指定）</td><td>'0'</td></tr>
+                <tr><td>height</td><td>印刷領域高さ（ドット単位指定）<br>最大値：2400</td><td>'0'</td></tr>
             </tbody>
         </table>
 
@@ -934,7 +983,9 @@
                       <li>'cp3012' … コードページ3012</li><li>'cp3021' … コードページ3021</li>
                       <li>'cp3041' … コードページ3041</li><li>'cp3840' … コードページ3840</li>
                       <li>'cp3841' … コードページ3841</li><li>'cp3843' ～ 'cp3848' … コードページ3843 ～ 3848</li>
-                      <li>'blank' … ユーザ設定（空白コードページ)</li></ul></td><td>未設定</td></tr>
+                      <li>'blank' … ユーザ設定（空白コードページ)</li><li>'shift_jis' … Shift_JIS</li>
+                      <li>'gb18030' … GB18030</li><li>'gb2312' … GB2312</li>
+                      <li>'big5' … Big5</li><li>'korea' … korea</li></ul></td><td>未設定</td></tr>
                 <tr><td>international</td><td>国際文字<br />
                       <ul><li>'usa' … USA</li><li>'france' … フランス</li><li>'germany' … ドイツ</li>
                       <li>'uk' … イギリス</li><li>'denmark' … デンマーク</li><li>'sweden' … スウェーデン</li>

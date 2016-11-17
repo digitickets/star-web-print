@@ -184,6 +184,50 @@
 	<li><a href="_StarWebPrintResponseElement.htm#ld-claimpollingtimeout">&lt;claimpollingtimeout&gt;</a></li>
 	</ul>
 	<ul>
+	<li><a href="_StarWebPrintExtManager-js.htm">StarWebPrintExtManager.js</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#StarWebPrintExtManager">StarWebPrintExtManager</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#connect">connect</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#disconnect">disconnect</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onReceive">onReceive</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onError">onError</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onPrinterImpossible">onPrinterImpossible</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onPrinterOnline">onPrinterOnline</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onPrinterOffline">onPrinterOffline</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onPrinterPaperReady">onPrinterPaperReady</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onPrinterPaperNearEmpty">onPrinterPaperNearEmpty</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onPrinterPaperEmpty">onPrinterPaperEmpty</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onPrinterCoverOpen">onPrinterCoverOpen</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onPrinterCoverClose">onPrinterCoverClose</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onCashDrawerOpen">onCashDrawerOpen</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onCashDrawerClose">onCashDrawerClose</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onBarcodeReaderImpossible">onBarcodeReaderImpossible</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onBarcodeReaderConnect">onBarcodeReaderConnect</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onBarcodeReaderDisconnect">onBarcodeReaderDisconnect</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onBarcodeDataReceive">onBarcodeDataReceive</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onAccessoryConnectSuccess">onAccessoryConnectSuccess</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onAccessoryConnectFailure">onAccessoryConnectFailure</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onAccessoryDisconnect">onAccessoryDisconnect</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onStatusUpdate">onStatusUpdate</a></li>
+	</ul>
+	<ul>
+	<li><a href="_StarWebPRNTExtManagerRequestElement.htm">StarWebPRNTEXTManager送信エレメント</a></li>
+	<li><a href="_StarWebPRNTExtManagerRequestElement.htm#root">&lt;root&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerRequestElement.htm#extmanager">&lt;extmanager&gt;</a></li>
+	</ul>
+	<ul>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm">StarWebPRNTExtManager受信エレメント</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#root">&lt;root&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#success">&lt;success&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#code">&lt;code&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#claim">&lt;claim&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#claimid">&lt;claimid&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#eventcount">&lt;eventcount&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#event">&lt;event&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#action">&lt;action&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#data">&lt;data&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#number">&lt;number&gt;</a></li>
+	</ul>
+	<ul>
 	<li><a href="_appendixUTF8.htm">付録 UTF-8対応</a></li>
 	</ul>
 
@@ -583,7 +627,7 @@ function onBuild() {
                 <tr><td>x</td><td>印刷領域横方向開始位置（ドット単位指定）</td><td>Number</td><td>0</td></tr>
                 <tr><td>y</td><td>印刷領域縦方向開始位置（ドット単位指定）</td><td>Number</td><td>0</td></tr>
                 <tr><td>width</td><td>印刷領域幅（ドット単位指定）</td><td>Number</td><td>0</td></tr>
-                <tr><td>height</td><td>印刷領域高さ（ドット単位指定）</td><td>Number</td><td>0</td></tr>
+                <tr><td>height</td><td>印刷領域高さ（ドット単位指定）<br>最大値：2400</td><td>Number</td><td>0</td></tr>
             </tbody>
         </table>
     
@@ -1262,7 +1306,8 @@ function onBuild() {
 <li>'cp869' … コードページ869</li><li>'cp874' … コードページ874</li><li>'cp928' … コードページ928</li><li>'cp932' … コードページ932(Katakana)</li><li>'cp998' … コードページ998(Normal)</li>
 <li>'cp999' … コードページ999</li><li>'cp1001' … コードページ1001</li><li>'cp1250' ～ 'cp1252' … コードページ1250 ～ 1252</li><li>'cp2001' … コードページ2001</li><li>'cp3001' … コードページ3001</li>
 <li>'cp3002' … コードページ3002</li><li>'cp3011' … コードページ3011</li><li>'cp3012' … コードページ3012</li><li>'cp3021' … コードページ3021</li><li>'cp3041' … コードページ3041</li>
-<li>'cp3840' … コードページ3840</li><li>'cp3841' … コードページ3841</li><li>'cp3843' ～ 'cp3848' … コードページ3843 ～ 3848</li><li>'blank' … ユーザ設定（空白コードページ)</li>                               
+<li>'cp3840' … コードページ3840</li><li>'cp3841' … コードページ3841</li><li>'cp3843' ～ 'cp3848' … コードページ3843 ～ 3848</li><li>'blank' … ユーザ設定（空白コードページ)</li>
+<li>'shift_jis' … Shift_JIS</li><li>'gb18030' … GB18030</li><li>'gb2312' … GB2312</li><li>'big5' … Big5</li><li>'korea' … korea</li>                               
                                </ul></td>
                        <td>String</td><td>未設定</td></tr>
                 <tr><td>international</td><td>国際文字</br><ul>

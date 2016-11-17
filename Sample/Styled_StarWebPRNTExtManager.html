@@ -1,0 +1,652 @@
+
+<!DOCTYPE html>
+<!--
+//
+// StarWebPRNT Sample(Extension)
+//
+// Version 1.1.0
+//
+// Copyright (C) 2012-2015 STAR MICRONICS CO., LTD. All Rights Reserved.
+//
+-->
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title>StarWebPRNTExtManager Sample</title>
+
+<link href="css/import.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="style.css" media="screen">
+
+<link href="css/style_starwebprntextmanager.css" rel="stylesheet" type="text/css">
+<script type='text/javascript' src='js/StarWebPrintBuilder.js'></script>
+<script type='text/javascript' src='js/StarWebPrintTrader.js'></script>
+<script type='text/javascript' src='js/StarWebPrintExtManager.js'></script>
+<script type='text/javascript'>
+<!--
+var intervalReadData;
+
+var usingXMLHttpRequest = false;    // to check the using of xmlHttpRequest
+
+var manager = new StarWebPrintExtManager();    // for peripheral claim management
+
+function onConnect() {
+
+    showNowCommunicating();
+
+    manager.onDataReceive = function(args) {
+        document.getElementById('textarea_readdata').value += decodeBase64ToString(args.data);
+        document.getElementById('textarea_readdata').scrollTop = document.getElementById('textarea_readdata').scrollHeight;    
+    }
+
+    manager.onReceive = function(response) {
+        if (response.managerSuccess == 'true' && response.managerClaim == 'true') {
+            document.getElementById('manager_state').innerHTML = '<font color="blue">Connected</font>';
+        }
+        else {
+            document.getElementById('manager_state').innerHTML  = 'Not connected';
+            document.getElementById('printer_status').innerHTML = '-';
+        }
+
+        var msg = '- onReceive -\n\n';
+
+        msg += 'ManagerSuccess : [ ' + response.managerSuccess + ' ]\n';
+
+        msg += 'ManagerCode : [ ' + response.managerCode + ' ]\n';
+
+        alert(msg);
+
+        hideNowCommunicating();
+    }
+
+    manager.onError = function(args) {
+        document.getElementById('manager_state').innerHTML  = 'Not connected';
+        document.getElementById('printer_status').innerHTML = '-';    
+
+        var msg;
+
+        msg = 'onError!'         + '\n';
+        msg += '  Status:'       + args.status + '\n';
+        msg += '  ResponseText:' + args.responseText;
+
+        alert(msg);
+
+        hideNowCommunicating();
+    }
+
+    manager.onBarcodeDataReceive      = function(args) {
+        addResponse('onBarcodeDataReceive');
+
+        document.getElementById('textarea_readdata').value += decodeBase64ToString(args.data); // + " : " + (args.data);
+        document.getElementById('textarea_readdata').scrollTop = document.getElementById('textarea_readdata').scrollHeight;  
+    }
+    manager.onBarcodeReaderConnect    = function() {
+        addResponse('onBarcodeReaderConnect');
+    }
+    manager.onBarcodeReaderDisconnect = function() {
+        addResponse('onBarcodeReaderDisconnect');
+    }
+    manager.onBarcodeReaderImpossible = function() {
+        addResponse('onBarcodeReaderImpossible');
+    }
+    manager.onAccessoryDisconnect     = function() {
+        addResponse('onAccessoryDisconnect');
+    }
+    manager.onAccessoryConnectSuccess = function() {
+        addResponse('onAccessoryConnectSuccess');
+    }
+    manager.onAccessoryConnectFailure = function() {
+        addResponse('onAccessoryConnectFailure');
+    }
+    manager.onPrinterImpossible       = function() {
+        addResponse('onPrinterImpossible');
+    }
+    manager.onPrinterOnline           = function() {
+        addResponse('onPrinterOnline');
+    }
+    manager.onPrinterOffline          = function() {
+        addResponse('onPrinterOffline');
+    }
+    manager.onPrinterPaperReady       = function() {
+        addResponse('onPrinterPaperReady');
+    }
+    manager.onPrinterPaperNearEmpty   = function() {
+        addResponse('onPrinterPaperNearEmpty');
+    }
+    manager.onPrinterPaperEmpty       = function() {
+        addResponse('onPrinterPaperEmpty');
+    }
+    manager.onPrinterCoverOpen        = function() {
+        addResponse('onPrinterCoverOpen');
+    }
+    manager.onPrinterCoverClose       = function() {
+        addResponse('onPrinterCoverClose');
+    }
+    manager.onCashDrawerOpen          = function() {
+        addResponse('onCashDrawerOpen');
+    }
+    manager.onCashDrawerClose         = function() {
+        addResponse('onCashDrawerClose');
+    }
+    manager.onStatusUpdate            = function(args) {
+        addResponse('onStatusUpdate');
+
+        document.getElementById('printer_status').innerHTML = args.status;
+    }
+
+    var url = document.getElementById('url').value;
+    if ( manager.connect({url:url}) == false ) {
+        alert("Already connected or Now communicating.");
+        hideNowCommunicating();
+    }
+
+}
+
+function onDisconnect() {
+    if ( manager.disconnect() == true ) {
+        showNowCommunicating();
+    }
+    else {
+        alert("Already disconnected");
+    }
+}
+
+function addResponse(response) {
+    date = new Date();
+
+    hour = adjustDigitAlignment( date.getHours()       , 2);
+    min  = adjustDigitAlignment( date.getMinutes()     , 2);
+    sec  = adjustDigitAlignment( date.getSeconds()     , 2);
+
+    time = hour + ':' + min + ':' + sec + '  ';
+
+    document.getElementById('textarea_response').value += time + response + '\n';
+    document.getElementById('textarea_response').scrollTop = document.getElementById('textarea_response').scrollHeight;
+}
+
+function adjustDigitAlignment(value, digitNum) {
+    while (value.toString().length < digitNum) {
+        value = '0' + value;
+    }
+    return value;
+}
+
+function onClearText() {
+        document.getElementById('textarea_readdata').value = ('');
+        document.getElementById('textarea_response').value = ('');
+}
+
+function decodeBase64ToString(data) {
+    var hexString = decodeBase64ToHex(data);
+    var characterString = '';
+    var regexp = /\\x[0-1][0-9a-f]|\\x20|\\x7f|\\x[8-9a-f][0-9a-f]/;
+    
+    for (var i = 0; i < hexString.length; i += 4) {
+        var hex = hexString[i] + hexString[i + 1] + hexString[i + 2] + hexString[i + 3];
+        
+        if (regexp.test(hex)) {
+            characterString += '[' + hex + ']';
+        }
+        else 
+        {
+            characterString += String.fromCharCode(parseInt(hex.replace('\\x', ''), 16));
+        }
+    }
+
+    return characterString;
+}
+
+function decodeBase64ToHex(data) {
+    var base64 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
+
+    var decode = '';
+    var length = data.length;
+
+    for (var i = 0; i < length; i += 4) {
+        var code = ((base64.indexOf(data.charAt(i    )) & 0x3f) << 18)
+                 | ((base64.indexOf(data.charAt(i + 1)) & 0x3f) << 12)
+                 | ((base64.indexOf(data.charAt(i + 2)) & 0x3f) <<  6)
+                 | ( base64.indexOf(data.charAt(i + 3)) & 0x3f);
+
+        decode += makeHexString(((code >> 16) & 0xff).toString(16))
+               +  makeHexString(((code >> 8)  & 0xff).toString(16))
+               +  makeHexString( (code        & 0xff).toString(16));
+    }
+
+    var equals = data.match(/=/g);
+
+    if (equals) {
+        if (equals.length == 2) {
+            return decode.slice(0, -8);    // remove \x00\x00
+        }
+        else if (equals.length == 1) {
+            return decode.slice(0, -4);    // remove \x00
+        }
+    }
+
+    return decode;
+}
+
+function makeHexString(data) {
+    var hexString = '';
+
+    hexString += "\\x";
+
+    if (data.length == 1) {
+        hexString += ('0' + data);
+    }
+    else {
+        hexString += data;
+    }
+
+    return hexString;
+}
+
+function onSendAscii() {
+    showNowCommunicating();
+    var builder = new StarWebPrintBuilder();
+
+    var request = '';
+
+    request += builder.createInitializationElement();
+
+    switch (document.getElementById('paperWidth').value) {
+        case 'inch2' :
+            request += builder.createTextElement({characterspace:2});
+
+            request += builder.createAlignmentElement({position:'right'});
+            request += builder.createLogoElement({number:1});
+            request += builder.createTextElement({data:'TEL 9999-99-9999\n'});
+            request += builder.createAlignmentElement({position:'left'});
+
+            request += builder.createTextElement({data:'\n'});
+
+            request += builder.createAlignmentElement({position:'center'});
+            request += builder.createTextElement({data:'Thank you for your coming. \n'});
+            request += builder.createTextElement({data:"We hope you'll visit again.\n"});
+            request += builder.createAlignmentElement({position:'left'});
+
+            request += builder.createTextElement({data:'\n'});
+
+            request += builder.createTextElement({data:'Apple                $20.00\n'});
+            request += builder.createTextElement({data:'Banana               $30.00\n'});
+            request += builder.createTextElement({data:'Grape                $40.00\n'});
+            request += builder.createTextElement({data:'Lemon                $50.00\n'});
+            request += builder.createTextElement({data:'Orange               $60.00\n'});
+            request += builder.createTextElement({emphasis:true, data:'Subtotal            $200.00\n'});
+            request += builder.createTextElement({data:'\n'});
+
+            request += builder.createTextElement({underline:true, data:'Tax                  $10.00\n'});
+            request += builder.createTextElement({underline:false});
+
+            request += builder.createTextElement({emphasis:true});
+            request += builder.createTextElement({width:2, data:'Total'});
+            request += builder.createTextElement({width:1, data:'   '});
+            request += builder.createTextElement({width:2, data:'$210.00\n'});
+            request += builder.createTextElement({width:1});
+            request += builder.createTextElement({emphasis:false});
+
+            request += builder.createTextElement({data:'\n'});
+
+            request += builder.createTextElement({data:'Received            $300.00\n'});
+
+            request += builder.createTextElement({width:2, data:'Change'});
+            request += builder.createTextElement({width:1, data:'   '});
+            request += builder.createTextElement({width:2, data:'$90.00\n'});
+            request += builder.createTextElement({width:1});
+            request += builder.createTextElement({data:'\n'});
+
+            request += builder.createTextElement({characterspace:0});
+            break;
+        case 'inch3DotImpact' :
+            request += builder.createTextElement({characterspace:2});
+
+            request += builder.createAlignmentElement({position:'right'});
+            request += builder.createLogoElement({number:1});
+            request += builder.createTextElement({data:'TEL 9999-99-9999\n'});
+            request += builder.createAlignmentElement({position:'left'});
+
+            request += builder.createTextElement({data:'\n'});
+
+            request += builder.createAlignmentElement({position:'center'});
+            request += builder.createTextElement({data:'Thank you for your coming. \n'});
+            request += builder.createTextElement({data:"We hope you'll visit again.\n"});
+            request += builder.createAlignmentElement({position:'left'});
+
+            request += builder.createTextElement({data:'\n'});
+
+            request += builder.createTextElement({data:'Apple                               $20.00\n'});
+            request += builder.createTextElement({data:'Banana                              $30.00\n'});
+            request += builder.createTextElement({data:'Grape                               $40.00\n'});
+            request += builder.createTextElement({data:'Lemon                               $50.00\n'});
+            request += builder.createTextElement({data:'Orange                              $60.00\n'});
+            request += builder.createTextElement({emphasis:true, data:'Subtotal                           $200.00\n'});
+            request += builder.createTextElement({data:'\n'});
+
+            request += builder.createTextElement({underline:true, data:'Tax                                 $10.00\n'});
+            request += builder.createTextElement({underline:false});
+
+            request += builder.createTextElement({emphasis:true});
+            request += builder.createTextElement({width:2, data:'Total         $210.00\n'});
+            request += builder.createTextElement({width:1});
+            request += builder.createTextElement({emphasis:false});
+
+            request += builder.createTextElement({data:'\n'});
+
+            request += builder.createTextElement({data:'Received                           $300.00\n'});
+
+            request += builder.createTextElement({width:2, data:'Change         $90.00\n'});
+            request += builder.createTextElement({width:1});
+            request += builder.createTextElement({data:'\n'});
+
+            request += builder.createTextElement({characterspace:0});
+            break;
+        default :
+            request += builder.createTextElement({characterspace:0});
+
+            request += builder.createAlignmentElement({position:'right'});
+            request += builder.createLogoElement({number:1});
+            request += builder.createTextElement({data:'TEL 9999-99-9999\n'});
+            request += builder.createAlignmentElement({position:'left'});
+
+            request += builder.createTextElement({data:'\n'});
+
+            request += builder.createAlignmentElement({position:'center'});
+            request += builder.createTextElement({data:'Thank you for your coming. \n'});
+            request += builder.createTextElement({data:"We hope you'll visit again.\n"});
+            request += builder.createAlignmentElement({position:'left'});
+
+            request += builder.createTextElement({data:'\n'});
+
+            request += builder.createTextElement({data:'Apple                                     $20.00\n'});
+            request += builder.createTextElement({data:'Banana                                    $30.00\n'});
+            request += builder.createTextElement({data:'Grape                                     $40.00\n'});
+            request += builder.createTextElement({data:'Lemon                                     $50.00\n'});
+            request += builder.createTextElement({data:'Orange                                    $60.00\n'});
+            request += builder.createTextElement({emphasis:true, data:'Subtotal                                 $200.00\n'});
+            request += builder.createTextElement({data:'\n'});
+
+            request += builder.createTextElement({underline:true, data:'Tax                                       $10.00\n'});
+            request += builder.createTextElement({underline:false});
+
+            request += builder.createTextElement({emphasis:true});
+            request += builder.createTextElement({width:2, data:'Total            $210.00\n'});
+            request += builder.createTextElement({width:1});
+            request += builder.createTextElement({emphasis:false});
+
+            request += builder.createTextElement({data:'\n'});
+
+            request += builder.createTextElement({data:'Received                                 $300.00\n'});
+
+            request += builder.createTextElement({width:2, data:'Change            $90.00\n'});
+            request += builder.createTextElement({width:1});
+            request += builder.createTextElement({data:'\n'});
+
+            request += builder.createTextElement({characterspace:0});
+            break;
+        case 'inch4' :
+            request += builder.createTextElement({characterspace:1});
+
+            request += builder.createAlignmentElement({position:'right'});
+            request += builder.createLogoElement({number:1});
+            request += builder.createTextElement({data:'TEL 9999-99-9999\n'});
+            request += builder.createAlignmentElement({position:'left'});
+
+            request += builder.createTextElement({data:'\n'});
+
+            request += builder.createAlignmentElement({position:'center'});
+            request += builder.createTextElement({data:'Thank you for your coming. \n'});
+            request += builder.createTextElement({data:"We hope you'll visit again.\n"});
+            request += builder.createAlignmentElement({position:'left'});
+
+            request += builder.createTextElement({data:'\n'});
+
+            request += builder.createTextElement({data:'Apple                                                     $20.00\n'});
+            request += builder.createTextElement({data:'Banana                                                    $30.00\n'});
+            request += builder.createTextElement({data:'Grape                                                     $40.00\n'});
+            request += builder.createTextElement({data:'Lemon                                                     $50.00\n'});
+            request += builder.createTextElement({data:'Orange                                                    $60.00\n'});
+            request += builder.createTextElement({emphasis:true, data:'Subtotal                                                 $200.00\n'});
+            request += builder.createTextElement({data:'\n'});
+
+            request += builder.createTextElement({underline:true, data:'Tax                                                       $10.00\n'});
+            request += builder.createTextElement({underline:false});
+
+            request += builder.createTextElement({emphasis:true});
+            request += builder.createTextElement({width:2, data:'Total                    $210.00\n'});
+            request += builder.createTextElement({width:1});
+            request += builder.createTextElement({emphasis:false});
+
+            request += builder.createTextElement({data:'\n'});
+
+            request += builder.createTextElement({data:'Received                                                 $300.00\n'});
+
+            request += builder.createTextElement({width:2, data:'Change                    $90.00\n'});
+            request += builder.createTextElement({width:1});
+            request += builder.createTextElement({data:'\n'});
+
+            request += builder.createTextElement({characterspace:0});
+            break;
+    }
+
+    request += builder.createCutPaperElement({feed:true});
+
+    sendMessage(request);
+}
+
+function sendMessage(request) {
+    var url              = document.getElementById('printUrl').value;
+    var papertype        = document.getElementById('papertype').value;
+    var blackmark_sensor = document.getElementById('blackmark_sensor').value;
+
+    var trader = new StarWebPrintTrader({url:url, papertype:papertype, blackmark_sensor:blackmark_sensor});
+
+    trader.onReceive = function (response) {
+        hideNowCommunicating();
+
+        var msg = '- onReceive -\n\n';
+
+        msg += 'TraderSuccess : [ ' + response.traderSuccess + ' ]\n';
+
+//      msg += 'TraderCode : [ ' + response.traderCode + ' ]\n';
+
+        msg += 'TraderStatus : [ ' + response.traderStatus + ',\n';
+
+        if (trader.isCoverOpen            ({traderStatus:response.traderStatus})) {msg += '\tCoverOpen,\n';}
+        if (trader.isOffLine              ({traderStatus:response.traderStatus})) {msg += '\tOffLine,\n';}
+        if (trader.isCompulsionSwitchClose({traderStatus:response.traderStatus})) {msg += '\tCompulsionSwitchClose,\n';}
+        if (trader.isEtbCommandExecute    ({traderStatus:response.traderStatus})) {msg += '\tEtbCommandExecute,\n';}
+        if (trader.isHighTemperatureStop  ({traderStatus:response.traderStatus})) {msg += '\tHighTemperatureStop,\n';}
+        if (trader.isNonRecoverableError  ({traderStatus:response.traderStatus})) {msg += '\tNonRecoverableError,\n';}
+        if (trader.isAutoCutterError      ({traderStatus:response.traderStatus})) {msg += '\tAutoCutterError,\n';}
+        if (trader.isBlackMarkError       ({traderStatus:response.traderStatus})) {msg += '\tBlackMarkError,\n';}
+        if (trader.isPaperEnd             ({traderStatus:response.traderStatus})) {msg += '\tPaperEnd,\n';}
+        if (trader.isPaperNearEnd         ({traderStatus:response.traderStatus})) {msg += '\tPaperNearEnd,\n';}
+
+        msg += '\tEtbCounter = ' + trader.extractionEtbCounter({traderStatus:response.traderStatus}).toString() + ' ]\n';
+
+//      msg += 'Status : [ ' + response.status + ' ]\n';
+//
+//      msg += 'ResponseText : [ ' + response.responseText + ' ]\n';
+
+        alert(msg);
+    }
+
+    trader.onError = function (response) {
+        hideNowCommunicating();
+
+        var msg = '- onError -\n\n';
+
+        msg += '\tStatus:' + response.status + '\n';
+
+        msg += '\tResponseText:' + response.responseText;
+
+        alert(msg);
+    }
+
+    trader.sendMessage({request:request});
+}
+
+
+function nowLoading(){
+    document.getElementById('form').style.display="block";
+    document.getElementById('overlay').style.display="none";
+    document.getElementById('nowLoadingWrapper').style.display="none";
+}
+function showNowCommunicating() {
+    document.getElementById('overlay').style.display="block";
+    document.getElementById('nowPrintingWrapper').style.display="table";
+}
+function hideNowCommunicating() {
+    document.getElementById('overlay').style.opacity= 0.0;
+    document.getElementById('overlay').style.transition= "all 0.3s";
+    intimer = setTimeout(function (){
+        document.getElementById('overlay').style.display="none";
+    document.getElementById('overlay').style.opacity= 1;
+        clearTimeout(intimer);
+    }, 300);
+    document.getElementById('nowPrintingWrapper').style.display="none";
+}
+window.onload = function() {
+    nowLoading();
+}
+// -->
+</script>
+<noscript>
+    Your browser does not support JavaScript!
+</noscript>
+</head>
+<body>
+
+<header id="global-header">
+<h1><a onclick='onReleaseAndBack({url:"A001.html"})'><img src="images/logo_01.png" alt="HOME" width="108" height="61"></a></h1>
+<div id="sub-logo"><a onclick='onReleaseAndBack({url:"http://www.star-m.jp/"})' target="_blank"><img src="images/logo_02.png" alt="" width="120" height="13"></a></div>
+</header>
+
+<section class="btmMg20">
+    <h2 class="h2-tit-01 btmMg20">Barcode Scan / Status Manager</h2>
+</section>
+    <div id="overlay">
+        <div id="nowPrintingWrapper">
+            <section id="nowPrinting">
+                <h1>Now Communicating</h1>
+                <p><img src="images/icon_loading.gif" /></p>
+            </section>
+        </div>
+        <div id="nowLoadingWrapper">
+            <section id="nowLoading">
+                    <h1>Now Loading</h1>
+                <p><img src="images/icon_loading.gif" /></p>
+            </section>
+        </div>
+    </div>
+ 
+    <form onsubmit='return false;' id="form">
+        <div class="container" id="contents">
+
+        <dl>
+            <dt>URL:</dt>
+            <dd>
+                <input id="url" type="text" value="http://localhost:8001/StarWebPRNT/SendExtMessage" />
+            </dd>
+        </dl>
+
+        <dl>
+            <dt>Extension Function:</dt>
+            <dd>
+                <input type='button' id='connectButton'    style='width:40%; height:40px' value='connect'    onclick='onConnect()' />
+                <input type='button' id='disconnectButton' style='width:40%; height:40px' value='disconnect' onclick='onDisconnect()' />
+            </dd>
+        </dl>
+
+        <dl>
+            <dt>Manager State:</dt>
+            <dd>
+                <font color='red'>
+                    <div id='manager_state'>Not connected</div>
+                </font>
+            </dd>
+        </dl>
+
+        <dl>
+            <dt>Printer Status:</dt>
+            <dd>
+                <div id='printer_status'>-</div>
+            </dd>
+        </dl>
+
+        <dl>Barcode Data(String):</dl>
+        <div class="note">*[\x00-\x20] and [\x7f-\xff] are converted [\xXX].</div>
+
+        <div>
+            <textarea id='textarea_readdata' style='width:98%; overflow:auto;' rows='10' cols='100' readonly='readonly'></textarea>
+        </div>
+
+        <dl>Extension Event Result:</dl>
+        <div>
+            <textarea id='textarea_response' style='width:98%; overflow:auto;' rows='10' cols='100' readonly='readonly'></textarea>
+        </div>
+        <div>
+            <input class='appendBtn' type='button' style='width:98%' value='Clear' onclick='onClearText()' />
+        </div>
+
+        <hr>
+
+        <dl>
+            <dt>Print sample</dt>
+        </dl>
+        <dl>
+            <dt>Paper Width:</dt>
+            <dd>
+                <select id='paperWidth'>
+                    <option value='inch2' selected='selected'>2 Inch</option>
+                    <option value='inch3'>3 Inch</option>
+                    <option value='inch4'>4 Inch</option>
+                </select>
+            </dd>
+        </dl>
+        <dl>
+            <dt>URL:</dt>
+            <dd>
+            <input id="printUrl" type="text" value="http://localhost:8001/StarWebPRNT/SendMessage"/></dd>
+        </dl>
+        <dl>
+            <dt>Paper Type:</dt>
+            <dd>
+                <select id='papertype'>
+                    <option value='normal' selected='selected'>Normal</option>
+                    <option value='black_mark'>Black Mark</option>
+                    <option value='black_mark_and_detect_at_power_on'>Black Mark and Detect at Power On</option>
+                </select>
+            </dd>
+        </dl>
+        <dl>
+            <dt>Black Mark Sensor:</dt>
+            <dd>
+                <select id='blackmark_sensor'>
+                    <option value='front_side' selected='selected'>Front side</option>
+                    <option value='back_side'>Back side</option>
+                    <option value='hole_or_gap'>Hole or Gap</option>
+                </select>
+            </dd>
+        </dl>
+
+        <div>
+            <input type='button' id='sendBtnAscii' value='Print' style='width:98%; height:40px' onclick='onSendAscii()' />
+        </div>
+
+    </div>
+
+
+    </form>
+
+    <div class="to_top">
+        <a href="#global-header">Go to top</a>
+    </div>
+
+<footer id="global-footer" class="clearfix">
+    <a onclick='onReleaseAndBack({url:"http://www.star-m.jp/products/s_print/sdk_webprnt/manual/index.htm"})' target="_blank"><img src="images/footer-logo.png" width="123" alt="" id="footer-logo"></a>
+    <img src="images/footer-image.png"height="54" alt=""/>
+</footer>
+</body>
+</html>

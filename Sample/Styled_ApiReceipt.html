@@ -8,6 +8,7 @@
 // Copyright (C) 2012-2016 STAR MICRONICS CO., LTD. All Rights Reserved.
 //
 -->
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
@@ -22,6 +23,7 @@
 <script type='text/javascript'>
 <!--
 function sendMessage(request) {
+    showNowPrinting();    
     var url              = document.getElementById('url').value;
     var papertype        = document.getElementById('papertype').value;
     var blackmark_sensor = document.getElementById('blackmark_sensor').value;
@@ -29,6 +31,8 @@ function sendMessage(request) {
     var trader = new StarWebPrintTrader({url:url, papertype:papertype, blackmark_sensor:blackmark_sensor});
 
     trader.onReceive = function (response) {
+        hideNowPrinting();
+
         var msg = '- onReceive -\n\n';
 
         msg += 'TraderSuccess : [ ' + response.traderSuccess + ' ]\n';
@@ -58,6 +62,8 @@ function sendMessage(request) {
     }
 
     trader.onError = function (response) {
+        hideNowPrinting();
+
         var msg = '- onError -\n\n';
 
         msg += '\tStatus:' + response.status + '\n';
@@ -71,7 +77,6 @@ function sendMessage(request) {
 }
 
 function onSendAscii() {
-	nowPrinting();
     var builder = new StarWebPrintBuilder();
 
     var request = '';
@@ -263,16 +268,25 @@ function onSendAscii() {
 }
 
 function onSendKanji() {
-	nowPrinting();
+	showNowPrinting();
+
     var builder = new StarWebPrintBuilder();
 
     var request = '';
 
     request += builder.createInitializationElement();
 
+    var encoding = document.getElementById('encoding').value;
+            
+    // If you Send to printer that is not supported UTF8, DO NOT set codepage='utf8'.
+    // UTF8に対応していないプリンタへ、漢字を送信する場合は、
+    // codepage='utf8'を指定しないこと。
+    // 正しく印刷できない場合がある。
+    request += builder.createTextElement({codepage:encoding});
+
     switch (document.getElementById('paperWidth').value) {
         case 'inch2' :
-            request += builder.createTextElement({characterspace:0, codepage:'utf8', international:'japan'});
+            request += builder.createTextElement({characterspace:0, international:'japan'});
 
             request += builder.createAlignmentElement({position:'right'});
             request += builder.createLogoElement({number:1});
@@ -315,7 +329,7 @@ function onSendKanji() {
             request += builder.createTextElement({characterspace:0});
             break;
         case 'inch3DotImpact' :
-            request += builder.createTextElement({characterspace:2, codepage:'utf8', international:'japan'});
+            request += builder.createTextElement({characterspace:2, international:'japan'});
 
             request += builder.createAlignmentElement({position:'right'});
             request += builder.createLogoElement({number:1});
@@ -360,7 +374,7 @@ function onSendKanji() {
             request += builder.createTextElement({characterspace:0});
             break;
         default :
-            request += builder.createTextElement({characterspace:0, codepage:'utf8', international:'japan'});
+            request += builder.createTextElement({characterspace:0, international:'japan'});
 
             request += builder.createAlignmentElement({position:'right'});
             request += builder.createLogoElement({number:1});
@@ -405,7 +419,7 @@ function onSendKanji() {
             request += builder.createTextElement({characterspace:0});
             break;
         case 'inch4' :
-            request += builder.createTextElement({characterspace:1, codepage:'utf8', international:'japan'});
+            request += builder.createTextElement({characterspace:1, international:'japan'});
 
             request += builder.createAlignmentElement({position:'right'});
             request += builder.createLogoElement({number:1});
@@ -460,20 +474,19 @@ function nowLoading(){
 	document.getElementById('overlay').style.display="none";
 	document.getElementById('nowLoadingWrapper').style.display="none";
 }
-function nowPrinting(){
-	document.getElementById('overlay').style.display="block";
-	document.getElementById('nowPrintingWrapper').style.display="table";
-	timer = setTimeout(function (){
-		document.getElementById('overlay').style.opacity= 0.0;
-		document.getElementById('overlay').style.transition= "all 0.3s";
-		intimer = setTimeout(function (){
-			document.getElementById('overlay').style.display="none";
-		document.getElementById('overlay').style.opacity= 1;
-	        clearTimeout(intimer);
-		}, 300);
-		document.getElementById('nowPrintingWrapper').style.display="none";
-        clearTimeout(timer);
-	}, 7000);
+function showNowPrinting(){
+    document.getElementById('overlay').style.display="block";
+    document.getElementById('nowPrintingWrapper').style.display="table";
+}
+function hideNowPrinting(){
+    document.getElementById('overlay').style.opacity= 0.0;
+    document.getElementById('overlay').style.transition= "all 0.3s";
+    intimer = setTimeout(function (){
+        document.getElementById('overlay').style.display="none";
+    document.getElementById('overlay').style.opacity= 1;
+        clearTimeout(intimer);
+    }, 300);
+    document.getElementById('nowPrintingWrapper').style.display="none";
 }
 window.onload = function() {
 	nowLoading();
@@ -522,6 +535,15 @@ window.onload = function() {
 						</select>
 					</dd>
 				</dl>
+                <dl>
+                    <dt>Encoding</dt>
+                    <dd>:
+                        <select id='encoding'>
+                            <option value='shift_jis' selected='selected'>Shift-JIS</option>
+                            <option value='utf8'>UTF-8</option>
+                        </select>
+                    </dd>
+                </dl>
             <hr>
             <footer>
                 <dl>

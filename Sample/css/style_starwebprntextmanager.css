@@ -1,0 +1,171 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+body {
+	line-height:1.6;
+}
+.container {
+	margin:0 auto;
+	padding: 0 15px 5px 15px;
+}
+#canvasFrame {
+}
+#canvasPaper {
+    border:3px solid #a0a0a0;
+	max-width: 95%;
+    height: auto;
+
+}
+#mainBlock {
+     width: 100%;
+}
+#clearBtnBlock {
+	display:block;
+}
+#drawBtn {
+	width:100%;
+	height:40px;
+	margin:5px 0 0 0;
+}
+#clearBtn {
+	width:100%;
+	height:40px;
+	margin:5px 0 0 0;
+}
+#url {
+	margin-bottom:10px;
+}
+#connectButton, #disconnectButton {
+	width:60px;
+}
+
+#sendBtn{
+	width:100%;
+	height:60px;
+	margin:5px 0 0 0;
+	background: -webkit-gradient(linear, left top, left bottom, from(#aebfdd), to(#9ba9cd));
+	-webkit-border-radius: 10px;
+	font-size:100%;
+}
+
+footer {
+     clear: both;
+}
+hr {
+	clear: both;
+	display:none;
+}
+#mainBlock dl{
+	position:relative;
+	margin:0 0 10px 0;
+}
+
+dl{
+	clear: both;
+	width: 100%;
+}
+dt{
+	width: 110px;
+	float: left;
+	margin:0 0 10px 0;
+/*
+    width: 70%;
+    margin-right: -300px;
+	font-weight:bold;
+*/
+    font-weight: bold;
+}
+dd{
+    width: 65%;
+	float: left;
+	margin:0 0 10px 0;
+}
+.note{
+	line-height:1.4;
+	font-size:10px;
+}
+
+.appendBtnBlock{
+	position:absolute;
+	right:0;
+	bottom:0;
+    width: 30%;
+	text-align:right;
+}
+.appendBtn{
+	width:100%;
+	height:40px;
+	margin:5px 0 0 0;
+	font-size:100%;
+}
+
+@media (max-width: 640px) {
+	#canvasFrame {
+		padding:0 5px 0 0;
+	}
+	#canvasPaper {
+		max-width:100%;
+	}
+	.wrapper, #canvasBlock, #optionBlock {
+          float: none;
+          margin: 0;
+          width: auto;
+	}
+	.appendBtnBlock{
+		position:relative;
+		right:0;
+		bottom:0;
+		width:100%;
+		text-align:left;
+	}
+	.appendBtn{
+		width:100%;
+		height:40px;
+		margin:5px 0 0 0;
+		font-size:100%;
+	}
+}
+
+/* add */
+.to_top {
+	width:90%;
+	max-width: 800px;
+	margin: 40px auto 10px;
+	text-align: right;
+	font-style: italic;
+	font-size: 80%;
+	color: #666666;
+}
+#canvasPaper {
+	background-color: #fff;
+}
+#optionBlock dt{
+	width:100px;
+}
+input{
+	padding:2px;
+}
+
+#combinationBlock dt{
+	font-weight:normal;
+	float:left;
+	width:130px;
+	margin-bottom:5px;
+}
+#combinationBlock dd{
+	padding-left:130px;
+	margin-bottom:5px;
+}
+hr {
+	display:block;
+	height:1px;
+	border:0;
+	border-top:1px solid #cccccc;
+	margin:1em 0;
+	padding:0;
+}
+input[type=text]{
+	font-size:100%;
+	width:100%;
+}

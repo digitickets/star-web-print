@@ -9,6 +9,7 @@
   "main": [
     "Sample/js/StarBarcodeEncoder.js",
     "Sample/js/StarWebPrintBuilder.js",
+    "Sample/js/StarWebPrintExtManager.js",
     "Sample/js/StarWebPrintTrader.js"
   ],
   "keywords": [

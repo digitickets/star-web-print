@@ -222,12 +222,15 @@ function onSendMessageApi() {
 }
 
 function sendMessageApi(request) {
-	nowPrinting();
+	showNowPrinting();
+
     var url = document.getElementById('url').value;
 
     var trader = new StarWebPrintTrader({url:url});
 
     trader.onReceive = function (response) {
+        hideNowPrinting();
+
         var msg = '- onReceive -\n\n';
 
         msg += 'TraderSuccess : [ ' + response.traderSuccess + ' ]\n';
@@ -257,6 +260,8 @@ function sendMessageApi(request) {
     }
 
     trader.onError = function (response) {
+        hideNowPrinting();
+
         var msg = '- onError -\n\n';
 
         msg += '\tStatus:' + response.status + '\n';
@@ -397,7 +402,8 @@ function buildMessageCanvas(fontSize, lineSpace, receiptWidth, logoScale) {
 }
 
 function sendMessageCanvas(logoScale) {
-	nowPrinting();
+	showNowPrinting();
+
     var image = new Image();
 
     image.src = 'img/StarLogo1.jpg' + '?' + new Date().getTime();
@@ -415,6 +421,8 @@ function sendMessageCanvas(logoScale) {
             var trader = new StarWebPrintTrader({url:url});
 
             trader.onReceive = function (response) {
+                hideNowPrinting();
+
                 var msg = '- onReceive -\n\n';
 
                 msg += 'TraderSuccess : [ ' + response.traderSuccess + ' ]\n';
@@ -444,6 +452,8 @@ function sendMessageCanvas(logoScale) {
             }
 
             trader.onError = function (response) {
+                hideNowPrinting();
+                
                 var msg = '- onError -\n\n';
 
                 msg += '\tStatus:' + response.status + '\n';
@@ -467,12 +477,16 @@ function sendMessageCanvas(logoScale) {
                 trader.sendMessage({request:request});
             }
             catch (e) {
+                hideNowPrinting();
+                
                 alert(e.message);
             }
         }
     }
 
     image.onerror = function () {
+        hideNowPrinting();
+                
         alert('Image file was not able to be loaded.');
     }
 }
@@ -509,21 +523,21 @@ function nowLoading(){
 	document.getElementById('overlay').style.display="none";
 	document.getElementById('nowLoadingWrapper').style.display="none";
 }
-function nowPrinting(){
-	document.getElementById('overlay').style.display="block";
-	document.getElementById('nowPrintingWrapper').style.display="table";
-	timer = setTimeout(function (){
-		document.getElementById('overlay').style.opacity= 0.0;
-		document.getElementById('overlay').style.transition= "all 0.3s";
-		intimer = setTimeout(function (){
-			document.getElementById('overlay').style.display="none";
-		document.getElementById('overlay').style.opacity= 1;
-	        clearTimeout(intimer);
-		}, 300);
-		document.getElementById('nowPrintingWrapper').style.display="none";
-        clearTimeout(timer);
-	}, 7000);
+function showNowPrinting(){
+    document.getElementById('overlay').style.display="block";
+    document.getElementById('nowPrintingWrapper').style.display="table";
 }
+function hideNowPrinting(){
+    document.getElementById('overlay').style.opacity= 0.0;
+    document.getElementById('overlay').style.transition= "all 0.3s";
+    intimer = setTimeout(function (){
+        document.getElementById('overlay').style.display="none";
+    document.getElementById('overlay').style.opacity= 1;
+        clearTimeout(intimer);
+    }, 300);
+    document.getElementById('nowPrintingWrapper').style.display="none";
+}
+
 window.onload = function() {
 	nowLoading();
 	onResizeCanvas();

@@ -1,7 +1,7 @@
 //
 // StarWebPrintTrader API
 //
-// Version 0.4.6
+// Version 0.4.7
 //
 // Copyright (C) 2012-2016 STAR MICRONICS CO., LTD. All Rights Reserved.
 //
@@ -30,8 +30,8 @@ StarWebPrintTrader.prototype.sendMessage = function (a) {
     }
     b = "";
     b = void 0 != a.url ? a.url : this.url;
-    if (-1 != navigator.userAgent.indexOf("iPad;") || -1 != navigator.userAgent.indexOf("iPhone;") || -1 != navigator.userAgent.indexOf("Android"))if (0 == b.toLowerCase().indexOf("https://localhost") ||
-        0 == b.toLowerCase().indexOf("https://127.0.0.1"))b = "http://" + b.substring(8);
+    if (-1 != navigator.userAgent.indexOf("iPad;") || -1 != navigator.userAgent.indexOf("iPhone;") || -1 != navigator.userAgent.indexOf("iPod touch;") || -1 != navigator.userAgent.indexOf("Android"))if (0 ==
+        b.toLowerCase().indexOf("https://localhost") || 0 == b.toLowerCase().indexOf("https://127.0.0.1"))b = "http://" + b.substring(8);
     try {
         c.open("POST", b, !0)
     } catch (f) {
@@ -50,8 +50,7 @@ StarWebPrintTrader.prototype.sendMessage = function (a) {
                 var a = c.responseXML.getElementsByTagName("Response");
                 if (0 < a.length) {
                     if (d.onReceive) {
-                        var b =
-                            a[0].childNodes[0].nodeValue;
+                        var b = a[0].childNodes[0].nodeValue;
                         d.onReceive({
                             traderSuccess: b.slice(b.indexOf("<success>") + 9, b.indexOf("</success>")),
                             traderCode: b.slice(b.indexOf("<code>") + 6, b.indexOf("</code>")),
@@ -63,7 +62,10 @@ StarWebPrintTrader.prototype.sendMessage = function (a) {
                 } else if (d.onError)d.onError({status: c.status, responseText: c.responseText})
             } else if (d.onError)d.onError({status: c.status, responseText: c.responseText})
         } catch (e) {
-            if (d.onError)d.onError({status: 0, responseText: "Connection timeout occurred."})
+            if (d.onError)d.onError({
+                status: 0,
+                responseText: "Connection timeout occurred."
+            })
         }
     };
     try {

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"  lang="ja" xml:lang="ja">
+<html xmlns="http://www.w3.org/1999/xhtml"  lang="en" xml:lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Star WebPRNT User's Manual</title>
@@ -183,6 +183,50 @@
 	<li><a href="_StarWebPrintResponseElement.htm#ld-claim">&lt;claim&gt;</a></li>
 	<li><a href="_StarWebPrintResponseElement.htm#ld-claimpollingtimeout">&lt;claimpollingtimeout&gt;</a></li>
 	</ul>
+	<ul>
+	<li><a href="_StarWebPrintExtManager-js.htm">StarWebPrintExtManager.js</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#StarWebPrintExtManager">StarWebPrintExtManager</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#connect">connect</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#disconnect">disconnect</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onReceive">onReceive</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onError">onError</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onPrinterImpossible">onPrinterImpossible</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onPrinterOnline">onPrinterOnline</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onPrinterOffline">onPrinterOffline</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onPrinterPaperReady">onPrinterPaperReady</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onPrinterPaperNearEmpty">onPrinterPaperNearEmpty</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onPrinterPaperEmpty">onPrinterPaperEmpty</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onPrinterCoverOpen">onPrinterCoverOpen</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onPrinterCoverClose">onPrinterCoverClose</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onCashDrawerOpen">onCashDrawerOpen</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onCashDrawerClose">onCashDrawerClose</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onBarcodeReaderImpossible">onBarcodeReaderImpossible</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onBarcodeReaderConnect">onBarcodeReaderConnect</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onBarcodeReaderDisconnect">onBarcodeReaderDisconnect</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onBarcodeDataReceive">onBarcodeDataReceive</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onAccessoryConnectSuccess">onAccessoryConnectSuccess</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onAccessoryConnectFailure">onAccessoryConnectFailure</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onAccessoryDisconnect">onAccessoryDisconnect</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onStatusUpdate">onStatusUpdate</a></li>
+	</ul>
+	<ul>
+	<li><a href="_StarWebPRNTExtManagerRequestElement.htm">StarWebPRNTEXTManager Request Element</a></li>
+	<li><a href="_StarWebPRNTExtManagerRequestElement.htm#root">&lt;root&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerRequestElement.htm#extmanager">&lt;extmanager&gt;</a></li>
+	</ul>
+	<ul>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm">StarWebPRNTExtManager Response Element</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#root">&lt;root&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#success">&lt;success&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#code">&lt;code&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#claim">&lt;claim&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#claimid">&lt;claimid&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#eventcount">&lt;eventcount&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#event">&lt;event&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#action">&lt;action&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#data">&lt;data&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#number">&lt;number&gt;</a></li>
+	</ul>
         <ul>
         <li><a href="_appendixUTF8.htm">Appendix UTF-8</a></li>
         </ul>
@@ -204,21 +248,21 @@
                 <tr><td>Name</td><td>Description</td><td>Star<br />Thermal Printer<br />with WebPRNT</td><td>Star<br />Dot Printer<br />with WebPRNT</td><td>AsuraCPRNT</td></tr>
             </thead>
             <tbody>
-                <tr><td><a href="#root">&lt;root&gt;</a></td><td>Root Element</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
-                <tr><td><a href="#alignment">&lt;alignment&gt;</a></td><td>Alignment Element</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
-                <tr><td><a href="#barcode">&lt;barcode&gt;</a></td><td>Barcode Element</td><td>Yes</td><td>-</td><td>Yes</td></tr>
-                <tr><td><a href="#bitImage">&lt;bitImage&gt;</a></td><td>Bitimage Element</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
-                <tr><td><a href="#cutpaper">&lt;cutpaper&gt;</a></td><td>Cut paper Element</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
-                <tr><td><a href="#feed">&lt;feed&gt;</a></td><td>Feed Element</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
-                <tr><td><a href="#initialization">&lt;initialization&gt;</a></td><td>Initialization Element</td><td>Yes</td><td>Yes</td><td>*1</td></tr>
-                <tr><td><a href="#logo">&lt;logo&gt;</a></td><td>Logo Element</td><td>Yes</td><td>Yes</td><td>*2</td></tr>
-                <tr><td><a href="#pdf417">&lt;pdf417&gt;</a></td><td>PDF417Element</td><td>Yes</td><td>-</td><td>Yes</td></tr>
-                <tr><td><a href="#peripheral">&lt;peripheral&gt;</a></td><td>Peripheral Element</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
-                <tr><td><a href="#qrcode">&lt;qrcode&gt;</a></td><td>QR code Element</td><td>Yes</td><td>-</td><td>Yes</td></tr>
-                <tr><td><a href="#rawdata">&lt;rawdata&gt;</a></td><td>Raw data Element</td><td>Yes *3</td><td>Yes *3</td><td>Yes *3</td></tr>
-                <tr><td><a href="#ruledline">&lt;ruledline&gt;</a></td><td>Horizontal ruled line Element</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
-                <tr><td><a href="#sound">&lt;sound&gt;</a></td><td>Sound Element</td><td>Yes</td><td>Yes</td><td>-</td></tr>
-                <tr><td><a href="#text">&lt;text&gt;</a></td><td>Text Element</td><td>Yes *4</td><td>Yes *4 *5</td><td>Yes *4</td></tr>
+                <tr><td><a href="#root">&lt;root&gt;</a></td><td>Root Element</td><td>○</td><td>○</td><td>○</td></tr>
+                <tr><td><a href="#alignment">&lt;alignment&gt;</a></td><td>Alignment Element</td><td>○</td><td>○</td><td>○</td></tr>
+                <tr><td><a href="#barcode">&lt;barcode&gt;</a></td><td>Barcode Element</td><td>○</td><td>-</td><td>○</td></tr>
+                <tr><td><a href="#bitImage">&lt;bitImage&gt;</a></td><td>Bitimage Element</td><td>○</td><td>○</td><td>○</td></tr>
+                <tr><td><a href="#cutpaper">&lt;cutpaper&gt;</a></td><td>Cut paper Element</td><td>○</td><td>○</td><td>○</td></tr>
+                <tr><td><a href="#feed">&lt;feed&gt;</a></td><td>Feed Element</td><td>○</td><td>○</td><td>○</td></tr>
+                <tr><td><a href="#initialization">&lt;initialization&gt;</a></td><td>Initialization Element</td><td>○</td><td>○</td><td>*1</td></tr>
+                <tr><td><a href="#logo">&lt;logo&gt;</a></td><td>Logo Element</td><td>○</td><td>○</td><td>*2</td></tr>
+                <tr><td><a href="#pdf417">&lt;pdf417&gt;</a></td><td>PDF417Element</td><td>○</td><td>-</td><td>○</td></tr>
+                <tr><td><a href="#peripheral">&lt;peripheral&gt;</a></td><td>Peripheral Element</td><td>○</td><td>○</td><td>○</td></tr>
+                <tr><td><a href="#qrcode">&lt;qrcode&gt;</a></td><td>QR code Element</td><td>○</td><td>-</td><td>○</td></tr>
+                <tr><td><a href="#rawdata">&lt;rawdata&gt;</a></td><td>Raw data Element</td><td>○ *3</td><td>○ *3</td><td>○ *3</td></tr>
+                <tr><td><a href="#ruledline">&lt;ruledline&gt;</a></td><td>Horizontal ruled line Element</td><td>○</td><td>○</td><td>○</td></tr>
+                <tr><td><a href="#sound">&lt;sound&gt;</a></td><td>Sound Element</td><td>○</td><td>○</td><td>-</td></tr>
+                <tr><td><a href="#text">&lt;text&gt;</a></td><td>Text Element</td><td>○ *4</td><td>○ *4 *5</td><td>○ *4</td></tr>
                 <tr><td><a href="#barcodereader">&lt;barcodereader&gt;</a></td><td>Barcode reader Element</td><td>-</td><td>-</td><td>○ *6</td></tr>
                 <tr><td><a href="#magstripereader">&lt;magstripereader&gt;</a></td><td>Magstripe reader Element</td><td>-</td><td>-</td><td>○ *6</td></tr>
                 <tr><td><a href="#linedisplay">&lt;linedisplay&gt;</a></td><td>Line Display Element</td><td>-</td><td>-</td><td>○ *6 *7</td></tr>
@@ -235,9 +279,10 @@
             &nbsp;&nbsp;If want to send the command , please use the &lt;initialization&gt; (Initialization element).</p>
         <p class="note">
             *4 It is supported to the print of the UTF-8 character code. <br/>
-            &nbsp;&nbsp;(Only kanji(only Japanese / Chinese (Simplified Chinese / Traditional Chinese ) / Korean) is supported)<br/>
+            &nbsp;&nbsp;Please refer to <a href="_appendixUTF8.htm">Appendix UTF-8</a> for getting an situation of each model's support.<br />
             &nbsp;&nbsp;In the case of using AsuraCPRNT, please set language in an item of "StarWebPRNT" of the "configure" application.<br/>
-            &nbsp;&nbsp;Please refer to "Appendix UTF-8" for getting an situation of each model's support.
+            &nbsp;&nbsp;The codepage attributes “shift_jis”, “gb18030”, “gb2312”, “big5” and “korea” are supported only with Star WebPRNT Browser.<br />
+            &nbsp;&nbsp;In the case of using WebPRNT Browser, do not set “utf8” for Attribute of codepage with non UTF-8 supported models.
             </p>
         <p class="note">
             *5 In Dot Printer, handlings of the parameter are different partly. The differences are as follows.<br/>
@@ -440,7 +485,7 @@
             </thead>
             <tbody>
                 <tr><td>width</td><td>Specifies the image width (Unit of dot)</td><td>'0'</td></tr>
-                <tr><td>height</td><td>Specifies the image height (Unit of dot)</td><td>'0'</td></tr>
+                <tr><td>height</td><td>Specifies the image height (Unit of dot)<br>Max value: 2400</td><td>'0'</td></tr>
             </tbody>
         </table>
 
@@ -450,7 +495,7 @@
                 <tr><td>Description</td></tr>
             </thead>
             <tbody>
-                <tr><td>Specifies raster graphic image data<br />Note.Base64 encoding</td></tr>
+                <tr><td>Specifies raster graphic image data<br />Note: Base64 encoding</td></tr>
             </tbody>
         </table>
 
@@ -964,7 +1009,9 @@
                       <li>'cp3012' … CodePage3012</li><li>'cp3021' … CodePage3021</li>
                       <li>'cp3041' … CodePage3041</li><li>'cp3840' … CodePage3840</li>
                       <li>'cp3841' … CodePage3841</li><li>'cp3843' - 'cp3848' … CodePage3843 - 3848</li>
-                      <li>'blank' … User Setting (Blank CodePage)</li></ul></td><td>Unchanged</td></tr>
+                      <li>'blank' … User Setting (Blank CodePage)</li><li>'shift_jis' … Shift_JIS</li>
+                      <li>'gb18030' … GB18030</li><li>'gb2312' … GB2312</li>
+                      <li>'big5' … Big5</li><li>'korea' … korea</li></ul></td><td>Unchanged</td></tr>
                 <tr><td>international</td><td>Specifies international characters<br />
                       <ul><li>'usa' … USA</li><li>'france' … France</li><li>'germany' … Germany</li>
                       <li>'uk' … UK</li><li>'denmark' … Denmark</li><li>'sweden' … Sweden</li>

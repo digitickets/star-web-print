@@ -474,16 +474,16 @@ h4 {
 /* ---------------------------------  */
 
 pre {
-	width: 80%; 
-	margin:0 0 20px 10px;
+	width: 100%; 
+	margin-bottom:20px;
 	border:1px solid #999;
 	border-radius:5px;
-	padding:10px 10px 20px 10px;
+	padding:13px;
 	font-family: Courier,"Courier New",monospace;
-	font-size:80%;
-	line-height: 1.2em;
-	background-color: #F5F5F5;
-	color: #444;
+	font-size:88%;
+	line-height: 1.4em;
+	background-color: #FCFCFC;
+	color: #000;
 	white-space: pre-wrap;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
@@ -597,7 +597,6 @@ infoBox noteBox    Style
     font-weight: bold;
     vertical-align: top;
     background:#F0F8FF;
-    background-color: #b9d6e8;
     box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8) inset;
 }
 
@@ -739,10 +738,13 @@ infoBox noteBox    Style
 	vertical-align:middle;
 }
 
+
 .List2 tr :first-child {
 	padding: 3px 10px;
 	text-align:left;
 }
+
+
 
 .List1 thead,
 .List2 thead  {
@@ -750,13 +752,14 @@ infoBox noteBox    Style
 	text-align:center;
 	vertical-align:middle;
     background:#F0F8FF;
-    background-color: #b9d6e8;
     box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8) inset;
 }
 
 .List2 thead :first-child {
 	text-align:center;
 }
+
+
 
 /*----------------------------------------------------------------------
 /*        linkList   #How to use のリンクリスト (Sample Program)

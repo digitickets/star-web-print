@@ -8,6 +8,7 @@
 // Copyright (C) 2012-2015 STAR MICRONICS CO., LTD. All Rights Reserved.
 //
 -->
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
@@ -138,7 +139,8 @@ function onClearCanvas() {
 }
 
 function onSendMessage() {
-	nowPrinting();
+	showNowPrinting();
+
     var url              = document.getElementById('url').value;
     var papertype        = document.getElementById('papertype').value;
     var blackmark_sensor = document.getElementById('blackmark_sensor').value;
@@ -146,6 +148,8 @@ function onSendMessage() {
     var trader = new StarWebPrintTrader({url:url, papertype:papertype, blackmark_sensor:blackmark_sensor});
 
     trader.onReceive = function (response) {
+        hideNowPrinting();
+
         var msg = '- onReceive -\n\n';
 
         msg += 'TraderSuccess : [ ' + response.traderSuccess + ' ]\n';
@@ -175,6 +179,8 @@ function onSendMessage() {
     }
 
     trader.onError = function (response) {
+        hideNowPrinting();
+
         var msg = '- onError -\n\n';
 
         msg += '\tStatus:' + response.status + '\n';
@@ -204,6 +210,8 @@ function onSendMessage() {
         }
     }
     catch (e) {
+        hideNowPrinting();
+        
         alert(e.message);
     }
 }
@@ -212,20 +220,19 @@ function nowLoading(){
 	document.getElementById('overlay').style.display="none";
 	document.getElementById('nowLoadingWrapper').style.display="none";
 }
-function nowPrinting(){
-	document.getElementById('overlay').style.display="block";
-	document.getElementById('nowPrintingWrapper').style.display="table";
-	timer = setTimeout(function (){
-		document.getElementById('overlay').style.opacity= 0.0;
-		document.getElementById('overlay').style.transition= "all 0.3s";
-		intimer = setTimeout(function (){
-			document.getElementById('overlay').style.display="none";
-		document.getElementById('overlay').style.opacity= 1;
-	        clearTimeout(intimer);
-		}, 300);
-		document.getElementById('nowPrintingWrapper').style.display="none";
-        clearTimeout(timer);
-	}, 7000);
+function showNowPrinting(){
+    document.getElementById('overlay').style.display="block";
+    document.getElementById('nowPrintingWrapper').style.display="table";
+}
+function hideNowPrinting(){
+    document.getElementById('overlay').style.opacity= 0.0;
+    document.getElementById('overlay').style.transition= "all 0.3s";
+    intimer = setTimeout(function (){
+        document.getElementById('overlay').style.display="none";
+    document.getElementById('overlay').style.opacity= 1;
+        clearTimeout(intimer);
+    }, 300);
+    document.getElementById('nowPrintingWrapper').style.display="none";
 }
 window.onload = function() {
 	nowLoading();

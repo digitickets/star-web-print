@@ -1,10 +1,10 @@
 ************************************************************
-      Star WebPRNT SDK  -  Ver 1.2.1
+      Star WebPRNT SDK  -  Ver 1.3.1
          readme_jp.txt                  スター精密（株）
 ************************************************************
 
  1. 概要
- 2. Ver 1.2.1 についての変更点
+ 2. Ver 1.3.1 についての変更点
  3. 内容
  4. 適用
  5. 制約事項
@@ -27,23 +27,20 @@
 
 
 ================================
- 2. Ver 1.2.1 についての変更点
+ 2. Ver 1.3.1 についての変更点
 ================================
 
   [SDK]
-   - ブラックマーク用紙のデフォルト設定を修正
-     WebPRNT BrowserにてMSW設定を利用して
-     ブラックマーク用紙を使用できるように対応
+   - テキストエレメントの文字コード選択時の注釈を追加
 
   [User's Manual]
-   - ブラックマークに関するAPIのリファレンスを修正
-   - StarPRNTモードに関するリファレンスを追加
+   - テキストエレメントの文字コード選択時の注釈を追加
 
 ==========
  3. 内容
 ==========
 
-  StarWebPRNT_WebContents_V1.2.1
+  StarWebPRNT_WebContents_V1.3.1
   |
   | Readme_En.txt                       // リリースノート(英語)
   | Readme_Jp.txt                       // リリースノート(日本語)
@@ -69,13 +66,13 @@
        SM-T400I         (F/W Ver2.4以上)    (*1)
        SM-L200          (F/W Ver1.0以上)    (*1)
 
-       FVP10            (Ethernet利用時: F/W Ver1.5以上, Bluetooth利用時: F/W Ver2.0以上)　(*1)
-       TSP650II         (Ethernet利用時: F/W Ver1.2以上, Bluetooth利用時: F/W Ver1.0以上)　(*1)
-       TSP700II         (Ethernet利用時: F/W Ver4.1以上, Bluetooth利用時: F/W Ver4.0以上)　(*1)
-       TSP800II         (Ethernet利用時: F/W Ver1.6以上, Bluetooth利用時: F/W Ver2.0以上)　(*1)
+       FVP10            (Ethernet利用時: F/W Ver1.5以上, Bluetooth利用時: F/W Ver2.0以上)  (*1)
+       TSP650II         (Ethernet利用時: F/W Ver1.2以上, Bluetooth利用時: F/W Ver1.0以上)  (*1)
+       TSP700II         (Ethernet利用時: F/W Ver4.1以上, Bluetooth利用時: F/W Ver4.0以上)  (*1)
+       TSP800II         (Ethernet利用時: F/W Ver1.6以上, Bluetooth利用時: F/W Ver2.0以上)  (*1)
        mPOP             (F/W Ver1.0以上)    (*1)
 
-       SP700            (Ethernet利用時: F/W Ver3.0以上, Bluetooth利用時: F/W Ver4.0以上)　(*2)
+       SP700            (Ethernet利用時: F/W Ver3.0以上, Bluetooth利用時: F/W Ver4.0以上)  (*2)
 
        ASR10            (Linux OS Ver1.6以降)
 
@@ -84,7 +81,7 @@
       対応しているデバイスは注記の通りです。
 
         *1 iOSおよびAndroidデバイスにおいてサポートされています。
-　    　*2 iOSデバイスにおいてサポートされています。
+        *2 iOSデバイスにおいてサポートされています。
 
   ◇ 対応インターフェースカード
        Ethernet:  IFBD-HE07X/HE08X/BE07X    (Ver3.1.0以上)
@@ -108,6 +105,21 @@
 =============
  7. 更新履歴
 =============
+ Ver 1.3.1
+  2016/09/26 : [SDK]
+                - テキストエレメントの文字コード選択時の注釈を追加
+
+               [User's Manual]
+                 - テキストエレメントの文字コード選択時の注釈を追加
+
+ Ver 1.3.0
+  2016/09/01 : [SDK]
+                - BCR・ステータス監視機能追加
+                - テキストエレメントに文字コード対応を追加
+
+               [User's Manual]
+                - BCR・ステータス監視に関するリファレンスを追加
+                - 文字コードに関するリファレンスを追記
 
  Ver 1.2.1
   2016/02/08 : [SDK]

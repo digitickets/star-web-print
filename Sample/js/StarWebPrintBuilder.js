@@ -1,7 +1,7 @@
 //
 // StarWebPrintBuilder API
 //
-// Version 0.4.0
+// Version 0.5.0
 //
 // Copyright (C) 2012-2014 STAR MICRONICS CO., LTD. All Rights Reserved.
 //
@@ -112,7 +112,7 @@ StarWebPrintBuilder.prototype.createSoundElement = function (b) {
 StarWebPrintBuilder.prototype.createTextElement = function (b) {
     var a;
     if (void 0 != b)a = "<text" + this._analysisEnumAttribute("emphasis", b.emphasis, /^(false|true)$/), a += this._analysisEnumAttribute("invert", b.invert, /^(false|true)$/), a += this._analysisEnumAttribute("linespace", b.linespace, /^(24|32)$/), a += this._analysisEnumAttribute("font", b.font, /^(font_[ab])$/), a += this._analysisEnumAttribute("underline", b.underline, /^(false|true)$/), a += this._analysisValueAttribute("characterspace", b.characterspace, 0, 7), a +=
-        this._analysisValueAttribute("width", b.width, 1, 6), a += this._analysisValueAttribute("height", b.height, 1, 6), a += this._analysisEnumAttribute("codepage", b.codepage, /^(cp(437|737|772|774|851|852|855|857|858|860|861|862|863|864|865|866|869|874|928|932|998|999|1001|1250|1251|1252|2001|3001|3002|3011|3012|3021|3041|3840|3841|3843|3844|3845|3846|3847|3848)|utf8|blank)$/), a += this._analysisEnumAttribute("international", b.international, /^(usa|france|germany|uk|denmark|sweden|italy|spain|japan|norway|denmark2|spain2|latin_america|korea|ireland|legal)$/),
+        this._analysisValueAttribute("width", b.width, 1, 6), a += this._analysisValueAttribute("height", b.height, 1, 6), a += this._analysisEnumAttribute("codepage", b.codepage, /^(cp(437|737|772|774|851|852|855|857|858|860|861|862|863|864|865|866|869|874|928|932|998|999|1001|1250|1251|1252|2001|3001|3002|3011|3012|3021|3041|3840|3841|3843|3844|3845|3846|3847|3848)|utf8|blank|utf8|shift_jis|gb18030|gb2312|big5|korea)$/), a += this._analysisEnumAttribute("international", b.international, /^(usa|france|germany|uk|denmark|sweden|italy|spain|japan|norway|denmark2|spain2|latin_america|korea|ireland|legal)$/),
         void 0 != b.data ? (a += ">", a = !0 == b.binary ? a + this._encodeEscapeSequenceBinary(b.data) : a + this._encodeEscapeSequence(b.data), a += "</text>") : a += "/>"; else throw Error("Argument is undefined.");
     return a
 };

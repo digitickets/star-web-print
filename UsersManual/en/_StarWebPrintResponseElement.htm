@@ -7,7 +7,9 @@
     <link href="webPRNT_layout.css" rel="stylesheet" type="text/css" />
     <link href="webPRNT_print_layout.css" rel="stylesheet" type="text/css" media="print" />
     
-   <!--[if IE ]>
+<!-- ie10にて条件付きコメント([if IE]の箇所）がサポートされなくなったことに対する対処　　-->
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
+    <!--[if IE ]>
         <link rel="stylesheet" type="text/css" href="webPRNT_layout_ie.css"></script>
         <link rel="stylesheet" type="text/css" href="webPRNT_print_layout_ie.css" media="print"></script>
     <![endif]-->
@@ -181,6 +183,50 @@
 	<li><a href="_StarWebPrintResponseElement.htm#ld-claim">&lt;claim&gt;</a></li>
 	<li><a href="_StarWebPrintResponseElement.htm#ld-claimpollingtimeout">&lt;claimpollingtimeout&gt;</a></li>
 	</ul>
+	<ul>
+	<li><a href="_StarWebPrintExtManager-js.htm">StarWebPrintExtManager.js</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#StarWebPrintExtManager">StarWebPrintExtManager</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#connect">connect</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#disconnect">disconnect</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onReceive">onReceive</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onError">onError</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onPrinterImpossible">onPrinterImpossible</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onPrinterOnline">onPrinterOnline</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onPrinterOffline">onPrinterOffline</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onPrinterPaperReady">onPrinterPaperReady</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onPrinterPaperNearEmpty">onPrinterPaperNearEmpty</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onPrinterPaperEmpty">onPrinterPaperEmpty</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onPrinterCoverOpen">onPrinterCoverOpen</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onPrinterCoverClose">onPrinterCoverClose</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onCashDrawerOpen">onCashDrawerOpen</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onCashDrawerClose">onCashDrawerClose</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onBarcodeReaderImpossible">onBarcodeReaderImpossible</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onBarcodeReaderConnect">onBarcodeReaderConnect</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onBarcodeReaderDisconnect">onBarcodeReaderDisconnect</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onBarcodeDataReceive">onBarcodeDataReceive</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onAccessoryConnectSuccess">onAccessoryConnectSuccess</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onAccessoryConnectFailure">onAccessoryConnectFailure</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onAccessoryDisconnect">onAccessoryDisconnect</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onStatusUpdate">onStatusUpdate</a></li>
+	</ul>
+	<ul>
+	<li><a href="_StarWebPRNTExtManagerRequestElement.htm">StarWebPRNTEXTManager Request Element</a></li>
+	<li><a href="_StarWebPRNTExtManagerRequestElement.htm#root">&lt;root&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerRequestElement.htm#extmanager">&lt;extmanager&gt;</a></li>
+	</ul>
+	<ul>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm">StarWebPRNTExtManager Response Element</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#root">&lt;root&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#success">&lt;success&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#code">&lt;code&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#claim">&lt;claim&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#claimid">&lt;claimid&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#eventcount">&lt;eventcount&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#event">&lt;event&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#action">&lt;action&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#data">&lt;data&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#number">&lt;number&gt;</a></li>
+	</ul>
         <ul>
         <li><a href="_appendixUTF8.htm">Appendix UTF-8</a></li>
         </ul>
@@ -244,41 +290,41 @@
         <h5>POS Printer and AsuraCPRNT</h5>
         <table class="List2">
             <thead>
-                <tr><td>Name</td><td>FVP10</td><td>TSP650II</td><td>TSP700II</td><td>TSP800II</td><td>AsuraCPRNT</td></tr>
+                <tr><td>Name</td><td>FVP10</td><td>TSP650II</td><td>TSP700II</td><td>TSP800II</td><td>mPOP</td><td>AsuraCPRNT</td></tr>
             </thead>
             <tbody>
-            <tr><td><a href="#root-response">&lt;root&gt;</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#success">&lt;success&gt;</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#code">&lt;code&gt;</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#status">&lt;status&gt;</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>&nbsp;&nbsp;&nbsp;&nbsp;○ *1</td></tr>
-            <tr><td><a href="#bcr">&lt;bcr&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>&nbsp;&nbsp;&nbsp;&nbsp;○ *1</td></tr>
-            <tr><td><a href="#bcr-success">&lt;success&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>&nbsp;&nbsp;&nbsp;&nbsp;○ *1</td></tr>
-            <tr><td><a href="#bcr-code">&lt;code&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>&nbsp;&nbsp;&nbsp;&nbsp;○ *1</td></tr>
-            <tr><td><a href="#bcr-claim">&lt;claim&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>&nbsp;&nbsp;&nbsp;&nbsp;○ *1</td></tr>
-            <tr><td><a href="#bcr-mode">&lt;mode&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>&nbsp;&nbsp;&nbsp;&nbsp;○ *1</td></tr>
-            <tr><td><a href="#bcr-duplicatescandelay">&lt;duplicatescandelay&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>&nbsp;&nbsp;&nbsp;&nbsp;○ *1</td></tr>
-            <tr><td><a href="#bcr-scanoncetimeout">&lt;scanoncetimeout&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>&nbsp;&nbsp;&nbsp;&nbsp;○ *1</td></tr>
-            <tr><td><a href="#bcr-claimpollingtimeout">&lt;claimpollingtimeout&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>&nbsp;&nbsp;&nbsp;&nbsp;○ *1</td></tr>
-            <tr><td><a href="#bcr-symbol">&lt;symbol&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>&nbsp;&nbsp;&nbsp;&nbsp;○ *1</td></tr>
-            <tr><td><a href="#bcr-symbolenable">&lt;symbolenable&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>&nbsp;&nbsp;&nbsp;&nbsp;○ *1</td></tr>
-            <tr><td><a href="#bcr-data">&lt;data&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>&nbsp;&nbsp;&nbsp;&nbsp;○ *1</td></tr>
-            <tr><td><a href="#bcr-datasymbol">&lt;datasymbol&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>&nbsp;&nbsp;&nbsp;&nbsp;○ *1</td></tr>
-            <tr><td><a href="#bcr-datacount">&lt;datacount&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>&nbsp;&nbsp;&nbsp;&nbsp;○ *1</td></tr>
-            <tr><td><a href="#bcr-bcrdevicename">&lt;bcrdevicename&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>&nbsp;&nbsp;&nbsp;&nbsp;○ *1</td></tr>
-            <tr><td><a href="#bcr-modecapability">&lt;modecapability&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>&nbsp;&nbsp;&nbsp;&nbsp;○ *1</td></tr>
-            <tr><td><a href="#bcr-symbolcapability">&lt;symbolcapability&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>&nbsp;&nbsp;&nbsp;&nbsp;○ *1</td></tr>
-            <tr><td><a href="#msr">&lt;msr&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>&nbsp;&nbsp;&nbsp;&nbsp;○ *1</td></tr>
-            <tr><td><a href="#msr-success">&lt;success&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>&nbsp;&nbsp;&nbsp;&nbsp;○ *1</td></tr>
-            <tr><td><a href="#msr-code">&lt;code&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>&nbsp;&nbsp;&nbsp;&nbsp;○ *1</td></tr>
-            <tr><td><a href="#msr-claim">&lt;claim&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>&nbsp;&nbsp;&nbsp;&nbsp;○ *1</td></tr>
-            <tr><td><a href="#msr-claimpollingtimeout">&lt;claimpollingtimeout&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>&nbsp;&nbsp;&nbsp;&nbsp;○ *1</td></tr>
-            <tr><td><a href="#msr-data">&lt;data&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>&nbsp;&nbsp;&nbsp;&nbsp;○ *1</td></tr>
-            <tr><td><a href="#msr-datacount">&lt;datacount&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>&nbsp;&nbsp;&nbsp;&nbsp;○ *1</td></tr>
-            <tr><td><a href="#ld">&lt;ld&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;○ *1 *2</td></tr>
-            <tr><td><a href="#ld-success">&lt;success&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;○ *1 *2</td></tr>
-            <tr><td><a href="#ld-code">&lt;code&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;○ *1 *2</td></tr>
-            <tr><td><a href="#ld-claim">&lt;claim&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;○ *1 *2</td></tr>
-            <tr><td><a href="#ld-claimpollingtimeout">&lt;claimpollingtimeout&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;○ *1 *2</td></tr>
+            <tr><td><a href="#root-response">&lt;root&gt;</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#success">&lt;success&gt;</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#code">&lt;code&gt;</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#status">&lt;status&gt;</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○ *1</td></tr>
+            <tr><td><a href="#bcr">&lt;bcr&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>○ *1</td></tr>
+            <tr><td><a href="#bcr-success">&lt;success&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>○ *1</td></tr>
+            <tr><td><a href="#bcr-code">&lt;code&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>○ *1</td></tr>
+            <tr><td><a href="#bcr-claim">&lt;claim&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>○ *1</td></tr>
+            <tr><td><a href="#bcr-mode">&lt;mode&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>○ *1</td></tr>
+            <tr><td><a href="#bcr-duplicatescandelay">&lt;duplicatescandelay&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>○ *1</td></tr>
+            <tr><td><a href="#bcr-scanoncetimeout">&lt;scanoncetimeout&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>○ *1</td></tr>
+            <tr><td><a href="#bcr-claimpollingtimeout">&lt;claimpollingtimeout&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>○ *1</td></tr>
+            <tr><td><a href="#bcr-symbol">&lt;symbol&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>○ *1</td></tr>
+            <tr><td><a href="#bcr-symbolenable">&lt;symbolenable&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>○ *1</td></tr>
+            <tr><td><a href="#bcr-data">&lt;data&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>○ *1</td></tr>
+            <tr><td><a href="#bcr-datasymbol">&lt;datasymbol&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>○ *1</td></tr>
+            <tr><td><a href="#bcr-datacount">&lt;datacount&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>○ *1</td></tr>
+            <tr><td><a href="#bcr-bcrdevicename">&lt;bcrdevicename&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>○ *1</td></tr>
+            <tr><td><a href="#bcr-modecapability">&lt;modecapability&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>○ *1</td></tr>
+            <tr><td><a href="#bcr-symbolcapability">&lt;symbolcapability&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>○ *1</td></tr>
+            <tr><td><a href="#msr">&lt;msr&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>○ *1</td></tr>
+            <tr><td><a href="#msr-success">&lt;success&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>○ *1</td></tr>
+            <tr><td><a href="#msr-code">&lt;code&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>○ *1</td></tr>
+            <tr><td><a href="#msr-claim">&lt;claim&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>○ *1</td></tr>
+            <tr><td><a href="#msr-claimpollingtimeout">&lt;claimpollingtimeout&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>○ *1</td></tr>
+            <tr><td><a href="#msr-data">&lt;data&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>○ *1</td></tr>
+            <tr><td><a href="#msr-datacount">&lt;datacount&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>○ *1</td></tr>
+            <tr><td><a href="#ld">&lt;ld&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>○ *1 *2</td></tr>
+            <tr><td><a href="#ld-success">&lt;success&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>○ *1 *2</td></tr>
+            <tr><td><a href="#ld-code">&lt;code&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>○ *1 *2</td></tr>
+            <tr><td><a href="#ld-claim">&lt;claim&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>○ *1 *2</td></tr>
+            <tr><td><a href="#ld-claimpollingtimeout">&lt;claimpollingtimeout&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>○ *1 *2</td></tr>
         
             </tbody>
         </table>
@@ -290,46 +336,92 @@
         </p>
 
 
-        <h5>Mobile Printer</h5>
+        <h5>Mobile Printer (ESC/POS)</h5>
         <table class="List2">
             <thead>
-                <tr><td>Name</td><td>SM-S220i<br />(Excluding Jp model)</td><td>SM-T300i</td><td>SM-T400i</td></tr>
+                <tr><td>Name</td><td>SM-S220i<br />(Excluding Jp model)</td><td>SM-S230i</td><td>SM-T300i</td><td>SM-T400i</td></tr>
             </thead>
             <tbody>
-            <tr><td><a href="#root-response">&lt;root&gt;</a></td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#success">&lt;success&gt;</a></td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#code">&lt;code&gt;</a></td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#status">&lt;status&gt;</a></td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#bcr">&lt;bcr&gt;</a></td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#bcr-success">&lt;success&gt;</a></td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#bcr-code">&lt;code&gt;</a></td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#bcr-claim">&lt;claim&gt;</a></td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#bcr-mode">&lt;mode&gt;</a></td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#bcr-duplicatescandelay">&lt;duplicatescandelay&gt;</a></td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#bcr-scanoncetimeout">&lt;scanoncetimeout&gt;</a></td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#bcr-claimpollingtimeout">&lt;claimpollingtimeout&gt;</a></td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#bcr-symbol">&lt;symbol&gt;</a></td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#bcr-symbolenable">&lt;symbolenable&gt;</a></td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#bcr-data">&lt;data&gt;</a></td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#bcr-datasymbol">&lt;datasymbol&gt;</a></td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#bcr-datacount">&lt;datacount&gt;</a></td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#bcr-bcrdevicename">&lt;bcrdevicename&gt;</a></td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#bcr-modecapability">&lt;modecapability&gt;</a></td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#bcr-symbolcapability">&lt;symbolcapability&gt;</a></td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#msr">&lt;msr&gt;</a></td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#msr-success">&lt;success&gt;</a></td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#msr-code">&lt;code&gt;</a></td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#msr-claim">&lt;claim&gt;</a></td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#msr-claimpollingtimeout">&lt;claimpollingtimeout&gt;</a></td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#msr-data">&lt;data&gt;</a></td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#msr-datacount">&lt;datacount&gt;</a></td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#ld">&lt;ld&gt;</a></td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#ld-success">&lt;success&gt;</a></td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#ld-code">&lt;code&gt;</a></td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#ld-claim">&lt;claim&gt;</a></td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#ld-claimpollingtimeout">&lt;claimpollingtimeout&gt;</a></td><td>-</td><td>-</td><td>-</td></tr>        
+            <tr><td><a href="#root-response">&lt;root&gt;</a></td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#success">&lt;success&gt;</a></td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#code">&lt;code&gt;</a></td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#status">&lt;status&gt;</a></td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#bcr">&lt;bcr&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#bcr-success">&lt;success&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#bcr-code">&lt;code&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#bcr-claim">&lt;claim&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#bcr-mode">&lt;mode&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#bcr-duplicatescandelay">&lt;duplicatescandelay&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#bcr-scanoncetimeout">&lt;scanoncetimeout&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#bcr-claimpollingtimeout">&lt;claimpollingtimeout&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#bcr-symbol">&lt;symbol&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#bcr-symbolenable">&lt;symbolenable&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#bcr-data">&lt;data&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#bcr-datasymbol">&lt;datasymbol&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#bcr-datacount">&lt;datacount&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#bcr-bcrdevicename">&lt;bcrdevicename&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#bcr-modecapability">&lt;modecapability&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#bcr-symbolcapability">&lt;symbolcapability&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#msr">&lt;msr&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#msr-success">&lt;success&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#msr-code">&lt;code&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#msr-claim">&lt;claim&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#msr-claimpollingtimeout">&lt;claimpollingtimeout&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#msr-data">&lt;data&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#msr-datacount">&lt;datacount&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#ld">&lt;ld&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#ld-success">&lt;success&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#ld-code">&lt;code&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#ld-claim">&lt;claim&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#ld-claimpollingtimeout">&lt;claimpollingtimeout&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>        
             </tbody>
         </table>
+        <br>
+        
+        <h5>Mobile Printer (StarPRNT)</h5>
+        <table class="List2">
+            <thead>
+                <tr><td>Name</td><td>SM-S220i<br />(Excluding Jp model)</td><td>SM-S230i</td><td>SM-T300i</td><td>SM-T400i</td><td>SM-L200</td></tr>
+            </thead>
+            <tbody>
+            <tr><td><a href="#root-response">&lt;root&gt;</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#success">&lt;success&gt;</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#code">&lt;code&gt;</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#status">&lt;status&gt;</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#bcr">&lt;bcr&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#bcr-success">&lt;success&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#bcr-code">&lt;code&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#bcr-claim">&lt;claim&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#bcr-mode">&lt;mode&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#bcr-duplicatescandelay">&lt;duplicatescandelay&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#bcr-scanoncetimeout">&lt;scanoncetimeout&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#bcr-claimpollingtimeout">&lt;claimpollingtimeout&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#bcr-symbol">&lt;symbol&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#bcr-symbolenable">&lt;symbolenable&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#bcr-data">&lt;data&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#bcr-datasymbol">&lt;datasymbol&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#bcr-datacount">&lt;datacount&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#bcr-bcrdevicename">&lt;bcrdevicename&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#bcr-modecapability">&lt;modecapability&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#bcr-symbolcapability">&lt;symbolcapability&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#msr">&lt;msr&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#msr-success">&lt;success&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#msr-code">&lt;code&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#msr-claim">&lt;claim&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#msr-claimpollingtimeout">&lt;claimpollingtimeout&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#msr-data">&lt;data&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#msr-datacount">&lt;datacount&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#ld">&lt;ld&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#ld-success">&lt;success&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#ld-code">&lt;code&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#ld-claim">&lt;claim&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#ld-claimpollingtimeout">&lt;claimpollingtimeout&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>        
+            </tbody>
+        </table>
+
+
+
+
     </div>
     </article>
 
