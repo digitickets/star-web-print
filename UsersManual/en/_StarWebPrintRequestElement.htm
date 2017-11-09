@@ -2,34 +2,38 @@
 <html xmlns="http://www.w3.org/1999/xhtml"  lang="en" xml:lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Expires" content="86400">
     <title>Star WebPRNT User's Manual</title>
-    <link href="html5reset-1.6.1.css" rel="stylesheet" type="text/css" />
-    <link href="webPRNT_layout.css" rel="stylesheet" type="text/css" />
-    <link href="webPRNT_print_layout.css" rel="stylesheet" type="text/css" media="print" />
-    
+    <link href="../css_en/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css_en/font-awesome.min.css">
+    <link href="../css_en/html5reset-1.6.1.css" rel="stylesheet" type="text/css" />
+    <link href="../css_en/webPRNT_layout.css" rel="stylesheet" type="text/css" />
+    <link href="../css_en/webPRNT_print_layout.css" rel="stylesheet" type="text/css" media="print" />
+
 <!-- ie10にて条件付きコメント([if IE]の箇所）がサポートされなくなったことに対する対処　　-->
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
-    <!--[if IE ]>
-        <link rel="stylesheet" type="text/css" href="webPRNT_layout_ie.css"></script>
-        <link rel="stylesheet" type="text/css" href="webPRNT_print_layout_ie.css" media="print"></script>
+   <!--[if IE ]>
+        <link rel="stylesheet" type="text/css" href="../css_en/webPRNT_layout_ie.css"></script>
+        <link rel="stylesheet" type="text/css" href="../css_en/webPRNT_print_layout_ie.css" media="print"></script>
     <![endif]-->
-    
+
     <script src="jquery-1.10.2.min.js"></script>
     <script>
-    
+
     $(function tggleNavi() {
         $('#naviArrow').click(function(){
            $('#mainNavi').slideToggle('slow');
-           
+
        });
     });
 
     </script>
-    
+
 </head>
 
 
 <body>
+<div id="container">
 
 <div id="toTop">
     <a href="index.htm"><img id="webPRNTLogo" src="../illust/WebPRNT_Logo.png" /></a>
@@ -44,7 +48,7 @@
 
 <!-- wrapp : mainNavi + mainContents-->
 <div id="wrapp" class="clear">
-    
+
 
 <!-- mainNavi -->
 
@@ -228,6 +232,9 @@
 	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#number">&lt;number&gt;</a></li>
 	</ul>
         <ul>
+	<li><a href="_StarWebPrintRequestElement_scs.htm">StarWebPRNT Request Element -SCS-</a></li>
+        </ul>
+        <ul>
         <li><a href="_appendixUTF8.htm">Appendix UTF-8</a></li>
         </ul>
 
@@ -242,89 +249,79 @@
     <article>
     <div id="StarWebPrintRequestElement" class="summary">
         <h2>StarWebPRNT Request Element</h2>
-        
-        <table class="coder">
+
+        <table class="List3">
             <thead>
-                <tr><td>Name</td><td>Description</td><td>Star<br />Thermal Printer<br />with WebPRNT</td><td>Star<br />Dot Printer<br />with WebPRNT</td><td>AsuraCPRNT</td></tr>
+                <tr><td>Name</td><td>Description</td><td>WebPRNT<br>Browser</td><td>Star<br>Thermal Printer<br>with WebPRNT</td><td>Star<br>Dot Printer<br>with WebPRNT</td><td>AsuraCPRNT</td></tr>
             </thead>
             <tbody>
-                <tr><td><a href="#root">&lt;root&gt;</a></td><td>Root Element</td><td>○</td><td>○</td><td>○</td></tr>
-                <tr><td><a href="#alignment">&lt;alignment&gt;</a></td><td>Alignment Element</td><td>○</td><td>○</td><td>○</td></tr>
-                <tr><td><a href="#barcode">&lt;barcode&gt;</a></td><td>Barcode Element</td><td>○</td><td>-</td><td>○</td></tr>
-                <tr><td><a href="#bitImage">&lt;bitImage&gt;</a></td><td>Bitimage Element</td><td>○</td><td>○</td><td>○</td></tr>
-                <tr><td><a href="#cutpaper">&lt;cutpaper&gt;</a></td><td>Cut paper Element</td><td>○</td><td>○</td><td>○</td></tr>
-                <tr><td><a href="#feed">&lt;feed&gt;</a></td><td>Feed Element</td><td>○</td><td>○</td><td>○</td></tr>
-                <tr><td><a href="#initialization">&lt;initialization&gt;</a></td><td>Initialization Element</td><td>○</td><td>○</td><td>*1</td></tr>
-                <tr><td><a href="#logo">&lt;logo&gt;</a></td><td>Logo Element</td><td>○</td><td>○</td><td>*2</td></tr>
-                <tr><td><a href="#pdf417">&lt;pdf417&gt;</a></td><td>PDF417Element</td><td>○</td><td>-</td><td>○</td></tr>
-                <tr><td><a href="#peripheral">&lt;peripheral&gt;</a></td><td>Peripheral Element</td><td>○</td><td>○</td><td>○</td></tr>
-                <tr><td><a href="#qrcode">&lt;qrcode&gt;</a></td><td>QR code Element</td><td>○</td><td>-</td><td>○</td></tr>
-                <tr><td><a href="#rawdata">&lt;rawdata&gt;</a></td><td>Raw data Element</td><td>○ *3</td><td>○ *3</td><td>○ *3</td></tr>
-                <tr><td><a href="#ruledline">&lt;ruledline&gt;</a></td><td>Horizontal ruled line Element</td><td>○</td><td>○</td><td>○</td></tr>
-                <tr><td><a href="#sound">&lt;sound&gt;</a></td><td>Sound Element</td><td>○</td><td>○</td><td>-</td></tr>
-                <tr><td><a href="#text">&lt;text&gt;</a></td><td>Text Element</td><td>○ *4</td><td>○ *4 *5</td><td>○ *4</td></tr>
-                <tr><td><a href="#barcodereader">&lt;barcodereader&gt;</a></td><td>Barcode reader Element</td><td>-</td><td>-</td><td>○ *6</td></tr>
-                <tr><td><a href="#magstripereader">&lt;magstripereader&gt;</a></td><td>Magstripe reader Element</td><td>-</td><td>-</td><td>○ *6</td></tr>
-                <tr><td><a href="#linedisplay">&lt;linedisplay&gt;</a></td><td>Line Display Element</td><td>-</td><td>-</td><td>○ *6 *7</td></tr>
+                <tr><td><a href="#root">&lt;root&gt;</a></td><td>Root Element</td><td>&#x02713;*1</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+                <tr><td><a href="#alignment">&lt;alignment&gt;</a></td><td>Alignment Element</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+                <tr><td><a href="#barcode">&lt;barcode&gt;</a></td><td>Barcode Element</td><td>&#x02713;</td><td>&#x02713;</td><td>-</td><td>&#x02713;</td></tr>
+                <tr><td><a href="#bitImage">&lt;bitImage&gt;</a></td><td>Bitimage Element</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+                <tr><td><a href="#cutpaper">&lt;cutpaper&gt;</a></td><td>Cut paper Element</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+                <tr><td><a href="#feed">&lt;feed&gt;</a></td><td>Feed Element</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+                <tr><td><a href="#initialization">&lt;initialization&gt;</a></td><td>Initialization Element</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>*2</td></tr>
+                <tr><td><a href="#logo">&lt;logo&gt;</a></td><td>Logo Element</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>*3</td></tr>
+                <tr><td><a href="#pdf417">&lt;pdf417&gt;</a></td><td>PDF417Element</td><td>&#x02713;</td><td>&#x02713;</td><td>-</td><td>&#x02713;</td></tr>
+                <tr><td><a href="#peripheral">&lt;peripheral&gt;</a></td><td>Peripheral Element</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+                <tr><td><a href="#qrcode">&lt;qrcode&gt;</a></td><td>QR code Element</td><td>&#x02713;</td><td>&#x02713;</td><td>-</td><td>&#x02713;</td></tr>
+                <tr><td><a href="#rawdata">&lt;rawdata&gt;</a></td><td>Raw data Element</td><td>&#x02713; *4</td><td>&#x02713; *4</td><td>&#x02713; *4</td><td>&#x02713; *4</td></tr>
+                <tr><td><a href="#ruledline">&lt;ruledline&gt;</a></td><td>Horizontal ruled line Element</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+                <tr><td><a href="#sound">&lt;sound&gt;</a></td><td>Sound Element</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>-</td></tr>
+                <tr><td><a href="#text">&lt;text&gt;</a></td><td>Text Element</td><td>&#x02713; *5</td><td>&#x02713; *5</td><td>&#x02713; *5 *6</td><td>&#x02713; *5</td></tr>
+                <tr><td><a href="#barcodereader">&lt;barcodereader&gt;</a></td><td>Barcode reader Element</td><td>-</td><td>-</td><td>-</td><td>&#x02713; *7</td></tr>
+                <tr><td><a href="#magstripereader">&lt;magstripereader&gt;</a></td><td>Magstripe reader Element</td><td>-</td><td>-</td><td>-</td><td>&#x02713; *7</td></tr>
+                <tr><td><a href="#linedisplay">&lt;linedisplay&gt;</a></td><td>Line Display Element</td><td>-</td><td>-</td><td>-</td><td>&#x02713; *7 *8</td></tr>
 
             </tbody>
         </table>
-        </br>
-        <p class="note">
-            *1 Attribute [ reset / print ] supported to only "false".</p>
-        <p class="note">
-            *2 It is unsupported, because there is not a method to make logo registration.</p>
-        <p class="note">
-            *3 Do not send an Initialization command (ESC @).<br/>
-            &nbsp;&nbsp;If want to send the command , please use the &lt;initialization&gt; (Initialization element).</p>
-        <p class="note">
-            *4 It is supported to the print of the UTF-8 character code. <br/>
-            &nbsp;&nbsp;Please refer to <a href="_appendixUTF8.htm">Appendix UTF-8</a> for getting an situation of each model's support.<br />
-            &nbsp;&nbsp;In the case of using AsuraCPRNT, please set language in an item of "StarWebPRNT" of the "configure" application.<br/>
-            &nbsp;&nbsp;The codepage attributes “shift_jis”, “gb18030”, “gb2312”, “big5” and “korea” are supported only with Star WebPRNT Browser.<br />
-            &nbsp;&nbsp;In the case of using WebPRNT Browser, do not set “utf8” for Attribute of codepage with non UTF-8 supported models.
+        <div class="note2">
+            <p>*1 The checkedblock attribute is always true.</p>
+            <p>*2 Attribute [ reset / print ] supported to only "false".</p>
+            <p>*3 It is unsupported, because there is not a method to make logo registration.</p>
+            <p>*4 Do not send an Initialization command (ESC @).<br/>
+            If want to send the command , please use the &lt;initialization&gt; (Initialization element).</p>
+            <p>*5 It is supported to the print of the UTF-8 character code. <br/>
+            Please refer to <a href="_appendixUTF8.htm">Appendix UTF-8</a> for getting an situation of each model's support.<br />
+            In the case of using AsuraCPRNT, please set language in an item of "StarWebPRNT" of the "configure" application.<br/>
+            The codepage attributes “shift_jis”, “gb18030”, “gb2312”, “big5” and “korea” are supported only with Star WebPRNT Browser.<br />
+            In the case of using WebPRNT Browser, do not set “utf8” for Attribute of codepage with non UTF-8 supported models.
             </p>
-        <p class="note">
-            *5 In Dot Printer, handlings of the parameter are different partly. The differences are as follows.<br/>
-            &nbsp;&nbsp;
-               invert : In the case of the model of printing two-colors,<br/>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <p>*6 In Dot Printer, handlings of the parameter are different partly. The differences are as follows.<br/>
+            invert : In the case of the model of printing two-colors,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         If the monochrome inversion printing is valid, printing is red.<br/>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         If the monochrome inversion printing is invalid, printing is black.<br/>
-            &nbsp;&nbsp;
                linespace : The unit of 1 dot is 1/144 inch. In addition, can set the specified value(1 - 255).<br/>
-            &nbsp;&nbsp;
                width : Only 1 and 2 is supported.<br/>
-            &nbsp;&nbsp;
                height : Only 1 and 2 is supported.<br/>
-            &nbsp;&nbsp;
-               font : "fontA" is 7 by 9 font. "fontB" is 5 by 9(2P-1).<br/></p>
-        <p class="note">
-            *6 This function has been supported in AsuraCPRNT Linux OS since version 1.7.<br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Please refer to the specifications of <a href="http://www.star-m.jp/eng/products/s_print/sp01_09.html"> AsuraCPRNT Develeper Site</a> about each supported devices.<br />
-        <p class="note">
-            *7 When start up the "Line Display" Application which has been supported AsuraCPRNT Linux OS since version 1.7 on Asura, can be available. </p>
-        
-        
+               font : "fontA" is 7 by 9 font. "fontB" is 5 by 9(2P-1).</p>
+               <p>*7 This function has been supported in AsuraCPRNT Linux OS since version 1.7.<br />
+            Please refer to the specifications of <a href="http://www.star-m.jp/eng/products/s_print/sp01_09.html"> AsuraCPRNT Develeper Site</a> about each supported devices.</p>
+            <p>*8 When start up the "Line Display" Application which has been supported AsuraCPRNT Linux OS since version 1.7 on Asura, can be available. </p>
+        </div>
+
+
     </div>
     </article>
 
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
     </div>
-    
+
 
     <article>
     <div id="root">
         <h3>&lt;root&gt;</h3>
-    
+
         <div class="introduction_3">
             <p>
             Root Element
             </p>
         </div>
-    
+
         <h4>Attribute</h4>
         <table class="coder">
             <thead>
@@ -337,14 +334,8 @@
                 <tr><td>papertype</td><td>Paper type<br />
                         <ul><li>normal … Normal paper</li><li>black_mark … Black mark paper</li><li>black_mark_and_detect_at_power_on … Black mark paper (Detect at power on)</ul></td>
                        <td>Unset</td></tr>
-                <tr><td>blackmark_sensor *1</td><td>Type of blackmark sensor<br />
-                        <ul><li>front_side … Front side detector sensor</li><li>back_side … Back side detector sensor</li><li>hole_or_gap … Hole or gap detector sensor</li></ul></td>
-                       <td>'front_side'</td></tr>
             </tbody>
         </table>
-        <p class="note">
-            *1 The blackmark_sensor attribute is valid when ”black_mark" or ”black_mark_and_detect_at_power_on” is specified for the paper type attribute.
-        </p>
 
         <h4>Value</h4>
         <table class="coder">
@@ -374,13 +365,13 @@
     <article>
     <div id="alignment">
         <h3>&lt;alignment&gt;</h3>
-    
+
         <div class="introduction_3">
             <p>
             Alignment Element
             </p>
         </div>
-    
+
         <h4>Attribute</h4>
         <table class="coder">
             <thead>
@@ -418,13 +409,13 @@
     <article>
     <div id="barcode">
         <h3>&lt;barcode&gt;</h3>
-    
+
         <div class="introduction_3">
             <p>
             Barcode Element
             </p>
         </div>
-    
+
         <h4>Attribute</h4>
         <table class="coder">
             <thead>
@@ -471,13 +462,13 @@
     <article>
     <div id="bitImage">
         <h3>&lt;bitImage&gt;</h3>
-    
+
         <div class="introduction_3">
             <p>
             Bitimage Element
             </p>
         </div>
-    
+
         <h4>Attribute</h4>
         <table class="coder">
             <thead>
@@ -516,13 +507,13 @@
     <article>
     <div id="cutpaper">
         <h3>&lt;cutpaper&gt;</h3>
-    
+
         <div class="introduction_3">
             <p>
             Cut paper Element
             </p>
         </div>
-    
+
         <h4>Attribute</h4>
         <table class="coder">
             <thead>
@@ -561,13 +552,13 @@
     <article>
     <div id="feed">
         <h3>&lt;feed&gt;</h3>
-    
+
         <div class="introduction_3">
             <p>
             Feed Element
             </p>
         </div>
-    
+
         <h4>Attribute</h4>
         <table class="coder">
             <thead>
@@ -605,13 +596,13 @@
     <article>
     <div id="initialization">
         <h3>&lt;initialization&gt;</h3>
-    
+
         <div class="introduction_3">
             <p>
             Initialization Element
             </p>
         </div>
-    
+
         <h4>Attribute</h4>
         <table class="coder">
             <thead>
@@ -651,13 +642,13 @@
     <article>
     <div id="logo">
         <h3>&lt;logo&gt;</h3>
-    
+
         <div class="introduction_3">
             <p>
             Logo Element
             </p>
         </div>
-    
+
         <h4>Attribute</h4>
         <table class="coder">
             <thead>
@@ -698,13 +689,13 @@
     <article>
     <div id="pdf417">
         <h3>&lt;pdf417&gt;</h3>
-    
+
         <div class="introduction_3">
             <p>
             PDF417Element
             </p>
         </div>
-    
+
         <h4>Attribute</h4>
         <table class="coder">
             <thead>
@@ -750,13 +741,13 @@
     <article>
     <div id="peripheral">
         <h3>&lt;peripheral&gt;</h3>
-    
+
         <div class="introduction_3">
             <p>
             Peripheral Element
             </p>
         </div>
-    
+
         <h4>Attribute</h4>
         <table class="coder">
             <thead>
@@ -796,13 +787,13 @@
     <article>
     <div id="qrcode">
         <h3>&lt;qrcode&gt;</h3>
-    
+
         <div class="introduction_3">
             <p>
             QR code Element
             </p>
         </div>
-    
+
         <h4>Attribute</h4>
         <table class="coder">
             <thead>
@@ -844,13 +835,13 @@
     <article>
     <div id="rawdata">
         <h3>&lt;rawdata&gt;</h3>
-    
+
         <div class="introduction_3">
             <p>
             Raw data Element
             </p>
         </div>
-    
+
         <h4>Attribute</h4>
         <table class="coder">
             <thead>
@@ -887,13 +878,13 @@
     <article>
     <div id="ruledline">
         <h3>&lt;ruledline&gt;</h3>
-    
+
         <div class="introduction_3">
             <p>
             Horizontal ruled line Element
             </p>
         </div>
-    
+
         <h4>Attribute</h4>
         <table class="coder">
             <thead>
@@ -935,13 +926,13 @@
     <article>
     <div id="sound">
         <h3>&lt;sound&gt;</h3>
-    
+
         <div class="introduction_3">
             <p>
             Sound Element
             </p>
         </div>
-    
+
         <h4>Attribute</h4>
         <table class="coder">
             <thead>
@@ -981,13 +972,13 @@
     <article>
     <div id="text">
         <h3>&lt;text&gt;</h3>
-    
+
         <div class="introduction_3">
             <p>
             Text Element
             </p>
         </div>
-    
+
         <h4>Attribute</h4>
         <table class="coder">
             <thead>
@@ -1063,13 +1054,13 @@
     <article>
     <div id="barcodereader">
         <h3>&lt;barcodereader&gt;</h3>
-    
+
         <div class="introduction_3">
             <p>
             Barcode reader Element
             </p>
         </div>
-    
+
         <h4>Attribute</h4>
         <table class="coder">
             <thead>
@@ -1086,18 +1077,17 @@
                 <tr><td>claimpollingtimeout<br />(*1)(*2)</td><td>Polling of Claim management(*3) timeout (msec)<br />&nbsp;&nbsp;Range:1000 ～ 2147483647<br />*Recommendation：more than 10000<br />*When the display of alert dialog passes with the settings number of seconds. <br />&nbsp;&nbsp;Internally will work the same as "claim=false".<br />&nbsp;&nbsp;Therefore please mind when use the alert dialog.</td><td>Unchanged</td></tr>
             </tbody>
         </table>
-        (*1) it is effective when sets the "type='setting'"<br />
-        (*2) it is effective when sets the "claim='true'"<br />
-        (*3) The polling for keeping the claim status by current using browser<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is started when the Claim start is success(*4) after sending the request elements<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;which is included the "claim='true'" in the first time.<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;And The polling is finished when the Claim finish is success(*5) after sending<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the request elements which is included the "claim='false'".<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The polling start and finish are automatically controled by the sendMessage method of StarClaimManager.js.<br />
-        (*4) Character string which is included in the response elements to receive at the time of Claim start success<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"&lt;bcr&gt;&lt;claim&gt;true&lt;/claim&gt;&lt;/bcr&gt;"<br />
-        (*5) Character string which is included in the response elements to receive at the time of Claim finish success<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"&lt;bcr&gt;&lt;claim&gt;false&lt;/claim&gt;&lt;/bcr&gt;"<br />
+        <div class="note3">
+        <p>(*1) it is effective when sets the "type='setting'"</p>
+        <p>(*2) it is effective when sets the "claim='true'"</p>
+        <p>(*3) The polling for keeping the claim status by current using browser is started when the Claim start is success(*4) after sending the request elements which is included the "claim='true'" in the first time.<br />
+        And The polling is finished when the Claim finish is success(*5) after sending the request elements which is included the "claim='false'".<br />
+        The polling start and finish are automatically controled by the sendMessage method of StarClaimManager.js.</p>
+        <p>(*4) Character string which is included in the response elements to receive at the time of Claim start success<br />
+        "&lt;bcr&gt;&lt;claim&gt;true&lt;/claim&gt;&lt;/bcr&gt;"</p>
+        <p>(*5) Character string which is included in the response elements to receive at the time of Claim finish success<br />
+        "&lt;bcr&gt;&lt;claim&gt;false&lt;/claim&gt;&lt;/bcr&gt;"</p>
+        </div>
 
         <h4>Value</h4>
         <table class="coder">
@@ -1131,13 +1121,13 @@
     <article>
     <div id="magstripereader">
         <h3>&lt;magstripereader&gt;</h3>
-    
+
         <div class="introduction_3">
             <p>
             Magstripe reader Element
             </p>
         </div>
-    
+
         <h4>Attribute</h4>
         <table class="coder">
             <thead>
@@ -1149,18 +1139,17 @@
                 <tr><td>claimpollingtimeout<br />(*1)(*2)</td><td>Polling of Claim management(*3) timeout (msec)<br />&nbsp;&nbsp;Range:1000 ～ 2147483647<br />*Recommendation：more than 10000<br />*When the display of alert dialog passes with the settings number of seconds. <br />&nbsp;&nbsp;Internally will work the same as "claim=false".<br />&nbsp;&nbsp;Therefore please mind when use the alert dialog.</td><td>Unchanged</td></tr>
             </tbody>
         </table>
-        (*1) it is effective when sets the "type='setting'"<br />
-        (*2) it is effective when sets the "claim='true'"<br />
-        (*3) The polling for keeping the claim status by current using browser<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is started when the Claim start is success(*4) after sending the request elements<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;which is included the "claim='true'" in the first time.<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;And The polling is finished when the Claim finish is success(*5) after sending<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the request elements which is included the "claim='false'".<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The polling start and finish are automatically controled by the sendMessage method of StarClaimManager.js.<br />
-        (*4) Character string which is included in the response elements to receive at the time of Claim start success<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"&lt;msr&gt;&lt;claim&gt;true&lt;/claim&gt;&lt;/msr&gt;"<br />
-        (*5) Character string which is included in the response elements to receive at the time of Claim finish success<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"&lt;msr&gt;&lt;claim&gt;false&lt;/claim&gt;&lt;/msr&gt;"<br />
+        <div class="note3">
+        <p>(*1) it is effective when sets the "type='setting'"</p>
+        <p>(*2) it is effective when sets the "claim='true'"</p>
+        <p>(*3) The polling for keeping the claim status by current using browser is started when the Claim start is success(*4) after sending the request elements which is included the "claim='true'" in the first time.<br />
+        And The polling is finished when the Claim finish is success(*5) after sending the request elements which is included the "claim='false'".<br />
+        The polling start and finish are automatically controled by the sendMessage method of StarClaimManager.js.</p>
+        <p>(*4) Character string which is included in the response elements to receive at the time of Claim start success<br />
+        "&lt;msr&gt;&lt;claim&gt;true&lt;/claim&gt;&lt;/msr&gt;"</p>
+        <p>(*5) Character string which is included in the response elements to receive at the time of Claim finish success<br />
+        "&lt;msr&gt;&lt;claim&gt;false&lt;/claim&gt;&lt;/msr&gt;"</p>
+        </div>
 
 
         <h4>Value</h4>
@@ -1195,13 +1184,13 @@
     <article>
     <div id="linedisplay">
         <h3>&lt;linedisplay&gt;</h3>
-    
+
         <div class="introduction_3">
             <p>
             Line Display Element
             </p>
         </div>
-    
+
         <h4>Attribute</h4>
         <table class="coder">
             <thead>
@@ -1232,23 +1221,21 @@
                 <tr><td>toucharea</td><td>Touch area<br />*Specifies the following object which includes parameter<ul><li>id … ASCII character from 0x20 to 0x7e<br />*It is impossible to set the id which includes the following characters<br />&nbsp;&nbsp;',x:' ',y:' ',height:' ',width:'<br />*The number of character are 1024 bytes<br />*When set only id parameter, deletes the registered id by the specified id.</li><li>x … The x position in touch area<br />&nbsp;&nbsp;Range: 0 ～ 800</li><li>y … The y position in touch area<br />&nbsp;&nbsp;Range: 0 ～ 480</li><li>width … The width in touch area<br />&nbsp;&nbsp;Range: 1 ～ 800 (*)</li><li>height … The height in touch area<br />&nbsp;&nbsp;Range: 1 ～ 480 (*)</li></ul>&nbsp;&nbsp;*It is possible to set the parameter in (x + width) <= 800 and (y + height) <= 480</td><td>Unchanged</td></tr>
             </tbody>
         </table>
-        (*1) The "Line Display" Application which has been supported AsuraCPRNT Linux OS since version 1.7<br />
-        (*2) it is effective when sets the "claim='true'"<br />
-        (*3) The polling for keeping the claim status by current using browser<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is started when the Claim start is success(*4) after sending the request elements<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;which is included the "claim='true'" in the first time.<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;And The polling is finished when the Claim finish is success(*5) after sending<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the request elements which is included the "claim='false'".<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The polling start and finish are automatically controled by the sendMessage method of StarClaimManager.js.<br />
-        (*4) Character string which is included in the response elements to receive at the time of Claim start success<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"&lt;ld&gt;&lt;claim&gt;true&lt;/claim&gt;&lt;/ld&gt;"<br />
-        (*5) Character string which is included in the response elements to receive at the time of Claim finish success<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"&lt;ld&gt;&lt;claim&gt;false&lt;/claim&gt;&lt;/ld&gt;"<br />
-        (*6) When set "initilization" with other items at the same time, set the default value.<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The claim / claimpollingtimeout / data are not related.<br />
-        (*7) The square area which is showed on the "Line Display" Application<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;which has been supported AsuraCPRNT Linux OS since version 1.7<br />
-        (*8) The default of "Line Display" application is 'cp1252'
+        <div class="note3">
+        <p>(*1) The "Line Display" Application which has been supported AsuraCPRNT Linux OS since version 1.7</p>
+        <p>(*2) it is effective when sets the "claim='true'"</p>
+        <p>(*3) The polling for keeping the claim status by current using browser is started when the Claim start is success(*4) after sending the request elements which is included the "claim='true'" in the first time.<br />
+        And The polling is finished when the Claim finish is success(*5) after sending the request elements which is included the "claim='false'".<br />
+        The polling start and finish are automatically controled by the sendMessage method of StarClaimManager.js.</p>
+        <p>(*4) Character string which is included in the response elements to receive at the time of Claim start success<br />
+        "&lt;ld&gt;&lt;claim&gt;true&lt;/claim&gt;&lt;/ld&gt;"</p>
+        <p>(*5) Character string which is included in the response elements to receive at the time of Claim finish success<br />
+        "&lt;ld&gt;&lt;claim&gt;false&lt;/claim&gt;&lt;/ld&gt;"</p>
+        <p>(*6) When set "initilization" with other items at the same time, set the default value.<br />
+        The claim / claimpollingtimeout / data are not related.</p>
+        <p>(*7) The square area which is showed on the "Line Display" Application which has been supported AsuraCPRNT Linux OS since version 1.7</p>
+        <p>(*8) The default of "Line Display" application is 'cp1252'</p>
+        </div>
 
         <h4>Value</h4>
         <table class="coder">
@@ -1282,6 +1269,8 @@
 <p id="copyright"> &copy; Copyright 2013 - 2015  <a href="http://www.star-m.jp/">Star Micronics Co., Ltd.</a> </p>
 </footer>
 </div>
+
+</div> <!--container-->
 
 </body>
 </html>

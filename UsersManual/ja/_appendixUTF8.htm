@@ -2,34 +2,39 @@
 <html xmlns="http://www.w3.org/1999/xhtml"  lang="ja" xml:lang="ja">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Expires" content="86400">
     <title>Star WebPRNT ユーザーズマニュアル</title>
-    <link href="html5reset-1.6.1.css" rel="stylesheet" type="text/css" />
-    <link href="webPRNT_layout.css" rel="stylesheet" type="text/css" />
-    <link href="webPRNT_print_layout.css" rel="stylesheet" type="text/css" media="print" />
-    
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link href="../css/html5reset-1.6.1.css" rel="stylesheet" type="text/css" />
+    <link href="../css/webPRNT_layout.css" rel="stylesheet" type="text/css" />
+    <link href="../css/webPRNT_print_layout.css" rel="stylesheet" type="text/css" media="print" />
+
 <!-- ie10にて条件付きコメント([if IE]の箇所）がサポートされなくなったことに対する対処　　-->
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
    <!--[if IE ]>
-        <link rel="stylesheet" type="text/css" href="webPRNT_layout_ie.css"></script>
-        <link rel="stylesheet" type="text/css" href="webPRNT_print_layout_ie.css" media="print"></script>
+        <link rel="stylesheet" type="text/css" href="../css/webPRNT_layout_ie.css"></script>
+        <link rel="stylesheet" type="text/css" href="../css/webPRNT_print_layout_ie.css" media="print"></script>
     <![endif]-->
-    
+
     <script src="jquery-1.10.2.min.js"></script>
     <script>
-    
+
     $(function tggleNavi() {
         $('#naviArrow').click(function(){
            $('#mainNavi').slideToggle('slow');
-           
+
        });
     });
 
     </script>
-    
+
 </head>
 
 
 <body>
+
+<div id="container">
 
 <div id="toTop">
     <a href="index.htm"><img id="webPRNTLogo" src="../illust/WebPRNT_Logo.png" /></a>
@@ -44,7 +49,7 @@
 
 <!-- wrapp : mainNavi + mainContents-->
 <div id="wrapp" class="clear">
-    
+
 
 <!-- mainNavi -->
 
@@ -228,6 +233,9 @@
 	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#number">&lt;number&gt;</a></li>
 	</ul>
 	<ul>
+	<li><a href="_StarWebPrintRequestElement_scs.htm">StarWebPRNT送信エレメント<br />-SCS-</a></li>
+	</ul>
+	<ul>
 	<li><a href="_appendixUTF8.htm">付録 UTF-8対応</a></li>
 	</ul>
 
@@ -240,7 +248,7 @@
     <article>
     <div id="appendixUTF8">
         <h2>付録 UTF-8対応</h2>
-        
+
         <div class="introduction_2">
             <p>
                 StarWebPRNTにて各機種におけるUTF-8対応状況は以下の表になります。<br/>
@@ -249,15 +257,15 @@
         </div>
 
         <h4>IFBD-HE07x / IFBD-BE07x(FVP10)</h4>
-        <table class="List2">
+        <table class="List4">
             <thead>
-                <tr><td rowspan="2">機種名</td><td rowspan="2">ファームウェアバージョン</td><td rowspan="2">インターフェイスバージョン<br/></td><td colspan="6">UTF-8</td></tr>
+                <tr><td rowspan="2">機種名</td><td rowspan="2">ファームウェア バージョン</td><td rowspan="2">インターフェイス バージョン<br/></td><td colspan="6">UTF-8</td></tr>
                 <tr><td>日本語<br/>Shift-JIS</td><td>中国語<br/>簡体字<br/>GB2312</td><td>中国語<br/>簡体字<br/>GB18030</td><td>中国語<br/>繁体字<br/>Big5</td><td>韓国語<br/>Korean</td><td>欧米文字*1</td></tr>
             </thead>
             <tbody>
                 <tr><td>FVP10</td><td>Ver1.5以降</td><td>Ver3.2.0以降</td><td>○</td><td>○</td><td>○</td><td>-</td><td>-</td><td>-</td></tr>
                 <tr><td rowspan="2">TSP650II</td><td>Ver1.2以降</td><td>Ver3.2.0以降</td><td>○</td><td>○</td><td>○</td><td>○</td><td>-</td><td>-</td></tr>
-                <tr class="test"><td>Ver3.0以降</td><td>Ver3.2.0以降</td><td>○</td><td>○</td><td>○</td><td>○</td><td>-</td><td>○</td></tr>
+                <tr class="test"><td class="text-center">Ver3.0以降</td><td>Ver3.2.0以降</td><td>○</td><td>○</td><td>○</td><td>○</td><td>-</td><td>○</td></tr>
                 <tr><td>TSP700II</td><td>Ver4.1以降</td><td>Ver3.2.0以降</td><td>○</td><td>○</td><td>-</td><td>○</td><td>○</td><td>-</td></tr>
                 <tr><td>TSP800II</td><td>Ver1.6以降</td><td>Ver3.2.0以降</td><td>○</td><td>○</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
             </tbody>
@@ -267,7 +275,7 @@
 
 
         <h4>AsuraCPRNT</h4>
-        <table class="List2">
+        <table class="List4">
             <thead>
                 <tr><td rowspan="2">機種名</td><td rowspan="2">Linux OS バージョン</td><td rowspan="2">ファームウェアバージョン<br/></td><td colspan="6">UTF-8</td></tr>
                 <tr><td>日本語<br/>Shift-JIS</td><td>中国語<br/>簡体字<br/>GB2312</td><td>中国語<br/>簡体字<br/>GB18030</td><td>中国語<br/>繁体字<br/>Big5</td><td>韓国語<br/>Korean</td><td>欧米文字*1</td></tr>
@@ -280,7 +288,7 @@
             *1 使用可能な文字は、プリンターが内蔵しているコードページ範囲のみです。</p>
 
         <h4>Star WebPRNT Browser</h4>
-        <table class="List2">
+        <table class="List4">
             <thead>
                 <tr><td rowspan="2">機種名</td><td rowspan="2">ファームウェア<br>バージョン<br/></td><td colspan="6">UTF-8</td></tr>
                 <tr><td>日本語<br/>Shift-JIS</td><td>中国語<br/>簡体字<br/>GB2312</td><td>中国語<br/>簡体字<br/>GB18030</td><td>中国語<br/>繁体字<br/>Big5</td><td>韓国語<br/>Korean</td><td>欧米文字*1</td></tr>
@@ -288,7 +296,7 @@
             <tbody>
                 <tr><td>FVP10</td><td>Ver1.5以降</td><td>○</td><td>○</td><td>○</td><td>-</td><td>-</td><td>-</td></tr>
                 <tr><td rowspan="2">TSP650II</td><td>Ver1.2以降</td><td>○</td><td>○</td><td>○</td><td>○</td><td>-</td><td>-</td></tr>
-                <tr><td>Ver3.0以降</td><td>○</td><td>○</td><td>○</td><td>○</td><td>-</td><td>○</td></tr>
+                <tr><td >Ver3.0以降</td><td>○</td><td>○</td><td>○</td><td>○</td><td>-</td><td>○</td></tr>
                 <tr><td>TSP700II</td><td>Ver4.1以降</td><td>○</td><td>○</td><td>-</td><td>○</td><td>○</td><td>-</td></tr>
                 <tr><td>TSP800II</td><td>Ver1.6以降</td><td>○</td><td>○</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
                 <tr><td rowspan="2">mPOP</td><td>Ver1.0以降</td><td>○</td><td>○</td><td>-</td><td>-</td><td>-</td><td>○</td></tr>
@@ -299,7 +307,7 @@
         <p class="note">
             *1 使用可能な文字は、プリンターが内蔵しているコードページ範囲のみです。</p>
 
-        
+
     </div>
     </article>
 
@@ -315,6 +323,8 @@
 <p id="copyright"> &copy; Copyright 2013 - 2015  <a href="http://www.star-m.jp/">Star Micronics Co., Ltd.</a> </p>
 </footer>
 </div>
+
+</div><!--container-->
 
 </body>
 </html>

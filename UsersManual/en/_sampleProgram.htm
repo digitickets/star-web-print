@@ -2,29 +2,30 @@
 <html xmlns="http://www.w3.org/1999/xhtml"  lang="en" xml:lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Expires" content="86400">
     <title>Star WebPRNT User's Manual</title>
-    <link href="bootstrap.css" rel="stylesheet">
-    <link rel="stylesheet" href="font-awesome.min.css">    
-    <link href="html5reset-1.6.1.css" rel="stylesheet" type="text/css" />
-    <link href="webPRNT_layout.css" rel="stylesheet" type="text/css" />
-    <link href="webPRNT_print_layout.css" rel="stylesheet" type="text/css" media="print" />
-    
+    <link href="../css_en/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css_en/font-awesome.min.css">
+    <link href="../css_en/html5reset-1.6.1.css" rel="stylesheet" type="text/css" />
+    <link href="../css_en/webPRNT_layout.css" rel="stylesheet" type="text/css" />
+    <link href="../css_en/webPRNT_print_layout.css" rel="stylesheet" type="text/css" media="print" />
+
 <!-- ie10にて条件付きコメント([if IE]の箇所）がサポートされなくなったことに対する対処　　-->
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
-    <!--[if IE ]>
-        <link rel="stylesheet" type="text/css" href="webPRNT_layout_ie.css"></script>
-        <link rel="stylesheet" type="text/css" href="webPRNT_print_layout_ie.css" media="print"></script>
+   <!--[if IE ]>
+        <link rel="stylesheet" type="text/css" href="../css_en/webPRNT_layout_ie.css"></script>
+        <link rel="stylesheet" type="text/css" href="../css_en/webPRNT_print_layout_ie.css" media="print"></script>
     <![endif]-->
-    
+
     <script src="jquery-1.10.2.min.js"></script>
     <script>
     //ナビゲーショントグル
     $(function tggleNavi() {
         $('#naviArrow').click(function(){
-           $('#mainNavi').slideToggle('slow');           
+           $('#mainNavi').slideToggle('slow');
        });
     });
-	
+
 	// 構成図　切り替え設定
     $(function() {
         $("#concept1").mouseenter(function(){
@@ -184,10 +185,12 @@
             $("#AsuraCPRNTwithPeripheralconceptIllust").attr("src","../illust/AsuraCPRNTwithPeripheralconcept.png");
         });
     });
-    </script>    
+    </script>
 </head>
 
 <body>
+
+<div id="container">
 
 <div id="toTop">
     <a href="index.htm"><img id="webPRNTLogo" src="../illust/WebPRNT_Logo.png" /></a>
@@ -203,7 +206,7 @@
 
 <!-- wrapp : mainNavi + mainContents-->
 <div id="wrapp" class="clear">
-    
+
 
 <!-- mainNavi -->
 
@@ -387,6 +390,9 @@
 	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#number">&lt;number&gt;</a></li>
 	</ul>
         <ul>
+	<li><a href="_StarWebPrintRequestElement_scs.htm">StarWebPRNT Request Element -SCS-</a></li>
+        </ul>
+        <ul>
 	    <li><a href="_appendixUTF8.htm">Appendix UTF-8</a></li>
         </ul>
 
@@ -420,9 +426,9 @@
             <h4>Star Printer and AsuraCPRNT with WebPRNT</h4>
             <p>* When you put your mouse cursor on the following sentences (each step), 
             the illustration changes and shows detailed information.</p>
-        
+
             <img id="conceptIllust" src="../illust/concept.png"  class="img_responsive"/>
-        
+
             <div class="conceptDescription">
                 <ol class="concept">
                     <li><a id="concept1">Prepare a Web server(A), an input device to display a web browser(B) and a Star POS printer / AsuraCPRNT (WebPRNT supported)(C), and enable them to communicate each other.</a></li>
@@ -432,15 +438,15 @@
                     <li><a id="concept5">The Star POS printer / AsuraCPRNT (C) prints and returns the printer status to the input device(B).</a></li>
                 </ol>
             </div>
-            
+
         <br />&nbsp;<br />
 
            <h4>AsuraCPRNT</h4>
             <p>* When you put your mouse cursor on the following sentences (each step), 
             the illustration changes and shows detailed information.</p>
-        
+
             <img id="AsuraCPRNTconceptIllust" src="../illust/AsuraCPRNTconcept.png" class="img_responsive" />
-        
+
             <div class="conceptDescription">
                 <ol class="concept">
                     <li><a id="AsuraCPRNTconcept1">Prepare the AsuraCPRNT with WebPRNT(Web server)(A) and an input device to display a web browser(B), and enable them to communicate each other.</a></li>
@@ -456,9 +462,9 @@
            <h4>AsuraCPRNT with Peripheral</h4>
             <p>* When you put your mouse cursor on the following sentences (each step), 
             the illustration changes and shows detailed information.</p>
-        
+
             <img id="AsuraCPRNTwithPeripheralconceptIllust" src="../illust/AsuraCPRNTwithPeripheralconcept.png" class="img_responsive" />
-        
+
             <div class="conceptDescription">
                 <ol class="concept">
                     <li><a id="AsuraCPRNTwithPeripheralconcept1">Prepare the AsuraCPRNT with WebPRNT(Web server)(A) and an input device to display a web browser(B), and enable them to communicate each other.</a></li>
@@ -479,9 +485,9 @@
 
            <h4>Star WebPRNT Browser + Star Bluetooth Printer</h4>
             <p>* When you tap the following sentences (each step), the illustration changes and shows detailed information.</p>
-        
+
             <img id="StarWebBrowserConseptIllust" src="../illust/StarWebBrowser_consept.png" class="img_responsive" />
-        
+
             <div class="conceptDescription">
                 <ol class="concept">
                     <li><a id="StarWebBrowserConsept1">Prepare a local server or a cloud server(A) and an iOS device* in which the Star WebPRNT Browser is installed(B), and enable them to communicate each other.</a></li>
@@ -491,19 +497,19 @@
                     <li><a id="StarWebBrowserConsept5">Send print data to the Star Bluetooth printer from the sample program displayed via the Star WebPRNT Browser(B).</a></li>
                     <li><a id="StarWebBrowserConsept6">The Star Bluetooth printer(C) prints and returns the printer status to the Star WebPRNT Browser(B).</a></li>
                 </ol>
-                 
+
             </div>
             <br />
         <p class="note2">
             * iOS Version 7.0 or later is required.
          </p>
-            
+
           </div><!-- SampleProgramConcept  -->
 
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
     </div>
-    
+
 
         <div id="sampleProgramList">
         <h3>Sample Program List</h3>
@@ -531,21 +537,21 @@
             </tbody>
         </table>
         <p class="note">
-           *The JavaScript files are the library files for embedding WebPRNT functions provided. Don't modify them, and they can be loaded from the HTML file.
+            *  The JavaScript files are the library files for embedding WebPRNT functions provided. Don't modify them, and they can be loaded from the HTML file.
         </p>
         <br />
         </div>
 
-    
+
         <div id="webServerRegistration">
         <h3>Web Server Registration</h3>
-    
+
             <div class="introduction_3">
                 <p>Copy all sample program files for the Public folder according to the Web server operating manual.</p>
             </div>
         </div>
-    
-    
+
+
         <div id="howToUse">
         <h3>How to use</h3>
 
@@ -556,15 +562,15 @@
         </ul>
 
         <h4 id="howToUseHE0708">Star HE07x/08x Interface Printer and AsuraCPRNT</h4>
-            
+
         <div class="numOperation">
             <ol>
             <li>Open CompariosReceiptDesign.html on your server and check if the JavaScript/Canvas works properly with your browser.<br />
             <img src="../illust/CheckYourBrowser3.png" class="numOpeFig img-responsive" alt="ComparisonReceiptDesign error screen"><br />
             <p class="note">
-                  *If the message "Your browser does not support JavaScript!" appears on your browser, check the JavaScript setting and make it valid.</p>
+                  * If the message "Your browser does not support JavaScript!" appears on your browser, check the JavaScript setting and make it valid.</p>
             <p class="note">
-                  *If the message "Your browser does not support Canvas!" appears on your application, 
+                  * If the message "Your browser does not support Canvas!" appears on your application, 
                   change (or upgrade) your browser to one which supports Canvas function.</p>
             </li>
             <li>Edit the StarWebPRNT end point URL in accordance with the IP address of the printer.<br />
@@ -577,9 +583,9 @@
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
     </div>
-            
+
         <h4 id="howToUseBrowser">Star WebPRNT Browser + Star Bluetooth Printer</h4>
-    
+
         <div class="numOperation">
             <ol>
             <li>Install the "Star WebPRNT Browser" from AppStore.<br />
@@ -594,14 +600,14 @@
            <li>Open the Star WebPRNT Browser and try printing.<br />
              <img src="../illust/Howtouse/WebPRNTBrowser.png" class="numOpeFig2 img-responsive" alt="ComparisonReceiptSesign"></li>
            </ol>
-        </div>          
+        </div>
 
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
     </div>
-                      
+
         <h4 id="howToUseBrowserAndroid">Star WebPRNT Browser + Star Bluetooth Printer (Android)</h4>
-    
+
         <div class="numOperation">
             <ol>
             <li>Install the "Star WebPRNT Browser" from Play Store.<br />
@@ -633,12 +639,12 @@
                 <div class="col-md-6">
                         <img src="../illust/android/FullScreenCancell2.png" class="numOpeFig2 img_responsive" alt="ComparisonReceiptSesign setting screen"></li>
                 </div>
-            </div>                              
+            </div>
         </div>
         </div>
 
         </div>    <!--     End of How to use      -->
-        
+
       </div>    <!--   End of sampleProgram    -->
       </article>
 
@@ -656,6 +662,7 @@
 <p id="copyright"> &copy; Copyright 2013 - 2015   <a href="http://www.star-m.jp/">Star Micronics Co., Ltd.</a> </p>
 </footer>
 </div>
+</div> <!--container-->
 
 </body>
 </html>

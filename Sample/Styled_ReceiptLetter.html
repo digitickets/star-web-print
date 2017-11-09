@@ -11,6 +11,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="Expires" content="86400">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 <title>StarWebPRNT レシートレター</title>
 
@@ -31,7 +32,7 @@ function sendMessage(request) {
 
     trader.onReceive = function (response) {
         hideNowPrinting();
-        
+
         var msg = '- onReceive -\n\n';
 
         if (response.traderSuccess == 'true') {
@@ -39,7 +40,7 @@ function sendMessage(request) {
         }
         else {
             msg += '印刷結果 : 失敗\n';
-        
+
             msg += '状態 : [ '
 
             if (trader.isCoverOpen            ({traderStatus:response.traderStatus})) {msg += '\tカバーオープン,\n';}
@@ -166,7 +167,7 @@ function changePaperWidth(PaperWidth) {
             textArea.cols = 30;
         }
 
-        textArea.value = 
+        textArea.value =
 "\n" +
 "    毎度ありがとうございます！\n" +
 "静岡店：０５４－３４７－０１１２\n" +
@@ -194,7 +195,7 @@ function changePaperWidth(PaperWidth) {
     }
     else {
         textArea.cols = 44;
-        textArea.value = 
+        textArea.value =
 "\n" +
 "            毎度ありがとうございます！\n" +
 "         静岡店：０５４－３４７－０１１２\n" +

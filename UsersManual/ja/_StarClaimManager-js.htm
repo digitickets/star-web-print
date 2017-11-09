@@ -2,34 +2,38 @@
 <html xmlns="http://www.w3.org/1999/xhtml"  lang="ja" xml:lang="ja">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Expires" content="86400">
     <title>Star WebPRNT ユーザーズマニュアル</title>
-    <link href="html5reset-1.6.1.css" rel="stylesheet" type="text/css" />
-    <link href="webPRNT_layout.css" rel="stylesheet" type="text/css" />
-    <link href="webPRNT_print_layout.css" rel="stylesheet" type="text/css" media="print" />
-    
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link href="../css/html5reset-1.6.1.css" rel="stylesheet" type="text/css" />
+    <link href="../css/webPRNT_layout.css" rel="stylesheet" type="text/css" />
+    <link href="../css/webPRNT_print_layout.css" rel="stylesheet" type="text/css" media="print" />
+
 <!-- ie10にて条件付きコメント([if IE]の箇所）がサポートされなくなったことに対する対処　　-->
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
    <!--[if IE ]>
-        <link rel="stylesheet" type="text/css" href="webPRNT_layout_ie.css"></script>
-        <link rel="stylesheet" type="text/css" href="webPRNT_print_layout_ie.css" media="print"></script>
+        <link rel="stylesheet" type="text/css" href="../css/webPRNT_layout_ie.css"></script>
+        <link rel="stylesheet" type="text/css" href="../css/webPRNT_print_layout_ie.css" media="print"></script>
     <![endif]-->
-    
+
     <script src="jquery-1.10.2.min.js"></script>
     <script>
-    
+
     $(function tggleNavi() {
         $('#naviArrow').click(function(){
            $('#mainNavi').slideToggle('slow');
-           
+
        });
     });
 
     </script>
-    
+
 </head>
 
-
 <body>
+
+<div id="container">
 
 <div id="toTop">
     <a href="index.htm"><img id="webPRNTLogo" src="../illust/WebPRNT_Logo.png" /></a>
@@ -44,7 +48,7 @@
 
 <!-- wrapp : mainNavi + mainContents-->
 <div id="wrapp" class="clear">
-    
+
 
 <!-- mainNavi -->
 
@@ -228,6 +232,9 @@
 	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#number">&lt;number&gt;</a></li>
 	</ul>
 	<ul>
+	<li><a href="_StarWebPrintRequestElement_scs.htm">StarWebPRNT送信エレメント<br />-SCS-</a></li>
+	</ul>
+	<ul>
 	<li><a href="_appendixUTF8.htm">付録 UTF-8対応</a></li>
 	</ul>
 
@@ -236,9 +243,9 @@
 
 <div id="mainContents">
 
-    <article id="starClaimManager-js" class="summary"> 
+    <article id="starClaimManager-js" class="summary">
         <h2>StarClaimManager.js</h2>
-    
+
         <div class="introduction_2">
             <p>
             バーコードリーダや磁気リーダまたはラインディスプレイに関するClaim管理を、StarWebPRNT送信エレメント列、StarWebPRNT受信エレメント列を通して行います。
@@ -246,7 +253,7 @@
             またStarWebPrintTraderオブジェクトを利用して、Claim管理情報を含むStarWebPRNT送信エレメント列を送信したり、受信したStarWebPRNT受信エレメント列から状態を確認します。
             </p>
         </div>
-    
+
 
         <h4>コンストラクタ</h4>
         <table class="List1">
@@ -257,7 +264,7 @@
                 <tr><td><a href="#StarClaimManager">StarClaimManager</a></td><td>StarClaimManagerオブジェクトを生成します。</td></tr>
             </tbody>
         </table>
-    
+
 
         <h4>メソッド</h4>
         <table class="List1">
@@ -281,16 +288,14 @@
             <tr><td><a href="#removeLDEventListener">removeLDEventListener</a></td><td>ラインディスプレイデバイスに関するコールバック関数を消去します。</td></tr>
             </tbody>
         </table>
-        <p class="note2">
-            (*1) 初回のclaim='true'を含む送信エレメント列送信後に、Claimの開始が成功した場合(*2)に<br />
-                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;開始される現在使用しているブラウザがデバイスのClaim状態を保持するためのポーリング。<br />
-                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;また、claim='false'を含む送信エレメント列の送信後に、Claimの終了が成功した場合(*3)<br />
-                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ポーリングは終了する。尚、StarClaimManager.jsのsendMessageにより自動的にポーリングは行われます<br />
-            (*2) Claim開始成功時に受け取る受信エレメント列に含まれる文字列<br />
-                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"&lt;bcr&gt;&lt;claim&gt;true&lt;/claim&gt;&lt;/bcr&gt;"<br />
-            (*3) Claim終了成功時に受け取る受信エレメント列に含まれる文字列<br />
-                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"&lt;bcr&gt;&lt;claim&gt;false&lt;/claim&gt;&lt;/bcr&gt;"<br />
-        </p>
+        <div class="note3">
+            <p>(*1) 初回のclaim='true'を含む送信エレメント列送信後に、Claimの開始が成功した場合(*2)に開始される現在使用しているブラウザがデバイスのClaim状態を保持するためのポーリング。<br />
+                また、claim='false'を含む送信エレメント列の送信後に、Claimの終了が成功した場合(*3)ポーリングは終了する。なお、StarClaimManager.jsのsendMessageによりポーリングは自動的に行われます。</p>
+            <p>(*2) Claim開始成功時に受け取る受信エレメント列に含まれる文字列<br />
+                 "&lt;bcr&gt;&lt;claim&gt;true&lt;/claim&gt;&lt;/bcr&gt;"</p>
+            <p>(*3) Claim終了成功時に受け取る受信エレメント列に含まれる文字列<br />
+                 "&lt;bcr&gt;&lt;claim&gt;false&lt;/claim&gt;&lt;/bcr&gt;"</p>
+        </div>
 
 
         <h4>機種別対応リスト</h4>
@@ -317,11 +322,11 @@
 
             </tbody>
         </table>
-        <p class="note2">
-            *1 AsuraCPRNT Linux OS Ver 1.7以降のみ対応<br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;また、各デバイスの対応状況は<a href="http://www.star-m.jp/products/s_print/sp01_09.html">AsuraCPRNTデベロッパーサイト</a>の仕様書をご確認ください<br />
-            *2 AsuraCPRNT Linux OS Ver 1.7以降に搭載の"Line Display"アプリケーション起動時利用可
-        </p>
+        <div class="note2">
+            <p>*1 AsuraCPRNT Linux OS Ver 1.7以降のみ対応<br />
+            また、各デバイスの対応状況は<a href="http://www.star-m.jp/products/s_print/sp01_09.html">AsuraCPRNTデベロッパーサイト</a>の仕様書をご確認ください</p>
+            <p>*2 AsuraCPRNT Linux OS Ver 1.7以降に搭載の"Line Display"アプリケーション起動時利用可</p>
+        </div>
 
         <h5>モバイルプリンター(ESC/POS)</h5>
         <table class="List2">
@@ -351,49 +356,49 @@
         <h5>モバイルプリンター(StarPRNT)</h5>
         <table class="List2">
             <thead>
-                <tr><td>名称</td><td>SM-S210i</td><td>SM-S220i<br />(Jpモデル以外)</td><td>SM-S230i</td><td>SM-T300i</td><td>SM-T400i</td><td>SM-L200</td></tr>
+                <tr><td>名称</td><td>SM-S210i</td><td>SM-S220i<br />(Jpモデル以外)</td><td>SM-S230i</td><td>SM-T300i</td><td>SM-T400i</td><td>SM-L200</td><td>SM-L300</td></tr>
             </thead>
             <tbody>
-            <tr><td><a href="#sendMessage">sendMessage</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#isBCRClaimed">isBCRClaimed</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#isMSRClaimed">isMSRClaimed</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#isLDClaimed">isLDClaimed</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#getBCRDeviceNameCapability">getBCRDeviceNameCapability</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#getBCRModeCapability">getBCRModeCapability</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#getBCRSymbolCapability">getBCRSymbolCapability</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#setPollingInterval">setPollingInterval</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#setBCREventListener">setBCREventListener</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#setMSREventListener">setMSREventListener</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#setLDEventListener">setLDEventListener</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#removeBCREventListener">removeBCREventListener</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#removeMSREventListener">removeMSREventListener</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#removeLDEventListener">removeLDEventListener</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#sendMessage">sendMessage</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#isBCRClaimed">isBCRClaimed</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#isMSRClaimed">isMSRClaimed</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#isLDClaimed">isLDClaimed</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#getBCRDeviceNameCapability">getBCRDeviceNameCapability</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#getBCRModeCapability">getBCRModeCapability</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#getBCRSymbolCapability">getBCRSymbolCapability</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#setPollingInterval">setPollingInterval</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#setBCREventListener">setBCREventListener</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#setMSREventListener">setMSREventListener</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#setLDEventListener">setLDEventListener</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#removeBCREventListener">removeBCREventListener</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#removeMSREventListener">removeMSREventListener</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#removeLDEventListener">removeLDEventListener</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
 
             </tbody>
         </table>
-        
+
     </article>
 
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
     </div>
-    
+
 
     <article id="StarClaimManager">
         <h3>StarClaimManager</h3>
-    
+
         <div class="introduction_3">
             <p>
             StarClaimManagerオブジェクトを生成します。
             </p>
         </div>
-    
+
         <div class="syntax">
         <h4>構文</h4>
         <p>
         StarClaimManager(args);
         </p>
-    
+
         <h4>名前付き引数</h4>
         <table class="coder">
             <thead>
@@ -423,7 +428,7 @@
 var manager = new StarClaimManager();
 
 function onSend(url, request) {
-    var trader = new StarWebPrintTrader({url:url}); 
+    var trader = new StarWebPrintTrader({url:url});
 
     manager.sendMessage({request:request, trader:trader});
 }
@@ -436,24 +441,24 @@ function onSend(url, request) {
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
     </div>
-    
+
     <article id="sendMessage">
-    
+
         <h3>sendMessage</h3>
-        
+
         <div class="introduction_3">
             <p>
             Claim管理用の設定追加及び、それを含むStarWebPRNT送信エレメント列を送信します。
             </p>
         </div>
-        
+
         <div class="syntax">
             <h4>構文</h4>
             <p>
             sendMessage(args);
             </p>
         </div>
-        
+
         <h4>名前付き引数</h4>
         <table class="coder">
             <thead>
@@ -474,7 +479,7 @@ function onSend(url, request) {
                 <tr><td>-</td><td>-</td></tr>
             </tbody>
         </table>
-    
+
         <h5>例</h5>
 <pre>
 &lt;script type='text/javascript' src='js/StarWebPrintTrader.js'&gt;&lt;/script&gt;
@@ -484,7 +489,7 @@ function onSend(url, request) {
 var manager = new StarClaimManager();
 
 function onSend(url, request) {
-    var trader = new StarWebPrintTrader({url:url}); 
+    var trader = new StarWebPrintTrader({url:url});
 
     manager.sendMessage({request:request, trader:trader});
 }
@@ -496,24 +501,24 @@ function onSend(url, request) {
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
     </div>
-    
+
     <article id="isBCRClaimed">
-    
+
         <h3>isBCRClaimed</h3>
-        
+
         <div class="introduction_3">
             <p>
             バーコードリーダーデバイスのClaim状態を確認します。
             </p>
         </div>
-        
+
         <div class="syntax">
             <h4>構文</h4>
             <p>
             isBCRClaimed();
             </p>
         </div>
-        
+
         <h4>名前付き引数</h4>
         <table class="coder">
             <thead>
@@ -533,7 +538,7 @@ function onSend(url, request) {
                 <tr><td>Claim状態<br /><ul><li>true … Claim開始状態</li><li>false … Claim終了状態</li></ul></td><td>Boolean</td></tr>
             </tbody>
         </table>
-    
+
         <h5>例</h5>
 <pre>
 &lt;script type='text/javascript' src='js/StarWebPrintTrader.js'&gt;&lt;/script&gt;
@@ -557,24 +562,24 @@ function onCheck() {
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
     </div>
-    
+
     <article id="isMSRClaimed">
-    
+
         <h3>isMSRClaimed</h3>
-        
+
         <div class="introduction_3">
             <p>
             磁気リーダーデバイスのClaim状態を確認します。
             </p>
         </div>
-        
+
         <div class="syntax">
             <h4>構文</h4>
             <p>
             isMSRClaimed();
             </p>
         </div>
-        
+
         <h4>名前付き引数</h4>
         <table class="coder">
             <thead>
@@ -594,7 +599,7 @@ function onCheck() {
                 <tr><td>Claim状態<br /><ul><li>true … Claim開始状態</li><li>false … Claim終了状態</li></ul></td><td>Boolean</td></tr>
             </tbody>
         </table>
-    
+
         <h5>例</h5>
 <pre>
 &lt;script type='text/javascript' src='js/StarWebPrintTrader.js'&gt;&lt;/script&gt;
@@ -618,24 +623,24 @@ function onCheck() {
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
     </div>
-    
+
     <article id="isLDClaimed">
-    
+
         <h3>isLDClaimed</h3>
-        
+
         <div class="introduction_3">
             <p>
             ラインディスプレイデバイスのClaim状態を確認します。
             </p>
         </div>
-        
+
         <div class="syntax">
             <h4>構文</h4>
             <p>
             isLDClaimed();
             </p>
         </div>
-        
+
         <h4>名前付き引数</h4>
         <table class="coder">
             <thead>
@@ -655,7 +660,7 @@ function onCheck() {
                 <tr><td>Claim状態<br /><ul><li>true … Claim開始状態</li><li>false … Claim終了状態</li></ul></td><td>Boolean</td></tr>
             </tbody>
         </table>
-    
+
         <h5>例</h5>
 <pre>
 &lt;script type='text/javascript' src='js/StarWebPrintTrader.js'&gt;&lt;/script&gt;
@@ -679,24 +684,24 @@ function onCheck() {
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
     </div>
-    
+
     <article id="getBCRDeviceNameCapability">
-    
+
         <h3>getBCRDeviceNameCapability</h3>
-        
+
         <div class="introduction_3">
             <p>
             バーコードリーダーデバイス名を確認します。
             </p>
         </div>
-        
+
         <div class="syntax">
             <h4>構文</h4>
             <p>
             getBCRDeviceNameCapability();
             </p>
         </div>
-        
+
         <h4>名前付き引数</h4>
         <table class="coder">
             <thead>
@@ -716,7 +721,7 @@ function onCheck() {
                 <tr><td>バーコードリーダーデバイス名</td><td>String</td></tr>
             </tbody>
         </table>
-    
+
         <h5>例</h5>
 <pre>
 &lt;script type='text/javascript' src='js/StarWebPrintTrader.js'&gt;&lt;/script&gt;
@@ -743,24 +748,24 @@ function onCheck() {
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
     </div>
-    
+
     <article id="getBCRModeCapability">
-    
+
         <h3>getBCRModeCapability</h3>
-        
+
         <div class="introduction_3">
             <p>
             バーコードリーダーデバイスの対応スキャンモードを確認します。
             </p>
         </div>
-        
+
         <div class="syntax">
             <h4>構文</h4>
             <p>
             getBCRModeCapability();
             </p>
         </div>
-        
+
         <h4>名前付き引数</h4>
         <table class="coder">
             <thead>
@@ -780,7 +785,7 @@ function onCheck() {
                 <tr><td>スキャンモードの対応状況リスト<br />※戻り値は下記のプロパティを持つオブジェクト<br />[プロパティ]<ul><li>OFF … スキャンオフ</li><li>SCAN_ONCE … 1回読取モード</li><li>AUTO … 連続読取モード(照準有り)</li><li>CONTINUOUS … 連続読取モード(照準無し)</li><li>MOBILE_PHONE … 液晶画面用1回読取モード</li><li>MOBILE_CONTINUOUS … 液晶画面用連続読取モード</li></ul>[プロパティの値 (Boolean)]<ul><li>true … 対応</li><li>false … 非対応</li></ul></td><td>Object</td></tr>
             </tbody>
         </table>
-    
+
         <h5>例</h5>
 <pre>
 &lt;script type='text/javascript' src='js/StarWebPrintTrader.js'&gt;&lt;/script&gt;
@@ -796,7 +801,7 @@ function onCheck() {
         var bcrModeCapability = manager.getBCRModeCapability();
 
         msg += ('BCRModeCapability : \n');
- 
+
         for (key in bcrModeCapability) {
             msg += (' ' + key + ' - ' + bcrModeCapability[key] + '\n');
         }
@@ -813,24 +818,24 @@ function onCheck() {
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
     </div>
-    
+
     <article id="getBCRSymbolCapability">
-    
+
         <h3>getBCRSymbolCapability</h3>
-        
+
         <div class="introduction_3">
             <p>
             バーコードリーダーデバイスの対応バーコードシンボルを確認します。
             </p>
         </div>
-        
+
         <div class="syntax">
             <h4>構文</h4>
             <p>
             getBCRSymbolCapability();
             </p>
         </div>
-        
+
         <h4>名前付き引数</h4>
         <table class="coder">
             <thead>
@@ -850,7 +855,7 @@ function onCheck() {
                 <tr><td>バーコードシンボルの対応状況リスト<br />※戻り値は下記のプロパティを持つオブジェクト<br />[プロパティ]<ul><li>AUSTRALIAN_POST</li><li>AZTEC_CODE</li><li>BRITISH_POST</li><li>CANADIAN_POST</li><li>CHINA_POST</li><li>CHINESE_SENSIBLE_CODE</li><li>CODABAR</li><li>CODABLOCK_A</li><li>CODABLOCK_F</li><li>CODE_11</li><li>CODE_128</li><li>CODE_32</li><li>CODE_39</li><li>CODE_49</li><li>CODE_93</li><li>DATA_MATRIX</li><li>EAN_13</li><li>EAN_8</li><li>INFOMAIL</li><li>INTELLIGENT_MAIL_BARCODE</li><li>INTERLEAVED_2_OF_5</li><li>JAPANESE_POST</li><li>KIX_POST</li><li>KOREA_POST</li><li>MATRIX_2_OF_5</li><li>MAXICODE</li><li>MICROPDF417</li><li>MSI</li><li>NEC_2_OF_5</li><li>PDF417</li><li>PLANET_CODE</li><li>POSTAL_4I</li><li>POSTNET</li><li>QR_CODE</li><li>STRAIGHT_2_OF_5_IATA</li><li>STRAIGHT_2_OF_5_INDUSTRIAL</li><li>TLC39</li><li>TELEPEN</li><li>UPC_A</li><li>UPC_E</li><li>GS1_128</li><li>GS1_COMPOSIT</li><li>GS1_DATABAR</li></ul>[プロパティの値 (Boolean)]<ul><li>true … 対応</li><li>false … 非対応</li></ul></td><td>Object</td></tr>
             </tbody>
         </table>
-    
+
         <h5>例</h5>
 <pre>
 &lt;script type='text/javascript' src='js/StarWebPrintTrader.js'&gt;&lt;/script&gt;
@@ -864,7 +869,7 @@ function onCheck() {
 
     if (manager.isBCRClaimed() == true) {
         var bcrSymbolCapability = manager.getBCRSymbolCapability();
- 
+
         msg += ('BCRSymbolCapability : \n');
 
         for (key in bcrSymbolCapability) {
@@ -883,24 +888,24 @@ function onCheck() {
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
     </div>
-    
+
     <article id="setPollingInterval">
-    
+
         <h3>setPollingInterval</h3>
-        
+
         <div class="introduction_3">
             <p>
             Claim管理用ポーリングの送信インターバル時間を設定します。
             </p>
         </div>
-        
+
         <div class="syntax">
             <h4>構文</h4>
             <p>
             setPollingInterval(milliseconds);
             </p>
         </div>
-        
+
         <h4>引数</h4>
         <table class="coder">
             <thead>
@@ -920,7 +925,7 @@ function onCheck() {
                 <tr><td>-</td><td>-</td></tr>
             </tbody>
         </table>
-    
+
         <h5>例</h5>
 <pre>
 &lt;script type='text/javascript' src='js/StarWebPrintTrader.js'&gt;&lt;/script&gt;
@@ -938,24 +943,24 @@ manager.setPollingInterval(500);
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
     </div>
-    
+
     <article id="setBCREventListener">
-    
+
         <h3>setBCREventListener</h3>
-        
+
         <div class="introduction_3">
             <p>
             バーコードリーダーデバイスに関するコールバック関数を設定します。
             </p>
         </div>
-        
+
         <div class="syntax">
             <h4>構文</h4>
             <p>
             setBCREventListener(eventName, javaScriptFunction);
             </p>
         </div>
-        
+
         <h4>引数</h4>
         <table class="coder">
             <thead>
@@ -984,7 +989,7 @@ manager.setPollingInterval(500);
                 <tr><td>-</td><td>-</td></tr>
             </tbody>
         </table>
-    
+
         <h5>例</h5>
 <pre>
 &lt;script type='text/javascript' src='js/StarWebPrintTrader.js'&gt;&lt;/script&gt;
@@ -1013,24 +1018,24 @@ manager.setBCREventListener('pollingStatus', pollingStatusListener);
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
     </div>
-    
+
     <article id="setMSREventListener">
-    
+
         <h3>setMSREventListener</h3>
-        
+
         <div class="introduction_3">
             <p>
             磁気リーダーデバイスに関するコールバック関数を設定します。
             </p>
         </div>
-        
+
         <div class="syntax">
             <h4>構文</h4>
             <p>
             setMSREventListener(eventName, javaScriptFunction);
             </p>
         </div>
-        
+
         <h4>引数</h4>
         <table class="coder">
             <thead>
@@ -1059,7 +1064,7 @@ manager.setBCREventListener('pollingStatus', pollingStatusListener);
                 <tr><td>-</td><td>-</td></tr>
             </tbody>
         </table>
-    
+
         <h5>例</h5>
 <pre>
 &lt;script type='text/javascript' src='js/StarWebPrintTrader.js'&gt;&lt;/script&gt;
@@ -1088,24 +1093,24 @@ manager.setMSREventListener('pollingStatus', pollingStatusListener);
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
     </div>
-    
+
     <article id="setLDEventListener">
-    
+
         <h3>setLDEventListener</h3>
-        
+
         <div class="introduction_3">
             <p>
             ラインディスプレイデバイスに関するコールバック関数を設定します。
             </p>
         </div>
-        
+
         <div class="syntax">
             <h4>構文</h4>
             <p>
             setLDEventListener(eventName, javaScriptFunction);
             </p>
         </div>
-        
+
         <h4>引数</h4>
         <table class="coder">
             <thead>
@@ -1135,7 +1140,7 @@ manager.setMSREventListener('pollingStatus', pollingStatusListener);
                 <tr><td>-</td><td>-</td></tr>
             </tbody>
         </table>
-    
+
         <h5>例</h5>
 <pre>
 &lt;script type='text/javascript' src='js/StarWebPrintTrader.js'&gt;&lt;/script&gt;
@@ -1167,24 +1172,24 @@ manager.setLDEventListener('touchArea', touchAreaListener);
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
     </div>
-    
+
     <article id="removeBCREventListener">
-    
+
         <h3>removeBCREventListener</h3>
-        
+
         <div class="introduction_3">
             <p>
             バーコードリーダーデバイスに関するコールバック関数を消去します。
             </p>
         </div>
-        
+
         <div class="syntax">
             <h4>構文</h4>
             <p>
             removeBCREventListener(eventName);
             </p>
         </div>
-        
+
         <h4>引数</h4>
         <table class="coder">
             <thead>
@@ -1204,7 +1209,7 @@ manager.setLDEventListener('touchArea', touchAreaListener);
                 <tr><td>-</td><td>-</td></tr>
             </tbody>
         </table>
-    
+
         <h5>例</h5>
 <pre>
 &lt;script type='text/javascript' src='js/StarWebPrintTrader.js'&gt;&lt;/script&gt;
@@ -1226,22 +1231,22 @@ function onDelete() {
     </div>
 
     <article id="removeMSREventListener">
-    
+
         <h3>removeMSREventListener</h3>
-        
+
         <div class="introduction_3">
             <p>
             磁気リーダーデバイスに関するコールバック関数を消去します。
             </p>
         </div>
-        
+
         <div class="syntax">
             <h4>構文</h4>
             <p>
             removeMSREventListener(eventName);
             </p>
         </div>
-        
+
         <h4>引数</h4>
         <table class="coder">
             <thead>
@@ -1261,7 +1266,7 @@ function onDelete() {
                 <tr><td>-</td><td>-</td></tr>
             </tbody>
         </table>
-    
+
         <h5>例</h5>
 <pre>
 &lt;script type='text/javascript' src='js/StarWebPrintTrader.js'&gt;&lt;/script&gt;
@@ -1283,22 +1288,22 @@ function onDelete() {
     </div>
 
     <article id="removeLDEventListener">
-    
+
         <h3>removeLDEventListener</h3>
-        
+
         <div class="introduction_3">
             <p>
             ラインディスプレイデバイスに関するコールバック関数を消去します。
             </p>
         </div>
-        
+
         <div class="syntax">
             <h4>構文</h4>
             <p>
             removeLDEventListener(eventName);
             </p>
         </div>
-        
+
         <h4>引数</h4>
         <table class="coder">
             <thead>
@@ -1318,7 +1323,7 @@ function onDelete() {
                 <tr><td>-</td><td>-</td></tr>
             </tbody>
         </table>
-    
+
         <h5>例</h5>
 <pre>
 &lt;script type='text/javascript' src='js/StarWebPrintTrader.js'&gt;&lt;/script&gt;
@@ -1338,7 +1343,7 @@ function onDelete() {
 
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
-    </div>    
+    </div>
 
     </div>    <!-- Main Contents  -->
 
@@ -1350,5 +1355,8 @@ function onDelete() {
 </footer>
 </div>
 
+</div><!--container-->
+
 </body>
+
 </html>

@@ -14,8 +14,18 @@ body {
 	line-height: 1.5em;
 	margin:0;
 	padding:0;
-	background:#fff;
-    max-width: 1000px;
+	background:#fafafa;
+/* max-width: 1000px; */	
+}
+
+#container {
+    max-width: 1150px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 0 10px;
+  border-left: #ccc solid 1px;
+  border-right: #ccc solid 1px;  
+  background: #fff;
 }
 
 
@@ -91,6 +101,7 @@ a:hover{
 	color: #006699;
 	text-decoration: underline;
 }
+
 
 
 /* ----------------------------------------  */
@@ -356,11 +367,12 @@ h4 {
 /* -------------------------  */
 .cases{
 	padding:10px 20px;
-	font-size:1.1em;
+	font-size:1em;
 	line-height:1.2em;
 	color:#333;
 	border:#CFCFCF 1px solid;
 	border-left: #F9CF1B 5px solid;
+	border-left: #00a7db 5px solid;
 	border-radius:5px;
 }
 
@@ -370,7 +382,6 @@ h4 {
 
 .cases_subTitle{
 	font-weight:bold;
-	font-size:1.1em;
 	margin-top:1em;
 }
 
@@ -378,9 +389,18 @@ h4 {
     font-family: 'FontAwesome','Lucida Grande', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
     content:"\f0c8";
 	color:#F9CF1B;
+	color:#00a7db;
 	font-size:0.9em;
 	padding-right:0.3em;
 	font-weight:normal;
+}
+
+.warning_contents{
+	border-left: #F9CF1B 5px solid;
+}	
+
+.cases strong{
+	margin-bottom: 1.5em;
 }
 
 /* -------------------------  */
@@ -422,6 +442,9 @@ h4 {
 
 /* -------------------------  */
 /*  Class  numOperation   */
+/*  .note ｐにつける			*/
+/*　.note2　divにつけてｐを括る、”*１ ”に合う	*/
+/*　.note3　divにつけてｐを括る、”(*1) ”に合う	*/
 /* -------------------------  */
 
 /*.numOperation{
@@ -437,17 +460,41 @@ h4 {
 }
 
 .note {
-	margin-left: 10px;
-	margin-top: 5px;
+	margin-left: 20px;
+	margin-top: 8px;
 	font-size: 80%;
 	line-height: 1.5em;
 	text-indent: -1em;
 }
 
-.note2 {
-	margin: 5px 5px 20px 15px;
+.note2 p {
+	margin: 4px 0 4px 25px;
 	font-size: 80%;
 	line-height: 1.5em;
+	text-indent: -1em;
+}
+
+.note2 p:first-child{
+	margin-top: 8px;
+}
+
+.note2 p:last-child{
+	margin-bottom: 20px;
+}
+
+.note3 p {
+	margin: 5px 0 5px 38px;
+	font-size: 80%;
+	line-height: 1.5em;
+	text-indent: -2.6em;
+}
+
+.note3 p:first-child{
+	margin-top: 8px;
+}
+
+.note3 p:last-child{
+	margin-bottom: 20px;
 }
 
 
@@ -707,18 +754,21 @@ infoBox noteBox    Style
 
 
 /* --------------------------------------------------
-   List Table    
+   List Table：ヘッダは縦横とも中央寄せ
+   List1:全部左寄せ
+   List2:一番左の列のみ左寄せ、他は中央寄せ
+   List3:左側2列左寄せ、他は中央寄せ   
+   List4:全部中央寄せ
 -------------------------------------------------- */
 .List1 {
 	text-align:left;
 }
 
-.List2{
+.List2, .List3, .List4{
 	text-align:center;
 }
 
-.List1,
-.List2{
+.List1, .List2, .List3, .List4{
     margin-left: 0px;
     font-size: 90%;
 	vertical-align:middle;
@@ -728,10 +778,7 @@ infoBox noteBox    Style
             border-radius: 5px;
 }
 
-.List1 thead,
-.List1 td,
-.List2 thead,
-.List2 td {
+.List1 thead, .List1 td, .List2 thead, .List2 td, .List3 thead, .List3 td, .List4 thead, .List4 td  {
     padding: 3px 10px;
     border-bottom:solid 1px #aaa;
     border-right:solid 1px #aaa;
@@ -740,14 +787,15 @@ infoBox noteBox    Style
 
 
 .List2 tr :first-child {
-	padding: 3px 10px;
+	text-align:left;
+}
+
+.List3 tr :first-child, .List3 tr :nth-child(2) {
 	text-align:left;
 }
 
 
-
-.List1 thead,
-.List2 thead  {
+.List1 thead, .List2 thead, .List3 thead, .List4 thead  {
     font-weight: bold;
 	text-align:center;
 	vertical-align:middle;
@@ -756,6 +804,10 @@ infoBox noteBox    Style
 }
 
 .List2 thead :first-child {
+	text-align:center;
+}
+
+.List3 thead :first-child, .List3 thead :nth-child(2) {
 	text-align:center;
 }
 
@@ -782,4 +834,36 @@ infoBox noteBox    Style
 
 .linkList a:hover{
 	text-decoration:none;
+}
+
+
+/*-------------------------------------------------------------------------
+/* text-link　文中のテキストにリンクを張る場合使用　先頭に黄色矢印配置 */
+/*-------------------------------------------------------------------------
+
+/*   .contents-tableページの始めにおく しおり的リンク に使用   左マージン1em 先頭に紺矢印配置 */
+.contents-table a:link{
+	color: #555;
+}
+.contents-table a:visited{
+	color: #555;
+}
+
+.contents-table a:hover{
+	text-decoration:none;
+}
+
+
+.contents-table{
+	padding-left:1em;
+	color:#555;
+}
+.contents-table:before{
+	font-family: 'FontAwesome','Lucida Grande', 'Hiragino Kaku Gothic ProN', Meiryo, Helvetica, sans-serif;
+	content: "\f0a9  ";
+	color: #f6b436;
+	padding-top:1em;
+}
+.contents-table:hover{
+	color:#222;
 }

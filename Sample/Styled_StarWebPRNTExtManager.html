@@ -12,6 +12,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="Expires" content="86400">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 <title>StarWebPRNTExtManager Sample</title>
 
@@ -36,7 +37,7 @@ function onConnect() {
 
     manager.onDataReceive = function(args) {
         document.getElementById('textarea_readdata').value += decodeBase64ToString(args.data);
-        document.getElementById('textarea_readdata').scrollTop = document.getElementById('textarea_readdata').scrollHeight;    
+        document.getElementById('textarea_readdata').scrollTop = document.getElementById('textarea_readdata').scrollHeight;
     }
 
     manager.onReceive = function(response) {
@@ -61,7 +62,7 @@ function onConnect() {
 
     manager.onError = function(args) {
         document.getElementById('manager_state').innerHTML  = 'Not connected';
-        document.getElementById('printer_status').innerHTML = '-';    
+        document.getElementById('printer_status').innerHTML = '-';
 
         var msg;
 
@@ -78,7 +79,7 @@ function onConnect() {
         addResponse('onBarcodeDataReceive');
 
         document.getElementById('textarea_readdata').value += decodeBase64ToString(args.data); // + " : " + (args.data);
-        document.getElementById('textarea_readdata').scrollTop = document.getElementById('textarea_readdata').scrollHeight;  
+        document.getElementById('textarea_readdata').scrollTop = document.getElementById('textarea_readdata').scrollHeight;
     }
     manager.onBarcodeReaderConnect    = function() {
         addResponse('onBarcodeReaderConnect');
@@ -180,14 +181,14 @@ function decodeBase64ToString(data) {
     var hexString = decodeBase64ToHex(data);
     var characterString = '';
     var regexp = /\\x[0-1][0-9a-f]|\\x20|\\x7f|\\x[8-9a-f][0-9a-f]/;
-    
+
     for (var i = 0; i < hexString.length; i += 4) {
         var hex = hexString[i] + hexString[i + 1] + hexString[i + 2] + hexString[i + 3];
-        
+
         if (regexp.test(hex)) {
             characterString += '[' + hex + ']';
         }
-        else 
+        else
         {
             characterString += String.fromCharCode(parseInt(hex.replace('\\x', ''), 16));
         }
@@ -437,9 +438,8 @@ function onSendAscii() {
 function sendMessage(request) {
     var url              = document.getElementById('printUrl').value;
     var papertype        = document.getElementById('papertype').value;
-    var blackmark_sensor = document.getElementById('blackmark_sensor').value;
 
-    var trader = new StarWebPrintTrader({url:url, papertype:papertype, blackmark_sensor:blackmark_sensor});
+    var trader = new StarWebPrintTrader({url:url, papertype:papertype});
 
     trader.onReceive = function (response) {
         hideNowCommunicating();
@@ -540,7 +540,7 @@ window.onload = function() {
             </section>
         </div>
     </div>
- 
+
     <form onsubmit='return false;' id="form">
         <div class="container" id="contents">
 
@@ -614,19 +614,10 @@ window.onload = function() {
             <dt>Paper Type:</dt>
             <dd>
                 <select id='papertype'>
-                    <option value='normal' selected='selected'>Normal</option>
+                    <option value='' selected='selected'>-</option>
+                    <option value='normal'>Normal</option>
                     <option value='black_mark'>Black Mark</option>
                     <option value='black_mark_and_detect_at_power_on'>Black Mark and Detect at Power On</option>
-                </select>
-            </dd>
-        </dl>
-        <dl>
-            <dt>Black Mark Sensor:</dt>
-            <dd>
-                <select id='blackmark_sensor'>
-                    <option value='front_side' selected='selected'>Front side</option>
-                    <option value='back_side'>Back side</option>
-                    <option value='hole_or_gap'>Hole or Gap</option>
                 </select>
             </dd>
         </dl>

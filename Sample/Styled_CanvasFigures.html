@@ -11,6 +11,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="Expires" content="86400">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 <title>StarWebPRNT Sample(Canvas Figures)</title>
 
@@ -143,9 +144,8 @@ function onSendMessage() {
 
     var url              = document.getElementById('url').value;
     var papertype        = document.getElementById('papertype').value;
-    var blackmark_sensor = document.getElementById('blackmark_sensor').value;
 
-    var trader = new StarWebPrintTrader({url:url, papertype:papertype, blackmark_sensor:blackmark_sensor});
+    var trader = new StarWebPrintTrader({url:url, papertype:papertype});
 
     trader.onReceive = function (response) {
         hideNowPrinting();
@@ -211,7 +211,7 @@ function onSendMessage() {
     }
     catch (e) {
         hideNowPrinting();
-        
+
         alert(e.message);
     }
 }
@@ -360,16 +360,6 @@ window.onload = function() {
                         </select>
                     </dd>
                 </dl>
-                <d1>
-                    <dt>Black Mark Sensor</dt>
-                    <dd>:
-                        <select id='blackmark_sensor'>
-                            <option value='front_side' selected='selected'>Front side</option>
-                            <option value='back_side'>Back side</option>
-                            <option value='hole_or_gap'>Hole or Gap</option>
-                        </select>
-                    </dd>
-                </d1>
 				<input id="sendBtn" type="button" value="Send" onclick="onSendMessage()" />
 			</footer>
 		</div>

@@ -2,34 +2,39 @@
 <html xmlns="http://www.w3.org/1999/xhtml"  lang="ja" xml:lang="ja">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Expires" content="86400">
     <title>Star WebPRNT User's Manual</title>
-    <link href="html5reset-1.6.1.css" rel="stylesheet" type="text/css" />
-    <link href="webPRNT_layout.css" rel="stylesheet" type="text/css" />
-    <link href="webPRNT_print_layout.css" rel="stylesheet" type="text/css" media="print" />
-    
+    <link href="../css_en/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css_en/font-awesome.min.css">
+    <link href="../css_en/html5reset-1.6.1.css" rel="stylesheet" type="text/css" />
+    <link href="../css_en/webPRNT_layout.css" rel="stylesheet" type="text/css" />
+    <link href="../css_en/webPRNT_print_layout.css" rel="stylesheet" type="text/css" media="print" />
+
 <!-- ie10にて条件付きコメント([if IE]の箇所）がサポートされなくなったことに対する対処　　-->
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
-    <!--[if IE ]>
-        <link rel="stylesheet" type="text/css" href="webPRNT_layout_ie.css"></script>
-        <link rel="stylesheet" type="text/css" href="webPRNT_print_layout_ie.css" media="print"></script>
+   <!--[if IE ]>
+        <link rel="stylesheet" type="text/css" href="../css_en/webPRNT_layout_ie.css"></script>
+        <link rel="stylesheet" type="text/css" href="../css_en/webPRNT_print_layout_ie.css" media="print"></script>
     <![endif]-->
-    
+
     <script src="jquery-1.10.2.min.js"></script>
     <script>
-    
+
     $(function tggleNavi() {
         $('#naviArrow').click(function(){
            $('#mainNavi').slideToggle('slow');
-           
+
        });
     });
 
     </script>
-    
+
 </head>
 
 
 <body>
+
+<div id="container">
 
 <div id="toTop">
     <a href="index.htm"><img id="webPRNTLogo" src="../illust/WebPRNT_Logo.png" /></a>
@@ -44,7 +49,7 @@
 
 <!-- wrapp : mainNavi + mainContents-->
 <div id="wrapp" class="clear">
-    
+
 
 <!-- mainNavi -->
 
@@ -228,6 +233,9 @@
 	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#number">&lt;number&gt;</a></li>
 	</ul>
         <ul>
+	<li><a href="_StarWebPrintRequestElement_scs.htm">StarWebPRNT Request Element -SCS-</a></li>
+        </ul>
+        <ul>
         <li><a href="_appendixUTF8.htm">Appendix UTF-8</a></li>
         </ul>
 
@@ -241,11 +249,11 @@
     <article>
     <div id="StarWebPrintResponseElement">
         <h2>StarWebPRNT Response Element</h2>
-        
+
         <div class="introduction_2">
             <br />
         </div>
-        
+
         <table class="coder">
             <thead>
                 <tr><td>Name</td><td>Description</td></tr>
@@ -293,47 +301,46 @@
                 <tr><td>Name</td><td>FVP10</td><td>TSP650II</td><td>TSP700II</td><td>TSP800II</td><td>mPOP</td><td>AsuraCPRNT</td></tr>
             </thead>
             <tbody>
-            <tr><td><a href="#root-response">&lt;root&gt;</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#success">&lt;success&gt;</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#code">&lt;code&gt;</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#status">&lt;status&gt;</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○ *1</td></tr>
-            <tr><td><a href="#bcr">&lt;bcr&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>○ *1</td></tr>
-            <tr><td><a href="#bcr-success">&lt;success&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>○ *1</td></tr>
-            <tr><td><a href="#bcr-code">&lt;code&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>○ *1</td></tr>
-            <tr><td><a href="#bcr-claim">&lt;claim&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>○ *1</td></tr>
-            <tr><td><a href="#bcr-mode">&lt;mode&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>○ *1</td></tr>
-            <tr><td><a href="#bcr-duplicatescandelay">&lt;duplicatescandelay&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>○ *1</td></tr>
-            <tr><td><a href="#bcr-scanoncetimeout">&lt;scanoncetimeout&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>○ *1</td></tr>
-            <tr><td><a href="#bcr-claimpollingtimeout">&lt;claimpollingtimeout&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>○ *1</td></tr>
-            <tr><td><a href="#bcr-symbol">&lt;symbol&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>○ *1</td></tr>
-            <tr><td><a href="#bcr-symbolenable">&lt;symbolenable&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>○ *1</td></tr>
-            <tr><td><a href="#bcr-data">&lt;data&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>○ *1</td></tr>
-            <tr><td><a href="#bcr-datasymbol">&lt;datasymbol&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>○ *1</td></tr>
-            <tr><td><a href="#bcr-datacount">&lt;datacount&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>○ *1</td></tr>
-            <tr><td><a href="#bcr-bcrdevicename">&lt;bcrdevicename&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>○ *1</td></tr>
-            <tr><td><a href="#bcr-modecapability">&lt;modecapability&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>○ *1</td></tr>
-            <tr><td><a href="#bcr-symbolcapability">&lt;symbolcapability&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>○ *1</td></tr>
-            <tr><td><a href="#msr">&lt;msr&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>○ *1</td></tr>
-            <tr><td><a href="#msr-success">&lt;success&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>○ *1</td></tr>
-            <tr><td><a href="#msr-code">&lt;code&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>○ *1</td></tr>
-            <tr><td><a href="#msr-claim">&lt;claim&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>○ *1</td></tr>
-            <tr><td><a href="#msr-claimpollingtimeout">&lt;claimpollingtimeout&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>○ *1</td></tr>
-            <tr><td><a href="#msr-data">&lt;data&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>○ *1</td></tr>
-            <tr><td><a href="#msr-datacount">&lt;datacount&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>○ *1</td></tr>
-            <tr><td><a href="#ld">&lt;ld&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>○ *1 *2</td></tr>
-            <tr><td><a href="#ld-success">&lt;success&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>○ *1 *2</td></tr>
-            <tr><td><a href="#ld-code">&lt;code&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>○ *1 *2</td></tr>
-            <tr><td><a href="#ld-claim">&lt;claim&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>○ *1 *2</td></tr>
-            <tr><td><a href="#ld-claimpollingtimeout">&lt;claimpollingtimeout&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>○ *1 *2</td></tr>
-        
+            <tr><td><a href="#root-response">&lt;root&gt;</a></td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#success">&lt;success&gt;</a></td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#code">&lt;code&gt;</a></td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#status">&lt;status&gt;</a></td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713; *1</td></tr>
+            <tr><td><a href="#bcr">&lt;bcr&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>&#x02713; *1</td></tr>
+            <tr><td><a href="#bcr-success">&lt;success&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>&#x02713; *1</td></tr>
+            <tr><td><a href="#bcr-code">&lt;code&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>&#x02713; *1</td></tr>
+            <tr><td><a href="#bcr-claim">&lt;claim&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>&#x02713; *1</td></tr>
+            <tr><td><a href="#bcr-mode">&lt;mode&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>&#x02713; *1</td></tr>
+            <tr><td><a href="#bcr-duplicatescandelay">&lt;duplicatescandelay&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>&#x02713; *1</td></tr>
+            <tr><td><a href="#bcr-scanoncetimeout">&lt;scanoncetimeout&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>&#x02713; *1</td></tr>
+            <tr><td><a href="#bcr-claimpollingtimeout">&lt;claimpollingtimeout&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>&#x02713; *1</td></tr>
+            <tr><td><a href="#bcr-symbol">&lt;symbol&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>&#x02713; *1</td></tr>
+            <tr><td><a href="#bcr-symbolenable">&lt;symbolenable&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>&#x02713; *1</td></tr>
+            <tr><td><a href="#bcr-data">&lt;data&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>&#x02713; *1</td></tr>
+            <tr><td><a href="#bcr-datasymbol">&lt;datasymbol&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>&#x02713; *1</td></tr>
+            <tr><td><a href="#bcr-datacount">&lt;datacount&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>&#x02713; *1</td></tr>
+            <tr><td><a href="#bcr-bcrdevicename">&lt;bcrdevicename&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>&#x02713; *1</td></tr>
+            <tr><td><a href="#bcr-modecapability">&lt;modecapability&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>&#x02713; *1</td></tr>
+            <tr><td><a href="#bcr-symbolcapability">&lt;symbolcapability&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>&#x02713; *1</td></tr>
+            <tr><td><a href="#msr">&lt;msr&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>&#x02713; *1</td></tr>
+            <tr><td><a href="#msr-success">&lt;success&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>&#x02713; *1</td></tr>
+            <tr><td><a href="#msr-code">&lt;code&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>&#x02713; *1</td></tr>
+            <tr><td><a href="#msr-claim">&lt;claim&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>&#x02713; *1</td></tr>
+            <tr><td><a href="#msr-claimpollingtimeout">&lt;claimpollingtimeout&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>&#x02713; *1</td></tr>
+            <tr><td><a href="#msr-data">&lt;data&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>&#x02713; *1</td></tr>
+            <tr><td><a href="#msr-datacount">&lt;datacount&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>&#x02713; *1</td></tr>
+            <tr><td><a href="#ld">&lt;ld&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>&#x02713; *1 *2</td></tr>
+            <tr><td><a href="#ld-success">&lt;success&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>&#x02713; *1 *2</td></tr>
+            <tr><td><a href="#ld-code">&lt;code&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>&#x02713; *1 *2</td></tr>
+            <tr><td><a href="#ld-claim">&lt;claim&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>&#x02713; *1 *2</td></tr>
+            <tr><td><a href="#ld-claimpollingtimeout">&lt;claimpollingtimeout&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>&#x02713; *1 *2</td></tr>
+
             </tbody>
         </table>
-        <p class="note2">
-            *1 This function has been supported in AsuraCPRNT Linux OS since version 1.7.<br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Please refer to the specifications of <a href="http://www.star-m.jp/eng/products/s_print/sp01_09.html"> AsuraCPRNT Develeper Site</a>about each supported devices.<br />
-            *2 When start up the "Line Display" Application which has been supported AsuraCPRNT Linux OS since version 1.7 on Asura, can be available.
-
-        </p>
+        <div class="note2">
+            <p>*1 This function has been supported in AsuraCPRNT Linux OS since version 1.7.<br />
+            Please refer to the specifications of <a href="http://www.star-m.jp/eng/products/s_print/sp01_09.html"> AsuraCPRNT Develeper Site</a>about each supported devices.</p>
+            <p>*2 When start up the "Line Display" Application which has been supported AsuraCPRNT Linux OS since version 1.7 on Asura, can be available.</p>
+        </div>
 
 
         <h5>Mobile Printer (ESC/POS)</h5>
@@ -342,10 +349,10 @@
                 <tr><td>Name</td><td>SM-S220i<br />(Excluding Jp model)</td><td>SM-S230i</td><td>SM-T300i</td><td>SM-T400i</td></tr>
             </thead>
             <tbody>
-            <tr><td><a href="#root-response">&lt;root&gt;</a></td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#success">&lt;success&gt;</a></td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#code">&lt;code&gt;</a></td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#status">&lt;status&gt;</a></td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#root-response">&lt;root&gt;</a></td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#success">&lt;success&gt;</a></td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#code">&lt;code&gt;</a></td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#status">&lt;status&gt;</a></td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
             <tr><td><a href="#bcr">&lt;bcr&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
             <tr><td><a href="#bcr-success">&lt;success&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
             <tr><td><a href="#bcr-code">&lt;code&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
@@ -373,49 +380,49 @@
             <tr><td><a href="#ld-success">&lt;success&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
             <tr><td><a href="#ld-code">&lt;code&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
             <tr><td><a href="#ld-claim">&lt;claim&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#ld-claimpollingtimeout">&lt;claimpollingtimeout&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>        
+            <tr><td><a href="#ld-claimpollingtimeout">&lt;claimpollingtimeout&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
             </tbody>
         </table>
         <br>
-        
+
         <h5>Mobile Printer (StarPRNT)</h5>
         <table class="List2">
             <thead>
-                <tr><td>Name</td><td>SM-S220i<br />(Excluding Jp model)</td><td>SM-S230i</td><td>SM-T300i</td><td>SM-T400i</td><td>SM-L200</td></tr>
+                <tr><td>Name</td><td>SM-S220i<br />(Excluding Jp model)</td><td>SM-S230i</td><td>SM-T300i</td><td>SM-T400i</td><td>SM-L200</td><td>SM-L300</td></tr>
             </thead>
             <tbody>
-            <tr><td><a href="#root-response">&lt;root&gt;</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#success">&lt;success&gt;</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#code">&lt;code&gt;</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#status">&lt;status&gt;</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#bcr">&lt;bcr&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#bcr-success">&lt;success&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#bcr-code">&lt;code&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#bcr-claim">&lt;claim&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#bcr-mode">&lt;mode&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#bcr-duplicatescandelay">&lt;duplicatescandelay&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#bcr-scanoncetimeout">&lt;scanoncetimeout&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#bcr-claimpollingtimeout">&lt;claimpollingtimeout&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#bcr-symbol">&lt;symbol&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#bcr-symbolenable">&lt;symbolenable&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#bcr-data">&lt;data&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#bcr-datasymbol">&lt;datasymbol&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#bcr-datacount">&lt;datacount&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#bcr-bcrdevicename">&lt;bcrdevicename&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#bcr-modecapability">&lt;modecapability&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#bcr-symbolcapability">&lt;symbolcapability&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#msr">&lt;msr&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#msr-success">&lt;success&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#msr-code">&lt;code&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#msr-claim">&lt;claim&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#msr-claimpollingtimeout">&lt;claimpollingtimeout&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#msr-data">&lt;data&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#msr-datacount">&lt;datacount&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#ld">&lt;ld&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#ld-success">&lt;success&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#ld-code">&lt;code&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#ld-claim">&lt;claim&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#ld-claimpollingtimeout">&lt;claimpollingtimeout&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>        
+            <tr><td><a href="#root-response">&lt;root&gt;</a></td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#success">&lt;success&gt;</a></td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#code">&lt;code&gt;</a></td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#status">&lt;status&gt;</a></td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#bcr">&lt;bcr&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#bcr-success">&lt;success&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#bcr-code">&lt;code&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#bcr-claim">&lt;claim&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#bcr-mode">&lt;mode&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#bcr-duplicatescandelay">&lt;duplicatescandelay&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#bcr-scanoncetimeout">&lt;scanoncetimeout&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#bcr-claimpollingtimeout">&lt;claimpollingtimeout&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#bcr-symbol">&lt;symbol&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#bcr-symbolenable">&lt;symbolenable&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#bcr-data">&lt;data&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#bcr-datasymbol">&lt;datasymbol&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#bcr-datacount">&lt;datacount&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#bcr-bcrdevicename">&lt;bcrdevicename&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#bcr-modecapability">&lt;modecapability&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#bcr-symbolcapability">&lt;symbolcapability&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#msr">&lt;msr&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#msr-success">&lt;success&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#msr-code">&lt;code&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#msr-claim">&lt;claim&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#msr-claimpollingtimeout">&lt;claimpollingtimeout&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#msr-data">&lt;data&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#msr-datacount">&lt;datacount&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#ld">&lt;ld&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#ld-success">&lt;success&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#ld-code">&lt;code&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#ld-claim">&lt;claim&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#ld-claimpollingtimeout">&lt;claimpollingtimeout&gt;</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
             </tbody>
         </table>
 
@@ -428,7 +435,7 @@
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
     </div>
-    
+
 
     <article>
     <div id="root-response">
@@ -471,11 +478,11 @@
 
     </div>
     </article>
-    
+
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
     </div>
-    
+
     <article>
     <div id="success">
         <h3>&lt;success&gt;</h3>
@@ -517,11 +524,11 @@
 
     </div>
     </article>
-    
+
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
     </div>
-    
+
     <article>
     <div id="code">
         <h3>&lt;code&gt;</h3>
@@ -565,11 +572,11 @@
 
     </div>
     </article>
-    
+
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
     </div>
-    
+
     <article>
     <div id="status">
         <h3>&lt;status&gt;</h3>
@@ -667,7 +674,7 @@
 
     </div>
     </article>
-    
+
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
     </div>
@@ -724,7 +731,7 @@
 
     </div>
     </article>
-    
+
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
     </div>
@@ -787,7 +794,7 @@
 
     </div>
     </article>
-    
+
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
     </div>
@@ -844,7 +851,7 @@
 
     </div>
     </article>
-    
+
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
     </div>
@@ -906,7 +913,7 @@
 
     </div>
     </article>
-    
+
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
     </div>
@@ -963,7 +970,7 @@
 
     </div>
     </article>
-    
+
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
     </div>
@@ -1020,7 +1027,7 @@
 
     </div>
     </article>
-    
+
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
     </div>
@@ -1077,7 +1084,7 @@
 
     </div>
     </article>
-    
+
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
     </div>
@@ -1134,7 +1141,7 @@
 
     </div>
     </article>
-    
+
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
     </div>
@@ -1191,7 +1198,7 @@
 
     </div>
     </article>
-    
+
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
     </div>
@@ -1242,7 +1249,7 @@
 
     </div>
     </article>
-    
+
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
     </div>
@@ -1293,7 +1300,7 @@
 
     </div>
     </article>
-    
+
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
     </div>
@@ -1344,7 +1351,7 @@
 
     </div>
     </article>
-    
+
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
     </div>
@@ -1658,7 +1665,7 @@
 
     </div>
     </article>
-    
+
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
     </div>
@@ -1707,7 +1714,7 @@
 
     </div>
     </article>
-    
+
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
     </div>
@@ -1762,7 +1769,7 @@
 
     </div>
     </article>
-    
+
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
     </div>
@@ -1811,7 +1818,7 @@
 
     </div>
     </article>
-    
+
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
     </div>
@@ -1860,7 +1867,7 @@
 
     </div>
     </article>
-    
+
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
     </div>
@@ -1911,7 +1918,7 @@
 
     </div>
     </article>
-    
+
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
     </div>
@@ -1962,7 +1969,7 @@
 
     </div>
     </article>
-    
+
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
     </div>
@@ -2011,7 +2018,7 @@
 
     </div>
     </article>
-    
+
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
     </div>
@@ -2060,7 +2067,7 @@
 
     </div>
     </article>
-    
+
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
     </div>
@@ -2095,7 +2102,7 @@
                                                                <li>1001 … Line display claim still has not be performed. </li>
                                                                <li>1002 … Line display is busy<br />(In use with another device. Another device has already performed the claim start: Need to resend data)</li>
                                                                <li>1003 … Line display device is not connected on AsuraCPRNT or turn off. </li>
-                                                               <li>1004 … line display has error(On online </li></ul></td>                
+                                                               <li>1004 … line display has error(On online </li></ul></td>
                 </tr>
             </tbody>
         </table>
@@ -2114,7 +2121,7 @@
 
     </div>
     </article>
-    
+
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
     </div>
@@ -2163,7 +2170,7 @@
 
     </div>
     </article>
-    
+
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
     </div>
@@ -2212,7 +2219,7 @@
 
     </div>
     </article>
-    
+
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
     </div>
@@ -2223,9 +2230,11 @@
 
 <div id="footer">
 <footer>
-<p id="copyright"> &copy; Copyright 2013 - 2015  <a href="http://www.star-m.jp/">Star Micronics Co., Ltd.</a> </p>
+<p id="copyright"> &copy; Copyright 2013 - 2017  <a href="http://www.star-m.jp/">Star Micronics Co., Ltd.</a> </p>
 </footer>
 </div>
+
+</div> <!--container-->
 
 </body>
 </html>

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta http-equiv="Expires" content="86400">
 <meta charset="UTF-8">
 <title>STAR MICRONICS CO.,LTD | Miniature Technology, Infinite World</title>
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
@@ -38,14 +39,19 @@
 	<nav id="subnav">
 		<ul>
 			<li><a href="howto_en.html" rel="external" id="howto"><span>Initial setup</span></a></li>
+			<li><a href="howto_scs_en.html" rel="external" id="howtoscs"><span>Star Cloud Services setup</span></a></li>
 			<li><a href="A002.html" rel="external"><span>Try WebPRNT</span></a></li>
 		</ul>
+		<div>
+		             <p class="js-explanation">The WebPRNT JavaScript libraries have been updated with new functionality and to accommodate changing security requirements from Apple. Please update from the Global Support Site here:&nbsp;&nbsp;
+		             <a href="http://www.starmicronics.com/support/sdkdocumentation.aspx" target="_blank"><span class="toGSS">English</span></a>   <a href="http://sp-support.star-m.jp/SDKDocumentation.aspx" target="_blank"><span class="toGSS">Japanese</span></a></p>
+		</div>
 	</nav>
 </section>
 
 <footer id="global-footer" class="clearfix">
 	<a href="http://www.star-m.jp/products/s_print/sdk_webprnt/manual/index.htm" target="_blank"><img src="images/footer-logo.png" width="123" alt="" id="footer-logo"></a>
-    <img src="images/footer-image.png"height="54" alt=""/>
+    <img src="images/footer-image.png" height="54" alt=""/>
 </footer>
 </div>
 </body>
@@ -56,6 +62,10 @@
 var link = document.getElementById("howto");
 if (navigator.userAgent.indexOf('Android') > 0){
 	link.href = "howto_en_Android.html";
+}
+var scslink = document.getElementById("howtoscs");
+if (navigator.userAgent.indexOf('Android') > 0){
+	scslink.href = "howto_scs_android_en.html";
 }
 -->
 </script>

@@ -2,34 +2,38 @@
 <html xmlns="http://www.w3.org/1999/xhtml"  lang="ja" xml:lang="ja">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Expires" content="86400">
     <title>Star WebPRNT ユーザーズマニュアル</title>
-    <link href="html5reset-1.6.1.css" rel="stylesheet" type="text/css" />
-    <link href="webPRNT_layout.css" rel="stylesheet" type="text/css" />
-    <link href="webPRNT_print_layout.css" rel="stylesheet" type="text/css" media="print" />
-    
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link href="../css/html5reset-1.6.1.css" rel="stylesheet" type="text/css" />
+    <link href="../css/webPRNT_layout.css" rel="stylesheet" type="text/css" />
+    <link href="../css/webPRNT_print_layout.css" rel="stylesheet" type="text/css" media="print" />
+
 <!-- ie10にて条件付きコメント([if IE]の箇所）がサポートされなくなったことに対する対処　　-->
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
    <!--[if IE ]>
-        <link rel="stylesheet" type="text/css" href="webPRNT_layout_ie.css"></script>
-        <link rel="stylesheet" type="text/css" href="webPRNT_print_layout_ie.css" media="print"></script>
+        <link rel="stylesheet" type="text/css" href="../css/webPRNT_layout_ie.css"></script>
+        <link rel="stylesheet" type="text/css" href="../css/webPRNT_print_layout_ie.css" media="print"></script>
     <![endif]-->
-    
+
     <script src="jquery-1.10.2.min.js"></script>
     <script>
-    
+
     $(function tggleNavi() {
         $('#naviArrow').click(function(){
            $('#mainNavi').slideToggle('slow');
-           
+
        });
     });
 
     </script>
-    
+
 </head>
 
-
 <body>
+
+<div id="container">
 
 <div id="toTop">
     <a href="index.htm"><img id="webPRNTLogo" src="../illust/WebPRNT_Logo.png" /></a>
@@ -44,7 +48,7 @@
 
 <!-- wrapp : mainNavi + mainContents-->
 <div id="wrapp" class="clear">
-    
+
 
 <!-- mainNavi -->
 
@@ -228,6 +232,9 @@
 	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#number">&lt;number&gt;</a></li>
 	</ul>
 	<ul>
+	<li><a href="_StarWebPrintRequestElement_scs.htm">StarWebPRNT送信エレメント<br />-SCS-</a></li>
+	</ul>
+	<ul>
 	<li><a href="_appendixUTF8.htm">付録 UTF-8対応</a></li>
 	</ul>
 
@@ -236,15 +243,15 @@
 
 <div id="mainContents">
 
-    <article id="starWebPrintBuilder-js" class="summary"> 
+    <article id="starWebPrintBuilder-js" class="summary">
         <h2>StarWebPrintBuilder.js</h2>
-    
+
         <div class="introduction_2">
             <p>
             StarWebPRNT送信エレメントを生成します。
             </p>
         </div>
-    
+
 
         <h4>コンストラクタ</h4>
         <table class="List1">
@@ -255,7 +262,7 @@
                 <tr><td><a href="#StarWebPrintBuilder">StarWebPrintBuilder</a></td><td>StarWebPrintBuilderオブジェクトを生成します。</td></tr>
             </tbody>
         </table>
-    
+
 
         <h4>メソッド</h4>
         <table class="List1">
@@ -309,14 +316,14 @@
             <tr><td><a href="#createLineDisplayElement">createLineDisplayElement</a>*4 *5</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>○</td></tr>
             </tbody>
         </table>
-        <p class="note2">
-            *1 Bluetoothプリンターはコマンドの初期化のみ実施<br />
-            *2 国際文字が日本モデルは日本固定、韓国モデルは韓国固定<br />
-            *3 ロゴ登録手段が用意されていないため対応していません<br />
-            *4 AsuraCPRNT Linux OS Ver 1.7以降のみ対応<br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;また、各デバイスの対応状況は<a href="http://www.star-m.jp/products/s_print/sp01_09.html">AsuraCPRNTデベロッパーサイト</a>の仕様書をご確認ください<br />
-            *5 AsuraCPRNT Linux OS Ver 1.7以降に搭載の"Line Display"アプリケーション起動時利用可
-        </p>
+        <div class="note2">
+            <p>*1 Bluetoothプリンターはコマンドの初期化のみ実施</p>
+            <p>*2 国際文字が日本モデルは日本固定、韓国モデルは韓国固定</p>
+            <p>*3 ロゴ登録手段が用意されていないため対応していません</p>
+            <p>*4 AsuraCPRNT Linux OS Ver 1.7以降のみ対応<br />
+            &nbsp;各デバイスの対応状況は<a href="http://www.star-m.jp/products/s_print/sp01_09.html">AsuraCPRNTデベロッパーサイト</a>の仕様書をご確認ください</p>
+            <p>*5 AsuraCPRNT Linux OS Ver 1.7以降に搭載の"Line Display"アプリケーション起動時利用可</p>
+        </div>
 
 
         <h5>モバイルプリンター (ESC/POS)</h5>
@@ -333,65 +340,67 @@
             <tr><td><a href="#createInitializationElement">createInitializationElement</a>*3</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
             <tr><td><a href="#createLogoElement">createLogoElement</a>*4</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
             <tr><td><a href="#createPdf417Element">createPdf417Element</a>*5</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createPeripheralElement">createPeripheralElement</a>*2</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#createQrCodeElement">createQrCodeElement</a>*6</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createPeripheralElement">createPeripheralElement</a>*6</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#createQrCodeElement">createQrCodeElement</a>*7</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
             <tr><td><a href="#createRawDataElement">createRawDataElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
             <tr><td><a href="#createRuledLineElement">createRuledLineElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createSoundElement">createSoundElement</a>*2</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#createSoundElement">createSoundElement</a>*6</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
             <tr><td><a href="#createTextElement">createTextElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createBarcodeReaderElement">createBarcodeReaderElement</a>*7</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#createMagstripeReaderElement">createMagstripeReaderElement</a>*7</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#createLineDisplayElement">createLineDisplayElement</a>*7 *8</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#createBarcodeReaderElement">createBarcodeReaderElement</a>*8</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#createMagstripeReaderElement">createMagstripeReaderElement</a>*8</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#createLineDisplayElement">createLineDisplayElement</a>*8 *9</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
             </tbody>
         </table>
-        <p class="note2">
-            *1 テキストデータのみ有効<br />
-            *2 コマンド未生成<br />
-            *3 コマンドの初期化のみ実施<br />
-            *4 ロゴ番号1～255を指定した時に、0～254番のロゴを印字<br />
-            *5 lineパラメータ無効<br />
-            *6 modelパラメータ無効<br />
-            *7 AsuraCPRNT Linux OS Ver 1.7以降のみ対応<br/>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;また、各デバイスの対応状況は<a href="http://www.star-m.jp/products/s_print/sp01_09.html">AsuraCPRNTデベロッパーサイト</a>の仕様書をご確認ください<br />
-            *8 AsuraCPRNT Linux OS Ver 1.7以降に搭載の"Line Display"アプリケーション起動時利用可
-        </p>
+        <div class="note2">
+            <p>*1 テキストデータのみ有効</p>
+            <p>*2 用紙カットを行わない</p>
+            <p>*3 コマンドの初期化のみ実施</p>
+            <p>*4 ロゴ番号1～255を指定した時に、0～254番のロゴを印字</p>
+            <p>*5 lineパラメータ無効</p>
+            <p>*6 コマンド未生成</p>
+            <P>*7 modelパラメータ無効</p>
+            <p>*8 AsuraCPRNT Linux OS Ver 1.7以降のみ対応<br/>
+            各デバイスの対応状況は<a href="http://www.star-m.jp/products/s_print/sp01_09.html">AsuraCPRNTデベロッパーサイト</a>の仕様書をご確認ください。</p>
+            <p>*9 AsuraCPRNT Linux OS Ver 1.7以降に搭載の"Line Display"アプリケーション起動時利用</p>
+        </div>
 
         <h5>モバイルプリンター (StarPRNT)</h5>
         <table class="List2">
             <thead>
-                <tr><td>名称</td><td>SM-S210i</td><td>SM-S220i<br />(Jpモデル以外)</td><td>SM-S230i</td><td>SM-T300i</td><td>SM-T400i</td><td>SM-L200</td></tr>
+                <tr><td>名称</td><td>SM-S210i</td><td>SM-S220i<br />(Jpモデル以外)</td><td>SM-S230i</td><td>SM-T300i</td><td>SM-T400i</td><td>SM-L200</td><td>SM-L300</td></tr>
             </thead>
             <tbody>
-            <tr><td><a href="#createAlignmentElement">createAlignmentElement</a>*1</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createBarcodeElement">createBarcodeElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createBitImageElement">createBitImageElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createCutPaperElement">createCutPaperElement</a>*2</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#createFeedElement">createFeedElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createInitializationElement">createInitializationElement</a>*3</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createLogoElement">createLogoElement</a>*4</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createPdf417Element">createPdf417Element</a>*5</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createPeripheralElement">createPeripheralElement</a>*2</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#createQrCodeElement">createQrCodeElement</a>*6</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createRawDataElement">createRawDataElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createRuledLineElement">createRuledLineElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createSoundElement">createSoundElement</a>*2</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#createTextElement">createTextElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createBarcodeReaderElement">createBarcodeReaderElement</a>*7</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#createMagstripeReaderElement">createMagstripeReaderElement</a>*7</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#createLineDisplayElement">createLineDisplayElement</a>*7 *8</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#createAlignmentElement">createAlignmentElement</a>*1</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createBarcodeElement">createBarcodeElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createBitImageElement">createBitImageElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createCutPaperElement">createCutPaperElement</a>*2</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#createFeedElement">createFeedElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createInitializationElement">createInitializationElement</a>*3</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createLogoElement">createLogoElement</a>*4</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createPdf417Element">createPdf417Element</a>*5</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createPeripheralElement">createPeripheralElement</a>*6</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#createQrCodeElement">createQrCodeElement</a>*7</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createRawDataElement">createRawDataElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createRuledLineElement">createRuledLineElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createSoundElement">createSoundElement</a>*6</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#createTextElement">createTextElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createBarcodeReaderElement">createBarcodeReaderElement</a>*8</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#createMagstripeReaderElement">createMagstripeReaderElement</a>*8</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#createLineDisplayElement">createLineDisplayElement</a>*8 *9</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
             </tbody>
         </table>
-        <p class="note2">
-            *1 テキストデータのみ有効<br />
-            *2 コマンド未生成<br />
-            *3 コマンドの初期化のみ実施<br />
-            *4 ロゴ番号と印字ロゴの対応表は<a href="_number_logo_table.htm" target="blank">こちら</a>をご参照ください。<br />
-            *5 lineパラメータ無効<br />
-            *6 modelパラメータ無効<br />
-            *7 AsuraCPRNT Linux OS Ver 1.7以降のみ対応<br/>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;また、各デバイスの対応状況は<a href="http://www.star-m.jp/products/s_print/sp01_09.html">AsuraCPRNTデベロッパーサイト</a>の仕様書をご確認ください<br />
-            *8 AsuraCPRNT Linux OS Ver 1.7以降に搭載の"Line Display"アプリケーション起動時利用可
-        </p>
+        <div class="note2">
+            <p>*1 テキストデータのみ有効</p>
+            <p>*2 用紙カットを行わない</p>
+            <p>*3 コマンドの初期化のみ実施</p>
+            <p>*4 ロゴ番号と印字ロゴの対応表は<a href="_number_logo_table.htm" target="blank">こちら</a>をご参照ください。</p>
+            <p>*5 lineパラメータ無効</p>
+            <p>*6 コマンド未生成</p>
+            <p>*7 modelパラメータ無効</p>
+            <p>*8 AsuraCPRNT Linux OS Ver 1.7以降のみ対応<br/>
+            各デバイスの対応状況は<a href="http://www.star-m.jp/products/s_print/sp01_09.html">AsuraCPRNTデベロッパーサイト</a>の仕様書をご確認ください。</p>
+            <p>*9 AsuraCPRNT Linux OS Ver 1.7以降に搭載の"Line Display"アプリケーション起動時利用可</p>
+        </div>
 
 
 
@@ -400,22 +409,22 @@
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
     </div>
-    
+
     <article id="StarWebPrintBuilder">
         <h3>StarWebPrintBuilder</h3>
-    
+
         <div class="introduction_3">
             <p>
             StarWebPrintBuilderオブジェクトを生成します。
             </p>
         </div>
-    
+
         <div class="syntax">
         <h4>構文</h4>
         <p>
         StarWebPrintBuilder();
         </p>
-    
+
         <h4>名前付き引数</h4>
         <table class="coder">
             <thead>
@@ -464,14 +473,14 @@ function onBuild() {
             位置揃えエレメントを生成します。
             </p>
         </div>
-    
+
         <div class="syntax">
             <h4>構文</h4>
             <p>
             createAlignmentElement(args);
             </p>
         </div>
-    
+
         <h4>名前付き引数</h4>
         <table class="coder">
             <thead>
@@ -486,7 +495,7 @@ function onBuild() {
                     <td>'left'</td></tr>
             </tbody>
         </table>
-    
+
         <h4>戻り値</h4>
         <table class="coder">
             <thead>
@@ -496,7 +505,7 @@ function onBuild() {
                 <tr><td>生成したエレメント文字列</td><td>String</td></tr>
             </tbody>
         </table>
-    
+
         <h5>例</h5>
 <pre>
 &lt;script type='text/javascript' src='js/StarWebPrintBuilder.js'&gt;&lt;/script&gt;
@@ -517,25 +526,25 @@ function onBuild() {
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
     </div>
-    
+
     <article>
     <div id="createBarcodeElement">
-    
+
         <h3>createBarcodeElement</h3>
-        
+
         <div class="introduction_3">
             <p>
             バーコードエレメントを生成します。
             </p>
         </div>
-        
+
         <div class="syntax">
             <h4>構文</h4>
             <p>
             createBarcodeElement(args);
             </p>
         </div>
-        
+
         <h4>名前付き引数</h4>
         <table class="coder">
             <thead>
@@ -565,10 +574,10 @@ function onBuild() {
                 <tr>
                     <td>hri</td><td>HRIキャラクタ<br /><ul><li>true … HRIキャラクタあり</li><li>false … HRIキャラクタなし</li></ul></td><td>Boolean</td><td>true</td></tr>
                 <tr>
-                    <td>data</td><td>バーコードデータ<br />※コマンド仕様書参照</td><td>String</td><td>省略不可</td></tr>               
+                    <td>data</td><td>バーコードデータ<br />※コマンド仕様書参照</td><td>String</td><td>省略不可</td></tr>
             </tbody>
         </table>
-    
+
         <h4>戻り値</h4>
         <table class="coder">
             <thead>
@@ -578,7 +587,7 @@ function onBuild() {
                 <tr><td>生成したエレメント文字列</td><td>String</td></tr>
             </tbody>
         </table>
-    
+
         <h5>例</h5>
 <pre>
 &lt;script type='text/javascript' src='js/StarWebPrintBuilder.js'&gt;&lt;/script&gt;&lt;script type='text/javascript'&gt;
@@ -598,25 +607,25 @@ function onBuild() {
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
     </div>
-    
+
     <article>
     <div id="createBitImageElement">
-    
+
         <h3>createBitImageElement</h3>
-        
+
         <div class="introduction_3">
             <p>
             ビットイメージエレメントを生成します。
             </p>
         </div>
-        
+
         <div class="syntax">
             <h4>構文</h4>
             <p>
             createBitImageElement(args);
             </p>
         </div>
-        
+
         <h4>名前付き引数</h4>
         <table class="coder">
             <thead>
@@ -630,7 +639,7 @@ function onBuild() {
                 <tr><td>height</td><td>印刷領域高さ（ドット単位指定）<br>最大値：2400</td><td>Number</td><td>0</td></tr>
             </tbody>
         </table>
-    
+
         <h4>戻り値</h4>
         <table class="coder">
             <thead>
@@ -640,7 +649,7 @@ function onBuild() {
                 <tr><td>生成したエレメント文字列</td><td>String</td></tr>
             </tbody>
         </table>
-    
+
         <h5>例</h5>
 <pre>
 &lt;script type='text/javascript' src='js/StarWebPrintBuilder.js'&gt;&lt;/script&gt;
@@ -661,25 +670,25 @@ function onBuild() {
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
     </div>
-    
+
     <article>
     <div id="createCutPaperElement">
-    
+
         <h3>createCutPaperElement</h3>
-        
+
         <div class="introduction_3">
             <p>
             用紙カットエレメントを生成します。
             </p>
         </div>
-        
+
         <div class="syntax">
             <h4>構文</h4>
             <p>
             createCutPaperElement(args);
             </p>
         </div>
-        
+
         <h4>名前付き引数</h4>
         <table class="coder">
             <thead>
@@ -700,7 +709,7 @@ function onBuild() {
                 <tr><td>生成したエレメント文字列</td><td>String</td></tr>
             </tbody>
         </table>
-    
+
         <h5>例</h5>
 <pre>
 &lt;script type='text/javascript' src='js/StarWebPrintBuilder.js'&gt;&lt;/script&gt;
@@ -721,25 +730,25 @@ function onBuild() {
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
     </div>
-    
+
     <article>
     <div id="createFeedElement">
-    
+
         <h3>createFeedElement</h3>
-        
+
         <div class="introduction_3">
             <p>
             用紙送りエレメントを生成します。
             </p>
         </div>
-        
+
         <div class="syntax">
             <h4>構文</h4>
             <p>
             createFeedElement(args);
             </p>
         </div>
-        
+
         <h4>名前付き引数</h4>
         <table class="coder">
             <thead>
@@ -760,7 +769,7 @@ function onBuild() {
                 <tr><td>生成したエレメント文字列</td><td>String</td></tr>
             </tbody>
         </table>
-    
+
         <h5>例</h5>
 <pre>
 &lt;script type='text/javascript' src='js/StarWebPrintBuilder.js'&gt;&lt;/script&gt;
@@ -781,25 +790,25 @@ function onBuild() {
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
     </div>
-    
+
     <article>
     <div id="createInitializationElement">
-    
+
         <h3>createInitializationElement</h3>
-        
+
         <div class="introduction_3">
             <p>
             初期化エレメントを生成します。
             </p>
         </div>
-        
+
         <div class="syntax">
             <h4>構文</h4>
             <p>
             createInitializationElement(args);
             </p>
         </div>
-        
+
         <h4>名前付き引数</h4>
         <table class="coder">
             <thead>
@@ -824,7 +833,7 @@ function onBuild() {
                 <tr><td>生成したエレメント文字列</td><td>String</td></tr>
             </tbody>
         </table>
-    
+
         <h5>例</h5>
 <pre>
 &lt;script type='text/javascript' src='js/StarWebPrintBuilder.js'&gt;&lt;/script&gt;
@@ -845,25 +854,25 @@ function onBuild() {
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
     </div>
-    
+
     <article>
     <div id="createLogoElement">
-    
+
         <h3>createLogoElement</h3>
-        
+
         <div class="introduction_3">
             <p>
             ロゴエレメントを生成します。
             </p>
         </div>
-        
+
         <div class="syntax">
             <h4>構文</h4>
             <p>
             createLogoElement(args);
             </p>
         </div>
-        
+
         <h4>名前付き引数</h4>
         <table class="coder">
             <thead>
@@ -885,7 +894,7 @@ function onBuild() {
                 <tr><td>生成したエレメント文字列</td><td>String</td></tr>
             </tbody>
         </table>
-    
+
         <h5>例</h5>
 <pre>
 &lt;script type='text/javascript' src='js/StarWebPrintBuilder.js'&gt;&lt;/script&gt;
@@ -905,25 +914,25 @@ function onBuild() {
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
     </div>
-    
+
     <article>
     <div id="createPdf417Element">
-    
+
         <h3>createPdf417Element</h3>
-        
+
         <div class="introduction_3">
             <p>
             PDF417エレメントを生成します。
             </p>
         </div>
-        
+
         <div class="syntax">
             <h4>構文</h4>
             <p>
             createPdf417Element(args);
             </p>
         </div>
-        
+
         <h4>名前付き引数</h4>
         <table class="coder">
             <thead>
@@ -952,7 +961,7 @@ function onBuild() {
                 <tr><td>生成したエレメント文字列</td><td>String</td></tr>
             </tbody>
         </table>
-    
+
         <h5>例</h5>
 <pre>
 &lt;script type='text/javascript' src='js/StarWebPrintBuilder.js'&gt;&lt;/script&gt;
@@ -972,25 +981,25 @@ function onBuild() {
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
     </div>
-    
+
     <article>
     <div id="createPeripheralElement">
-    
+
         <h3>createPeripheralElement</h3>
-        
+
         <div class="introduction_3">
             <p>
             外部機器エレメントを生成します。
             </p>
         </div>
-        
+
         <div class="syntax">
             <h4>構文</h4>
             <p>
             createPeripheralElement(args);
             </p>
         </div>
-        
+
         <h4>名前付き引数</h4>
         <table class="coder">
             <thead>
@@ -1012,7 +1021,7 @@ function onBuild() {
                 <tr><td>生成したエレメント文字列</td><td>String</td></tr>
             </tbody>
         </table>
-    
+
         <h5>例</h5>
 <pre>
 &lt;script type='text/javascript' src='js/StarWebPrintBuilder.js'&gt;&lt;/script&gt;
@@ -1032,25 +1041,25 @@ function onBuild() {
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
     </div>
-    
+
     <article>
     <div id="createQrCodeElement">
-    
+
         <h3>createQrCodeElement</h3>
-        
+
         <div class="introduction_3">
             <p>
             QRコードエレメントを生成します。
             </p>
         </div>
-        
+
         <div class="syntax">
             <h4>構文</h4>
             <p>
             createQrCodeElement(args);
             </p>
         </div>
-        
+
         <h4>名前付き引数</h4>
         <table class="coder">
             <thead>
@@ -1075,7 +1084,7 @@ function onBuild() {
                 <tr><td>生成したエレメント文字列</td><td>String</td></tr>
             </tbody>
         </table>
-    
+
         <h5>例</h5>
 <pre>
 &lt;script type='text/javascript' src='js/StarWebPrintBuilder.js'&gt;&lt;/script&gt;
@@ -1095,25 +1104,25 @@ function onBuild() {
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
     </div>
-    
+
     <article>
     <div id="createRawDataElement">
-    
+
         <h3>createRawDataElement</h3>
-        
+
         <div class="introduction_3">
             <p>
             生データエレメントを生成します。
             </p>
         </div>
-        
+
         <div class="syntax">
             <h4>構文</h4>
             <p>
             createRawDataElement(args);
             </p>
         </div>
-        
+
         <h4>名前付き引数</h4>
         <table class="coder">
             <thead>
@@ -1133,7 +1142,7 @@ function onBuild() {
                 <tr><td>生成したエレメント文字列</td><td>String</td></tr>
             </tbody>
         </table>
-    
+
         <h5>例</h5>
 <pre>
 &lt;script type='text/javascript' src='js/StarWebPrintBuilder.js'&gt;&lt;/script&gt;
@@ -1153,25 +1162,25 @@ function onBuild() {
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
     </div>
-    
+
     <article>
     <div id="createRuledLineElement">
-    
+
         <h3>createRuledLineElement</h3>
-        
+
         <div class="introduction_3">
             <p>
             横罫線エレメントを生成します。
             </p>
         </div>
-        
+
         <div class="syntax">
             <h4>構文</h4>
             <p>
             createRuledLineElement(args);
             </p>
         </div>
-        
+
         <h4>名前付き引数</h4>
         <table class="coder">
             <thead>
@@ -1196,7 +1205,7 @@ function onBuild() {
                 <tr><td>生成したエレメント文字列</td><td>String</td></tr>
             </tbody>
         </table>
-    
+
         <h5>例</h5>
 <pre>
 &lt;script type='text/javascript' src='js/StarWebPrintBuilder.js'&gt;&lt;/script&gt;
@@ -1216,25 +1225,25 @@ function onBuild() {
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
     </div>
-    
+
     <article>
     <div id="createSoundElement">
-    
+
         <h3>createSoundElement</h3>
-        
+
         <div class="introduction_3">
             <p>
             ブザーエレメントを生成します。
             </p>
         </div>
-        
+
         <div class="syntax">
             <h4>構文</h4>
             <p>
             createSoundElement(args);
             </p>
         </div>
-        
+
         <h4>名前付き引数</h4>
         <table class="coder">
             <thead>
@@ -1255,7 +1264,7 @@ function onBuild() {
                 <tr><td>生成したエレメント文字列</td><td>String</td></tr>
             </tbody>
         </table>
-    
+
         <h5>例</h5>
 <pre>
 &lt;script type='text/javascript' src='js/StarWebPrintBuilder.js'&gt;&lt;/script&gt;
@@ -1275,25 +1284,25 @@ function onBuild() {
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
     </div>
-    
+
     <article>
     <div id="createTextElement">
-    
+
         <h3>createTextElement</h3>
-        
+
         <div class="introduction_3">
             <p>
             テキストエレメントを生成します。
             </p>
         </div>
-        
+
         <div class="syntax">
             <h4>構文</h4>
             <p>
             createTextElement(args);
             </p>
         </div>
-        
+
         <h4>名前付き引数</h4>
         <table class="coder">
             <thead>
@@ -1307,7 +1316,7 @@ function onBuild() {
 <li>'cp999' … コードページ999</li><li>'cp1001' … コードページ1001</li><li>'cp1250' ～ 'cp1252' … コードページ1250 ～ 1252</li><li>'cp2001' … コードページ2001</li><li>'cp3001' … コードページ3001</li>
 <li>'cp3002' … コードページ3002</li><li>'cp3011' … コードページ3011</li><li>'cp3012' … コードページ3012</li><li>'cp3021' … コードページ3021</li><li>'cp3041' … コードページ3041</li>
 <li>'cp3840' … コードページ3840</li><li>'cp3841' … コードページ3841</li><li>'cp3843' ～ 'cp3848' … コードページ3843 ～ 3848</li><li>'blank' … ユーザ設定（空白コードページ)</li>
-<li>'shift_jis' … Shift_JIS</li><li>'gb18030' … GB18030</li><li>'gb2312' … GB2312</li><li>'big5' … Big5</li><li>'korea' … korea</li>                               
+<li>'shift_jis' … Shift_JIS</li><li>'gb18030' … GB18030</li><li>'gb2312' … GB2312</li><li>'big5' … Big5</li><li>'korea' … korea</li>
                                </ul></td>
                        <td>String</td><td>未設定</td></tr>
                 <tr><td>international</td><td>国際文字</br><ul>
@@ -1345,7 +1354,7 @@ function onBuild() {
                 <tr><td>生成したエレメント文字列</td><td>String</td></tr>
             </tbody>
         </table>
-    
+
         <h5>例</h5>
 <pre>
 &lt;script type='text/javascript' src='js/StarWebPrintBuilder.js'&gt;&lt;/script&gt;
@@ -1365,25 +1374,25 @@ function onBuild() {
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
     </div>
-    
+
     <article>
     <div id="createBarcodeReaderElement">
-    
+
         <h3>createBarcodeReaderElement</h3>
-        
+
         <div class="introduction_3">
             <p>
             バーコードリーダーエレメントを生成します。
             </p>
         </div>
-        
+
         <div class="syntax">
             <h4>構文</h4>
             <p>
             createBarcodeReaderElement(args);
             </p>
         </div>
-        
+
         <h4>名前付き引数</h4>
         <table class="coder">
             <thead>
@@ -1400,17 +1409,16 @@ function onBuild() {
                 <tr><td>claimpollingtimeout<br />(*1)(*2)</td><td>Claim管理用ポーリング(*3)タイムアウト (ミリ秒)<br />&nbsp;&nbsp;範囲：1000 ～ 2147483647<br />※推奨値：10000以上<br />※alertダイアログを表示させたまま設定した秒数を経過した場合<br />&nbsp;&nbsp;内部的に"claim=false"を実行した時と同様の動作を行うため<br />&nbsp;&nbsp;alertダイアログを利用の際はご注意ください</td><td>Number</td><td>未設定</td></tr>
             </tbody>
         </table>
-        (*1) type='setting'設定時有効<br />
-        (*2) claim='true'設定時有効<br />
-        (*3) 初回のclaim='true'を含む送信エレメント列送信後に、Claimの開始が成功した場合(*4)に<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;開始される現在使用しているブラウザがデバイスのClaim状態を保持するためのポーリング。<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;また、claim='false'を含む送信エレメント列の送信後に、Claimの終了が成功した場合(*5)<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ポーリングは終了する。尚、StarClaimManager.jsのsendMessageにより自動的に<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ポーリングの開始から終了までの処理が行われます<br />
-        (*4) Claim開始成功時に受け取る受信エレメント列に含まれる文字列<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"&lt;bcr&gt;&lt;claim&gt;true&lt;/claim&gt;&lt;/bcr&gt;"<br />
-        (*5) Claim終了成功時に受け取る受信エレメント列に含まれる文字列<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"&lt;bcr&gt;&lt;claim&gt;false&lt;/claim&gt;&lt;/bcr&gt;"<br />
+        <div class="note3">
+        <p>(*1) type='setting'設定時有効</p>
+        <p>(*2) claim='true'設定時有効</p>
+        <p>(*3) 初回のclaim='true'を含む送信エレメント列送信後に、Claimの開始が成功した場合(*4)に開始される現在使用しているブラウザがデバイスのClaim状態を保持するためのポーリングです。<br />
+        また、claim='false'を含む送信エレメント列の送信後に、Claimの終了が成功した場合(*5)ポーリングは終了します。なお、StarClaimManager.jsのsendMessageによりポーリングの開始から終了までの処理が自動的に行われます。</p>
+        <p>(*4) Claim開始成功時に受け取る受信エレメント列に含まれる文字列<br />
+        "&lt;bcr&gt;&lt;claim&gt;true&lt;/claim&gt;&lt;/bcr&gt;"</p>
+        <p>(*5) Claim終了成功時に受け取る受信エレメント列に含まれる文字列<br />
+        "&lt;bcr&gt;&lt;claim&gt;false&lt;/claim&gt;&lt;/bcr&gt;"</p>
+        </div>
 
         <h4>戻り値</h4>
         <table class="coder">
@@ -1421,7 +1429,7 @@ function onBuild() {
                 <tr><td>生成したエレメント文字列</td><td>String</td></tr>
             </tbody>
         </table>
-    
+
         <h5>例：バーコードリーダーの設定</h5>
 <pre>
 &lt;script type='text/javascript' src='js/StarWebPrintBuilder.js'&gt;&lt;/script&gt;
@@ -1458,22 +1466,22 @@ function onBuild() {
 
     <article>
     <div id="createMagstripeReaderElement">
-    
+
         <h3>createMagstripeReaderElement</h3>
-        
+
         <div class="introduction_3">
             <p>
             磁気リーダーエレメントを生成します。
             </p>
         </div>
-        
+
         <div class="syntax">
             <h4>構文</h4>
             <p>
             createMagstripeReaderElement(args);
             </p>
         </div>
-        
+
         <h4>名前付き引数</h4>
         <table class="coder">
             <thead>
@@ -1485,17 +1493,16 @@ function onBuild() {
                 <tr><td>claimpollingtimeout<br />(*1)(*2)</td><td>Claim管理用ポーリング(*3)タイムアウト (ミリ秒)<br />&nbsp;&nbsp;範囲：1000 ～ 2147483647<br />※推奨値：10000以上<br />※alertダイアログを表示させたまま設定した秒数を経過した場合<br />&nbsp;&nbsp;内部的に"claim=false"を実行した時と同様の動作を行うため<br />&nbsp;&nbsp;alertダイアログを利用の際はご注意ください</td><td>Number</td><td>未設定</td></tr>
             </tbody>
         </table>
-        (*1) type='setting'設定時有効<br />
-        (*2) claim='true'設定時有効<br />
-        (*3) 初回のclaim='true'を含む送信エレメント列送信後に、Claimの開始が成功した場合(*4)に<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;開始される現在使用しているブラウザがデバイスのClaim状態を保持するためのポーリング。<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;また、claim='false'を含む送信エレメント列の送信後に、Claimの終了が成功した場合(*5)<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ポーリングは終了する。尚、StarClaimManager.jsのsendMessageにより自動的に<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ポーリングの開始から終了までの処理が行われます<br />
-        (*4) Claim開始成功時に受け取る受信エレメント列に含まれる文字列<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"&lt;msr&gt;&lt;claim&gt;true&lt;/claim&gt;&lt;/msr&gt;"<br />
-        (*5) Claim終了成功時に受け取る受信エレメント列に含まれる文字列<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"&lt;msr&gt;&lt;claim&gt;false&lt;/claim&gt;&lt;/msr&gt;"<br />
+        <div class="note3">
+        <p>(*1) type='setting'設定時有効</p>
+        <p>(*2) claim='true'設定時有効</p>
+        <p>(*3) 初回のclaim='true'を含む送信エレメント列送信後に、Claimの開始が成功した場合(*4)に開始される現在使用しているブラウザがデバイスのClaim状態を保持するためのポーリングです。<br />
+        また、claim='false'を含む送信エレメント列の送信後に、Claimの終了が成功した場合(*5)ポーリングは終了します。なお、StarClaimManager.jsのsendMessageによりポーリングの開始から終了までの処理が自動的に行われます。</p/>
+        <p>(*4) Claim開始成功時に受け取る受信エレメント列に含まれる文字列<br />
+        "&lt;msr&gt;&lt;claim&gt;true&lt;/claim&gt;&lt;/msr&gt;"</p>
+        <p>(*5) Claim終了成功時に受け取る受信エレメント列に含まれる文字列<br />
+        "&lt;msr&gt;&lt;claim&gt;false&lt;/claim&gt;&lt;/msr&gt;"</p>
+        </div>
 
         <h4>戻り値</h4>
         <table class="coder">
@@ -1506,7 +1513,7 @@ function onBuild() {
                 <tr><td>生成したエレメント文字列</td><td>String</td></tr>
             </tbody>
         </table>
-    
+
         <h5>例：磁気リーダーの設定</h5>
 <pre>
 &lt;script type='text/javascript' src='js/StarWebPrintBuilder.js'&gt;&lt;/script&gt;
@@ -1543,15 +1550,15 @@ function onBuild() {
 
     <article>
     <div id="createLineDisplayElement">
-    
+
         <h3>createLineDisplayElement</h3>
-        
+
         <div class="introduction_3">
             <p>
             ラインディスプレイエレメントを生成します。
             </p>
         </div>
-        
+
         <div class="syntax">
             <h4>構文</h4>
             <p>
@@ -1590,22 +1597,20 @@ function onBuild() {
                 <tr><td>data</td><td>テキストデータ<br />※16進数表記の場合'\x0a', '\x20' - '\xff'</td><td>String</td><td>未設定</td></tr>
             </tbody>
         </table>
-        (*1) AsuraCPRNTに標準搭載されている"Line Display"アプリケーション<br />
-        (*2) claim='true'設定時有効<br />
-        (*3) 初回のclaim='true'を含む送信エレメント列送信後に、Claimの開始が成功した場合(*4)に<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;開始される現在使用しているブラウザがデバイスのClaim状態を保持するためのポーリング。<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;また、claim='false'を含む送信エレメント列の送信後に、Claimの終了が成功した場合(*5)<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ポーリングは終了する。尚、StarClaimManager.jsのsendMessageにより自動的に<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ポーリングの開始から終了までの処理が行われます<br />
-        (*4) Claim開始成功時に受け取る受信エレメント列に含まれる文字列<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"&lt;ld&gt;&lt;claim&gt;true&lt;/claim&gt;&lt;/ld&gt;"<br />
-        (*5) Claim終了成功時に受け取る受信エレメント列に含まれる文字列<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"&lt;ld&gt;&lt;claim&gt;false&lt;/claim&gt;&lt;/ld&gt;"<br />
-        (*6) 同タグにて他の設定項目と同時に指定した場合、初期値を設定<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ただし、claim / claimpollingtimeout / data は影響を受けない<br />
-        (*7) AsuraCPRNT OS 1.7以降に含まれる"Line Display"アプリケーションの画面上部に表示されてい<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;る四角で囲まれたエリア<br />
-        (*8) "Line Display"アプリケーションの初期設定は'cp1252'
+        <div class="note3">
+        <p>(*1) AsuraCPRNTに標準搭載されている"Line Display"アプリケーション</p>
+        <p>(*2) claim='true'設定時有効</p>
+        <p>(*3) 初回のclaim='true'を含む送信エレメント列送信後に、Claimの開始が成功した場合(*4)に開始される、現在使用しているブラウザがデバイスのClaim状態を保持するためのポーリング。<br />
+        また、claim='false'を含む送信エレメント列の送信後にClaimの終了が成功した場合(*5)ポーリングは終了します。なお、StarClaimManager.jsのsendMessageによりポーリングの開始から終了までの処理が自動的に行われます</p>
+        <p>(*4) Claim開始成功時に受け取る受信エレメント列に含まれる文字列<br />
+        "&lt;ld&gt;&lt;claim&gt;true&lt;/claim&gt;&lt;/ld&gt;"</p>
+        <p>(*5) Claim終了成功時に受け取る受信エレメント列に含まれる文字列<br />
+        "&lt;ld&gt;&lt;claim&gt;false&lt;/claim&gt;&lt;/ld&gt;"</p>
+        <p>(*6) 同タグにて他の設定項目と同時に指定した場合、初期値を設定します。<br />
+        ただし、claim / claimpollingtimeout / data は影響を受けません。</p>
+        <p>(*7) AsuraCPRNT OS 1.7以降に含まれる"Line Display"アプリケーションの画面上部に表示されている四角で囲まれたエリア</p>
+        <p>(*8) "Line Display"アプリケーションの初期設定は'cp1252'</p>
+        </div>
 
         <h4>戻り値</h4>
         <table class="coder">
@@ -1616,7 +1621,7 @@ function onBuild() {
                 <tr><td>生成したエレメント文字列</td><td>String</td></tr>
             </tbody>
         </table>
-    
+
         <h5>例</h5>
 <pre>
 &lt;script type='text/javascript' src='js/StarWebPrintBuilder.js'&gt;&lt;/script&gt;
@@ -1649,6 +1654,8 @@ function onBuild() {
 <p id="copyright"> &copy; Copyright 2013 - 2015  <a href="http://www.star-m.jp/">Star Micronics Co., Ltd.</a> </p>
 </footer>
 </div>
+
+</div><!--container-->
 
 </body>
 </html>

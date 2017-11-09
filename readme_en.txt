@@ -1,10 +1,10 @@
 ************************************************************
-      Star WebPRNT SDK  -  Ver 1.3.1
-         readme_en.txt             Star Micronics Co., Ltd.
+      Star WebPRNT SDK  -  Ver 1.4.0
+         Readme_En.txt             Star Micronics Co., Ltd.
 ************************************************************
 
  1. Overview
- 2. Ver 1.3.1 Changes
+ 2. Ver 1.4.0 Changes
  3. Contents
  4. Scope
  5. Remarks
@@ -25,20 +25,21 @@
 
 
 =======================
- 2. Ver 1.3.1 Changes
+ 2. Ver 1.4.0 Changes
 =======================
 
   [SDK]
-   - Added annotation when selecting codepage attribute in text elements.
+   - Change Black Mark function.
 
   [User's Manual]
-   - Added annotation when selecting codepage attribute in text elements.
+   - Change API reference for black mark function.
+   - Added SM-L300.
 
 =============
  3. Contents
 =============
 
-  StarWebPRNT_WebContents_V1.3.1
+  StarWebPRNT_WebContents_V1.4.0
   |
   | Readme_En.txt                       // Release Note(English)
   | Readme_Jp.txt                       // Release Note(Japanese)
@@ -57,49 +58,85 @@
 =================
 
   [Printer Model]
-       SM-S210I         (Ver1.0 or later)    (*1)
+       SM-S210I         (Ver2.4 or later)    (*1)
        SM-S220I         (Ver2.0 or later)    (*1)
        SM-S230I         (Ver1.0 or later)    (*1)
        SM-T300I         (Ver2.4 or later)    (*1)
        SM-T400I         (Ver2.4 or later)    (*1)
        SM-L200          (Ver1.0 or later)    (*1)
+       SM-L300          (Ver1.0 or later)    (*1)
 
        FVP10            (Ethernet: Ver1.5 or later, Bluetooth: Ver2.0 or later)  (*1)
        TSP650II         (Ethernet: Ver1.2 or later, Bluetooth: Ver1.0 or later)  (*1)
-       TSP700II         (Ethernet: Ver4.1 or later, Bluetooth: Ver4.0 or later)  (*1)
+       TSP700II         (Ethernet: Ver4.1 or later, Bluetooth: Ver5.0 or later)  (*1)
        TSP800II         (Ethernet: Ver1.6 or later, Bluetooth: Ver2.0 or later)  (*1)
        mPOP             (Ver1.0 or later)    (*1)
 
-       SP700            (Ethernet: Ver3.0 or later, Bluetooth: Ver4.0 or later)  (*2)
+       SP700            (Ethernet: Ver3.0 or later)
 
        ASR10            (Linux OS Ver1.6 or later)
 
        <Notification of Bluetooth I/F>
          To print data, "Star WebPRNT Browser" is required.
            *1: Support both iOS and Android devices.
-           *2: Support iOS devices only.
 
   [Interface Card]
-       LAN:       IFBD-HE07X/HE08X/BE07X    (Ver3.1.0 or later)
-       Bluetooth: IFBD-HB03/HB04            (Ver1.0.0 or later)
-                  IFBD-HB05/HB06/BB05       (Ver1.0.0 or later)
+       Ethernet:  IFBD-HE07X/HE08X/BE07X    (Ver3.1.0 or later)
+                  IFBD-HI01X                (Ver1.1.0 or later)
+                  IFBD-HI02X                (Ver1.2.0 or later)
+       Bluetooth: IFBD-HB03/HB04            (Ver1.0 or later)
+                  IFBD-HB05/HB06/BB05       (Ver4.1 or later)
 
 =============
   5. Remarks
 =============
 
-  ---
+  1. Limitations when Star Cloud services receipt uploading function is enabled on the Star WebPRNT Browser
+     The receipt content until each <cutpaper> element will be uploaded as
+     one receipt.
+     If you include more than one <cutpaper> element in one StarWebPRNT
+     request element, on and from the second <cutpaper> element,
+     the previously set attributes for <alignment> element will be reset
+     and left-aligned in the printing and the previously set attributes for
+     <alignment> and <text> elements will be reset to default values in the
+     uploaded receipts.
+     If you need to continually reflect the attributes set prior to the
+     <cutpaper> element, please send again <alignment> and <text> elements
+     which have your desired attributes, in addition to the <cutpaper> element.
+
 
 ==============
  6. Copyright
 ==============
 
-  Copyright 2014-2016 Star Micronics Co., Ltd. All rights reserved.
+  Copyright 2014-2017 Star Micronics Co., Ltd. All rights reserved.
 
 
 ====================
  7. Release History
 ====================
+ Ver 1.4.0
+ 06/05/2017   : [SDK]
+                 - Change Black Mark function.
+
+                [User's Manual]
+                 - Change API reference for black mark function.
+                 - Added SM-L300.
+
+ Ver 1.3.3   
+ 03/14/2017   : [SDK]
+                 - Added setup manual for Star Cloud Services.
+
+                [User's Manual]
+                 - Added a list of Star WebPRNT request elements supporting receipt upload function.
+
+                [Readme]
+                 - Added IFBD-HI01X/HI02X to the supported interface card.
+                 - Corrected misprints of the supported F/W version.
+
+ Ver 1.3.2   
+ 12/26/2016   : [SDK]
+                 - "WebPRNTTrader.js" have been updated to accommodate changing security requirements.
 
  Ver 1.3.1   
  09/30/2016   : [SDK]

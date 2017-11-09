@@ -2,33 +2,35 @@
 <html xmlns="http://www.w3.org/1999/xhtml"  lang="ja" xml:lang="ja">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Expires" content="86400">
     <title>Star WebPRNT ユーザーズマニュアル</title>
-    <link href="bootstrap.css" rel="stylesheet">
-    <link rel="stylesheet" href="font-awesome.min.css">    
-    <link href="html5reset-1.6.1.css" rel="stylesheet" type="text/css" />
-    <link href="webPRNT_layout.css" rel="stylesheet" type="text/css" />
-    <link href="webPRNT_print_layout.css" rel="stylesheet" type="text/css" media="print" />
-    
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link href="../css/html5reset-1.6.1.css" rel="stylesheet" type="text/css" />
+    <link href="../css/webPRNT_layout.css" rel="stylesheet" type="text/css" />
+    <link href="../css/webPRNT_print_layout.css" rel="stylesheet" type="text/css" media="print" />
+
 <!-- ie10にて条件付きコメント([if IE]の箇所）がサポートされなくなったことに対する対処　　-->
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
    <!--[if IE ]>
-        <link rel="stylesheet" type="text/css" href="webPRNT_layout_ie.css"></script>
-        <link rel="stylesheet" type="text/css" href="webPRNT_print_layout_ie.css" media="print"></script>
+        <link rel="stylesheet" type="text/css" href="../css/webPRNT_layout_ie.css"></script>
+        <link rel="stylesheet" type="text/css" href="../css/webPRNT_print_layout_ie.css" media="print"></script>
     <![endif]-->
-    
+
     <script src="jquery-1.10.2.min.js"></script>
     <script>
     $(function tggleNavi() {
         $('#naviArrow').click(function(){
-           $('#mainNavi').slideToggle('slow');           
+           $('#mainNavi').slideToggle('slow');
        });
     });
-    </script>    
-    
+    </script>
+
 </head>
 
-
 <body>
+
+<div id="container">
 
 <div id="toTop">
     <a href="index.htm"><img id="webPRNTLogo" src="../illust/WebPRNT_Logo.png" /></a>
@@ -43,7 +45,7 @@
 
 <!-- wrapp : mainNavi + mainContents-->
 <div id="wrapp" class="clear">
-    
+
 
 <!-- mainNavi -->
 
@@ -227,6 +229,9 @@
 	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#number">&lt;number&gt;</a></li>
 	</ul>
 	<ul>
+	<li><a href="_StarWebPrintRequestElement_scs.htm">StarWebPRNT送信エレメント<br />-SCS-</a></li>
+	</ul>
+	<ul>
 	<li><a href="_appendixUTF8.htm">付録 UTF-8対応</a></li>
 	</ul>
 
@@ -239,7 +244,7 @@
 
         <div id="mainIntroduction">
         <!--    <img src="../illust/WebPRNT-tree.png" />   -->
-            
+
             <p>
             Star WebPRNTを利用することで、PC、タブレット等多様なデバイスからWebブラウザを通して印刷を行う、マルチプラットフォームを実現します。<br />
             プリンターの制御は、このSDKにパッケージされているJavaScriptをHTMLファイルに埋め込むだけで行え、
@@ -250,7 +255,7 @@
             このマニュアルはStarWebPRNTに関する情報を提供します。<br />
             ユーザー向けに印刷アプリケーションの構築に関するガイドラインを示します。
             </p>
-        </div>    
+        </div>
 
     <div class="infoBox noteBox">
         <div class="noteTitle">ご使用に関する情報</div>
@@ -258,22 +263,23 @@
         また、StarWebPRNTブラウザーの使用に関してご注意いただきたい点がございます。<br />
         以下のリンク先をご一読ください。 </p>
         <p><a href="_infoToUse.htm"><button type="button" class="btn btn-default">Star WebPRNTブラウザーご利用に関するご案内</button></a></p>
-        
-    </div>
-    
-
-        
-        </div>
 
     </div>
 
-    </div>
+
+
+        </div><!--  mainContents  -->
+
+    </div><!-- wrapp  -->
+
+
 
     <div id="footer">
         <footer>
             <p id="copyright"> &copy; Copyright 2013-2015 <a href="http://www.star-m.jp/">Star Micronics Co., Ltd.</a> </p>
         </footer>
     </div>
+</div><!--container-->
 
 </body>
 </html>

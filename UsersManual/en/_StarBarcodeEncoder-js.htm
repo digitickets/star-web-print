@@ -2,34 +2,39 @@
 <html xmlns="http://www.w3.org/1999/xhtml"  lang="en" xml:lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Expires" content="86400">
     <title>Star WebPRNT User's Manual</title>
-    <link href="html5reset-1.6.1.css" rel="stylesheet" type="text/css" />
-    <link href="webPRNT_layout.css" rel="stylesheet" type="text/css" />
-    <link href="webPRNT_print_layout.css" rel="stylesheet" type="text/css" media="print" />
-    
+    <link href="../css_en/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css_en/font-awesome.min.css">
+    <link href="../css_en/html5reset-1.6.1.css" rel="stylesheet" type="text/css" />
+    <link href="../css_en/webPRNT_layout.css" rel="stylesheet" type="text/css" />
+    <link href="../css_en/webPRNT_print_layout.css" rel="stylesheet" type="text/css" media="print" />
+
 <!-- ie10にて条件付きコメント([if IE]の箇所）がサポートされなくなったことに対する対処　　-->
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
-    <!--[if IE ]>
-        <link rel="stylesheet" type="text/css" href="webPRNT_layout_ie.css"></script>
-        <link rel="stylesheet" type="text/css" href="webPRNT_print_layout_ie.css" media="print"></script>
+   <!--[if IE ]>
+        <link rel="stylesheet" type="text/css" href="../css_en/webPRNT_layout_ie.css"></script>
+        <link rel="stylesheet" type="text/css" href="../css_en/webPRNT_print_layout_ie.css" media="print"></script>
     <![endif]-->
-    
+
     <script src="jquery-1.10.2.min.js"></script>
     <script>
-    
+
     $(function tggleNavi() {
         $('#naviArrow').click(function(){
            $('#mainNavi').slideToggle('slow');
-           
+
        });
     });
 
     </script>
-    
+
 </head>
 
 
 <body>
+
+<div id="container">
 
 <div id="toTop">
     <a href="index.htm"><img id="webPRNTLogo" src="../illust/WebPRNT_Logo.png" /></a>
@@ -44,7 +49,7 @@
 
 <!-- wrapp : mainNavi + mainContents-->
 <div id="wrapp" class="clear">
-    
+
 
 <!-- mainNavi -->
 
@@ -228,6 +233,9 @@
 	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#number">&lt;number&gt;</a></li>
 	</ul>
         <ul>
+	<li><a href="_StarWebPrintRequestElement_scs.htm">StarWebPRNT Request Element -SCS-</a></li>
+        </ul>
+        <ul>
         <li><a href="_appendixUTF8.htm">Appendix UTF-8</a></li>
         </ul>
 
@@ -240,13 +248,13 @@
     <article>
     <div id="StarBarcodeEncoder-js" class="summary">
         <h2>StarBarcodeEncoder.js</h2>
-        
+
         <div class="introduction_2">
             <p>
             The list of barcode module for  drawing to a HTML5 Canvas 2D context is generated.
             </p>
         </div>
-        
+
         <h4>Constructor</h4>
         <table class="coder">
             <thead>
@@ -256,7 +264,7 @@
                 <tr><td><a href="#StarBarcodeEncoder">StarBarcodeEncoder</a></td><td>Creates StarBarcodeEncoder object.</td></tr>
             </tbody>
         </table>
-    
+
 
         <h4>Method</h4>
         <table class="coder">
@@ -283,34 +291,34 @@
                 <tr><td>Name</td><td>FVP10</td><td>TSP650II</td><td>TSP700II</td><td>TSP800II</td><td>mPOP</td><td>AsuraCPRNT</td></tr>
             </thead>
             <tbody>
-             <tr><td><a href="#createUPCE">createUPCE</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createUPCA">createUPCA</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createJAN8">createJAN8</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createJAN13">createJAN13</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createCode39">createCode39</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createITF">createITF</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createCode128">createCode128</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createCode93">createCode93</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createNW7">createNW7</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+             <tr><td><a href="#createUPCE">createUPCE</a></td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#createUPCA">createUPCA</a></td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#createJAN8">createJAN8</a></td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#createJAN13">createJAN13</a></td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#createCode39">createCode39</a></td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#createITF">createITF</a></td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#createCode128">createCode128</a></td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#createCode93">createCode93</a></td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#createNW7">createNW7</a></td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
             </tbody>
         </table>
         <br />
-        
+
         <h5>Mobile Printer (ESC/POS)</h5>
         <table class="List2">
             <thead>
                 <tr><td>Name</td><td>SM-S220i<br />(Excluding Jp model)</td><td>SM-S230i</td><td>SM-T300i</td><td>SM-T400i</td></tr>
             </thead>
             <tbody>
-             <tr><td><a href="#createUPCE">createUPCE</a></td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createUPCA">createUPCA</a></td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createJAN8">createJAN8</a></td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createJAN13">createJAN13</a></td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createCode39">createCode39</a></td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createITF">createITF</a></td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createCode128">createCode128</a></td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createCode93">createCode93</a></td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createNW7">createNW7</a></td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+             <tr><td><a href="#createUPCE">createUPCE</a></td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#createUPCA">createUPCA</a></td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#createJAN8">createJAN8</a></td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#createJAN13">createJAN13</a></td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#createCode39">createCode39</a></td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#createITF">createITF</a></td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#createCode128">createCode128</a></td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#createCode93">createCode93</a></td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#createNW7">createNW7</a></td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
             </tbody>
         </table>
         <br>
@@ -318,46 +326,46 @@
         <h5>Mobile Printer (StarPRNT)</h5>
         <table class="List2">
             <thead>
-                <tr><td>Name</td><td>SM-S220i<br />(Excluding Jp model)</td><td>SM-S230i</td><td>SM-T300i</td><td>SM-T400i</td><td>SM-L200</td></tr>
+                <tr><td>Name</td><td>SM-S220i<br />(Excluding Jp model)</td><td>SM-S230i</td><td>SM-T300i</td><td>SM-T400i</td><td>SM-L200</td><td>SM-L300</td></tr>
             </thead>
             <tbody>
-             <tr><td><a href="#createUPCE">createUPCE</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createUPCA">createUPCA</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createJAN8">createJAN8</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createJAN13">createJAN13</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createCode39">createCode39</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createITF">createITF</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createCode128">createCode128</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createCode93">createCode93</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createNW7">createNW7</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+             <tr><td><a href="#createUPCE">createUPCE</a></td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#createUPCA">createUPCA</a></td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#createJAN8">createJAN8</a></td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#createJAN13">createJAN13</a></td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#createCode39">createCode39</a></td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#createITF">createITF</a></td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#createCode128">createCode128</a></td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#createCode93">createCode93</a></td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#createNW7">createNW7</a></td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
             </tbody>
         </table>
-        
-        
+
+
     </div>
     </article>
 
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
     </div>
-    
+
 
     <article>
     <div id="StarBarcodeEncoder">
         <h3>StarBarcodeEncoder</h3>
-    
+
         <div class="introduction_3">
             <p>
             Creates StarBarcodeEncoder object.
             </p>
         </div>
-    
+
         <div class="syntax">
         <h4>syntax</h4>
         <p>
         StarBarcodeEncoder();
         </p>
-    
+
         <h4>Parameter</h4>
         <table class="coder">
             <thead>
@@ -395,24 +403,24 @@ function onBuild() {
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
     </div>
-    
+
 
     <article>
     <div id="createUPCE">
         <h3>createUPCE</h3>
-    
+
         <div class="introduction_3">
             <p>
             Creates module list of UPCE barcode.
             </p>
         </div>
-    
+
         <div class="syntax">
         <h4>syntax</h4>
         <p>
         createUPCE(args);
         </p>
-    
+
         <h4>Parameter</h4>
         <table class="coder">
             <thead>
@@ -452,24 +460,24 @@ function onBuild() {
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
     </div>
-    
+
 
     <article>
     <div id="createUPCA">
         <h3>createUPCA</h3>
-    
+
         <div class="introduction_3">
             <p>
             Creates module list of UPCA barcode.
             </p>
         </div>
-    
+
         <div class="syntax">
         <h4>syntax</h4>
         <p>
         createUPCA(args);
         </p>
-    
+
         <h4>Parameter</h4>
         <table class="coder">
             <thead>
@@ -509,24 +517,24 @@ function onBuild() {
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
     </div>
-    
+
 
     <article>
     <div id="createJAN8">
         <h3>createJAN8</h3>
-    
+
         <div class="introduction_3">
             <p>
             Creates module list of JAN/EAN8 barcode.
             </p>
         </div>
-    
+
         <div class="syntax">
         <h4>syntax</h4>
         <p>
         createJAN8(args);
         </p>
-    
+
         <h4>Parameter</h4>
         <table class="coder">
             <thead>
@@ -566,24 +574,24 @@ function onBuild() {
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
     </div>
-    
+
 
     <article>
     <div id="createJAN13">
         <h3>createJAN13</h3>
-    
+
         <div class="introduction_3">
             <p>
             Creates module list of JAN/EAN13 barcode.
             </p>
         </div>
-    
+
         <div class="syntax">
         <h4>syntax</h4>
         <p>
         createJAN13(args);
         </p>
-    
+
         <h4>Parameter</h4>
         <table class="coder">
             <thead>
@@ -623,24 +631,24 @@ function onBuild() {
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
     </div>
-    
+
 
     <article>
     <div id="createCode39">
         <h3>createCode39</h3>
-    
+
         <div class="introduction_3">
             <p>
             Creates module list of Code39 barcode.
             </p>
         </div>
-    
+
         <div class="syntax">
         <h4>syntax</h4>
         <p>
         createCode39(args);
         </p>
-    
+
         <h4>Parameter</h4>
         <table class="coder">
             <thead>
@@ -682,24 +690,24 @@ function onBuild() {
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
     </div>
-    
+
 
     <article>
     <div id="createITF">
         <h3>createITF</h3>
-    
+
         <div class="introduction_3">
             <p>
             Creates module list of ITF barcode.
             </p>
         </div>
-    
+
         <div class="syntax">
         <h4>syntax</h4>
         <p>
         createITF(args);
         </p>
-    
+
         <h4>Parameter</h4>
         <table class="coder">
             <thead>
@@ -741,24 +749,24 @@ function onBuild() {
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
     </div>
-    
+
 
     <article>
     <div id="createCode128">
         <h3>createCode128</h3>
-    
+
         <div class="introduction_3">
             <p>
             Creates module list of Code128 barcode.
             </p>
         </div>
-    
+
         <div class="syntax">
         <h4>syntax</h4>
         <p>
         createCode128(args);
         </p>
-    
+
         <h4>Parameter</h4>
         <table class="coder">
             <thead>
@@ -798,24 +806,24 @@ function onBuild() {
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
     </div>
-    
+
 
     <article>
     <div id="createCode93">
         <h3>createCode93</h3>
-    
+
         <div class="introduction_3">
             <p>
             Creates module list of Code93 barcode.
             </p>
         </div>
-    
+
         <div class="syntax">
         <h4>syntax</h4>
         <p>
         createCode93(args);
         </p>
-    
+
         <h4>Parameter</h4>
         <table class="coder">
             <thead>
@@ -855,24 +863,24 @@ function onBuild() {
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
     </div>
-    
+
 
     <article>
     <div id="createNW7">
         <h3>createNW7</h3>
-    
+
         <div class="introduction_3">
             <p>
             Creates module list of NW7 barcode.
             </p>
         </div>
-    
+
         <div class="syntax">
         <h4>syntax</h4>
         <p>
         createNW7(args);
         </p>
-    
+
         <h4>Parameter</h4>
         <table class="coder">
             <thead>
@@ -925,6 +933,8 @@ function onBuild() {
 <p id="copyright"> &copy; Copyright 2013 - 2015   <a href="http://www.star-m.jp/">Star Micronics Co., Ltd.</a> </p>
 </footer>
 </div>
+
+</div> <!--container-->
 
 </body>
 </html>

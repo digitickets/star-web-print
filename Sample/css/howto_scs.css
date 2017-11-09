@@ -1,0 +1,265 @@
+@charset "utf-8";
+
+/*=================================================
+* 固有スタイル
+* ================================================= */
+
+#wrap{
+	width: 100%;
+	max-width: 800px;
+	margin:0 auto;
+	padding: 0 30px;
+	padding-right: 50px;
+}
+
+
+#howto{
+	max-width: 800px;
+	margin:0 auto;
+	padding: 0 30px;
+	padding-right: 50px;
+}
+
+#howto .numOperation{
+	padding:0 0 0 20px;
+}
+
+.howto #sub-logo {
+	top: 2px !important;
+}
+
+#howto h2 {
+	margin: 10px 0px 30px 0px;
+	padding: 15px 0 5px 0;
+	border-bottom: solid 1px #1d54b1;
+	color: #333;
+	font-size: 1.5em;
+	line-height: 1;
+}
+
+#howto h2 small{
+	font-size:85%;
+	font-weight: normal;
+	line-height: 1;
+	color: #777;
+}
+
+#howto h3 {
+	margin: 10px 10px 30px 10px;
+	padding: 15px 0 5px 0;
+	color: #333;
+	font-size: 1.2em;
+	line-height: 1;
+}
+
+#howto ul, #howto ol {
+	margin-top: 0;
+	margin-bottom: 10px;
+}
+
+.img-responsive {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+.langBtn a {
+	display:block;
+	background: #818181;
+	margin: 5px 5px -4px 0;
+	padding: 4.5px 9px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	-webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+	-moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+	box-shadow: rgba(0,0,0,1) 0 1px 0;
+	color: white !important;
+	font-size: 13px;
+	font-family: Helvetica, Arial, Sans-Serif;
+	text-decoration: none;
+	vertical-align: middle;
+}
+.langBtn a:hover {
+	border-top-color: #818181;
+	background: #818181;
+	text-decoration:underline;
+	color: #cccccc;
+ }
+
+/* -------------------------  */
+/*  Class  numOperation   */
+/* -------------------------  */
+
+#howto .numOperation ol {
+	list-style:none;
+	margin: 0;
+	padding: 0;
+	padding:0em 0 3em 1em;
+	text-indent:-2em;
+}
+
+
+#howto .numOperation ol li {
+	padding: 2em 0 0.5em 0;
+}
+
+
+#howto .numOperation li:before{
+	content: counter(num_count);
+	counter-increment: num_count;
+	color: #444;
+	font-size: 1.8em;
+	font-style:italic;
+	font-bold:bold;
+	padding-left: -2.3em;
+	margin-right: 0.5em;
+}	
+.numOperation {counter-reset:num_count;}  /*liをカウントアップ用の記載*/
+
+#howto .numOperation p {
+	padding-left: 3em;
+	padding-top: 1em;
+}
+
+
+#howto .numOpeFig2 {
+	margin: 18px 0;
+	display: table-cell;
+	vertical-align: top;
+	border: #666 solid 1px;
+}
+@media (max-width: 320px){
+	#howto .col-md-4 {
+		padding-right: 10px;
+	}
+}
+
+#howto .col-md-4 {
+	float: left;
+	position: relative;
+	width:100%;
+	max-width:320px;
+	min-height: 1px;
+	padding-right: 15px;
+}
+
+#howto .to_top {
+	margin: 40px 0 10px 0;
+	text-align: right;
+	font-style: italic;
+	font-size: 80%;
+	color: #666666;
+}
+#howto .to_top a {
+	font-style:normal;
+	color: #154399;
+	text-decoration: none;
+}
+#howto .to_top a:hover, #howto a:focus {
+	text-decoration: underline;
+}
+
+.button-boder{
+	border: #888 solid 2px;
+	border-radius:5px;
+	padding: 6px 12px;
+	margin-right:0.3em;
+}
+
+.menu-icon{
+	position: relative;
+}
+
+/*  丸数字挿入用    */
+.numpng{
+	width:18px;
+	height:auto;
+	padding-bottom:5px;
+	margin-left:2px;
+	margin-right:2px;
+}
+
+
+/*  dl dt dd 位置指定   */
+.numOperation dl{
+	margin-left: 4em;
+}
+.numOperation dd{
+	margin-bottom: 0.3em;
+	padding-left: 1em;
+}
+
+
+
+*:before, *:after {
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+}
+
+.Note_text{
+	padding:1em;
+	border:#0099CC 2px solid;
+	border-radius:10px; 
+	background-color: #FFF;
+	margin-bottom:1em;
+}
+
+.Note_text :first-of-type{
+	font-weight:bold;
+	font-style:italic;
+}
+
+.newFunction{
+	font-size:1.1em;
+	margin-top:10px 10px 30px 10px;
+	padding: 15px;
+}
+dl{
+	margin:1em 0;
+}
+dt{
+	font-weight:bold;
+	/*margin-left:1em;*/
+}
+dd{
+	margin-left:1em;
+}
+.memo{
+	font-size: 0.8em;
+}
+
+.js-explanation{
+	width: auto;
+	white-space:normal;
+	text-align:left;
+	position: absolute;
+	display: block;
+	left: 10px;
+	right: 10px;
+	margin: 3em 0;
+	padding: 15px;
+	color: #333;
+font-family: Calibri, Avenir , "Open Sans" , "Helvetica Neue" , Helvetica , Arial , Verdana , Roboto , "游ゴシック" , "Yu Gothic" , "游ゴシック体" , "YuGothic" , "ヒラギノ角ゴ Pro W3" , "Hiragino Kaku Gothic Pro" , "Meiryo UI" , "メイリオ" ;
+	font-size: 0.85em; 
+	background-color: #fefefe;
+	border-radius:8px;
+	-webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+	-moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+}
+
+.toGSS{
+	margin: 0 1em 0 0;
+	border-bottom: solid 1px;
+	color: #333;
+}
+
+/* リード文の上下に余白を設定 */
+.leadText{
+	font-size:1em;
+	margin:2em  0;
+}
+
+	

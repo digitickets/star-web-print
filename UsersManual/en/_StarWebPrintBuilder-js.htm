@@ -2,34 +2,38 @@
 <html xmlns="http://www.w3.org/1999/xhtml"  lang="en" xml:lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Expires" content="86400">
     <title>Star WebPRNT User's Manual</title>
-    <link href="html5reset-1.6.1.css" rel="stylesheet" type="text/css" />
-    <link href="webPRNT_layout.css" rel="stylesheet" type="text/css" />
-    <link href="webPRNT_print_layout.css" rel="stylesheet" type="text/css" media="print" />
-    
+    <link href="../css_en/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css_en/font-awesome.min.css">
+    <link href="../css_en/html5reset-1.6.1.css" rel="stylesheet" type="text/css" />
+    <link href="../css_en/webPRNT_layout.css" rel="stylesheet" type="text/css" />
+    <link href="../css_en/webPRNT_print_layout.css" rel="stylesheet" type="text/css" media="print" />
+
 <!-- ie10にて条件付きコメント([if IE]の箇所）がサポートされなくなったことに対する対処　　-->
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
-    <!--[if IE ]>
-        <link rel="stylesheet" type="text/css" href="webPRNT_layout_ie.css"></script>
-        <link rel="stylesheet" type="text/css" href="webPRNT_print_layout_ie.css" media="print"></script>
+   <!--[if IE ]>
+        <link rel="stylesheet" type="text/css" href="../css_en/webPRNT_layout_ie.css"></script>
+        <link rel="stylesheet" type="text/css" href="../css_en/webPRNT_print_layout_ie.css" media="print"></script>
     <![endif]-->
-    
+
     <script src="jquery-1.10.2.min.js"></script>
     <script>
-    
+
     $(function tggleNavi() {
         $('#naviArrow').click(function(){
            $('#mainNavi').slideToggle('slow');
-           
+
        });
     });
 
     </script>
-    
+
 </head>
 
 
 <body>
+<div id="container">
 
 <div id="toTop">
     <a href="index.htm"><img id="webPRNTLogo" src="../illust/WebPRNT_Logo.png" /></a>
@@ -44,7 +48,7 @@
 
 <!-- wrapp : mainNavi + mainContents-->
 <div id="wrapp" class="clear">
-    
+
 
 <!-- mainNavi -->
 
@@ -228,6 +232,9 @@
 	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#number">&lt;number&gt;</a></li>
 	</ul>
         <ul>
+	<li><a href="_StarWebPrintRequestElement_scs.htm">StarWebPRNT Request Element -SCS-</a></li>
+        </ul>
+        <ul>
         <li><a href="_appendixUTF8.htm">Appendix UTF-8</a></li>
         </ul>
 
@@ -238,16 +245,16 @@
 <div id="mainContents">
 
 
-    <article> 
+    <article>
     <div id="starWebPrintBuilder-js" class="summary">
         <h2>StarWebPrintBuilder.js</h2>
-    
+
         <div class="introduction_2">
             <p>
             Creates StarWebPRNT Request Element.
             </p>
         </div>
-    
+
 
         <h4>Constructor</h4>
         <table class="coder">
@@ -258,7 +265,7 @@
                 <tr><td><a href="#StarWebPrintBuilder">StarWebPrintBuilder</a></td><td>Creates StarWebPrintBuilder object.</td></tr>
             </tbody>
         </table>
-    
+
 
         <h4>Method</h4>
         <table class="coder">
@@ -286,7 +293,7 @@
             </tbody>
         </table>
 
-        
+
         <h4>Star Printer Compatibility Chart</h4>
         <h5>POS Printer and AsuraCPRNT</h5>
         <table class="List2">
@@ -294,34 +301,34 @@
                 <tr><td>Name</td><td>FVP10</td><td>TSP650II</td><td>TSP700II</td><td>TSP800II</td><td>mPOP</td><td>AsuraCPRNT</td></tr>
             </thead>
             <tbody>
-            <tr><td><a href="#createAlignmentElement">createAlignmentElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createBarcodeElement">createBarcodeElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createBitImageElement">createBitImageElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createCutPaperElement">createCutPaperElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createFeedElement">createFeedElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createInitializationElement">createInitializationElement</a>*1</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createLogoElement">createLogoElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>-*3</td></tr>
-            <tr><td><a href="#createPdf417Element">createPdf417Element</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createPeripheralElement">createPeripheralElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createQrCodeElement">createQrCodeElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createRawDataElement">createRawDataElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createRuledLineElement">createRuledLineElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createSoundElement">createSoundElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>-</td><td>○</td></tr>
-            <tr><td><a href="#createTextElement">createTextElement</a>*2</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createBarcodeReaderElement">createBarcodeReaderElement</a>*4</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>○</td></tr>
-            <tr><td><a href="#createMagstripeReaderElement">createMagstripeReaderElement</a>*4</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>○</td></tr>
-            <tr><td><a href="#createLineDisplayElement">createLineDisplayElement</a>*4 *5</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>○</td></tr>
+            <tr><td><a href="#createAlignmentElement">createAlignmentElement</a></td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#createBarcodeElement">createBarcodeElement</a></td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#createBitImageElement">createBitImageElement</a></td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#createCutPaperElement">createCutPaperElement</a></td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#createFeedElement">createFeedElement</a></td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#createInitializationElement">createInitializationElement</a>*1</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#createLogoElement">createLogoElement</a></td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>-*3</td></tr>
+            <tr><td><a href="#createPdf417Element">createPdf417Element</a></td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#createPeripheralElement">createPeripheralElement</a></td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#createQrCodeElement">createQrCodeElement</a></td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#createRawDataElement">createRawDataElement</a></td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#createRuledLineElement">createRuledLineElement</a></td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#createSoundElement">createSoundElement</a></td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>-</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#createTextElement">createTextElement</a>*2</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#createBarcodeReaderElement">createBarcodeReaderElement</a>*4</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#createMagstripeReaderElement">createMagstripeReaderElement</a>*4</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#createLineDisplayElement">createLineDisplayElement</a>*4 *5</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>&#x02713;</td></tr>
 
             </tbody>
         </table>
-        <p class="note2">
-            *1 Performs only initialization of a command for Bluetooth printers <br />
-            *2 The international character is fixed to "Japan" for Japanese modelｓ and "Korea" for Korean models.<br />
-            *3 It is unsupported, because there is not a method to make logo registration.
-            *4 This function has been supported in AsuraCPRNT Linux OS since version 1.7.<br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Please refer to the specifications of <a href="http://www.star-m.jp/eng/products/s_print/sp01_09.html"> AsuraCPRNT Develeper Site</a> about each supported devices.<br />
-            *5 When start up the "Line Display" Application which has been supported AsuraCPRNT Linux OS since version 1.7, can be available.
-        </p>
+        <div class="note2">
+        <p>*1 Performs only initialization of a command for Bluetooth printers</p>
+        <p>*2 The international character is fixed to "Japan" for Japanese modelｓ and "Korea" for Korean models.</p>
+        <p>*3 It is unsupported, because there is not a method to make logo registration.</p>
+        <p>*4 This function has been supported in AsuraCPRNT Linux OS since version 1.7.<br>
+                Please refer to the specifications of <a href="http://www.star-m.jp/eng/products/s_print/sp01_09.html"> AsuraCPRNT Develeper Site</a> about each supported devices.</p>
+        <p>*5 When start up the "Line Display" Application which has been supported AsuraCPRNT Linux OS since version 1.7, can be available.</p>
+        </div>
 
 
         <h5>Mobile Printer (ESC/POS)</h5>
@@ -330,102 +337,102 @@
                 <tr><td>Name</td><td>SM-S220i<br />(Excluding Jp model)</td><td>SM-S230i</td><td>SM-T300i</td><td>SM-T400i</td></tr>
             </thead>
             <tbody>
-            <tr><td><a href="#createAlignmentElement">createAlignmentElement</a>*1</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createBarcodeElement">createBarcodeElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createBitImageElement">createBitImageElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+            <tr><td><a href="#createAlignmentElement">createAlignmentElement</a>*1</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#createBarcodeElement">createBarcodeElement</a></td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#createBitImageElement">createBitImageElement</a></td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
             <tr><td><a href="#createCutPaperElement">createCutPaperElement</a>*2</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#createFeedElement">createFeedElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createInitializationElement">createInitializationElement</a>*3</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createLogoElement">createLogoElement</a>*4</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createPdf417Element">createPdf417Element</a>*5</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createPeripheralElement">createPeripheralElement</a>*2</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#createQrCodeElement">createQrCodeElement</a>*6</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createRawDataElement">createRawDataElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createRuledLineElement">createRuledLineElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createSoundElement">createSoundElement</a>*2</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#createTextElement">createTextElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createBarcodeReaderElement">createBarcodeReaderElement</a>*7</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#createMagstripeReaderElement">createMagstripeReaderElement</a>*7</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#createLineDisplayElement">createLineDisplayElement</a>*7 *8</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#createFeedElement">createFeedElement</a></td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#createInitializationElement">createInitializationElement</a>*3</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#createLogoElement">createLogoElement</a>*4</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#createPdf417Element">createPdf417Element</a>*5</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#createPeripheralElement">createPeripheralElement</a>*6</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#createQrCodeElement">createQrCodeElement</a>*7</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#createRawDataElement">createRawDataElement</a></td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#createRuledLineElement">createRuledLineElement</a></td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#createSoundElement">createSoundElement</a>*6</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#createTextElement">createTextElement</a></td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#createBarcodeReaderElement">createBarcodeReaderElement</a>*8</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#createMagstripeReaderElement">createMagstripeReaderElement</a>*8</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#createLineDisplayElement">createLineDisplayElement</a>*8 *9</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
 
             </tbody>
         </table>
-        <p class="note2">
-            *1 Text data only<br />
-            *2 Command not created<br />
-            *3 Performs only initialization of a command<br />
-            *4 When the logo number 1 - 255 is specified, the No.0 - 254 logo is printed.<br />
-            *5 The line parameter is ineffective.<br />
-            *6 The model parameter is ineffective.
-            *7 This function has been supported in AsuraCPRNT Linux OS since version 1.7.<br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Please refer to the specifications of <a href="http://www.star-m.jp/eng/products/s_print/sp01_09.html"> AsuraCPRNT Develeper Site</a>about each supported devices.<br />
-            *8 When start up the "Line Display" Application which has been supported AsuraCPRNT Linux OS since version 1.7, can be available.
+        <div class="note2">
+        <p>*1 Text data only</p>
+        <p>*2 Without paper cut</p>
+        <p>*3 Performs only initialization of a command</p>
+        <p>*4 When the logo number 1 - 255 is specified, the No.0 - 254 logo is printed.</p>
+        <p>*5 The line parameter is ineffective.</p>
+        <p>*6 Command not created.</p>
+        <p>*7 The model parameter is ineffective.</p>
+        <p>*8 This function has been supported in AsuraCPRNT Linux OS since version 1.7.<br />
+            Please refer to the specifications of <a href="http://www.star-m.jp/eng/products/s_print/sp01_09.html"> AsuraCPRNT Develeper Site</a>about each supported devices.</p>
+        <p>*9 When start up the "Line Display" Application which has been supported AsuraCPRNT Linux OS since version 1.7, can be available.</p>
+        </div>
 
-        </p>
-        
         <h5>Mobile Printer (StarPRNT)</h5>
         <table class="List2">
             <thead>
-                <tr><td>Name</td><td>SM-S220i<br />(Excluding Jp model)</td><td>SM-S230i</td><td>SM-T300i</td><td>SM-T400i</td><td>SM-L200</td></tr>
+                <tr><td>Name</td><td>SM-S220i<br />(Excluding Jp model)</td><td>SM-S230i</td><td>SM-T300i</td><td>SM-T400i</td><td>SM-L200</td><td>SM-L300</td></tr>
             </thead>
             <tbody>
-            <tr><td><a href="#createAlignmentElement">createAlignmentElement</a>*1</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createBarcodeElement">createBarcodeElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createBitImageElement">createBitImageElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createCutPaperElement">createCutPaperElement</a>*2</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#createFeedElement">createFeedElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createInitializationElement">createInitializationElement</a>*3</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createLogoElement">createLogoElement</a>*4</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createPdf417Element">createPdf417Element</a>*5</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createPeripheralElement">createPeripheralElement</a>*2</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#createQrCodeElement">createQrCodeElement</a>*6</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createRawDataElement">createRawDataElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createRuledLineElement">createRuledLineElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createSoundElement">createSoundElement</a>*2</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#createTextElement">createTextElement</a></td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-            <tr><td><a href="#createBarcodeReaderElement">createBarcodeReaderElement</a>*7</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#createMagstripeReaderElement">createMagstripeReaderElement</a>*7</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td><a href="#createLineDisplayElement">createLineDisplayElement</a>*7 *8</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#createAlignmentElement">createAlignmentElement</a>*1</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#createBarcodeElement">createBarcodeElement</a></td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#createBitImageElement">createBitImageElement</a></td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#createCutPaperElement">createCutPaperElement</a>*2</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#createFeedElement">createFeedElement</a></td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#createInitializationElement">createInitializationElement</a>*3</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#createLogoElement">createLogoElement</a>*4</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#createPdf417Element">createPdf417Element</a>*5</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#createPeripheralElement">createPeripheralElement</a>*6</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#createQrCodeElement">createQrCodeElement</a>*7</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#createRawDataElement">createRawDataElement</a></td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#createRuledLineElement">createRuledLineElement</a></td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#createSoundElement">createSoundElement</a>*6</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#createTextElement">createTextElement</a></td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td><td>&#x02713;</td></tr>
+            <tr><td><a href="#createBarcodeReaderElement">createBarcodeReaderElement</a>*8</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#createMagstripeReaderElement">createMagstripeReaderElement</a>*8</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+            <tr><td><a href="#createLineDisplayElement">createLineDisplayElement</a>*8 *9</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
 
             </tbody>
         </table>
-        <p class="note2">
-            *1 Text data only<br />
-            *2 Command not created<br />
-            *3 Performs only initialization of a command<br />
-            *4 Please see <a href="_number_logo_table.htm" target="_blank">here</a> for the correspondence table of logo numbers<br />
-            *5 The line parameter is ineffective.<br />
-            *6 The model parameter is ineffective.
-            *7 This function has been supported in AsuraCPRNT Linux OS since version 1.7.<br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Please refer to the specifications of <a href="http://www.star-m.jp/eng/products/s_print/sp01_09.html"> AsuraCPRNT Develeper Site</a> about each supported devices.<br />
-            *8 When start up the "Line Display" Application which has been supported AsuraCPRNT Linux OS since version 1.7, can be available.
-
-        </p>
-        
+        <div class="note2">
+        <p>*1  Text data only</p>
+        <p>*2 Without paper cut</p>
+        <p>*3  Performs only initialization of a command</p>
+        <p>*4  Please see <a href="_number_logo_table.htm" target="_blank">here</a> for the correspondence table of logo numbers</p>
+        <p>*5  The line parameter is ineffective.</p>
+        <p>*6 Command not created.</p>
+        <p>*7  The model parameter is ineffective.</p>
+        <p>*8  This function has been supported in AsuraCPRNT Linux OS since version 1.7.<br />
+            Please refer to the specifications of <a href="http://www.star-m.jp/eng/products/s_print/sp01_09.html"> AsuraCPRNT Develeper Site</a> about each supported devices.</p>
+        <p>*9  When start up the "Line Display" Application which has been supported AsuraCPRNT Linux OS since version 1.7, can be available.</p>
         </div>
-        
+
+        </div>
+
     </article>
 
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
     </div>
-    
+
     <article>
     <div id="StarWebPrintBuilder">
         <h3>StarWebPrintBuilder</h3>
-    
+
         <div class="introduction_3">
             <p>
             Creates StarWebPrintBuilder object.
             </p>
         </div>
-    
+
         <div class="syntax">
         <h4>Syntax</h4>
         <p>
         StarWebPrintBuilder();
         </p>
-    
+
         <h4>Parameter</h4>
         <table class="coder">
             <thead>
@@ -474,14 +481,14 @@ function onBuild() {
             Creates Alignment element.
             </p>
         </div>
-    
+
         <div class="syntax">
             <h4>syntax</h4>
             <p>
             createAlignmentElement(args);
             </p>
         </div>
-    
+
         <h4>Parameter</h4>
         <table class="coder">
             <thead>
@@ -496,7 +503,7 @@ function onBuild() {
                     <td>'left'</td></tr>
             </tbody>
         </table>
-    
+
         <h4>Return value</h4>
         <table class="coder">
             <thead>
@@ -506,7 +513,7 @@ function onBuild() {
                 <tr><td>Created element character string</td><td>String</td></tr>
             </tbody>
         </table>
-    
+
         <h5>Example</h5>
 <pre>
 &lt;script type='text/javascript' src='js/StarWebPrintBuilder.js'&gt;&lt;/script&gt;
@@ -527,25 +534,25 @@ function onBuild() {
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
     </div>
-    
+
     <article>
     <div id="createBarcodeElement">
-    
+
         <h3>createBarcodeElement</h3>
-        
+
         <div class="introduction_3">
             <p>
             Creates Barcode element.
             </p>
         </div>
-        
+
         <div class="syntax">
             <h4>syntax</h4>
             <p>
             createBarcodeElement(args);
             </p>
         </div>
-        
+
         <h4>Parameter</h4>
         <table class="coder">
             <thead>
@@ -577,10 +584,10 @@ function onBuild() {
                     <td>hri</td><td>Specifies HRI characters<br />
                     <ul><li>true … Adds HRI characters</li><li>false … No  added HRI characters</li></ul></td><td>Boolean</td><td>true</td></tr>
                 <tr>
-                    <td>data</td><td>Specifies barcode data<br />Note. Refer to the command specifications.</td><td>String</td><td>Can't be omitted</td></tr>               
+                    <td>data</td><td>Specifies barcode data<br />Note. Refer to the command specifications.</td><td>String</td><td>Can't be omitted</td></tr>
             </tbody>
         </table>
-    
+
         <h4>Return value</h4>
         <table class="coder">
             <thead>
@@ -590,7 +597,7 @@ function onBuild() {
                 <tr><td>Created element character string</td><td>String</td></tr>
             </tbody>
         </table>
-    
+
         <h5>Example</h5>
 <pre>
 &lt;script type='text/javascript' src='js/StarWebPrintBuilder.js'&gt;&lt;/script&gt;&lt;script type='text/javascript'&gt;
@@ -610,25 +617,25 @@ function onBuild() {
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
     </div>
-    
+
     <article>
     <div id="createBitImageElement">
-    
+
         <h3>createBitImageElement</h3>
-        
+
         <div class="introduction_3">
             <p>
             Creates Bitimage element.
             </p>
         </div>
-        
+
         <div class="syntax">
             <h4>syntax</h4>
             <p>
             createBitImageElement(args);
             </p>
         </div>
-        
+
         <h4>Parameter</h4>
         <table class="coder">
             <thead>
@@ -642,7 +649,7 @@ function onBuild() {
                 <tr><td>height</td><td>Specifies the image height (Unit of dot)<br>Max value: 2400</td><td>Number</td><td>0</td></tr>
             </tbody>
         </table>
-    
+
         <h4>Return value</h4>
         <table class="coder">
             <thead>
@@ -652,7 +659,7 @@ function onBuild() {
                 <tr><td>Created element character string</td><td>String</td></tr>
             </tbody>
         </table>
-    
+
         <h5>Example</h5>
 <pre>
 &lt;script type='text/javascript' src='js/StarWebPrintBuilder.js'&gt;&lt;/script&gt;
@@ -673,25 +680,25 @@ function onBuild() {
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
     </div>
-    
+
     <article>
     <div id="createCutPaperElement">
-    
+
         <h3>createCutPaperElement</h3>
-        
+
         <div class="introduction_3">
             <p>
             Creates Cut paper element.
             </p>
         </div>
-        
+
         <div class="syntax">
             <h4>syntax</h4>
             <p>
             createCutPaperElement(args);
             </p>
         </div>
-        
+
         <h4>Parameter</h4>
         <table class="coder">
             <thead>
@@ -712,7 +719,7 @@ function onBuild() {
                 <tr><td>Created element character string</td><td>String</td></tr>
             </tbody>
         </table>
-    
+
         <h5>Example</h5>
 <pre>
 &lt;script type='text/javascript' src='js/StarWebPrintBuilder.js'&gt;&lt;/script&gt;
@@ -733,25 +740,25 @@ function onBuild() {
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
     </div>
-    
+
     <article>
     <div id="createFeedElement">
-    
+
         <h3>createFeedElement</h3>
-        
+
         <div class="introduction_3">
             <p>
             Creates Feed element.
             </p>
         </div>
-        
+
         <div class="syntax">
             <h4>syntax</h4>
             <p>
             createFeedElement(args);
             </p>
         </div>
-        
+
         <h4>Parameter</h4>
         <table class="coder">
             <thead>
@@ -772,7 +779,7 @@ function onBuild() {
                 <tr><td>Created element character string</td><td>String</td></tr>
             </tbody>
         </table>
-    
+
         <h5>Example</h5>
 <pre>
 &lt;script type='text/javascript' src='js/StarWebPrintBuilder.js'&gt;&lt;/script&gt;
@@ -793,25 +800,25 @@ function onBuild() {
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
     </div>
-    
+
     <article>
     <div id="createInitializationElement">
-    
+
         <h3>createInitializationElement</h3>
-        
+
         <div class="introduction_3">
             <p>
             Creates Initialization element.
             </p>
         </div>
-        
+
         <div class="syntax">
             <h4>syntax</h4>
             <p>
             createInitializationElement(args);
             </p>
         </div>
-        
+
         <h4>Parameter</h4>
         <table class="coder">
             <thead>
@@ -837,7 +844,7 @@ function onBuild() {
                 <tr><td>Created element character string</td><td>String</td></tr>
             </tbody>
         </table>
-    
+
         <h5>Example</h5>
 <pre>
 &lt;script type='text/javascript' src='js/StarWebPrintBuilder.js'&gt;&lt;/script&gt;
@@ -858,25 +865,25 @@ function onBuild() {
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
     </div>
-    
+
     <article>
     <div id="createLogoElement">
-    
+
         <h3>createLogoElement</h3>
-        
+
         <div class="introduction_3">
             <p>
             Creates Logo element.
             </p>
         </div>
-        
+
         <div class="syntax">
             <h4>syntax</h4>
             <p>
             createLogoElement(args);
             </p>
         </div>
-        
+
         <h4>Parameter</h4>
         <table class="coder">
             <thead>
@@ -900,7 +907,7 @@ function onBuild() {
                 <tr><td>Created element character string</td><td>String</td></tr>
             </tbody>
         </table>
-    
+
         <h5>Example</h5>
 <pre>
 &lt;script type='text/javascript' src='js/StarWebPrintBuilder.js'&gt;&lt;/script&gt;
@@ -920,25 +927,25 @@ function onBuild() {
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
     </div>
-    
+
     <article>
     <div id="createPdf417Element">
-    
+
         <h3>createPdf417Element</h3>
-        
+
         <div class="introduction_3">
             <p>
             Creates PDF417 element.
             </p>
         </div>
-        
+
         <div class="syntax">
             <h4>syntax</h4>
             <p>
             createPdf417Element(args);
             </p>
         </div>
-        
+
         <h4>Parameter</h4>
         <table class="coder">
             <thead>
@@ -968,7 +975,7 @@ function onBuild() {
                 <tr><td>Created element character string</td><td>String</td></tr>
             </tbody>
         </table>
-    
+
         <h5>Example</h5>
 <pre>
 &lt;script type='text/javascript' src='js/StarWebPrintBuilder.js'&gt;&lt;/script&gt;
@@ -988,25 +995,25 @@ function onBuild() {
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
     </div>
-    
+
     <article>
     <div id="createPeripheralElement">
-    
+
         <h3>createPeripheralElement</h3>
-        
+
         <div class="introduction_3">
             <p>
             Creates Peripheral element.
             </p>
         </div>
-        
+
         <div class="syntax">
             <h4>syntax</h4>
             <p>
             createPeripheralElement(args);
             </p>
         </div>
-        
+
         <h4>Parameter</h4>
         <table class="coder">
             <thead>
@@ -1030,7 +1037,7 @@ function onBuild() {
                 <tr><td>Created element character string</td><td>String</td></tr>
             </tbody>
         </table>
-    
+
         <h5>Example</h5>
 <pre>
 &lt;script type='text/javascript' src='js/StarWebPrintBuilder.js'&gt;&lt;/script&gt;
@@ -1050,25 +1057,25 @@ function onBuild() {
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
     </div>
-    
+
     <article>
     <div id="createQrCodeElement">
-    
+
         <h3>createQrCodeElement</h3>
-        
+
         <div class="introduction_3">
             <p>
             Creates QR code element.
             </p>
         </div>
-        
+
         <div class="syntax">
             <h4>syntax</h4>
             <p>
             createQrCodeElement(args);
             </p>
         </div>
-        
+
         <h4>Parameter</h4>
         <table class="coder">
             <thead>
@@ -1093,7 +1100,7 @@ function onBuild() {
                 <tr><td>Created element character string</td><td>String</td></tr>
             </tbody>
         </table>
-    
+
         <h5>Example</h5>
 <pre>
 &lt;script type='text/javascript' src='js/StarWebPrintBuilder.js'&gt;&lt;/script&gt;
@@ -1113,25 +1120,25 @@ function onBuild() {
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
     </div>
-    
+
     <article>
     <div id="createRawDataElement">
-    
+
         <h3>createRawDataElement</h3>
-        
+
         <div class="introduction_3">
             <p>
             Creates Raw data element.
             </p>
         </div>
-        
+
         <div class="syntax">
             <h4>syntax</h4>
             <p>
             createRawDataElement(args);
             </p>
         </div>
-        
+
         <h4>Parameter</h4>
         <table class="coder">
             <thead>
@@ -1152,7 +1159,7 @@ function onBuild() {
                 <tr><td>Created element character string</td><td>String</td></tr>
             </tbody>
         </table>
-    
+
         <h5>Example</h5>
 <pre>
 &lt;script type='text/javascript' src='js/StarWebPrintBuilder.js'&gt;&lt;/script&gt;
@@ -1172,25 +1179,25 @@ function onBuild() {
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
     </div>
-    
+
     <article>
     <div id="createRuledLineElement">
-    
+
         <h3>createRuledLineElement</h3>
-        
+
         <div class="introduction_3">
             <p>
             Creates Horizontal ruled line element.
             </p>
         </div>
-        
+
         <div class="syntax">
             <h4>syntax</h4>
             <p>
             createRuledLineElement(args);
             </p>
         </div>
-        
+
         <h4>Parameter</h4>
         <table class="coder">
             <thead>
@@ -1215,7 +1222,7 @@ function onBuild() {
                 <tr><td>Created element character string</td><td>String</td></tr>
             </tbody>
         </table>
-    
+
         <h5>Example</h5>
 <pre>
 &lt;script type='text/javascript' src='js/StarWebPrintBuilder.js'&gt;&lt;/script&gt;
@@ -1235,25 +1242,25 @@ function onBuild() {
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
     </div>
-    
+
     <article>
     <div id="createSoundElement">
-    
+
         <h3>createSoundElement</h3>
-        
+
         <div class="introduction_3">
             <p>
             Creates Sound element.
             </p>
         </div>
-        
+
         <div class="syntax">
             <h4>syntax</h4>
             <p>
             createSoundElement(args);
             </p>
         </div>
-        
+
         <h4>Parameter</h4>
         <table class="coder">
             <thead>
@@ -1275,7 +1282,7 @@ function onBuild() {
                 <tr><td>Created element character string</td><td>String</td></tr>
             </tbody>
         </table>
-    
+
         <h5>Example</h5>
 <pre>
 &lt;script type='text/javascript' src='js/StarWebPrintBuilder.js'&gt;&lt;/script&gt;
@@ -1295,25 +1302,25 @@ function onBuild() {
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
     </div>
-    
+
     <article>
     <div id="createTextElement">
-    
+
         <h3>createTextElement</h3>
-        
+
         <div class="introduction_3">
             <p>
             Creates Text element.
             </p>
         </div>
-        
+
         <div class="syntax">
             <h4>syntax</h4>
             <p>
             createTextElement(args);
             </p>
         </div>
-        
+
         <h4>Parameter</h4>
         <table class="coder">
             <thead>
@@ -1352,12 +1359,12 @@ function onBuild() {
                 <tr><td>undelline</td><td>Specifies underline<br /><ul><li>true … Specifies underline</li><li>false … Cancels underline</li></ul><td>Boolean</td><td>Unchanged</td></tr>
                 <tr><td>binary</td><td>binary data encoding<br/>(effective range:0x00-0x20,0x26,0x3c,0x3e,0x7f-0xff)<br />
                                                                 <ul><li>true … Keep the value <br/>
-                                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       
+                                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                                         which are the specified binary data of "data"</li>
                                                                     <li>false … JavaScript's utf encoding<br/>
                                                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                                         for the specified binary data of "data"<br/></li></ul>
-                                                                </td><td>Boolean</td><td>false</td></tr>                
+                                                                </td><td>Boolean</td><td>false</td></tr>
                 <tr><td>data</td><td>Specifies text data</td><td>String</td><td>-</td></tr>
             </tbody>
         </table>
@@ -1371,7 +1378,7 @@ function onBuild() {
                 <tr><td>Created element character string</td><td>String</td></tr>
             </tbody>
         </table>
-    
+
         <h5>Example</h5>
 <pre>
 &lt;script type='text/javascript' src='js/StarWebPrintBuilder.js'&gt;&lt;/script&gt;
@@ -1395,22 +1402,22 @@ function onBuild() {
 
     <article>
     <div id="createBarcodeReaderElement">
-    
+
         <h3>createBarcodeReaderElement</h3>
-        
+
         <div class="introduction_3">
             <p>
             Creates Barcode Reader element.
             </p>
         </div>
-        
+
         <div class="syntax">
             <h4>syntax</h4>
             <p>
             createBarcodeReaderElement(args);
             </p>
         </div>
-        
+
         <h4>Parameter</h4>
         <table class="coder">
             <thead>
@@ -1427,18 +1434,17 @@ function onBuild() {
                 <tr><td>claimpollingtimeout<br />(*1)(*2)</td><td>Polling of Claim management(*3) timeout (msec)<br />&nbsp;&nbsp;Range:1000 ～ 2147483647<br />*Recommendation：more than 10000<br />*When the display of alert dialog passes with the settings number of seconds. <br />&nbsp;&nbsp;Internally will work the same as "claim=false".<br />&nbsp;&nbsp;Therefore please mind when use the alert dialog.</td><td>Number</td><td>Unchanged</td></tr>
             </tbody>
         </table>
-        (*1) it is effective when sets the "type='setting'"<br />
-        (*2) it is effective when sets the "claim='true'"<br />
-        (*3) The polling for keeping the claim status by current using browser<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is started when the Claim start is success(*4) after sending the request elements<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;which is included the "claim='true'" in the first time.<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;And The polling is finished when the Claim finish is success(*5) after sending<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the request elements which is included the "claim='false'".<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The polling start and finish are automatically controled by the sendMessage method of StarClaimManager.js.<br />
-        (*4) Character string which is included in the response elements to receive at the time of Claim start success<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"&lt;bcr&gt;&lt;claim&gt;true&lt;/claim&gt;&lt;/bcr&gt;"<br />
-        (*5) Character string which is included in the response elements to receive at the time of Claim finish success<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"&lt;bcr&gt;&lt;claim&gt;false&lt;/claim&gt;&lt;/bcr&gt;"<br />
+        <div class="note3">
+        <p>(*1) it is effective when sets the "type='setting'"</p>
+        <p>(*2) it is effective when sets the "claim='true'"</p>
+        <p>(*3) The polling for keeping the claim status by current using browser is started when the Claim start is success(*4) after sending the request elements which is included the "claim='true'" in the first time.<br />
+        And The polling is finished when the Claim finish is success(*5) after sending the request elements which is included the "claim='false'".<br />
+        The polling start and finish are automatically controled by the sendMessage method of StarClaimManager.js.</p>
+        <p>(*4) Character string which is included in the response elements to receive at the time of Claim start success<br>
+        "&lt;bcr&gt;&lt;claim&gt;true&lt;/claim&gt;&lt;/bcr&gt;"</p>
+        <p>(*5) Character string which is included in the response elements to receive at the time of Claim finish success<br />
+        "&lt;bcr&gt;&lt;claim&gt;false&lt;/claim&gt;&lt;/bcr&gt;"</p>
+        </div>
 
         <h4>Return value</h4>
         <table class="coder">
@@ -1449,7 +1455,7 @@ function onBuild() {
                 <tr><td>Created element character string</td><td>String</td></tr>
             </tbody>
         </table>
-    
+
         <h5>Example:Setting of Barcode Reader</h5>
 <pre>
 &lt;script type='text/javascript' src='js/StarWebPrintBuilder.js'&gt;&lt;/script&gt;
@@ -1486,22 +1492,22 @@ function onBuild() {
 
     <article>
     <div id="createMagstripeReaderElement">
-    
+
         <h3>createMagstripeReaderElement</h3>
-        
+
         <div class="introduction_3">
             <p>
             Creates Magstripe Reader element.
             </p>
         </div>
-        
+
         <div class="syntax">
             <h4>syntax</h4>
             <p>
             createMagstripeReaderElement(args);
             </p>
         </div>
-        
+
         <h4>Parameter</h4>
         <table class="coder">
             <thead>
@@ -1513,18 +1519,17 @@ function onBuild() {
                 <tr><td>claimpollingtimeout<br />(*1)(*2)</td><td>Polling of Claim management(*3) timeout (msec)<br />&nbsp;&nbsp;Range:1000 ～ 2147483647<br />*Recommendation：more than 10000<br />*When the display of alert dialog passes with the settings number of seconds. <br />&nbsp;&nbsp;Internally will work the same as "claim=false".<br />&nbsp;&nbsp;Therefore please mind when use the alert dialog.</td><td>Number</td><td>Unchanged</td></tr>
             </tbody>
         </table>
-        (*1) it is effective when sets the "type='setting'"<br />
-        (*2) it is effective when sets the "claim='true'"<br />
-        (*3) The polling for keeping the claim status by current using browser<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is started when the Claim start is success(*4) after sending the request elements<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;which is included the "claim='true'" in the first time.<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;And The polling is finished when the Claim finish is success(*5) after sending<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the request elements which is included the "claim='false'".<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The polling start and finish are automatically controled by the sendMessage method of StarClaimManager.js.<br />
-        (*4) Character string which is included in the response elements to receive at the time of Claim start success<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"&lt;msr&gt;&lt;claim&gt;true&lt;/claim&gt;&lt;/msr&gt;"<br />
-        (*5) Character string which is included in the response elements to receive at the time of Claim finish success<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"&lt;msr&gt;&lt;claim&gt;false&lt;/claim&gt;&lt;/msr&gt;"<br />
+        <div class="note3">
+        <p>(*1)  it is effective when sets the "type='setting'"</p>
+        <p>(*2)  it is effective when sets the "claim='true'"</p>
+        <p>(*3)  The polling for keeping the claim status by current using browser is started when the Claim start is success(*4) after sending the request elements which is included the "claim='true'" in the first time.<br />
+        And The polling is finished when the Claim finish is success(*5) after sending the request elements which is included the "claim='false'".<br />
+        The polling start and finish are automatically controled by the sendMessage method of StarClaimManager.js.</p>
+        <p>(*4)  Character string which is included in the response elements to receive at the time of Claim start success<br />
+        "&lt;msr&gt;&lt;claim&gt;true&lt;/claim&gt;&lt;/msr&gt;"</p>
+        <p>(*5)  Character string which is included in the response elements to receive at the time of Claim finish success<br />
+        "&lt;msr&gt;&lt;claim&gt;false&lt;/claim&gt;&lt;/msr&gt;"</p>
+        </div>
 
         <h4>Return value</h4>
         <table class="coder">
@@ -1535,7 +1540,7 @@ function onBuild() {
                 <tr><td>Created element character string</td><td>String</td></tr>
             </tbody>
         </table>
-    
+
         <h5>Example:Setting of Magstripe Reader</h5>
 <pre>
 &lt;script type='text/javascript' src='js/StarWebPrintBuilder.js'&gt;&lt;/script&gt;
@@ -1572,15 +1577,15 @@ function onBuild() {
 
     <article>
     <div id="createLineDisplayElement">
-    
+
         <h3>createLineDisplayElement</h3>
-        
+
         <div class="introduction_3">
             <p>
             Creates Line Display element.
             </p>
         </div>
-        
+
         <div class="syntax">
             <h4>syntax</h4>
             <p>
@@ -1619,23 +1624,21 @@ function onBuild() {
                 <tr><td>data</td><td>Text data<br />*Hex decimal is '\x0a', '\x20' - '\xff'</td><td>String</td><td>Unchanged</td></tr>
             </tbody>
         </table>
-        (*1) The "Line Display" Application which has been supported AsuraCPRNT Linux OS since version 1.7<br />
-        (*2) it is effective when sets the "claim='true'"<br />
-        (*3) The polling for keeping the claim status by current using browser<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is started when the Claim start is success(*4) after sending the request elements<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;which is included the "claim='true'" in the first time.<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;And The polling is finished when the Claim finish is success(*5) after sending<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the request elements which is included the "claim='false'".<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The polling start and finish are automatically controled by the sendMessage method of StarClaimManager.js.<br />
-        (*4) Character string which is included in the response elements to receive at the time of Claim start success<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"&lt;ld&gt;&lt;claim&gt;true&lt;/claim&gt;&lt;/ld&gt;"<br />
-        (*5) Character string which is included in the response elements to receive at the time of Claim finish success<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"&lt;ld&gt;&lt;claim&gt;false&lt;/claim&gt;&lt;/ld&gt;"<br />
-        (*6) When set "initilization" with other items at the same time, set the default value.<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The claim / claimpollingtimeout / data are not related.<br />
-        (*7) The square area which is showed on the "Line Display" Application<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;which has been supported AsuraCPRNT Linux OS since version 1.7<br />
-        (*8) The default of "Line Display" application is 'cp1252'
+        <div class="note3">
+        <p>(*1)  The "Line Display" Application which has been supported AsuraCPRNT Linux OS since version 1.7</p>
+        <p>(*2)  it is effective when sets the "claim='true'"</p>
+        <p>(*3)  The polling for keeping the claim status by current using browser is started when the Claim start is success(*4) after sending the request elements which is included the "claim='true'" in the first time.<br />
+        And The polling is finished when the Claim finish is success(*5) after sending the request elements which is included the "claim='false'".<br />
+        The polling start and finish are automatically controled by the sendMessage method of StarClaimManager.js.</p>
+        <p>(*4)  Character string which is included in the response elements to receive at the time of Claim start success <br>
+        "&lt;ld&gt;&lt;claim&gt;true&lt;/claim&gt;&lt;/ld&gt;"</p>
+        <p>(*5)  Character string which is included in the response elements to receive at the time of Claim finish success<br />
+        "&lt;ld&gt;&lt;claim&gt;false&lt;/claim&gt;&lt;/ld&gt;"</p>
+        <p>(*6)  When set "initilization" with other items at the same time, set the default value.<br />
+        The claim / claimpollingtimeout / data are not related.</p>
+        <p>(*7)  The square area which is showed on the "Line Display" Application which has been supported AsuraCPRNT Linux OS since version 1.7</p>
+        <p>(*8) The default of "Line Display" application is 'cp1252'</p>
+        </div>
 
         <h4>Return value</h4>
         <table class="coder">
@@ -1646,7 +1649,7 @@ function onBuild() {
                 <tr><td>Created element character string</td><td>String</td></tr>
             </tbody>
         </table>
-    
+
         <h5>Example</h5>
 <pre>
 &lt;script type='text/javascript' src='js/StarWebPrintBuilder.js'&gt;&lt;/script&gt;
@@ -1676,9 +1679,10 @@ function onBuild() {
 
 <div id="footer">
 <footer>
-<p id="copyright"> &copy; Copyright 2013 - 2015  <a href="http://www.star-m.jp/">Star Micronics Co., Ltd.</a> </p>
+<p id="copyright"> &copy; Copyright 2013 - 2017  <a href="http://www.star-m.jp/">Star Micronics Co., Ltd.</a> </p>
 </footer>
 </div>
+</div> <!--container-->
 
 </body>
 </html>

@@ -10,6 +10,7 @@
 -->
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="Expires" content="86400">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 <title>StarWebPRNT Sample(Comparison Receipt Design)</title>
 
@@ -453,7 +454,7 @@ function sendMessageCanvas(logoScale) {
 
             trader.onError = function (response) {
                 hideNowPrinting();
-                
+
                 var msg = '- onError -\n\n';
 
                 msg += '\tStatus:' + response.status + '\n';
@@ -478,7 +479,7 @@ function sendMessageCanvas(logoScale) {
             }
             catch (e) {
                 hideNowPrinting();
-                
+
                 alert(e.message);
             }
         }
@@ -486,7 +487,7 @@ function sendMessageCanvas(logoScale) {
 
     image.onerror = function () {
         hideNowPrinting();
-                
+
         alert('Image file was not able to be loaded.');
     }
 }

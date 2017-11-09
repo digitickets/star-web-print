@@ -2,34 +2,38 @@
 <html xmlns="http://www.w3.org/1999/xhtml"  lang="ja" xml:lang="ja">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Expires" content="86400">
     <title>Star WebPRNT ユーザーズマニュアル</title>
-    <link href="html5reset-1.6.1.css" rel="stylesheet" type="text/css" />
-    <link href="webPRNT_layout.css" rel="stylesheet" type="text/css" />
-    <link href="webPRNT_print_layout.css" rel="stylesheet" type="text/css" media="print" />
-    
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link href="../css/html5reset-1.6.1.css" rel="stylesheet" type="text/css" />
+    <link href="../css/webPRNT_layout.css" rel="stylesheet" type="text/css" />
+    <link href="../css/webPRNT_print_layout.css" rel="stylesheet" type="text/css" media="print" />
+
 <!-- ie10にて条件付きコメント([if IE]の箇所）がサポートされなくなったことに対する対処　　-->
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
    <!--[if IE ]>
-        <link rel="stylesheet" type="text/css" href="webPRNT_layout_ie.css"></script>
-        <link rel="stylesheet" type="text/css" href="webPRNT_print_layout_ie.css" media="print"></script>
+        <link rel="stylesheet" type="text/css" href="../css/webPRNT_layout_ie.css"></script>
+        <link rel="stylesheet" type="text/css" href="../css/webPRNT_print_layout_ie.css" media="print"></script>
     <![endif]-->
-    
+
     <script src="jquery-1.10.2.min.js"></script>
     <script>
-    
+
     $(function tggleNavi() {
         $('#naviArrow').click(function(){
            $('#mainNavi').slideToggle('slow');
-           
+
        });
     });
 
     </script>
-    
+
 </head>
 
-
 <body>
+
+<div id="container">
 
 <div id="toTop">
     <a href="index.htm"><img id="webPRNTLogo" src="../illust/WebPRNT_Logo.png" /></a>
@@ -44,7 +48,7 @@
 
 <!-- wrapp : mainNavi + mainContents-->
 <div id="wrapp" class="clear">
-    
+
 
 <!-- mainNavi -->
 
@@ -228,6 +232,9 @@
 	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#number">&lt;number&gt;</a></li>
 	</ul>
 	<ul>
+	<li><a href="_StarWebPrintRequestElement_scs.htm">StarWebPRNT送信エレメント<br />-SCS-</a></li>
+	</ul>
+	<ul>
 	<li><a href="_appendixUTF8.htm">付録 UTF-8対応</a></li>
 	</ul>
 
@@ -244,68 +251,70 @@
         <div class="introduction_2">
             <br />
         </div>
-        
-        <table class="coder">
+
+        <table class="List3">
             <thead>
-                <tr><td>名称</td><td>説明</td><td>WebPRNT対応<br/>Starプリンター</td><td>AsuraCPRNT</td></tr>
+                <tr><td>名称</td><td>説明</td><td>WebPRNT<br> Browser</td><td>WebPRNT<br>対応<br>Star<br>プリンター</td><td>AsuraCPRNT</td></tr>
             </thead>
             <tbody>
-                <tr><td><a href="#root">&lt;root&gt;</a></td><td>ルートエレメント</td><td>○</td><td>○</td></tr>
-                <tr><td><a href="#alignment">&lt;alignment&gt;</a></td><td>位置揃えエレメント</td><td>○</td><td>○</td></tr>
-                <tr><td><a href="#barcode">&lt;barcode&gt;</a></td><td>バーコードエレメント</td><td>○</td><td>○</td></tr>
-                <tr><td><a href="#bitImage">&lt;bitImage&gt;</a></td><td>ビットイメージエレメント</td><td>○</td><td>○</td></tr>
-                <tr><td><a href="#cutpaper">&lt;cutpaper&gt;</a></td><td>用紙カットエレメント</td><td>○</td><td>○</td></tr>
-                <tr><td><a href="#feed">&lt;feed&gt;</a></td><td>用紙送りエレメント</td><td>○</td><td>○</td></tr>
-                <tr><td><a href="#initialization">&lt;initialization&gt;</a></td><td>初期化エレメント</td><td>○</td><td>*1</td></tr>
-                <tr><td><a href="#logo">&lt;logo&gt;</a></td><td>ロゴエレメント</td><td>○</td><td>*2</td></tr>
-                <tr><td><a href="#pdf417">&lt;pdf417&gt;</a></td><td>PDF417エレメント</td><td>○</td><td>○</td></tr>
-                <tr><td><a href="#peripheral">&lt;peripheral&gt;</a></td><td>外部機器エレメント</td><td>○</td><td>○</td></tr>
-                <tr><td><a href="#qrcode">&lt;qrcode&gt;</a></td><td>QRコードエレメント</td><td>○</td><td>○</td></tr>
-                <tr><td><a href="#rawdata">&lt;rawdata&gt;</a></td><td>生データエレメント</td><td>○ *3</td><td>○ *3</td></tr>
-                <tr><td><a href="#ruledline">&lt;ruledline&gt;</a></td><td>横罫線エレメント</td><td>○</td><td>○</td></tr>
-                <tr><td><a href="#sound">&lt;sound&gt;</a></td><td>ブザーエレメント</td><td>○</td><td>-</td></tr>
-                <tr><td><a href="#text">&lt;text&gt;</a></td><td>テキストエレメント</td><td>○ *4</td><td>○ *4</td></tr>
-                <tr><td><a href="#barcodereader">&lt;barcodereader&gt;</a></td><td>バーコードリーダーエレメント</td><td>-</td><td>○ *5</td></tr>
-                <tr><td><a href="#magstripereader">&lt;magstripereader&gt;</a></td><td>磁気リーダーエレメント</td><td>-</td><td>○ *5</td></tr>
-                <tr><td><a href="#linedisplay">&lt;linedisplay&gt;</a></td><td>ラインディスプレイエレメント</td><td>-</td><td>○ *5 *6</td></tr>
+                <tr><td><a href="#root">&lt;root&gt;</a></td><td>ルートエレメント</td><td>○*1</td><td>○</td><td>○</td></tr>
+                <tr><td><a href="#alignment">&lt;alignment&gt;</a></td><td>位置揃えエレメント</td><td>○</td><td>○</td><td>○</td></tr>
+                <tr><td><a href="#barcode">&lt;barcode&gt;</a></td><td>バーコードエレメント</td><td>○</td><td>○</td><td>○</td></tr>
+                <tr><td><a href="#bitImage">&lt;bitImage&gt;</a></td><td>ビットイメージエレメント</td><td>○</td><td>○</td><td>○</td></tr>
+                <tr><td><a href="#cutpaper">&lt;cutpaper&gt;</a></td><td>用紙カットエレメント</td><td>○</td><td>○</td><td>○</td></tr>
+                <tr><td><a href="#feed">&lt;feed&gt;</a></td><td>用紙送りエレメント</td><td>○</td><td>○</td><td>○</td></tr>
+                <tr><td><a href="#initialization">&lt;initialization&gt;</a></td><td>初期化エレメント</td><td>○</td><td>○</td><td>*2</td></tr>
+                <tr><td><a href="#logo">&lt;logo&gt;</a></td><td>ロゴエレメント</td><td>○</td><td>○</td><td>*3</td></tr>
+                <tr><td><a href="#pdf417">&lt;pdf417&gt;</a></td><td>PDF417エレメント</td><td>○</td><td>○</td><td>○</td></tr>
+                <tr><td><a href="#peripheral">&lt;peripheral&gt;</a></td><td>外部機器エレメント</td><td>○</td><td>○</td><td>○</td></tr>
+                <tr><td><a href="#qrcode">&lt;qrcode&gt;</a></td><td>QRコードエレメント</td><td>○</td><td>○</td><td>○</td></tr>
+                <tr><td><a href="#rawdata">&lt;rawdata&gt;</a></td><td>生データエレメント</td><td>○ *4</td><td>○ *4</td><td>○ *4</td></tr>
+                <tr><td><a href="#ruledline">&lt;ruledline&gt;</a></td><td>横罫線エレメント</td><td>○</td><td>○</td><td>○</td></tr>
+                <tr><td><a href="#sound">&lt;sound&gt;</a></td><td>ブザーエレメント</td><td>○</td><td>○</td><td>-</td></tr>
+                <tr><td><a href="#text">&lt;text&gt;</a></td><td>テキストエレメント</td><td>○ *5</td><td>○ *5</td><td>○ *5</td></tr>
+                <tr><td><a href="#barcodereader">&lt;barcodereader&gt;</a></td><td>バーコードリーダーエレメント</td><td>-</td><td>-</td><td>○ *6</td></tr>
+                <tr><td><a href="#magstripereader">&lt;magstripereader&gt;</a></td><td>磁気リーダーエレメント</td><td>-</td><td>-</td><td>○ *6</td></tr>
+                <tr><td><a href="#linedisplay">&lt;linedisplay&gt;</a></td><td>ラインディスプレイエレメント</td><td>-</td><td>-</td><td>○ *6 *7</td></tr>
             </tbody>
         </table>
-        </br>
-        <p class="note">
-            *1 属性 reset / print にてfalse指定時のみ対応となります。</p>
-        <p class="note">
-            *2 ロゴ登録手段が用意されていないため対応していません。</p>
-        <p class="note">
-            *3 初期化コマンド(ESC @)は送信しないでください。その場合&lt;initialization&gt;(初期化エレメント)を利用してください。</p>
-        <p class="note">
-            *4 各機種のUTF-8対応状況は<a href="_appendixUTF8.htm">付録 UTF-8対応</a>を参照してください。<br/>
+        <div class="note2">
+        <p>
+            *1 checkedblock属性は常にtrueになります。</p>
+        <p>
+            *2 属性 reset / print にてfalse指定時のみ対応となります。</p>
+        <p>
+            *3 ロゴ登録手段が用意されていないため対応していません。</p>
+        <p>
+            *4 初期化コマンド(ESC @)は送信しないでください。その場合&lt;initialization&gt;(初期化エレメント)を利用してください。</p>
+        <p>
+            *5 各機種のUTF-8対応状況は<a href="_appendixUTF8.htm">付録 UTF-8対応</a>を参照してください。<br/>
             &nbsp;&nbsp;AsuraCPRNTをご利用の場合、コンフィグレーションの”StarWebPRNT”の項目にて言語設定を行ってください。<br/>
             &nbsp;&nbsp;CodePage属性の値のうち、shift_jis,gb18030,gb2312,big5,koreaはStar WebPRNT Browserのみ対応しています。<br/>
             &nbsp;&nbsp;WebPRNT Browserをご利用の場合、UTF8に対応していないプリンターではcodepage属性をutf8に指定しないでください。</p>
-        <p class="note">
-            *5 AsuraCPRNT Linux OS Ver 1.7以降のみ対応<br />
+        <p>
+            *6 AsuraCPRNT Linux OS Ver 1.7以降のみ対応<br />
             &nbsp;&nbsp;また各デバイスの対応状況は<a href="http://www.star-m.jp/products/s_print/sp01_09.html">AsuraCPRNTデベロッパーサイト</a>の仕様書をご確認ください<br /></p>
-        <p class="note">
-            *6 AsuraCPRNT Linux OS 1.7以降に標準搭載されている"Line Display"アプリケーションを起動してご利用ください。 </p>
-            
+        <p>
+            *7 AsuraCPRNT Linux OS 1.7以降に標準搭載されている"Line Display"アプリケーションを起動してご利用ください。 </p>
+
     </div>
     </article>
 
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
     </div>
-    
+
 
     <article>
     <div id="root">
         <h3>&lt;root&gt;</h3>
-    
+
         <div class="introduction_3">
             <p>
             ルートエレメント
             </p>
         </div>
-    
+
         <h4>属性</h4>
         <table class="coder">
             <thead>
@@ -315,12 +324,8 @@
                 <tr><td>checkedblock</td><td>印刷完了待ち<br /><ul><li>true … 印刷完了待ち有効</li><li>false … 印刷完了待ち無効</li></ul></td><td>'true'</td></tr>
                 <tr><td>papertype</td><td>用紙の種類<br /><ul><li>normal … 普通紙</li><li>black_mark … ブラックマーク紙</li>
                 <li>black_mark_and_detect_at_power_on … ブラックマーク紙 (電源投入時の位置検出有効)</li></ul></td><td>未設定</td></tr>
-                <tr><td>blackmark_sensor *1</td><td>ブラックマークセンサ種類<br ><ul><li>front_side … 表面マーク検出センサ</li><li>back_side … 裏面マーク検出センサ</li><li>hole_or_gap … ホール・ギャップ検出センサ</li></ul></td><td>'front_side'</td></tr>
             </tbody>
         </table>
-        <p class="note2">
-            *1 blackmark_sensor属性は、papertype属性に”black_mark”または”black_mark_and_detect_at_power_on”を指定した場合に有効になります。<br />
-        </p>
 
         <h4>値</h4>
         <table class="coder">
@@ -350,13 +355,13 @@
     <article>
     <div id="alignment">
         <h3>&lt;alignment&gt;</h3>
-    
+
         <div class="introduction_3">
             <p>
             位置揃えエレメント
             </p>
         </div>
-    
+
         <h4>属性</h4>
         <table class="coder">
             <thead>
@@ -394,13 +399,13 @@
     <article>
     <div id="barcode">
         <h3>&lt;barcode&gt;</h3>
-    
+
         <div class="introduction_3">
             <p>
             バーコードエレメント
             </p>
         </div>
-    
+
         <h4>属性</h4>
         <table class="coder">
             <thead>
@@ -446,13 +451,13 @@
     <article>
     <div id="bitImage">
         <h3>&lt;bitImage&gt;</h3>
-    
+
         <div class="introduction_3">
             <p>
             ビットイメージエレメント
             </p>
         </div>
-    
+
         <h4>属性</h4>
         <table class="coder">
             <thead>
@@ -491,13 +496,13 @@
     <article>
     <div id="cutpaper">
         <h3>&lt;cutpaper&gt;</h3>
-    
+
         <div class="introduction_3">
             <p>
             用紙カットエレメント
             </p>
         </div>
-    
+
         <h4>属性</h4>
         <table class="coder">
             <thead>
@@ -535,13 +540,13 @@
     <article>
     <div id="feed">
         <h3>&lt;feed&gt;</h3>
-    
+
         <div class="introduction_3">
             <p>
             用紙送りエレメント
             </p>
         </div>
-    
+
         <h4>属性</h4>
         <table class="coder">
             <thead>
@@ -579,13 +584,13 @@
     <article>
     <div id="initialization">
         <h3>&lt;initialization&gt;</h3>
-    
+
         <div class="introduction_3">
             <p>
             初期化エレメント
             </p>
         </div>
-    
+
         <h4>属性</h4>
         <table class="coder">
             <thead>
@@ -625,13 +630,13 @@
     <article>
     <div id="logo">
         <h3>&lt;logo&gt;</h3>
-    
+
         <div class="introduction_3">
             <p>
             ロゴエレメント
             </p>
         </div>
-    
+
         <h4>属性</h4>
         <table class="coder">
             <thead>
@@ -672,13 +677,13 @@
     <article>
     <div id="pdf417">
         <h3>&lt;pdf417&gt;</h3>
-    
+
         <div class="introduction_3">
             <p>
             PDF417エレメント
             </p>
         </div>
-    
+
         <h4>属性</h4>
         <table class="coder">
             <thead>
@@ -724,13 +729,13 @@
     <article>
     <div id="peripheral">
         <h3>&lt;peripheral&gt;</h3>
-    
+
         <div class="introduction_3">
             <p>
             外部機器エレメント
             </p>
         </div>
-    
+
         <h4>属性</h4>
         <table class="coder">
             <thead>
@@ -770,13 +775,13 @@
     <article>
     <div id="qrcode">
         <h3>&lt;qrcode&gt;</h3>
-    
+
         <div class="introduction_3">
             <p>
             QRコードエレメント
             </p>
         </div>
-    
+
         <h4>属性</h4>
         <table class="coder">
             <thead>
@@ -818,13 +823,13 @@
     <article>
     <div id="rawdata">
         <h3>&lt;rawdata&gt;</h3>
-    
+
         <div class="introduction_3">
             <p>
             生データエレメント
             </p>
         </div>
-    
+
         <h4>属性</h4>
         <table class="coder">
             <thead>
@@ -861,13 +866,13 @@
     <article>
     <div id="ruledline">
         <h3>&lt;ruledline&gt;</h3>
-    
+
         <div class="introduction_3">
             <p>
             横罫線エレメント
             </p>
         </div>
-    
+
         <h4>属性</h4>
         <table class="coder">
             <thead>
@@ -909,13 +914,13 @@
     <article>
     <div id="sound">
         <h3>&lt;sound&gt;</h3>
-    
+
         <div class="introduction_3">
             <p>
             ブザーエレメント
             </p>
         </div>
-    
+
         <h4>属性</h4>
         <table class="coder">
             <thead>
@@ -955,13 +960,13 @@
     <article>
     <div id="text">
         <h3>&lt;text&gt;</h3>
-    
+
         <div class="introduction_3">
             <p>
             テキストエレメント
             </p>
         </div>
-    
+
         <h4>属性</h4>
         <table class="coder">
             <thead>
@@ -1037,13 +1042,13 @@
     <article>
     <div id="barcodereader">
         <h3>&lt;barcodereader&gt;</h3>
-    
+
         <div class="introduction_3">
             <p>
             バーコードリーダーエレメント
             </p>
         </div>
-    
+
         <h4>属性</h4>
         <table class="coder">
             <thead>
@@ -1060,19 +1065,18 @@
                 <tr><td>claimpollingtimeout<br />(*1)(*2)</td><td>Claim管理用ポーリング(*3)タイムアウト (ミリ秒)<br />&nbsp;&nbsp;範囲：1000 ～ 2147483647<br />※推奨値：10000以上<br />※alertダイアログを表示させたまま設定した秒数を経過した場合<br />&nbsp;&nbsp;内部的に"claim=false"を実行した時と同様の動作を行うため<br />&nbsp;&nbsp;alertダイアログを利用の際はご注意ください</td><td>未設定</td></tr>
             </tbody>
         </table>
-        (*1) type='setting'設定時有効<br />
-        (*2) claim='true'設定時有効<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"&lt;bcr&gt;&lt;claim&gt;true:2078356309&lt;/claim&gt;&lt;/bcr&gt;"<br />
-        (*3) 初回のclaim='true'を含む送信エレメント列送信後に、Claimの開始が成功した場合(*4)に<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;開始される現在使用しているブラウザがデバイスのClaim状態を保持するためのポーリング。<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;また、claim='false'を含む送信エレメント列の送信後に、Claimの終了が成功した場合(*5)<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ポーリングは終了する。尚、StarClaimManager.jsのsendMessageにより自動的に<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ポーリングの開始から終了までの処理が行われます<br />
-        (*4) Claim開始成功時に受け取る受信エレメント列に含まれる文字列<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"&lt;bcr&gt;&lt;claim&gt;true&lt;/claim&gt;&lt;/bcr&gt;"<br />
-        (*5) Claim終了成功時に受け取る受信エレメント列に含まれる文字列<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"&lt;bcr&gt;&lt;claim&gt;false&lt;/claim&gt;&lt;/bcr&gt;"<br />
-    
+        <div class="note3">
+        <p>(*1) type='setting'設定時有効です。</p>
+        <p>(*2) claim='true'設定時有効です。<br />
+        "&lt;bcr&gt;&lt;claim&gt;true:2078356309&lt;/claim&gt;&lt;/bcr&gt;"</p>
+        <p>(*3) 初回のclaim='true'を含む送信エレメント列送信後に、Claimの開始が成功した場合(*4)に開始される現在使用しているブラウザがデバイスのClaim状態を保持するためのポーリングです。<br />
+        また、claim='false'を含む送信エレメント列の送信後に、Claimの終了が成功した場合(*5)ポーリングは終了します。なお、StarClaimManager.jsのsendMessageにより、ポーリングの開始から終了までの処理が自動的に行われます。</p>
+        <p>(*4) Claim開始成功時に受け取る受信エレメント列に含まれる文字列<br />
+        "&lt;bcr&gt;&lt;claim&gt;true&lt;/claim&gt;&lt;/bcr&gt;"</p>
+        <p>(*5) Claim終了成功時に受け取る受信エレメント列に含まれる文字列<br />
+        "&lt;bcr&gt;&lt;claim&gt;false&lt;/claim&gt;&lt;/bcr&gt;"</p>
+        </div>
+
         <h4>値</h4>
         <table class="coder">
             <thead>
@@ -1105,13 +1109,13 @@
     <article>
     <div id="magstripereader">
         <h3>&lt;magstripereader&gt;</h3>
-    
+
         <div class="introduction_3">
             <p>
             磁気リーダーエレメント
             </p>
         </div>
-    
+
         <h4>属性</h4>
         <table class="coder">
             <thead>
@@ -1123,17 +1127,16 @@
                 <tr><td>claimpollingtimeout<br />(*1)(*2)</td><td>Claim管理用ポーリング(*3)タイムアウト (ミリ秒)<br />&nbsp;&nbsp;範囲：1000 ～ 2147483647<br />※推奨値：10000以上<br />※alertダイアログを表示させたまま設定した秒数を経過した場合<br />&nbsp;&nbsp;内部的に"claim=false"を実行した時と同様の動作を行うため<br />&nbsp;&nbsp;alertダイアログを利用の際はご注意ください</td><td>未設定</td></tr>
             </tbody>
         </table>
-        (*1) type='setting'設定時有効<br />
-        (*2) claim='true'設定時有効<br />
-        (*3) 初回のclaim='true'を含む送信エレメント列送信後に、Claimの開始が成功した場合(*4)に<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;開始される現在使用しているブラウザがデバイスのClaim状態を保持するためのポーリング。<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;また、claim='false'を含む送信エレメント列の送信後に、Claimの終了が成功した場合(*5)<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ポーリングは終了する。尚、StarClaimManager.jsのsendMessageにより自動的に<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ポーリングの開始から終了までの処理が行われます<br />
-        (*4) Claim開始成功時に受け取る受信エレメント列に含まれる文字列<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"&lt;msr&gt;&lt;claim&gt;true&lt;/claim&gt;&lt;/msr&gt;"<br />
-        (*5) Claim終了成功時に受け取る受信エレメント列に含まれる文字列<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"&lt;msr&gt;&lt;claim&gt;false&lt;/claim&gt;&lt;/msr&gt;"<br />
+        <div class="note3">
+        <p>(*1) type='setting'設定時有効です。</p>
+        <p>(*2) claim='true'設定時有効です。</p>
+        <p>(*3) 初回のclaim='true'を含む送信エレメント列送信後に、Claimの開始が成功した場合(*4)に開始される現在使用しているブラウザがデバイスのClaim状態を保持するためのポーリングです。<br />
+        また、claim='false'を含む送信エレメント列の送信後に、Claimの終了が成功した場合(*5)ポーリングは終了します。なお、StarClaimManager.jsのsendMessageによりポーリングの開始から終了までの処理が自動的に行われます。</p>
+        <p>(*4) Claim開始成功時に受け取る受信エレメント列に含まれる文字列<br />
+        "&lt;msr&gt;&lt;claim&gt;true&lt;/claim&gt;&lt;/msr&gt;"</p>
+        <p>(*5) Claim終了成功時に受け取る受信エレメント列に含まれる文字列<br />
+        "&lt;msr&gt;&lt;claim&gt;false&lt;/claim&gt;&lt;/msr&gt;"</p>
+        </div>
 
 
         <h4>値</h4>
@@ -1168,13 +1171,13 @@
     <article>
     <div id="linedisplay">
         <h3>&lt;linedisplay&gt;</h3>
-    
+
         <div class="introduction_3">
             <p>
             ラインディスプレイエレメント
             </p>
         </div>
-    
+
         <h4>属性</h4>
         <table class="coder">
             <thead>
@@ -1205,22 +1208,19 @@
                 <tr><td>toucharea</td><td>タッチエリア<br />※'id:NAME,x:***,y:***,width:***,height:***'形式にて下記の条件で指定<ul><li>id … 0x20 ～ 0x7eまでのASCIIキャラクタ<br />※ただし以下の並びを文字列に含めることは出来ない<br />&nbsp;&nbsp;',x:' ',y:' ',height:' ',width:'<br />※文字数は1024byteまで<br />※idのみ設定した場合<br />&nbsp;&nbsp;指定したidで登録済みのタッチエリアを消去する</li><li>x … タッチエリアの開始x位置<br />&nbsp;&nbsp;範囲：0 ～ 800</li><li>y … タッチエリアの開始y位置<br />&nbsp;&nbsp;範囲：0 ～ 480</li><li>width … タッチエリアの幅指定<br />&nbsp;&nbsp;範囲：1 ～ 800 (※)</li><li>height … タッチエリアの高さ指定<br />&nbsp;&nbsp;範囲：1 ～ 480 (※)</li></ul>&nbsp;&nbsp;※(x + width) <= 800 及び (y + height) <= 480の条件を<br />&nbsp;&nbsp;&nbsp;&nbsp;満たす時のみ設定可能</td><td>未設定</td></tr>
             </tbody>
         </table>
-        (*1) AsuraCPRNTに標準搭載されている"Line Display"アプリケーション<br />
-        (*2) claim='true'設定時有効<br />
-        (*3) 初回のclaim='true'を含む送信エレメント列送信後に、Claimの開始が成功した場合(*4)に<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;開始される現在使用しているブラウザがデバイスのClaim状態を保持するためのポーリング。<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;また、claim='false'を含む送信エレメント列の送信後に、Claimの終了が成功した場合(*5)<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ポーリングは終了する。尚、StarClaimManager.jsのsendMessageにより自動的に<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ポーリングの開始から終了までの処理が行われます<br />
-        (*4) Claim開始成功時に受け取る受信エレメント列に含まれる文字列<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"&lt;ld&gt;&lt;claim&gt;true&lt;/claim&gt;&lt;/ld&gt;"<br />
-        (*5) Claim終了成功時に受け取る受信エレメント列に含まれる文字列<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"&lt;ld&gt;&lt;claim&gt;false&lt;/claim&gt;&lt;/ld&gt;"<br />
-        (*6) 同タグにて他の設定項目と同時に指定した場合、初期値を設定<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ただし、claim / claimpollingtimeout / data は影響を受けない<br />
-        (*7) AsuraCPRNT OS 1.7以降に含まれる"Line Display"アプリケーションの画面上部に表示されてい<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;る四角で囲まれたエリア<br />
-        (*8) "Line Display"アプリケーションの初期設定は'cp1252'
+        <div class="note3">
+        <p>(*1) AsuraCPRNTに標準搭載されている"Line Display"アプリケーション</p>
+        <p>(*2) claim='true'設定時有効</p>
+        <p>(*3) 初回のclaim='true'を含む送信エレメント列送信後に、Claimの開始が成功した場合(*4)に開始される現在使用しているブラウザがデバイスのClaim状態を保持するためのポーリングです。<br />
+        また、claim='false'を含む送信エレメント列の送信後に、Claimの終了が成功した場合(*5)ポーリングは終了します。なお、StarClaimManager.jsのsendMessageにより自動的にポーリングの開始から終了までの処理が行われます。</p>
+        <p>(*4) Claim開始成功時に受け取る受信エレメント列に含まれる文字列<br />
+        "&lt;ld&gt;&lt;claim&gt;true&lt;/claim&gt;&lt;/ld&gt;"</p>
+        <p>(*5) Claim終了成功時に受け取る受信エレメント列に含まれる文字列<br />
+        "&lt;ld&gt;&lt;claim&gt;false&lt;/claim&gt;&lt;/ld&gt;"</p>
+        <p>(*6) 同タグにて他の設定項目と同時に指定した場合、初期値を設定します。ただし、claim / claimpollingtimeout / data は影響を受けません。</p>
+        <p>(*7) AsuraCPRNT OS 1.7以降に含まれる"Line Display"アプリケーションの画面上部に表示されている四角で囲まれたエリア</p>
+        <p>(*8) "Line Display"アプリケーションの初期設定は'cp1252'</p>
+        </div>
 
         <h4>値</h4>
         <table class="coder">
@@ -1255,6 +1255,8 @@
 <p id="copyright"> &copy; Copyright 2013 - 2015  <a href="http://www.star-m.jp/">Star Micronics Co., Ltd.</a> </p>
 </footer>
 </div>
+
+</div><!--container-->
 
 </body>
 </html>

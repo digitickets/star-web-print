@@ -2,34 +2,38 @@
 <html xmlns="http://www.w3.org/1999/xhtml"  lang="ja" xml:lang="ja">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Expires" content="86400">
     <title>Star WebPRNT ユーザーズマニュアル</title>
-    <link href="html5reset-1.6.1.css" rel="stylesheet" type="text/css" />
-    <link href="webPRNT_layout.css" rel="stylesheet" type="text/css" />
-    <link href="webPRNT_print_layout.css" rel="stylesheet" type="text/css" media="print" />
-    
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link href="../css/html5reset-1.6.1.css" rel="stylesheet" type="text/css" />
+    <link href="../css/webPRNT_layout.css" rel="stylesheet" type="text/css" />
+    <link href="../css/webPRNT_print_layout.css" rel="stylesheet" type="text/css" media="print" />
+
 <!-- ie10にて条件付きコメント([if IE]の箇所）がサポートされなくなったことに対する対処　　-->
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
    <!--[if IE ]>
-        <link rel="stylesheet" type="text/css" href="webPRNT_layout_ie.css"></script>
-        <link rel="stylesheet" type="text/css" href="webPRNT_print_layout_ie.css" media="print"></script>
+        <link rel="stylesheet" type="text/css" href="../css/webPRNT_layout_ie.css"></script>
+        <link rel="stylesheet" type="text/css" href="../css/webPRNT_print_layout_ie.css" media="print"></script>
     <![endif]-->
-    
+
     <script src="jquery-1.10.2.min.js"></script>
     <script>
-    
+
     $(function tggleNavi() {
         $('#naviArrow').click(function(){
            $('#mainNavi').slideToggle('slow');
-           
+
        });
     });
 
     </script>
-    
+
 </head>
 
-
 <body>
+
+<div id="container">
 
 <div id="toTop">
     <a href="index.htm"><img id="webPRNTLogo" src="../illust/WebPRNT_Logo.png" /></a>
@@ -44,7 +48,7 @@
 
 <!-- wrapp : mainNavi + mainContents-->
 <div id="wrapp" class="clear">
-    
+
 
 <!-- mainNavi -->
 
@@ -228,6 +232,9 @@
 	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#number">&lt;number&gt;</a></li>
 	</ul>
 	<ul>
+	<li><a href="_StarWebPrintRequestElement_scs.htm">StarWebPRNT送信エレメント<br />-SCS-</a></li>
+	</ul>
+	<ul>
 	<li><a href="_appendixUTF8.htm">付録 UTF-8対応</a></li>
 	</ul>
 
@@ -244,18 +251,18 @@
         <div class="introduction_2">
             <br />
         </div>
-        
-        <table class="coder">
+
+        <table class="List3">
             <thead>
-                <tr><td>名称</td><td>説明</td><td>WebPRNT<br>Browser</td><td>WebPRNT対応<br/>Star<br>プリンター</td><td>AsuraCPRNT</td></tr>
+                <tr><td>名称</td><td>説明</td><td>WebPRNT<br>Browser</td><td>WebPRNT<br>対応<br>Star<br>プリンター</td><td>AsuraCPRNT</td></tr>
             </thead>
             <tbody>
                 <tr><td><a href="#root">&lt;root&gt;</a></td><td>ルートエレメント</td><td>○*1</td><td>-</td><td>-</td></tr>
                 <tr><td><a href="#extmanager">&lt;extmanager&gt;</a></td><td>StarWebPRNTExtManagerエレメント</td><td>○*1</td><td>-</td><td>-</td></tr>
             </tbody>
         </table>
-        <p class="note2">
-            *1 iOS版のWebPRNT Browserをご使用の場合、SM-L200には対応しておりません。</p>
+        <p class="note">
+            *1 iOS版のWebPRNT Browserをご使用の場合、SM-L200、SM-L300には対応していません。</p>
 
     </div>
     </article>
@@ -263,18 +270,18 @@
     <div class="to_top">
         <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;トップへ戻る</a>
     </div>
-    
+
 
     <article>
     <div id="root">
         <h3>&lt;root&gt;</h3>
-    
+
         <div class="introduction_3">
             <p>
             ルートエレメント
             </p>
         </div>
-    
+
         <h4>属性</h4>
         <table class="coder">
             <thead>
@@ -284,11 +291,7 @@
                 <tr><td>-</td><td>-</td><td>-</td></tr>
             </tbody>
         </table>
-<!--
-        <p class="note2">
-            *1 blackmark_sensor属性は、papertype属性に”black_mark”または”black_mark_and_detect_at_power_on”を指定した場合に有効になります。<br />
-        </p>
--->
+
         <h4>値</h4>
         <table class="coder">
             <thead>
@@ -315,13 +318,13 @@
     <article>
     <div id="extmanager">
         <h3>&lt;extmanager&gt;</h3>
-    
+
         <div class="introduction_3">
             <p>
             StarWebPRNTExtManagerエレメント
             </p>
         </div>
-    
+
         <h4>属性</h4>
         <table class="coder">
             <thead>
@@ -334,8 +337,8 @@
                 <tr><td>claimid</td><td>claim管理用ID</td><td>省略不可　*1</td></tr>
             </tbody>
         </table>
-        <p class="note2">
-            *1 request_typeがclaimの場合のみ、省略可能<br />
+        <p class="note">
+            *1 request_typeがclaimの場合のみ省略可能<br />
         </p>
 
         <h4>値</h4>
@@ -373,6 +376,8 @@
 <p id="copyright"> &copy; Copyright 2013 - 2016  <a href="http://www.star-m.jp/">Star Micronics Co., Ltd.</a> </p>
 </footer>
 </div>
+
+</div><!--container-->
 
 </body>
 </html>

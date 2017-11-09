@@ -1,10 +1,10 @@
 ************************************************************
-      Star WebPRNT SDK  -  Ver 1.3.1
-         readme_jp.txt                  スター精密（株）
+      Star WebPRNT SDK  -  Ver 1.4.0
+         Readme_Jp.txt                  スター精密（株）
 ************************************************************
 
  1. 概要
- 2. Ver 1.3.1 についての変更点
+ 2. Ver 1.4.0 についての変更点
  3. 内容
  4. 適用
  5. 制約事項
@@ -27,20 +27,21 @@
 
 
 ================================
- 2. Ver 1.3.1 についての変更点
+ 2. Ver 1.4.0 についての変更点
 ================================
 
   [SDK]
-   - テキストエレメントの文字コード選択時の注釈を追加
+   - ブラックマーク用紙の設定を変更
 
   [User's Manual]
-   - テキストエレメントの文字コード選択時の注釈を追加
+   - ブラックマーク用紙の設定に関する記載を変更
+   - SM-L300を追加
 
 ==========
  3. 内容
 ==========
 
-  StarWebPRNT_WebContents_V1.3.1
+  StarWebPRNT_WebContents_V1.4.0
   |
   | Readme_En.txt                       // リリースノート(英語)
   | Readme_Jp.txt                       // リリースノート(日本語)
@@ -59,20 +60,21 @@
 =============
   ■ 対象プリンタモデル
    ◇ プリンタモデル
-       SM-S210I         (F/W Ver1.0以上)    (*1)
+       SM-S210I         (F/W Ver2.4以上)    (*1)
        SM-S220I         (F/W Ver2.0以上)    (*1)
        SM-S230I         (F/W Ver1.0以上)    (*1)
        SM-T300I         (F/W Ver2.4以上)    (*1)
        SM-T400I         (F/W Ver2.4以上)    (*1)
        SM-L200          (F/W Ver1.0以上)    (*1)
+       SM-L300          (F/W Ver1.0以上)    (*1)
 
        FVP10            (Ethernet利用時: F/W Ver1.5以上, Bluetooth利用時: F/W Ver2.0以上)  (*1)
        TSP650II         (Ethernet利用時: F/W Ver1.2以上, Bluetooth利用時: F/W Ver1.0以上)  (*1)
-       TSP700II         (Ethernet利用時: F/W Ver4.1以上, Bluetooth利用時: F/W Ver4.0以上)  (*1)
+       TSP700II         (Ethernet利用時: F/W Ver4.1以上, Bluetooth利用時: F/W Ver5.0以上)  (*1)
        TSP800II         (Ethernet利用時: F/W Ver1.6以上, Bluetooth利用時: F/W Ver2.0以上)  (*1)
        mPOP             (F/W Ver1.0以上)    (*1)
 
-       SP700            (Ethernet利用時: F/W Ver3.0以上, Bluetooth利用時: F/W Ver4.0以上)  (*2)
+       SP700            (Ethernet利用時: F/W Ver3.0以上)
 
        ASR10            (Linux OS Ver1.6以降)
 
@@ -81,36 +83,70 @@
       対応しているデバイスは注記の通りです。
 
         *1 iOSおよびAndroidデバイスにおいてサポートされています。
-        *2 iOSデバイスにおいてサポートされています。
 
   ◇ 対応インターフェースカード
        Ethernet:  IFBD-HE07X/HE08X/BE07X    (Ver3.1.0以上)
-       Bluetooth: IFBD-HB03/HB04            (Ver1.0.0以上)
-                  IFBD-HB05/HB06/BB05       (Ver1.0.0以上)
+                  IFBD-HI01X                (Ver1.1.0以上)
+                  IFBD-HI02X                (Ver1.2.0以上)
+       Bluetooth: IFBD-HB03/HB04            (Ver1.0以上)
+                  IFBD-HB05/HB06/BB05       (Ver4.1以上)
 
 
 =============
  5. 制約事項
 =============
   
-  特にありません。
+  1. Star WebPRNT BrowserでのStar Cloud Servicesレシートアップロード機能有効時の制約
+     レシートアップロード機能有効時、各<cutpaper>エレメントまでをひとつのレシート
+     としてアップロードを行います。
+     １つのStarWebPRNT送信エレメント内に２つ以上の<cutpaper>エレメントを含める場合、
+     ２つ目以降の各<cutpaper>エレメントの後は、印字では<alignment>エレメントで以前に
+     設定した属性が左寄せにリセットされ、アップロードされるレシートでは<alignment>
+     エレメントと<text>エレメントで以前に設定した属性がデフォルト値にリセットされます。
+     <cutpaper>エレメント以前に設定していた属性を引き続き反映したい場合、<cutpaper>
+     エレメントに続けて、所望の属性を含む<alignment>エレメントと<text>エレメントを
+     再度送信ください。
+
 
 ===========
  6. 著作権
 ===========
 
-  スター精密（株）Copyright 2014-2016
+  スター精密（株）Copyright 2014-2017
 
 
 =============
  7. 更新履歴
 =============
+ Ver 1.4.0
+  2017/06/05 : [SDK]
+                - ブラックマーク用紙の設定を変更
+
+               [User's Manual]
+                - ブラックマーク用紙の設定に関する記載を変更
+                - SM-L300を追加
+
+ Ver 1.3.3
+  2017/03/14 : [SDK]
+                - Star Cloud Servicesのセットアップマニュアルを追加
+
+               [User's Manual]
+                - レシートアップロード機能をサポートするStarWebPRNT送信エレメントのリストを追加
+
+               [Readme]
+                - サポートするインターフェースカードにIFBD-HI01X/HI02Xを追加
+                - サポートするF/Wバージョンの誤記訂正
+
+ Ver 1.3.2
+  2016/12/26 : [SDK]
+                - 「WebPRNTTrader.js」を、新しいセキュリティ要件へ対応。
+
  Ver 1.3.1
   2016/09/26 : [SDK]
                 - テキストエレメントの文字コード選択時の注釈を追加
 
                [User's Manual]
-                 - テキストエレメントの文字コード選択時の注釈を追加
+                - テキストエレメントの文字コード選択時の注釈を追加
 
  Ver 1.3.0
   2016/09/01 : [SDK]
