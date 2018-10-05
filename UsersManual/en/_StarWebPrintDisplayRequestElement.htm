@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  lang="en" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Expires" content="86400">
+    <title>Star WebPRNT User's Manual</title>
+    <link href="../css_en/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css_en/font-awesome.min.css">
+    <link href="../css_en/html5reset-1.6.1.css" rel="stylesheet" type="text/css" />
+    <link href="../css_en/webPRNT_layout.css" rel="stylesheet" type="text/css" />
+    <link href="../css_en/webPRNT_print_layout.css" rel="stylesheet" type="text/css" media="print" />
+
+<!-- ie10にて条件付きコメント([if IE]の箇所）がサポートされなくなったことに対する対処　　-->
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
+   <!--[if IE ]>
+        <link rel="stylesheet" type="text/css" href="../css_en/webPRNT_layout_ie.css"></script>
+        <link rel="stylesheet" type="text/css" href="../css_en/webPRNT_print_layout_ie.css" media="print"></script>
+    <![endif]-->
+
+    <script src="jquery-1.10.2.min.js"></script>
+    <script>
+
+    $(function tggleNavi() {
+        $('#naviArrow').click(function(){
+           $('#mainNavi').slideToggle('slow');
+
+       });
+    });
+
+    </script>
+
+</head>
+
+
+<body>
+<div id="container">
+
+<div id="toTop">
+    <a href="index.htm"><img id="webPRNTLogo" src="../illust/WebPRNT_Logo.png" /></a>
+    <h1> Star WebPRNT User's Manual </h1>
+
+    <div class="clear"></div>
+</div>
+
+<div id="naviArrowSection">
+    <a id="naviArrow" onclick="tggleNavi()"><h5> Contents Show / Hide</h5></a>
+</div>
+
+<!-- wrapp : mainNavi + mainContents-->
+<div id="wrapp" class="clear">
+
+
+<!-- mainNavi -->
+
+    <div id="mainNavi">
+	<navi>
+	<ul>
+	<li><a href="_sampleProgram.htm">Star WebPRNT SDK</a></li>
+	<li><a href="_sampleProgram.htm#sampleProgramConcept">Example of system configuration</a></li>
+	<li><a href="_sampleProgram.htm#sampleProgramList">Sample Program List</a></li>
+	<li><a href="_sampleProgram.htm#webServerRegistration">Web Server Registration</a></li>
+	<li><a href="_sampleProgram.htm#howToUse">How to use</a></li>
+	</ul>
+	<ul>
+	<li><a href="_StarWebPrintBuilder-js.htm">StarWebPrintBuilder.js</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#StarWebPrintBuilder">StarWebPrintBuilder</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createAlignmentElement">createAlignmentElement</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createBarcodeElement">createBarcodeElement</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createBitImageElement">createBitImageElement</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createCutPaperElement">createCutPaperElement</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createFeedElement">createFeedElement</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createInitializationElement">createInitializationElement</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createLogoElement">createLogoElement</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createPdf417Element">createPdf417Element</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createPeripheralElement">createPeripheralElement</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createQrCodeElement">createQrCodeElement</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createRawDataElement">createRawDataElement</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createRuledLineElement">createRuledLineElement</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createSoundElement">createSoundElement</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createTextElement">createTextElement</a></li>
+	</ul>
+	<ul>
+	<li><a href="_StarWebPrintTrader-js.htm">StarWebPrintTrader.js</a></li>
+	<li><a href="_StarWebPrintTrader-js.htm#StarWebPrintTrader">StarWebPrintTrader</a></li>
+	<li><a href="_StarWebPrintTrader-js.htm#sendMessage">sendMessage</a></li>
+	<li><a href="_StarWebPrintTrader-js.htm#isCoverOpen">isCoverOpen</a></li>
+	<li><a href="_StarWebPrintTrader-js.htm#isOffLine">isOffLine</a></li>
+	<li><a href="_StarWebPrintTrader-js.htm#isCompulsionSwitchClose">isCompulsionSwitchClose</a></li>
+	<li><a href="_StarWebPrintTrader-js.htm#isEtbCommandExecute">isEtbCommandExecute</a></li>
+	<li><a href="_StarWebPrintTrader-js.htm#isHighTemperatureStop">isHighTemperatureStop</a></li>
+	<li><a href="_StarWebPrintTrader-js.htm#isNonRecoverableError">isNonRecoverableError</a></li>
+	<li><a href="_StarWebPrintTrader-js.htm#isAutoCutterError">isAutoCutterError</a></li>
+	<li><a href="_StarWebPrintTrader-js.htm#isBlackMarkError">isBlackMarkError</a></li>
+	<li><a href="_StarWebPrintTrader-js.htm#isPaperEnd">isPaperEnd</a></li>
+	<li><a href="_StarWebPrintTrader-js.htm#isPaperNearEnd">isPaperNearEnd</a></li>
+	<li><a href="_StarWebPrintTrader-js.htm#extractionEtbCounter">extractionEtbCounter</a></li>
+	<li><a href="_StarWebPrintTrader-js.htm#onReceive">onReceive</a></li>
+	<li><a href="_StarWebPrintTrader-js.htm#onError">onError</a></li>
+	</ul>
+	<ul>
+	<li><a href="_StarBarcodeEncoder-js.htm">StarBarcodeEncoder.js</a></li>
+	<li><a href="_StarBarcodeEncoder-js.htm#StarBarcodeEncoder">StarBarcodeEncoder</a></li>
+	<li><a href="_StarBarcodeEncoder-js.htm#createUPCE">createUPCE</a></li>
+	<li><a href="_StarBarcodeEncoder-js.htm#createUPCA">createUPCA</a></li>
+	<li><a href="_StarBarcodeEncoder-js.htm#createJAN8">createJAN8</a></li>
+	<li><a href="_StarBarcodeEncoder-js.htm#createJAN13">createJAN13</a></li>
+	<li><a href="_StarBarcodeEncoder-js.htm#createCode39">createCode39</a></li>
+	<li><a href="_StarBarcodeEncoder-js.htm#createITF">createITF</a></li>
+	<li><a href="_StarBarcodeEncoder-js.htm#createCode128">createCode128</a></li>
+	<li><a href="_StarBarcodeEncoder-js.htm#createCode93">createCode93</a></li>
+	<li><a href="_StarBarcodeEncoder-js.htm#createNW7">createNW7</a></li>
+	</ul>
+	<ul>
+	<li><a href="_StarWebPrintRequestElement.htm">StarWebPRNT Request Element</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#root">&lt;root&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#alignment">&lt;alignment&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#barcode">&lt;barcode&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#bitImage">&lt;bitImage&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#cutpaper">&lt;cutpaper&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#feed">&lt;feed&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#initialization">&lt;initialization&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#logo">&lt;logo&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#pdf417">&lt;pdf417&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#peripheral">&lt;peripheral&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#qrcode">&lt;qrcode&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#rawdata">&lt;rawdata&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#ruledline">&lt;ruledline&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#sound">&lt;sound&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#text">&lt;text&gt;</a></li>
+	</ul>
+	<ul>
+	<li><a href="_StarWebPrintResponseElement.htm">StarWebPRNT Response Element</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#root-response">&lt;root&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#success">&lt;success&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#code">&lt;code&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#status">&lt;status&gt;</a></li>
+	</ul>
+	
+	<ul>
+       <li><a href="_StarWebPrintDisplayBuilder-js.htm">StarWebPRNTDisplayBuilder.js</a></li>
+       <li><a href="_StarWebPrintDisplayBuilder-js.htm#createBackSpaceElement">createBackSpaceElement</a></li>
+       <li><a href="_StarWebPrintDisplayBuilder-js.htm#createHorizontalTabElement">createHorizontalTabElement</a></li>
+       <li><a href="_StarWebPrintDisplayBuilder-js.htm#createReturnElement">createReturnElement</a></li>
+       <li><a href="_StarWebPrintDisplayBuilder-js.htm#createBitImageElement">createBitImageElement</a></li>
+       <li><a href="_StarWebPrintDisplayBuilder-js.htm#createTextElement">createTextElement</a></li>
+       <li><a href="_StarWebPrintDisplayBuilder-js.htm#createClearScreenElement">createClearScreenElement</a></li>
+       <li><a href="_StarWebPrintDisplayBuilder-js.htm#createCursorElement">createCursorElement</a></li>
+       <li><a href="_StarWebPrintDisplayBuilder-js.htm#createContrastElement">createContrastElement</a></li>
+       <li><a href="_StarWebPrintDisplayBuilder-js.htm#createTurnOnElement">createTurnOnElement</a></li>
+<!--       <li><a href="_StarWebPrintDisplayBuilder-js.htm#createUserDefinedCharacterElement">createUserDefined<br />CharacterElement</a></li>
+       <li><a href="_StarWebPrintDisplayBuilder-js.htm#createUserDefinedDbcsCharacterElement">createUserDefinedDbcs<br />CharacterElement</a></li>-->
+       <li><a href="_StarWebPrintDisplayBuilder-js.htm#createRawDataElement">createRawDataElement</a></li>
+	</ul>
+	<ul>
+	<li><a href="_StarWebPrintDisplayRequestElement.htm">StarWebPRNTDisplay Request Element</a></li>
+	<li><a href="_StarWebPrintDisplayRequestElement.htm#root">&lt;root&gt;</a></li>
+	<li><a href="_StarWebPrintDisplayRequestElement.htm#backspace">&lt;backspace&gt;</a></li>
+	<li><a href="_StarWebPrintDisplayRequestElement.htm#horizontal_tab">&lt;horizontal_tab&gt;</a></li>
+	<li><a href="_StarWebPrintDisplayRequestElement.htm#return">&lt;return&gt;</a></li>
+	<li><a href="_StarWebPrintDisplayRequestElement.htm#bitimage">&lt;bitimage&gt;</a></li>
+	<li><a href="_StarWebPrintDisplayRequestElement.htm#text">&lt;text&gt;</a></li>
+	<li><a href="_StarWebPrintDisplayRequestElement.htm#clear">&lt;clear&gt;</a></li>
+	<li><a href="_StarWebPrintDisplayRequestElement.htm#cursor">&lt;cursor&gt;</a></li>
+	<li><a href="_StarWebPrintDisplayRequestElement.htm#contrast">&lt;contrast&gt;</a></li>
+	<li><a href="_StarWebPrintDisplayRequestElement.htm#turnon">&lt;turnon&gt;</a></li>
+	<li><a href="_StarWebPrintDisplayRequestElement.htm#rawdata">&lt;rawdata&gt;</a></li>
+	</ul>
+
+	<ul>
+	<li><a href="_StarWebPrintExtManager-js.htm">StarWebPrintExtManager.js</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#StarWebPrintExtManager">StarWebPrintExtManager</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#connect">connect</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#disconnect">disconnect</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#write">write</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onReceive">onReceive</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onError">onError</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onPrinterImpossible">onPrinterImpossible</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onPrinterOnline">onPrinterOnline</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onPrinterOffline">onPrinterOffline</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onPrinterPaperReady">onPrinterPaperReady</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onPrinterPaperNearEmpty">onPrinterPaperNearEmpty</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onPrinterPaperEmpty">onPrinterPaperEmpty</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onPrinterCoverOpen">onPrinterCoverOpen</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onPrinterCoverClose">onPrinterCoverClose</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onCashDrawerOpen">onCashDrawerOpen</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onCashDrawerClose">onCashDrawerClose</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onBarcodeReaderImpossible">onBarcodeReaderImpossible</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onBarcodeReaderConnect">onBarcodeReaderConnect</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onBarcodeReaderDisconnect">onBarcodeReaderDisconnect</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onBarcodeDataReceive">onBarcodeDataReceive</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onAccessoryConnectSuccess">onAccessoryConnectSuccess</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onAccessoryConnectFailure">onAccessoryConnectFailure</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onAccessoryDisconnect">onAccessoryDisconnect</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onStatusUpdate">onStatusUpdate</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onWrite">onWrite</a></li>
+	</ul>
+	<ul>
+	<li><a href="_StarWebPRNTExtManagerRequestElement.htm">StarWebPRNTExtManager Request Element</a></li>
+	<li><a href="_StarWebPRNTExtManagerRequestElement.htm#root">&lt;root&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerRequestElement.htm#extmanager">&lt;extmanager&gt;</a></li>
+	</ul>
+	<ul>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm">StarWebPRNTExtManager Response Element</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#root">&lt;root&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#success">&lt;success&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#code">&lt;code&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#claim">&lt;claim&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#claimid">&lt;claimid&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#eventcount">&lt;eventcount&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#event">&lt;event&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#action">&lt;action&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#data">&lt;data&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#number">&lt;number&gt;</a></li>
+	</ul>
+        <ul>
+	<li><a href="_StarWebPrintRequestElement_scs.htm">StarWebPRNT Request Element -SMCS-</a></li>
+        </ul>
+        <ul>
+        <li><a href="_appendixUTF8.htm">Appendix UTF-8</a></li>
+        </ul>
+
+	</navi>
+</div>
+
+
+<div id="mainContents">
+
+
+
+    <article>
+    <div id="StarWebPrintRequestElement" class="summary">
+        <h2>StarWebPRNT Display Request Element</h2>
+        
+        <div class="introduction_2">
+            <br />
+        </div>
+
+        <table class="List3">
+            <thead>
+                <tr><td>Name</td><td>Description</td><td>WebPRNT<br>Browser</td><td>Star Printer<br>with WebPRNT</td></tr>
+            </thead>
+            <tbody>
+                <tr><td><a href="#root">&lt;root&gt;</a></td><td>Root Element</td><td>-</td><td>&#x02713; *1</td></tr>
+                <tr><td><a href="#extmanager">&lt;extmanager&gt;</a></td><td>StarWebPRNTExtManager Element</td><td>-</td><td>&#x02713; *1</td></tr>
+                <tr><td><a href="#backspace">&lt;backspace&gt;</a></td><td>Backspace Element</td><td>-</td><td>&#x02713; *1</td></tr>
+                <tr><td><a href="#horizontal_tab">&lt;horizontal_tab&gt;</a></td><td>Horizontal tab Element</td><td>-</td><td>&#x02713; *1</td></tr>
+                <tr><td><a href="#return">&lt;return&gt;</a></td><td>Return Element</td><td>-</td><td>&#x02713; *1</td></tr>
+                <tr><td><a href="#bitimage">&lt;bitimage&gt;</a></td><td>Bit image Element</td><td>-</td><td>&#x02713; *1</td></tr>
+                <tr><td><a href="#text">&lt;text&gt;</a></td><td>Text Element</td><td>-</td><td>&#x02713; *1</td></tr>
+                <tr><td><a href="#clear">&lt;clear&gt;</a></td><td>Clear screen Element</td><td>-</td><td>&#x02713; *1</td></tr>
+                <tr><td><a href="#cursor">&lt;cursor&gt;</a></td><td>Cursor Element</td><td>-</td><td>&#x02713; *1</td></tr>
+                <tr><td><a href="#tone">&lt;tone&gt;</a></td><td>Tone Element</td><td>-</td><td>&#x02713; *1</td></tr>
+                <tr><td><a href="#turnon">&lt;turnon&gt;</a></td><td>Backlight Element</td><td>-</td><td>&#x02713; *1</td></tr>
+                <tr><td><a href="#rawdata">&lt;rawdata&gt;</a>*2</td><td>Raw data Element</td><td>-</td><td>&#x02713; *1</td></tr>
+
+            </tbody>
+        </table>
+        <div class="note2">
+            <p>*1 Only IFBD-HI01X/02X are supported.</p>
+            <p>*2 Usage of this method, to send device specific commands, is discouraged in order to maintain compatibility across all supported displays. <br />
+            Developers are encouraged to use the general Star API wherever possible in order to utilize display functions. <br />
+            In the case that the Star API does not offer a feature necessary for your software, please let us know so that we can consider inclusion in a future software update.</p>
+
+
+        </div>
+
+
+    </div>
+    </article>
+
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
+    </div>
+
+
+    <article>
+    <div id="root">
+        <h3>&lt;root&gt;</h3>
+
+        <div class="introduction_3">
+            <p>
+            Root Element
+            </p>
+        </div>
+
+        <h4>Attribute</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>Name</td><td>Description</td><td>Omission</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>-</td><td>-</td><td>-</td></tr>
+            </tbody>
+        </table>
+
+        <h4>Value</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>Description</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>List of StarWebPRNTExtManager Request Element</td></tr>
+            </tbody>
+        </table>
+
+        <h5>Example</h5>
+<pre>
+&lt;root &gt;
+　　&lt;extmanager request_type="write"&gt;&lt;/extmangater&gt;
+&lt;/root&gt;
+</pre>
+    </div>
+    </article>
+
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
+    </div>
+
+
+    <article>
+    <div id="extmanager">
+        <h3>&lt;extmanager&gt;</h3>
+
+        <div class="introduction_3">
+            <p>
+            StarWebPRNTExtManager Element
+            </p>
+        </div>
+
+        <h4>Attribute</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>Name</td><td>Description</td><td>Omission</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>request_type</td><td>Requests for StarWebPRNTExtManager<br />
+                <ul><li>'claim' … Connection start request</li>
+                       <li>'read' … Receive request</li>
+                       <li>'write' … Send request</li>
+                       <li>'release' … Disconnection request</li></td><td>Can't be omitted</td></tr>
+                <tr><td>polling_timeout</td><td>polling timeout[ms]</td><td>10000</td></tr>
+                <tr><td>claimid</td><td>claimid control ID</td><td>Can't be omitted *1</td></tr>
+            </tbody>
+        </table>
+        <div class="note2">
+        <p>
+        *1 Can be omitted only when request_type is ‘claim’ or ‘write’.
+        </div>
+
+
+        <h4>Value</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>Description</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>List of StarWebPRNT Display Request Element</td></tr>
+            </tbody>
+        </table>
+
+        <h5>例</h5>
+<pre>
+&lt;root &gt;
+　　&lt;extmanager request_type="write"&gt;
+        &lt;text codepage="cp437" international="usa"&gt;Star Micronics&lt;/text&gt;
+&lt;/extmangater&gt;
+&lt;/root&gt;
+</pre>
+    </div>
+    </article>
+
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
+    </div>
+
+    <article>
+    <div id="backspace">
+        <h3>&lt;backspace&gt;</h3>
+
+        <div class="introduction_3">
+            <p>
+            Backspace Element
+            </p>
+        </div>
+
+        <h4>Attribute</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>Name</td><td>Description</td><td>Omission</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>-</td><td>-</td><td>-</td></tr>
+            </tbody>
+        </table>
+
+        <h4>Value</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>Description</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>Ignore</td></tr>
+            </tbody>
+        </table>
+
+        <h5>Example</h5>
+<pre>
+&lt;root &gt;
+　　&lt;extmanager request_type="write"&gt;
+        &lt;backspace/&gt;
+    &lt;/extmangater&gt;
+&lt;/root&gt;
+</pre>
+    </div>
+    </article>
+
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
+    </div>
+
+    <article>
+    <div id="horizontal_tab">
+        <h3>&lt;horizontal_tab&gt;</h3>
+
+        <div class="introduction_3">
+            <p>
+            Horizontal Tab Element
+            </p>
+        </div>
+
+        <h4>Attribute</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>Name</td><td>Description</td><td>Omission</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>-</td><td>-</td><td>-</td></tr>
+            </tbody>
+        </table>
+
+        <h4>Value</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>Description</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>Ignore</td></tr>
+            </tbody>
+        </table>
+
+        <h5>Example</h5>
+<pre>
+&lt;root &gt;
+　　&lt;extmanager request_type="write"&gt;
+        &lt;horizontal_tab/&gt;
+    &lt;/extmangater&gt;
+&lt;/root&gt;
+</pre>
+    </div>
+    </article>
+
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
+    </div>
+
+    <article>
+    <div id="return">
+        <h3>&lt;return&gt;</h3>
+
+        <div class="introduction_3">
+            <p>
+            Return Element
+            </p>
+        </div>
+
+        <h4>Attribute</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>Name</td><td>Description</td><td>Omission</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>type</td><td>Specifies return type<br />
+                <ul><li>'crlf' … CR+LF  (Carriage return + Line feed)</li>
+                       <li>'cr' … CR (Carriage return only)</li>
+                       <li>'lf' … LF(Line feed only)</li></td><td>'crlf'</td></tr>
+            </tbody>
+        </table>
+
+        <h4>Value</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>Description</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>Ignore</td></tr>
+            </tbody>
+        </table>
+
+        <h5>Example</h5>
+<pre>
+&lt;root &gt;
+　　&lt;extmanager request_type="write"&gt;
+        &lt;return type="crlf"/&gt;
+    &lt;/extmangater&gt;
+&lt;/root&gt;
+</pre>
+    </div>
+    </article>
+
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
+    </div>
+
+    <article>
+    <div id="bitimage">
+        <h3>&lt;bitimage&gt;</h3>
+
+        <div class="introduction_3">
+            <p>
+            Bitimage Element
+            </p>
+        </div>
+
+        <h4>Attribute</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>Name</td><td>Description</td><td>Omission</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>context</td><td>HTML5 Canvas 2D context</td><td>Can't be omitted</td></tr>
+                <tr><td>x</td><td>Drawing area horizontal direction starting point (unit of dot)</td><td>0</td></tr>
+                <tr><td>y</td><td>Drawing area vertical direction starting point (unit of dot)</td><td>0</td></tr>
+                <tr><td>width</td><td>Drawing width (unit of dot)</td><td>Can't be omitted</td></tr>
+                <tr><td>height</td><td>Drawing height (unit of dot)</td><td>Can't be omitted</td></tr>
+            </tbody>
+        </table>
+
+        <h4>Value</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>Description</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>Raster graphic image data<br />Note. Base64 encoding</td></tr>
+            </tbody>
+        </table>
+
+        <h5>Example</h5>
+<pre>
+&lt;root &gt;
+　　&lt;extmanager request_type="write"&gt;
+        &lt;bitimage width="160" height="40"&gt;///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////gcD/////////////////z/////+BwP////////////////8P/////4HA/////////////////k//////gcD////////////////83/////+BwP////////////////Ef/////4HA////////////////xn//AAADgcAAf/4AA//4Hg+AAP+M//gAAAOBwAB/4AAAf/geDAAA/jH/8AAAA4HAAH+AAAAP+B4AB/78x//Af////////AAfgAP4HgB/4P3P/4H////////4A//8APgeB/HA4Mf/gYAAA4HAAHAPgB8AeB4fAAKAc/+DgAADgcAAYDgAA8A4HngAYh/4/4GAAAOBwABAcAAA4Dge4AB6YD7/gfA//4HA/8DgDwBwOB/Af/uOAD/AfgP/gcD/gcB/4HgYH4H/+j/4P/APgH+BwP+BwP/wOBgfA//4/////ADgH4HA/4PB//A8GB4H//n/////AHwPgcD/gcD/8DwYHg//+//////wDwOBwP+BwH/wPBgeD/////////wHAYHAf4DgHzA8GB4P//////+AAAGBgcAAwPAAMDwYHg///////4AAAYGBwADgOAAwPBgeD///////gAADgYDwAPAeADA8GB4P//////////8BgD//8AP/8DwYHg///////////APAB//4AH/wPBgeD///////gAAAD/AAAP8AADA8GB4P//////+AAAA//gAA/8AAMDwYHg///////4AAAf//wAD/+ABwPBgeD//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////8=&lt;/bitimage&gt;
+    &lt;/extmangater&gt;
+&lt;/root&gt;
+</pre>
+    </div>
+    </article>
+
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
+    </div>
+
+    <article>
+    <div id="text">
+        <h3>&lt;text&gt;</h3>
+
+        <div class="introduction_3">
+            <p>
+            Text Element
+            </p>
+        </div>
+
+        <h4>Attribute</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>Name</td><td>Description</td><td>Omission</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>codepage</td><td>CodePage<br />
+                <ul><li>'cp437' … CodePage437</li>
+                       <li>'katakana' … Katakana</li>
+                       <li>'cp850' … CodePage850</li>
+                       <li>'cp852' … CodePage852</li>
+                       <li>'cp858' … CodePage858</li>
+                       <li>'cp860' … CodePage860</li>
+                       <li>'cp863' … CodePage863</li>
+                       <li>'cp865' … CodePage865</li>
+                       <li>'cp866' … CadePage866</li>
+                       <li>'cp1252' … CodePage1252</li>
+                       <li>'shift_jis' … Shift_JIS</li>
+                       <li>'gb2312' … GB2312</li>
+                       <li>'big5' … Big5</li>
+                       <li>'korea' … korea</li></ul></td><td>Unchanged</td></tr>
+                <tr><td>international</td><td>Specifies international characters<br />
+                <ul><li>'usa' … USA</li>
+                       <li>'france' … France</li>
+                       <li>'germany' … Germany</li>
+                       <li>'uk' … UK</li>
+                       <li>'denmark' … Denmark</li>
+                       <li>'sweden' … Sweden</li>
+                       <li>'italy' … Italy</li>
+                       <li>'spain' … Spain</li>
+                       <li>'japan' … Japan</li>
+                       <li>'norway' … Norway</li>
+                       <li>'denmark2' … DenmarkII</li>
+                       <li>'spain2' … SpainII</li>
+                       <li>'latin_america' … Latin America</li>
+                       <li>'korea' … Korea</li></ul></td><td>Unchanged</td></tr>
+            </tbody>
+        </table>
+
+        <h4>Value</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>Description</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>Specifies text data</td></tr>
+            </tbody>
+        </table>
+
+        <h5>Example</h5>
+<pre>
+&lt;root &gt;
+　　&lt;extmanager request_type="write"&gt;
+        &lt;text codepage="cp437" international="usa"&gt;Star Micronics&lt;/text&gt;
+    &lt;/extmangater&gt;
+&lt;/root&gt;
+</pre>
+    </div>
+    </article>
+
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
+    </div>
+
+    <article>
+    <div id="clear">
+        <h3>&lt;clear&gt;</h3>
+
+        <div class="introduction_3">
+            <p>
+            Display clear Element
+            </p>
+        </div>
+
+        <h4>Attribute</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>Name</td><td>Description</td><td>Omission</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>type</td><td>Specifies clear type<br />
+                      <ul><li>'all' … All clear</li><li>'delete_to_end_of_line' … Clear current row.</li></ul></td><td>'all'</td></tr>
+            </tbody>
+        </table>
+
+        <h4>Value</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>Description</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>Ignore</td></tr>
+            </tbody>
+        </table>
+
+        <h5>Example</h5>
+<pre>
+&lt;root &gt;
+　　&lt;extmanager request_type="write"&gt;
+        &lt;clear type="all"/&gt;
+    &lt;/extmangater&gt;
+&lt;/root&gt;
+</pre>
+    </div>
+    </article>
+
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
+    </div>
+
+    <article>
+    <div id="cursor">
+        <h3>&lt;cursor&gt;</h3>
+
+        <div class="introduction_3">
+            <p>
+            Cursor Element
+            </p>
+        </div>
+
+        <h4>Attribute</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>Name</td><td>Description</td><td>Omission</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>position</td><td>Specify cursor position.<br />
+                      <ul><li>'home' … Move to home position.</li><li>'specified' …  Move to specified position.</li></ul></td><td>Unchanged</td></tr>
+                <tr><td>x</td><td>Cursor horizontal axis position<br />* Enabled only when ‘specified’ is selected for the position.</td><td>0</td></tr>
+                <tr><td>y</td><td>Cursor vertical axis position<br />* Enabled only when ‘specified’ is selected for the position.</td><td>0</td></tr>
+                <tr><td>mode</td><td>Specify cursor display pattern.<br />
+                      <ul><li>'off' … Cursor is hidden.</li><li>'blink' … Cursor blinks.</li><li>'on' … Cursor is displayed (solid).</li></ul></td><td>Unchanged</td></tr>
+            </tbody>
+        </table>
+
+        <h4>Value</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>Description</td><td>Object type</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>Generated element string</td><td>String</td></tr>
+            </tbody>
+        </table>
+
+        <h5>Example</h5>
+<pre>
+&lt;root &gt;
+　　&lt;extmanager request_type="write"&gt;
+        &lt;cursor position="home" mode="blink"/&gt;
+    &lt;/extmangater&gt;
+&lt;/root&gt;
+</pre>
+    </div>
+    </article>
+
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
+    </div>
+
+    <article>
+    <div id="tone">
+        <h3>&lt;tone&gt;</h3>
+
+        <div class="introduction_3">
+            <p>
+            Tone Element
+            </p>
+        </div>
+
+        <h4>Attribute</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>Name</td><td>Description</td><td>Omission</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>contrast</td><td>Specifies contrast<br />
+                      <ul><li>'minus3' … Contrast -3</li><li>'minus2' … Contrast -2</li><li>'minus1' … Contrast -1</li><li>'default' … Default</li>
+                             <li>'plus1' … Contrast +1</li><li>'plus2' … Contrast +2</li><li>'plus3' … Contrast +3</li></ul></td><td>'default'</td></tr>
+            </tbody>
+        </table>
+
+        <h4>Value</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>Description</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>Ignore</td></tr>
+            </tbody>
+        </table>
+
+        <h5>Example</h5>
+<pre>
+&lt;root &gt;
+　　&lt;extmanager request_type="write"&gt;
+        &lt;tone contrast="default"/&gt;
+    &lt;/extmangater&gt;
+&lt;/root&gt;
+</pre>
+    </div>
+    </article>
+
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
+    </div>
+
+    <article>
+    <div id="turnon">
+        <h3>&lt;turnon&gt;</h3>
+
+        <div class="introduction_3">
+            <p>
+            Backlight Element
+            </p>
+        </div>
+
+        <h4>Attribute</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>Name</td><td>Description</td><td>Omission</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>type</td><td>Select backlight ON/OFF.<br />
+                      <ul><li>'on' … Backlight ON</li><li>'off' … Backlight OFF</li></ul></td><td>'on'</td></tr>
+            </tbody>
+        </table>
+
+        <h4>Value</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>Description</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>Ignore</td></tr>
+            </tbody>
+        </table>
+
+        <h5>Example</h5>
+<pre>
+&lt;root &gt;
+　　&lt;extmanager request_type="write"&gt;
+        &lt;turnon type="on"/&gt;
+    &lt;/extmangater&gt;
+&lt;/root&gt;
+</pre>
+    </div>
+    </article>
+
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
+    </div>
+
+    <article>
+    <div id="rawdata">
+        <h3>&lt;rawdata&gt;</h3>
+
+        <div class="introduction_3">
+            <p>
+            Raw data Element
+            </p>
+        </div>
+
+        <h4>Attribute</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>Name</td><td>Description</td><td>Omission</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>-</td><td>-</td><td>-</td></tr>
+            </tbody>
+        </table>
+
+        <h4>Value</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>Description</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>Specifies raw data<br />Note. Base64 encoding</td></tr>
+            </tbody>
+        </table>
+
+        <h5>例</h5>
+<pre>
+&lt;root &gt;
+　　&lt;extmanager request_type="write"&gt;
+        &lt;rawdata&gt;MTIzNDU=&lt;/rawdata&gt;
+    &lt;/extmangater&gt;
+&lt;/root&gt;
+</pre>
+
+        <div class="introduction_3">
+        <ul><li>Usage of this method, to send device specific commands, is discouraged in order to maintain compatibility across all supported displays. </li>
+        <li>Developers are encouraged to use the general Star API wherever possible in order to utilize display functions. </li>
+        <li>In the case that the Star API does not offer a feature necessary for your software, please let us know so that we can consider inclusion in a future software update.</li>
+        </ul>
+        </div>
+
+    </div>
+    </article>
+
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
+    </div>
+
+
+
+    </div>    <!-- Main Contents  -->
+
+</div>		<!-- Wrapp -->
+
+<div id="footer">
+<footer>
+<p id="copyright"> &copy; Copyright 2018  <a href="http://www.star-m.jp/">Star Micronics Co., Ltd.</a> </p>
+</footer>
+</div>
+
+</div> <!--container-->
+
+</body>
+</html>
