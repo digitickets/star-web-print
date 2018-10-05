@@ -482,7 +482,7 @@ h4 {
 	margin: 5px 0 5px 38px;
 	font-size: 80%;
 	line-height: 1.5em;
-	text-indent: -2.6em;
+	text-indent: -3em;
 }
 
 .note3 p:first-child{
@@ -493,7 +493,13 @@ h4 {
 	margin-bottom: 20px;
 }
 
-
+.note_4 {
+	margin-left: 3em;
+	margin-top: 8px;
+	font-size: 80%;
+	line-height: 1.5em;
+	text-indent: -3em;
+}
 
 .numOpeFig {
 	margin-top: 8px;

@@ -15,8 +15,7 @@ StarBarcodeEncoder.prototype.createUPCE = function (a) {
     if (a.match(/[^0-9]/g)) throw Error('Data is invalid.');
     12 == a.length && (a = a.substring(0, 11));
     for (var c = 0, b = 0; 11 > b; b++) c = b % 2 ? c + parseInt(a.charAt(b)) : c + 3 * parseInt(a.charAt(b));
-    if (c %=
-            10) c = 10 - c;
+    if (c %= 10) c = 10 - c;
     c = '1110000 1101000 1100100 1100010 1011000 1001100 1000110 1010100 1010010 1001010'.split(' ')[c];
     for (b = '101'; ;) {
         if ('0' == a.charAt(0) && '0' == a.charAt(6) && '0' == a.charAt(7)) {
@@ -267,7 +266,7 @@ StarBarcodeEncoder.prototype.createCode128 = function (a) {
     e %= 103;
     for (b = 1; b < a.length; b++) {
         g = a.charCodeAt(b);
-        for (c = 0; c < b; c++) e += g, e %= 103
+        for (c = 0; c < b; c++) e += g, e %= 103;
     }
     a += String.fromCharCode(e);
     a += String.fromCharCode(106);
@@ -419,13 +418,13 @@ StarBarcodeEncoder.prototype.createCode93 = function (a) {
     f = 0;
     for (b = 1; b < a.length; b++) {
         d = a.charCodeAt(b);
-        for (c = (a.length - b - 1) % 20 + 1; c; c--) f += d, f %= 47
+        for (c = (a.length - b - 1) % 20 + 1; c; c--) f += d, f %= 47;
     }
     a += String.fromCharCode(f);
     f = 0;
     for (b = 1; b < a.length; b++) {
         d = a.charCodeAt(b);
-        for (c = (a.length - b - 1) % 15 + 1; c; c--) f += d, f %= 47
+        for (c = (a.length - b - 1) % 15 + 1; c; c--) f += d, f %= 47;
     }
     a += String.fromCharCode(f);
     a += String.fromCharCode(47);
