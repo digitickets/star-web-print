@@ -1,10 +1,10 @@
 ************************************************************
-      Star WebPRNT SDK  -  Ver 1.4.0
+      Star WebPRNT SDK  -  Ver 1.5.0
          Readme_En.txt             Star Micronics Co., Ltd.
 ************************************************************
 
  1. Overview
- 2. Ver 1.4.0 Changes
+ 2. Ver 1.5.0 Changes
  3. Contents
  4. Scope
  5. Remarks
@@ -25,21 +25,20 @@
 
 
 =======================
- 2. Ver 1.4.0 Changes
+ 2. Ver 1.5.0 Changes
 =======================
-
+  
   [SDK]
-   - Change Black Mark function.
+   - Added display control function.
 
   [User's Manual]
-   - Change API reference for black mark function.
-   - Added SM-L300.
+   - Added reference related with display control function.
 
 =============
  3. Contents
 =============
 
-  StarWebPRNT_WebContents_V1.4.0
+  StarWebPRNT_WebContents_V1.5.0
   |
   | Readme_En.txt                       // Release Note(English)
   | Readme_Jp.txt                       // Release Note(Japanese)
@@ -71,10 +70,10 @@
        TSP700II         (Ethernet: Ver4.1 or later, Bluetooth: Ver5.0 or later)  (*1)
        TSP800II         (Ethernet: Ver1.6 or later, Bluetooth: Ver2.0 or later)  (*1)
        mPOP             (Ver1.0 or later)    (*1)
+       mC-Print2        (Ver1.0 or later)    (*1)
+       mC-Print3        (Ver1.0 or later)    (*1)
 
        SP700            (Ethernet: Ver3.0 or later)
-
-       ASR10            (Linux OS Ver1.6 or later)
 
        <Notification of Bluetooth I/F>
          To print data, "Star WebPRNT Browser" is required.
@@ -91,7 +90,7 @@
   5. Remarks
 =============
 
-  1. Limitations when Star Cloud services receipt uploading function is enabled on the Star WebPRNT Browser
+  1. Limitations when Star Micronics Cloud receipt uploading function is enabled on the Star WebPRNT Browser
      The receipt content until each <cutpaper> element will be uploaded as
      one receipt.
      If you include more than one <cutpaper> element in one StarWebPRNT
@@ -109,12 +108,29 @@
  6. Copyright
 ==============
 
-  Copyright 2014-2017 Star Micronics Co., Ltd. All rights reserved.
+  Copyright 2014-2018 Star Micronics Co., Ltd. All rights reserved.
 
 
 ====================
  7. Release History
 ====================
+
+ Ver 1.5.0
+ 11/09/2018   : [SDK]
+                 - Added display control function.
+
+                [User's Manual]
+                 - Added reference related with display control function.
+
+ Ver 1.4.1
+ 07/04/2018   : [User's Manual]
+                 - Added support
+                    * mC-Print2
+                    * mC-Print3
+
+                 - End of support
+                    * ASR10
+
  Ver 1.4.0
  06/05/2017   : [SDK]
                  - Change Black Mark function.
@@ -125,7 +141,7 @@
 
  Ver 1.3.3   
  03/14/2017   : [SDK]
-                 - Added setup manual for Star Cloud Services.
+                 - Added setup manual for Star Micronics Cloud.
 
                 [User's Manual]
                  - Added a list of Star WebPRNT request elements supporting receipt upload function.

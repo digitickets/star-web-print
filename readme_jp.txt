@@ -1,221 +1,237 @@
-************************************************************
-      Star WebPRNT SDK  -  Ver 1.4.0
-         Readme_Jp.txt                  �X�^�[�����i���j
+﻿************************************************************
+      Star WebPRNT SDK  -  Ver 1.5.0
+         Readme_Jp.txt                  スター精密（株）
 ************************************************************
 
- 1. �T�v
- 2. Ver 1.4.0 �ɂ��Ă̕ύX�_
- 3. ���e
- 4. �K�p
- 5. ���񎖍�
- 6. ���쌠
- 7. �ύX����
+ 1. 概要
+ 2. Ver 1.5.0 についての変更点
+ 3. 内容
+ 4. 適用
+ 5. 制約事項
+ 6. 著作権
+ 7. 変更履歴
 
 
 ==========
- 1. �T�v
+ 1. 概要
 ==========
 
-  �{�\�t�g�E�F�A�́APC�A�^�u���b�g�����l�ȃf�o�C�X����Web�u���E�U�[��ʂ��Ĉ��
-  ���s���A�}���`�v���b�g�t�H�[�����������܂��B
-  �v�����^�[�̐���́A����SDK�Ƀp�b�P�[�W����Ă���JavaScript��HTML�t�@�C���ɖ�
-  �ߍ��ނ����ōs���AWeb�v���O���~���O���s���̂Ɠ����̒m����POS�v�����^�[�����
-  ���V�[�g������\�ƂȂ�܂��B�܂��A�v�����^�[�𐧌䂷�邽�߂̃h���C�o�[��v
-  ���O�C�����C���X�g�[������K�v������܂���B
+  本ソフトウェアは、PC、タブレット等多様なデバイスからWebブラウザーを通して印刷
+  を行う、マルチプラットフォームを実現します。
+  プリンターの制御は、このSDKにパッケージされているJavaScriptをHTMLファイルに埋
+  め込むだけで行え、Webプログラミングを行うのと同等の知識でPOSプリンターからの
+  レシート印刷が可能となります。また、プリンターを制御するためのドライバーやプ
+  ラグインをインストールする必要もありません。
 
-  �ڍׂȐ����́AUsers Manual(HTML�t�@�C��)���Q�Ƃ��������B
+  詳細な説明は、Users Manual(HTMLファイル)を参照ください。
 
 
 ================================
- 2. Ver 1.4.0 �ɂ��Ă̕ύX�_
+ 2. Ver 1.5.0 についての変更点
 ================================
 
-  [SDK]
-   - �u���b�N�}�[�N�p���̐ݒ��ύX
+ [SDK]
+  - Display機能をサポート
 
-  [User's Manual]
-   - �u���b�N�}�[�N�p���̐ݒ�Ɋւ���L�ڂ�ύX
-   - SM-L300��ǉ�
+ [User's Manual]
+  - Display機能に関するリファレンスを追加
 
 ==========
- 3. ���e
+ 3. 内容
 ==========
 
-  StarWebPRNT_WebContents_V1.4.0
+  StarWebPRNT_WebContents_V1.5.0
   |
-  | Readme_En.txt                       // �����[�X�m�[�g(�p��)
-  | Readme_Jp.txt                       // �����[�X�m�[�g(���{��)
-  | SoftwareLicenseAgreement.pdf        // �\�t�g�E�G�A�g�p������(�p��)
-  | SoftwareLicenseAgreement_jp.pdf     // �\�t�g�E�G�A�g�p������(���{��)
+  | Readme_En.txt                       // リリースノート(英語)
+  | Readme_Jp.txt                       // リリースノート(日本語)
+  | SoftwareLicenseAgreement.pdf        // ソフトウエア使用許諾書(英語)
+  | SoftwareLicenseAgreement_jp.pdf     // ソフトウエア使用許諾書(日本語)
   |
   +- UsersManual
-  |  |  jp                              // ��������(���{��)
-  |  +- en                              // ��������(�p��)
+  |  |  jp                              // 説明資料(日本語)
+  |  +- en                              // 説明資料(英語)
   |
-  +- Sample                             // WebPRNT�p�T���v���v���O����
+  +- Sample                             // WebPRNT用サンプルプログラム
 
 
 =============
- 4. �K�p
+ 4. 適用
 =============
-  �� �Ώۃv�����^���f��
-   �� �v�����^���f��
-       SM-S210I         (F/W Ver2.4�ȏ�)    (*1)
-       SM-S220I         (F/W Ver2.0�ȏ�)    (*1)
-       SM-S230I         (F/W Ver1.0�ȏ�)    (*1)
-       SM-T300I         (F/W Ver2.4�ȏ�)    (*1)
-       SM-T400I         (F/W Ver2.4�ȏ�)    (*1)
-       SM-L200          (F/W Ver1.0�ȏ�)    (*1)
-       SM-L300          (F/W Ver1.0�ȏ�)    (*1)
+  ■ 対象プリンタモデル
+   ◇ プリンタモデル
+       SM-S210I         (F/W Ver2.4以上)    (*1)
+       SM-S220I         (F/W Ver2.0以上)    (*1)
+       SM-S230I         (F/W Ver1.0以上)    (*1)
+       SM-T300I         (F/W Ver2.4以上)    (*1)
+       SM-T400I         (F/W Ver2.4以上)    (*1)
+       SM-L200          (F/W Ver1.0以上)    (*1)
+       SM-L300          (F/W Ver1.0以上)    (*1)
 
-       FVP10            (Ethernet���p��: F/W Ver1.5�ȏ�, Bluetooth���p��: F/W Ver2.0�ȏ�)  (*1)
-       TSP650II         (Ethernet���p��: F/W Ver1.2�ȏ�, Bluetooth���p��: F/W Ver1.0�ȏ�)  (*1)
-       TSP700II         (Ethernet���p��: F/W Ver4.1�ȏ�, Bluetooth���p��: F/W Ver5.0�ȏ�)  (*1)
-       TSP800II         (Ethernet���p��: F/W Ver1.6�ȏ�, Bluetooth���p��: F/W Ver2.0�ȏ�)  (*1)
-       mPOP             (F/W Ver1.0�ȏ�)    (*1)
+       FVP10            (Ethernet利用時: F/W Ver1.5以上, Bluetooth利用時: F/W Ver2.0以上)  (*1)
+       TSP650II         (Ethernet利用時: F/W Ver1.2以上, Bluetooth利用時: F/W Ver1.0以上)  (*1)
+       TSP700II         (Ethernet利用時: F/W Ver4.1以上, Bluetooth利用時: F/W Ver5.0以上)  (*1)
+       TSP800II         (Ethernet利用時: F/W Ver1.6以上, Bluetooth利用時: F/W Ver2.0以上)  (*1)
+       mPOP             (F/W Ver1.0以上)    (*1)
+       mC-Print2        (F/W Ver1.0以上）   (*1)
+       mC-Print3        (F/W Ver1.0以上）   (*1)
 
-       SP700            (Ethernet���p��: F/W Ver3.0�ȏ�)
+       SP700            (Ethernet利用時: F/W Ver3.0以上)
 
-       ASR10            (Linux OS Ver1.6�ȍ~)
+    <Bluetoothをご使用の場合>
+      印刷するには、Star WebPRNT Browserが必要です。
+      対応しているデバイスは注記の通りです。
 
-    <Bluetooth�����g�p�̏ꍇ>
-      �������ɂ́AStar WebPRNT Browser���K�v�ł��B
-      �Ή����Ă���f�o�C�X�͒��L�̒ʂ�ł��B
+        *1 iOSおよびAndroidデバイスにおいてサポートされています。
 
-        *1 iOS�����Android�f�o�C�X�ɂ����ăT�|�[�g����Ă��܂��B
-
-  �� �Ή��C���^�[�t�F�[�X�J�[�h
-       Ethernet:  IFBD-HE07X/HE08X/BE07X    (Ver3.1.0�ȏ�)
-                  IFBD-HI01X                (Ver1.1.0�ȏ�)
-                  IFBD-HI02X                (Ver1.2.0�ȏ�)
-       Bluetooth: IFBD-HB03/HB04            (Ver1.0�ȏ�)
-                  IFBD-HB05/HB06/BB05       (Ver4.1�ȏ�)
+  ◇ 対応インターフェースカード
+       Ethernet:  IFBD-HE07X/HE08X/BE07X    (Ver3.1.0以上)
+                  IFBD-HI01X                (Ver1.1.0以上)
+                  IFBD-HI02X                (Ver1.2.0以上)
+       Bluetooth: IFBD-HB03/HB04            (Ver1.0以上)
+                  IFBD-HB05/HB06/BB05       (Ver4.1以上)
 
 
 =============
- 5. ���񎖍�
+ 5. 制約事項
 =============
   
-  1. Star WebPRNT Browser�ł�Star Cloud Services���V�[�g�A�b�v���[�h�@�\�L�����̐���
-     ���V�[�g�A�b�v���[�h�@�\�L�����A�e<cutpaper>�G�������g�܂ł��ЂƂ̃��V�[�g
-     �Ƃ��ăA�b�v���[�h���s���܂��B
-     �P��StarWebPRNT���M�G�������g���ɂQ�ȏ��<cutpaper>�G�������g���܂߂�ꍇ�A
-     �Q�ڈȍ~�̊e<cutpaper>�G�������g�̌�́A�󎚂ł�<alignment>�G�������g�ňȑO��
-     �ݒ肵�����������񂹂Ƀ��Z�b�g����A�A�b�v���[�h����郌�V�[�g�ł�<alignment>
-     �G�������g��<text>�G�������g�ňȑO�ɐݒ肵���������f�t�H���g�l�Ƀ��Z�b�g����܂��B
-     <cutpaper>�G�������g�ȑO�ɐݒ肵�Ă��������������������f�������ꍇ�A<cutpaper>
-     �G�������g�ɑ����āA���]�̑������܂�<alignment>�G�������g��<text>�G�������g��
-     �ēx���M���������B
+  1. Star WebPRNT BrowserでのStar Micronics Cloudレシートアップロード機能有効時の制約
+     レシートアップロード機能有効時、各<cutpaper>エレメントまでをひとつのレシート
+     としてアップロードを行います。
+     １つのStarWebPRNT送信エレメント内に２つ以上の<cutpaper>エレメントを含める場合、
+     ２つ目以降の各<cutpaper>エレメントの後は、印字では<alignment>エレメントで以前に
+     設定した属性が左寄せにリセットされ、アップロードされるレシートでは<alignment>
+     エレメントと<text>エレメントで以前に設定した属性がデフォルト値にリセットされます。
+     <cutpaper>エレメント以前に設定していた属性を引き続き反映したい場合、<cutpaper>
+     エレメントに続けて、所望の属性を含む<alignment>エレメントと<text>エレメントを
+     再度送信ください。
 
 
 ===========
- 6. ���쌠
+ 6. 著作権
 ===========
 
-  �X�^�[�����i���jCopyright 2014-2017
+  スター精密（株）Copyright 2014-2018
 
 
 =============
- 7. �X�V����
+ 7. 更新履歴
 =============
+
+ Ver 1.5.0
+  2018/09/11 :  [SDK]
+                 - Display機能をサポート
+
+                [User's Manual]
+                 - Display機能に関するリファレンスを追加
+
+ Ver 1.4.1
+  2018/07/04 : [User's Manual]
+                - 以下の機種を追加対応
+                   mC-Print2
+                   mC-Print3
+
+                - 以下の機種のサポート終了
+                   ASR10
+
  Ver 1.4.0
   2017/06/05 : [SDK]
-                - �u���b�N�}�[�N�p���̐ݒ��ύX
+                - ブラックマーク用紙の設定を変更
 
                [User's Manual]
-                - �u���b�N�}�[�N�p���̐ݒ�Ɋւ���L�ڂ�ύX
-                - SM-L300��ǉ�
+                - ブラックマーク用紙の設定に関する記載を変更
+                - SM-L300を追加
 
  Ver 1.3.3
   2017/03/14 : [SDK]
-                - Star Cloud Services�̃Z�b�g�A�b�v�}�j���A����ǉ�
+                - Star Micronics Cloudのセットアップマニュアルを追加
 
                [User's Manual]
-                - ���V�[�g�A�b�v���[�h�@�\���T�|�[�g����StarWebPRNT���M�G�������g�̃��X�g��ǉ�
+                - レシートアップロード機能をサポートするStarWebPRNT送信エレメントのリストを追加
 
                [Readme]
-                - �T�|�[�g����C���^�[�t�F�[�X�J�[�h��IFBD-HI01X/HI02X��ǉ�
-                - �T�|�[�g����F/W�o�[�W�����̌�L����
+                - サポートするインターフェースカードにIFBD-HI01X/HI02Xを追加
+                - サポートするF/Wバージョンの誤記訂正
 
  Ver 1.3.2
   2016/12/26 : [SDK]
-                - �uWebPRNTTrader.js�v���A�V�����Z�L�����e�B�v���֑Ή��B
+                - 「WebPRNTTrader.js」を、新しいセキュリティ要件へ対応。
 
  Ver 1.3.1
   2016/09/26 : [SDK]
-                - �e�L�X�g�G�������g�̕����R�[�h�I�����̒��߂�ǉ�
+                - テキストエレメントの文字コード選択時の注釈を追加
 
                [User's Manual]
-                - �e�L�X�g�G�������g�̕����R�[�h�I�����̒��߂�ǉ�
+                - テキストエレメントの文字コード選択時の注釈を追加
 
  Ver 1.3.0
   2016/09/01 : [SDK]
-                - BCR�E�X�e�[�^�X�Ď��@�\�ǉ�
-                - �e�L�X�g�G�������g�ɕ����R�[�h�Ή���ǉ�
+                - BCR・ステータス監視機能追加
+                - テキストエレメントに文字コード対応を追加
 
                [User's Manual]
-                - BCR�E�X�e�[�^�X�Ď��Ɋւ��郊�t�@�����X��ǉ�
-                - �����R�[�h�Ɋւ��郊�t�@�����X��ǋL
+                - BCR・ステータス監視に関するリファレンスを追加
+                - 文字コードに関するリファレンスを追記
 
  Ver 1.2.1
   2016/02/08 : [SDK]
-                - �u���b�N�}�[�N�p���̃f�t�H���g�ݒ���C��
-                  WebPRNT Browser�ɂ�MSW�ݒ�𗘗p����
-                  �u���b�N�}�[�N�p�����g�p�ł���悤�ɑΉ�
+                - ブラックマーク用紙のデフォルト設定を修正
+                  WebPRNT BrowserにてMSW設定を利用して
+                  ブラックマーク用紙を使用できるように対応
 
                [User's Manual]
-                - �u���b�N�}�[�N�Ɋւ���API�̃��t�@�����X���C��
-                - StarPRNT���[�h�Ɋւ��郊�t�@�����X��ǉ�
+                - ブラックマークに関するAPIのリファレンスを修正
+                - StarPRNTモードに関するリファレンスを追加
 
  Ver 1.2.0   
   2015/11/06 : [SDK]
-                - �u���b�N�}�[�N�p���Ή�
+                - ブラックマーク用紙対応
 
                [User's Manual]
-                - �u���b�N�}�[�N�Ɋւ���API�̃��t�@�����X��ǉ�
+                - ブラックマークに関するAPIのリファレンスを追加
 
  Ver 1.1.0   
   2015/02/20 : [SDK]
-                - �R���e���c�̕\���T�C�Y���A�{���f�o�C�X�̉�ʃT�C�Y�ɍ��킹��
-                  �����ύX����@�\�ǉ�
+                - コンテンツの表示サイズを、閲覧デバイスの画面サイズに合わせて
+                  自動変更する機能追加
 
-                - Android�f�o�C�X�ɂ�����\���Ɋւ���s����C��
+                - Androidデバイスにおける表示に関する不具合を修正
 
  Ver 1.0.0 
   2014/12/12 : [SDK]
-                - iOS��Star WebPRNT Browser�Ƃ̑g�������p���ɔ������鎖�Ăɑ΂�
-                  ��T���v���R�[�h�ǉ�
-                    ����1:������e���S�ĕ\�������O�Ɉ���{�^���������ƁA����
-                          ���_�ŕ\�����ꂽ���e�݂̂���������
-                    ����2:����{�^����A�����ĉ��������ꍇ�ɁAiOS��Star WebPRNT
-                          Browser�������I�����邱�Ƃ�����
-                - �g�b�v�y�[�W�̒ǉ�
-                - Star WebPRNT Browser iOS�̎g�����}�j���A����ǉ�
-                - 2inch���V�[�g�����T�|�[�g
-                - �S�Ă̕\�����������Ă���windows.onLoad�֐��ɂ���ĕ\��������
-                  �@�\��ǉ�
-                - SendMessage()�֐����R�[���Ɠ����ɁA�ŏ�i�ɁuNow Printing�c�v
-                  ��\������HTML���C���[���d�ˁA�y�[�W�S�̂��N���b�N�s�Ƃ���
-                  ����{�^����2�x������h���@�\��ǉ�
+                - iOS版Star WebPRNT Browserとの組合せ利用時に発生する事案に対す
+                  るサンプルコード追加
+                    事案1:印刷内容が全て表示される前に印刷ボタンを押すと、その
+                          時点で表示された内容のみが印刷される
+                    事案2:印刷ボタンを連続して押下した場合に、iOS版Star WebPRNT
+                          Browserが強制終了することがある
+                - トップページの追加
+                - Star WebPRNT Browser iOSの使い方マニュアルを追加
+                - 2inchレシート紙をサポート
+                - 全ての表示が完了してからwindows.onLoad関数によって表示させる
+                  機能を追加
+                - SendMessage()関数がコールと同時に、最上段に「Now Printing…」
+                  を表示したHTMLレイヤーを重ね、ページ全体をクリック不可として
+                  印刷ボタンの2度押しを防ぐ機能を追加
 
                [User's Manual]
-                - Star WebPRNT Browser iOS�̎g������ǉ�
+                - Star WebPRNT Browser iOSの使い方を追加
 
  Ver 0.3.0
   2014/01/15 : [SDK]
-                - UTF-8�Ή�
+                - UTF-8対応
 
                [User's Manual]
-                - �h�b�g�v�����^�Ή��L�ڒǉ�
-                - UTF-8�Ή��L�ڒǉ�
-                - "�V�X�e���\���� Star POS�v�����^�["��ASR10�L�ڒǉ�
+                - ドットプリンタ対応記載追加
+                - UTF-8対応記載追加
+                - "システム構成例 Star POSプリンター"にASR10記載追加
  Ver 0.2.0
   2013/11/07 : [SDK]
-                - HTML�t�@�C�����ɂ�StarWebPRNT�G���h�|�C���gURL�̃f�t�H���g��
-                  �L����
+                - HTMLファイル内にてStarWebPRNTエンドポイントURLのデフォルト誤
+                  記訂正
 
                [User's Manual]
-                - ASR10�L�ڒǉ�
+                - ASR10記載追加
 
  Ver 0.1.0 
-  2013/08/26 : ���Ń����[�X
+  2013/08/26 : 初版リリース

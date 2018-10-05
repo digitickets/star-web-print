@@ -1,0 +1,1014 @@
+
+<!DOCTYPE html>
+<!--
+//
+// StarWebPRNT Sample(Extension)
+//
+// Version 1.0.0
+//
+// Copyright (C) 2012-2015 STAR MICRONICS CO., LTD. All Rights Reserved.
+//
+-->
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Expires" content="86400">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title>StarWebPRNTExtManager Sample</title>
+
+<link href="css/import.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="style.css" media="screen">
+
+<link href="css/style_display.css" rel="stylesheet" type="text/css">
+<script type='text/javascript' src='js/StarWebPrintBuilder.js'></script>
+<script type='text/javascript' src='js/StarWebPrintDisplayBuilder.js'></script>
+<script type='text/javascript' src='js/StarWebPrintTrader.js'></script>
+<script type='text/javascript' src='js/StarWebPrintExtManager.js'></script>
+<script type='text/javascript'>
+<!--
+var manager = new StarWebPrintExtManager();    // for peripheral claim management
+
+function managerInit() {
+    manager.onReceive = function(response) {
+        if (response.managerSuccess == 'true' && response.managerClaim == 'true') {
+            document.getElementById('manager_state').innerHTML = '<font color="blue">Connected</font>';
+            showDisplayMenu();
+        }
+        else if (response.managerCode == 1200) {
+            // Keep Connecting
+        }
+        else {
+            document.getElementById('manager_state').innerHTML  = 'Not connected';
+            hideDisplayMenu();
+        }
+
+        var msg = '- onReceive -\n\n';
+
+        msg += 'ManagerSuccess : [ ' + response.managerSuccess + ' ]\n';
+
+        msg += 'ManagerCode : [ ' + response.managerCode + ' ]\n';
+
+        alert(msg);
+
+        hideNowCommunicating();
+    }
+
+    manager.onError = function(args) {
+        document.getElementById('manager_state').innerHTML  = 'Not connected';
+
+        var msg;
+
+        msg = 'onError!'         + '\n';
+        msg += '  Status:'       + args.status + '\n';
+        msg += '  ResponseText:' + args.responseText;
+
+        alert(msg);
+
+        hideNowCommunicating();
+        hideDisplayMenu();
+    }
+
+    manager.onAccessoryDisconnect     = function() {
+        addResponse('onAccessoryDisconnect');
+    }
+    manager.onAccessoryConnectSuccess = function() {
+        addResponse('onAccessoryConnectSuccess');
+    }
+    manager.onAccessoryConnectFailure = function() {
+        addResponse('onAccessoryConnectFailure');
+    }
+    manager.onPrinterImpossible       = function() {
+        addResponse('onPrinterImpossible');
+    }
+    manager.onPrinterOnline           = function() {
+        addResponse('onPrinterOnline');
+    }
+    manager.onPrinterOffline          = function() {
+        addResponse('onPrinterOffline');
+    }
+    manager.onPrinterPaperReady       = function() {
+        addResponse('onPrinterPaperReady');
+    }
+    manager.onPrinterPaperNearEmpty   = function() {
+        addResponse('onPrinterPaperNearEmpty');
+    }
+    manager.onPrinterPaperEmpty       = function() {
+        addResponse('onPrinterPaperEmpty');
+    }
+    manager.onPrinterCoverOpen        = function() {
+        addResponse('onPrinterCoverOpen');
+    }
+    manager.onPrinterCoverClose       = function() {
+        addResponse('onPrinterCoverClose');
+    }
+    manager.onCashDrawerOpen          = function() {
+        addResponse('onCashDrawerOpen');
+    }
+    manager.onCashDrawerClose         = function() {
+        addResponse('onCashDrawerClose');
+    }
+    manager.onDisplayImpossible       = function() {
+        addResponse('onDisplayImpossible');
+    }
+    manager.onDisplayConnect          = function() {
+        addResponse('onDisplayConnect');
+        document.getElementsById('sendText').disabled = '';
+    }
+    manager.onDisplayDisconnect       = function() {
+        addResponse('onDisplayDisconnect');
+        document.getElementsById('sendText').disabled = 'disabled';
+    }
+    manager.onWrite                   = function() {
+        addResponse('onWrite');
+    }
+    manager.onStatusUpdate            = function(args) {
+        addResponse('onStatusUpdate');
+    }
+}
+
+function onConnect() {
+
+    showNowCommunicating();
+
+    managerInit()
+   
+    var url = document.getElementById('url').value;
+    if ( manager.connect({url:url}) == false ) {
+        alert("Already connected or Now communicating.");
+        hideNowCommunicating();
+    }
+
+}
+
+function send(request) {
+
+    var url = document.getElementById('url').value;
+
+    managerInit();
+
+    var result = manager.write({request:request, url:url});
+
+    if (result) {
+        showNowCommunicating();
+    }
+}
+
+function onDisconnect() {
+    if ( manager.disconnect() == true ) {
+        showNowCommunicating();
+    }
+    else {
+        alert("Already disconnected");
+    }
+}
+
+function addResponse(response) {
+    date = new Date();
+
+    hour = adjustDigitAlignment( date.getHours()       , 2);
+    min  = adjustDigitAlignment( date.getMinutes()     , 2);
+    sec  = adjustDigitAlignment( date.getSeconds()     , 2);
+
+    time = hour + ':' + min + ':' + sec + '  ';
+
+    document.getElementById('textarea_response').value += time + response + '\n';
+    document.getElementById('textarea_response').scrollTop = document.getElementById('textarea_response').scrollHeight;
+}
+
+function adjustDigitAlignment(value, digitNum) {
+    while (value.toString().length < digitNum) {
+        value = '0' + value;
+    }
+    return value;
+}
+
+function onClearText() {
+        document.getElementById('textarea_response').value = ('');
+}
+
+function decodeBase64ToString(data) {
+    var hexString = decodeBase64ToHex(data);
+    var characterString = '';
+    var regexp = /\\x[0-1][0-9a-f]|\\x20|\\x7f|\\x[8-9a-f][0-9a-f]/;
+
+    for (var i = 0; i < hexString.length; i += 4) {
+        var hex = hexString[i] + hexString[i + 1] + hexString[i + 2] + hexString[i + 3];
+
+        if (regexp.test(hex)) {
+            characterString += '[' + hex + ']';
+        }
+        else
+        {
+            characterString += String.fromCharCode(parseInt(hex.replace('\\x', ''), 16));
+        }
+    }
+
+    return characterString;
+}
+
+function decodeBase64ToHex(data) {
+    var base64 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
+
+    var decode = '';
+    var length = data.length;
+
+    for (var i = 0; i < length; i += 4) {
+        var code = ((base64.indexOf(data.charAt(i    )) & 0x3f) << 18)
+                 | ((base64.indexOf(data.charAt(i + 1)) & 0x3f) << 12)
+                 | ((base64.indexOf(data.charAt(i + 2)) & 0x3f) <<  6)
+                 | ( base64.indexOf(data.charAt(i + 3)) & 0x3f);
+
+        decode += makeHexString(((code >> 16) & 0xff).toString(16))
+               +  makeHexString(((code >> 8)  & 0xff).toString(16))
+               +  makeHexString( (code        & 0xff).toString(16));
+    }
+
+    var equals = data.match(/=/g);
+
+    if (equals) {
+        if (equals.length == 2) {
+            return decode.slice(0, -8);    // remove \x00\x00
+        }
+        else if (equals.length == 1) {
+            return decode.slice(0, -4);    // remove \x00
+        }
+    }
+
+    return decode;
+}
+
+function makeHexString(data) {
+    var hexString = '';
+
+    hexString += "\\x";
+
+    if (data.length == 1) {
+        hexString += ('0' + data);
+    }
+    else {
+        hexString += data;
+    }
+
+    return hexString;
+}
+
+function onSendPrint() {
+    showNowCommunicating();
+    var builder = new StarWebPrintBuilder();
+
+    var request = '';
+
+    request += builder.createInitializationElement();
+
+    switch (document.getElementById('paperWidth').value) {
+        case 'inch2' :
+            request += builder.createTextElement({characterspace:2});
+
+            request += builder.createAlignmentElement({position:'right'});
+            request += builder.createLogoElement({number:1});
+            request += builder.createTextElement({data:'TEL 9999-99-9999\n'});
+            request += builder.createAlignmentElement({position:'left'});
+
+            request += builder.createTextElement({data:'\n'});
+
+            request += builder.createAlignmentElement({position:'center'});
+            request += builder.createTextElement({data:'Thank you for your coming. \n'});
+            request += builder.createTextElement({data:"We hope you'll visit again.\n"});
+            request += builder.createAlignmentElement({position:'left'});
+
+            request += builder.createTextElement({data:'\n'});
+
+            request += builder.createTextElement({data:'Apple                $20.00\n'});
+            request += builder.createTextElement({data:'Banana               $30.00\n'});
+            request += builder.createTextElement({data:'Grape                $40.00\n'});
+            request += builder.createTextElement({data:'Lemon                $50.00\n'});
+            request += builder.createTextElement({data:'Orange               $60.00\n'});
+            request += builder.createTextElement({emphasis:true, data:'Subtotal            $200.00\n'});
+            request += builder.createTextElement({data:'\n'});
+
+            request += builder.createTextElement({underline:true, data:'Tax                  $10.00\n'});
+            request += builder.createTextElement({underline:false});
+
+            request += builder.createTextElement({emphasis:true});
+            request += builder.createTextElement({width:2, data:'Total'});
+            request += builder.createTextElement({width:1, data:'   '});
+            request += builder.createTextElement({width:2, data:'$210.00\n'});
+            request += builder.createTextElement({width:1});
+            request += builder.createTextElement({emphasis:false});
+
+            request += builder.createTextElement({data:'\n'});
+
+            request += builder.createTextElement({data:'Received            $300.00\n'});
+
+            request += builder.createTextElement({width:2, data:'Change'});
+            request += builder.createTextElement({width:1, data:'   '});
+            request += builder.createTextElement({width:2, data:'$90.00\n'});
+            request += builder.createTextElement({width:1});
+            request += builder.createTextElement({data:'\n'});
+
+            request += builder.createTextElement({characterspace:0});
+            break;
+        case 'inch3DotImpact' :
+            request += builder.createTextElement({characterspace:2});
+
+            request += builder.createAlignmentElement({position:'right'});
+            request += builder.createLogoElement({number:1});
+            request += builder.createTextElement({data:'TEL 9999-99-9999\n'});
+            request += builder.createAlignmentElement({position:'left'});
+
+            request += builder.createTextElement({data:'\n'});
+
+            request += builder.createAlignmentElement({position:'center'});
+            request += builder.createTextElement({data:'Thank you for your coming. \n'});
+            request += builder.createTextElement({data:"We hope you'll visit again.\n"});
+            request += builder.createAlignmentElement({position:'left'});
+
+            request += builder.createTextElement({data:'\n'});
+
+            request += builder.createTextElement({data:'Apple                               $20.00\n'});
+            request += builder.createTextElement({data:'Banana                              $30.00\n'});
+            request += builder.createTextElement({data:'Grape                               $40.00\n'});
+            request += builder.createTextElement({data:'Lemon                               $50.00\n'});
+            request += builder.createTextElement({data:'Orange                              $60.00\n'});
+            request += builder.createTextElement({emphasis:true, data:'Subtotal                           $200.00\n'});
+            request += builder.createTextElement({data:'\n'});
+
+            request += builder.createTextElement({underline:true, data:'Tax                                 $10.00\n'});
+            request += builder.createTextElement({underline:false});
+
+            request += builder.createTextElement({emphasis:true});
+            request += builder.createTextElement({width:2, data:'Total         $210.00\n'});
+            request += builder.createTextElement({width:1});
+            request += builder.createTextElement({emphasis:false});
+
+            request += builder.createTextElement({data:'\n'});
+
+            request += builder.createTextElement({data:'Received                           $300.00\n'});
+
+            request += builder.createTextElement({width:2, data:'Change         $90.00\n'});
+            request += builder.createTextElement({width:1});
+            request += builder.createTextElement({data:'\n'});
+
+            request += builder.createTextElement({characterspace:0});
+            break;
+        default :
+            request += builder.createTextElement({characterspace:0});
+
+            request += builder.createAlignmentElement({position:'right'});
+            request += builder.createLogoElement({number:1});
+            request += builder.createTextElement({data:'TEL 9999-99-9999\n'});
+            request += builder.createAlignmentElement({position:'left'});
+
+            request += builder.createTextElement({data:'\n'});
+
+            request += builder.createAlignmentElement({position:'center'});
+            request += builder.createTextElement({data:'Thank you for your coming. \n'});
+            request += builder.createTextElement({data:"We hope you'll visit again.\n"});
+            request += builder.createAlignmentElement({position:'left'});
+
+            request += builder.createTextElement({data:'\n'});
+
+            request += builder.createTextElement({data:'Apple                                     $20.00\n'});
+            request += builder.createTextElement({data:'Banana                                    $30.00\n'});
+            request += builder.createTextElement({data:'Grape                                     $40.00\n'});
+            request += builder.createTextElement({data:'Lemon                                     $50.00\n'});
+            request += builder.createTextElement({data:'Orange                                    $60.00\n'});
+            request += builder.createTextElement({emphasis:true, data:'Subtotal                                 $200.00\n'});
+            request += builder.createTextElement({data:'\n'});
+
+            request += builder.createTextElement({underline:true, data:'Tax                                       $10.00\n'});
+            request += builder.createTextElement({underline:false});
+
+            request += builder.createTextElement({emphasis:true});
+            request += builder.createTextElement({width:2, data:'Total            $210.00\n'});
+            request += builder.createTextElement({width:1});
+            request += builder.createTextElement({emphasis:false});
+
+            request += builder.createTextElement({data:'\n'});
+
+            request += builder.createTextElement({data:'Received                                 $300.00\n'});
+
+            request += builder.createTextElement({width:2, data:'Change            $90.00\n'});
+            request += builder.createTextElement({width:1});
+            request += builder.createTextElement({data:'\n'});
+
+            request += builder.createTextElement({characterspace:0});
+            break;
+        case 'inch4' :
+            request += builder.createTextElement({characterspace:1});
+
+            request += builder.createAlignmentElement({position:'right'});
+            request += builder.createLogoElement({number:1});
+            request += builder.createTextElement({data:'TEL 9999-99-9999\n'});
+            request += builder.createAlignmentElement({position:'left'});
+
+            request += builder.createTextElement({data:'\n'});
+
+            request += builder.createAlignmentElement({position:'center'});
+            request += builder.createTextElement({data:'Thank you for your coming. \n'});
+            request += builder.createTextElement({data:"We hope you'll visit again.\n"});
+            request += builder.createAlignmentElement({position:'left'});
+
+            request += builder.createTextElement({data:'\n'});
+
+            request += builder.createTextElement({data:'Apple                                                     $20.00\n'});
+            request += builder.createTextElement({data:'Banana                                                    $30.00\n'});
+            request += builder.createTextElement({data:'Grape                                                     $40.00\n'});
+            request += builder.createTextElement({data:'Lemon                                                     $50.00\n'});
+            request += builder.createTextElement({data:'Orange                                                    $60.00\n'});
+            request += builder.createTextElement({emphasis:true, data:'Subtotal                                                 $200.00\n'});
+            request += builder.createTextElement({data:'\n'});
+
+            request += builder.createTextElement({underline:true, data:'Tax                                                       $10.00\n'});
+            request += builder.createTextElement({underline:false});
+
+            request += builder.createTextElement({emphasis:true});
+            request += builder.createTextElement({width:2, data:'Total                    $210.00\n'});
+            request += builder.createTextElement({width:1});
+            request += builder.createTextElement({emphasis:false});
+
+            request += builder.createTextElement({data:'\n'});
+
+            request += builder.createTextElement({data:'Received                                                 $300.00\n'});
+
+            request += builder.createTextElement({width:2, data:'Change                    $90.00\n'});
+            request += builder.createTextElement({width:1});
+            request += builder.createTextElement({data:'\n'});
+
+            request += builder.createTextElement({characterspace:0});
+            break;
+    }
+
+    request += builder.createCutPaperElement({feed:true});
+
+    sendMessage(request);
+}
+
+
+function onSendText() {
+    var builder = new StarWebPrintDisplayBuilder();
+
+    var request = '';
+
+    var textList = document.getElementById('textList').value;
+
+    request += builder.createClearScreenElement({type:'all'});
+    request += builder.createCursorElement({position:'home'});
+
+    switch (textList) {
+        default:
+        case 'pattern1':
+            request += builder.createTextElement({codepage:'cp437', data:'Apple Tea'});
+            request += builder.createReturnElement({type:'crlf'});
+            request += builder.createTextElement({codepage:'cp437', data:'               $3.50'});
+            break;
+        case 'pattern2':
+            request += builder.createTextElement({codepage:'cp437', data:'ABCDEFGHIJKLMNOPQRSTUVWXYZ    0123456789'});
+            break;
+        case 'pattern3':
+            request += builder.createTextElement({codepage:'cp437', data:'abcdefghijklmnopqrstuvwxyz    0123456789'});
+            break;
+    }
+
+    send(request);
+}
+
+
+function onSendGraphic() {
+    var builder = new StarWebPrintDisplayBuilder();
+
+    var request = '';
+
+    var canvas = document.getElementById('canvas');
+
+    if (canvas.getContext) {
+        var context = canvas.getContext('2d');
+    }
+
+    request += builder.createClearScreenElement({type:'all'});
+
+    request += builder.createBitimageElement({width:160, height:40, context:context});
+
+    send(request);
+}
+
+function onSendBackLight() {
+    var builder = new StarWebPrintDisplayBuilder();
+
+    var type = document.getElementById('backLight').value;
+
+    var request = '';
+
+    request += builder.createTurnOnElement({type:type});
+
+    send(request);
+}
+
+function onSendCursor() {
+    var builder = new StarWebPrintDisplayBuilder();
+
+    var request = '';
+
+    var mode = document.getElementById('cursor').value;
+
+    // request += builder.createCursorElement({position:'specified', x:'0', y:'0', mode:mode});
+    request += builder.createCursorElement({position:'home', mode:mode});
+
+    send(request);
+}
+
+function onSendSpecifiedCursorPosition() {
+     var builder = new StarWebPrintDisplayBuilder();
+
+    var request = '';
+
+    var x = document.getElementById('cursor_x_position').value;
+    var y = document.getElementById('cursor_y_position').value;
+
+    request += builder.createCursorElement({position:'specified', x:x, y:y, mode:'blink'});
+
+    send(request);
+}
+
+function onSendTone() {
+    var builder = new StarWebPrintDisplayBuilder();
+
+    var request = '';
+
+    var contrast = document.getElementById('contrast').value;
+
+    request += builder.createToneElement({contrast:contrast});
+
+    send(request);
+}
+
+function onSendInternational() {
+    var builder = new StarWebPrintDisplayBuilder();
+
+    var request = '';
+
+    var international = document.getElementById('international').value;
+
+    request += builder.createClearScreenElement({type:'all'});
+
+    request += builder.createTextElement({international:international, data:'\x2d\x20\x20\x20\x23\x24\x40\x5b\x5c\x5d\x5e\x60\x7b\x7c\x7d\x7e\x20\x20\x20\x2d\xa0\xa1\xa2\xa3\xa4\xa5\xa6\xa7\xa8\xa9\xaa\xab\xac\xad\xae\xaf\xb0\xb1\xb2\xb3', binary:true});
+
+    send(request);
+}
+
+function onSendCodePage() {
+    var builder = new StarWebPrintDisplayBuilder();
+
+    var request = '';
+
+    var codepage = document.getElementById('codePage').value;
+
+    var data;
+
+    switch (codepage) {
+        default:
+     // case 'cp437':
+     // case 'katakana':
+     // case 'cp850':
+     // case 'cp852':
+     // case 'cp856':
+     // case 'cp858':
+     // case 'cp860':
+     // case 'cp863':
+     // case 'cp865':
+     // case 'cp866':
+     // case 'cp1252':
+            data = '\x80\x81\x82\x83\x84\x85\x86\x87\x88\x89\x8a\x8b\x8c\x8d\x8e\x8f\x90\x91\x92\x93\x94\x95\x96\x97\x98\x99\x9a\x9b\x9c\x9d\x9e\x9f\xa0\xa1\xa2\xa3\xa4\xa5\xa6\xa7';
+            break;
+        case 'shift_jis':
+            data = '\x88\xa0\x88\xa1\x88\xa2\x88\xa3\x88\xa4\x88\xa5\x88\xa6\x88\xa7\x88\xa8\x88\xa9\x88\xaa\x88\xab\x88\xac\x88\xad\x88\xae\x88\xaf\x88\xb0\x88\xb1\x88\xb2\x88\xb3';
+            break;
+        case 'gb2312':
+            data = '\xb0\xa1\xb0\xa2\xb0\xa3\xb0\xa4\xb0\xa5\xb0\xa6\xb0\xa7\xb0\xa8\xb0\xa9\xb0\xaa\xb0\xab\xb0\xac\xb0\xad\xb0\xae\xb0\xaf\xb0\xb0\xb0\xb1\xb0\xb2\xb0\xb3\xb0\xb4';
+            break;
+        case 'big5':
+            data = '\xa4\x40\xa4\x41\xa4\x42\xa4\x43\xa4\x44\xa4\x45\xa4\x46\xa4\x47\xa4\x48\xa4\x49\xa4\x4a\xa4\x4b\xa4\x4c\xa4\x4d\xa4\x4e\xa4\x4f\xa4\x50\xa4\x51\xa4\x52\xa4\x53';
+            break;
+        case 'korea':
+            data = '\xb0\xa1\xb0\xa2\xb0\xa3\xb0\xa4\xb0\xa5\xb0\xa6\xb0\xa7\xb0\xa8\xb0\xa9\xb0\xaa\xb0\xab\xb0\xac\xb0\xad\xb0\xae\xb0\xaf\xb0\xb0\xb0\xb1\xb0\xb2\xb0\xb3\xb0\xb4';
+            break;
+    }
+
+    request += builder.createClearScreenElement({type:'all'});
+
+    request += builder.createTextElement({codepage:codepage, data:data, binary:true});
+
+    send(request);
+}
+
+function onSendClear() {
+    var builder = new StarWebPrintDisplayBuilder();
+
+    var request = '';
+
+    var type = document.getElementById('clear').value;
+
+    request += builder.createClearScreenElement({type:type});
+
+    send(request);
+}
+
+function sendMessage(request) {
+    var url              = document.getElementById('printUrl').value;
+    var papertype        = document.getElementById('papertype').value;
+
+    var trader = new StarWebPrintTrader({url:url, papertype:papertype});
+
+    trader.onReceive = function (response) {
+        hideNowCommunicating();
+
+        var msg = '- onReceive -\n\n';
+
+        msg += 'TraderSuccess : [ ' + response.traderSuccess + ' ]\n';
+
+//      msg += 'TraderCode : [ ' + response.traderCode + ' ]\n';
+
+        msg += 'TraderStatus : [ ' + response.traderStatus + ',\n';
+
+        if (trader.isCoverOpen            ({traderStatus:response.traderStatus})) {msg += '\tCoverOpen,\n';}
+        if (trader.isOffLine              ({traderStatus:response.traderStatus})) {msg += '\tOffLine,\n';}
+        if (trader.isCompulsionSwitchClose({traderStatus:response.traderStatus})) {msg += '\tCompulsionSwitchClose,\n';}
+        if (trader.isEtbCommandExecute    ({traderStatus:response.traderStatus})) {msg += '\tEtbCommandExecute,\n';}
+        if (trader.isHighTemperatureStop  ({traderStatus:response.traderStatus})) {msg += '\tHighTemperatureStop,\n';}
+        if (trader.isNonRecoverableError  ({traderStatus:response.traderStatus})) {msg += '\tNonRecoverableError,\n';}
+        if (trader.isAutoCutterError      ({traderStatus:response.traderStatus})) {msg += '\tAutoCutterError,\n';}
+        if (trader.isBlackMarkError       ({traderStatus:response.traderStatus})) {msg += '\tBlackMarkError,\n';}
+        if (trader.isPaperEnd             ({traderStatus:response.traderStatus})) {msg += '\tPaperEnd,\n';}
+        if (trader.isPaperNearEnd         ({traderStatus:response.traderStatus})) {msg += '\tPaperNearEnd,\n';}
+
+        msg += '\tEtbCounter = ' + trader.extractionEtbCounter({traderStatus:response.traderStatus}).toString() + ' ]\n';
+
+//      msg += 'Status : [ ' + response.status + ' ]\n';
+//
+//      msg += 'ResponseText : [ ' + response.responseText + ' ]\n';
+
+        alert(msg);
+    }
+
+    trader.onError = function (response) {
+        hideNowCommunicating();
+
+        var msg = '- onError -\n\n';
+
+        msg += '\tStatus:' + response.status + '\n';
+
+        msg += '\tResponseText:' + response.responseText;
+
+        alert(msg);
+    }
+
+    trader.sendMessage({request:request});
+}
+
+function onLoadImage() {
+    try {
+        var image = new Image();
+
+        image.src = 'img/display/' + document.getElementById('graphicList').value;
+
+        image.onload = function () {
+            var canvas = document.getElementById('canvas');
+
+            if (canvas.getContext) {
+                canvas.width  = image.width;
+                canvas.height = image.height;
+
+                var context = canvas.getContext('2d');
+
+                context.drawImage(image, 0, 0);
+            }
+        }
+
+        image.onerror = function () {
+            alert('Image file was not able to be loaded int the web server.');
+        }
+    }
+    catch (e) {
+        alert(e.message);
+    }
+}
+
+function showDisplayMenu() {
+    document.getElementById("displayMenu").style.display="block";
+}
+function hideDisplayMenu() {
+    document.getElementById("displayMenu").style.display="none";
+}
+
+function nowLoading(){
+    document.getElementById('form').style.display="block";
+    document.getElementById('overlay').style.display="none";
+    document.getElementById('nowLoadingWrapper').style.display="none";
+}
+function showNowCommunicating() {
+    document.getElementById('overlay').style.display="block";
+    document.getElementById('nowPrintingWrapper').style.display="table";
+}
+function hideNowCommunicating() {
+    document.getElementById('overlay').style.opacity= 0.0;
+    document.getElementById('overlay').style.transition= "all 0.3s";
+    intimer = setTimeout(function (){
+        document.getElementById('overlay').style.display="none";
+    document.getElementById('overlay').style.opacity= 1;
+        clearTimeout(intimer);
+    }, 300);
+    document.getElementById('nowPrintingWrapper').style.display="none";
+}
+window.onload = function() {
+    nowLoading();
+    onLoadImage();
+}
+// -->
+</script>
+<noscript>
+    Your browser does not support JavaScript!
+</noscript>
+</head>
+<body>
+
+<header id="global-header">
+<h1><a onclick='onReleaseAndBack({url:"A001.html"})'><img src="images/logo_01.png" alt="HOME" width="108" height="61"></a></h1>
+<div id="sub-logo"><a onclick='onReleaseAndBack({url:"http://www.star-m.jp/"})' target="_blank"><img src="images/logo_02.png" alt="" width="120" height="13"></a></div>
+</header>
+
+<section class="btmMg20">
+    <h2 class="h2-tit-01 btmMg20">Display Sample</h2>
+</section>
+    <div id="overlay">
+        <div id="nowPrintingWrapper">
+            <section id="nowPrinting">
+                <h1>Now Communicating</h1>
+                <p><img src="images/icon_loading.gif" /></p>
+            </section>
+        </div>
+        <div id="nowLoadingWrapper">
+            <section id="nowLoading">
+                    <h1>Now Loading</h1>
+                <p><img src="images/icon_loading.gif" /></p>
+            </section>
+        </div>
+    </div>
+
+    <form onsubmit='return false;' id="form">
+        <div class="container" id="contents">
+
+        <dl>
+            <dt>URL:</dt>
+            <ddurl>
+                <input id="url" type="text" value="http://localhost:8001/StarWebPRNT/SendDisplayExtMessage" />
+            </ddurl>
+        </dl>
+
+        <dl style='margin:30px 0 0 0;'>
+            <dt>Extension Function:</dt>
+            <dd style='width:70%;'>
+                <input type='button' id='connectButton'    style='width:40%; height:40px' value='connect'    onclick='onConnect()' />
+                <input type='button' id='disconnectButton' style='width:40%; height:40px' value='disconnect' onclick='onDisconnect()' />
+            </dd>
+        </dl>
+
+        <dl>
+            <dt>Manager State:</dt>
+            <dd>
+                <font color='red'>
+                    <div id='manager_state'>Not connected</div>
+                </font>
+            </dd>
+        </dl>
+
+        <dl>
+            <br>
+        </dl>
+
+        <dvi id='displayMenu' style="display:none;">
+            <dl>
+                <dt>Text Sample:</dt>
+                <dd>
+                    <select id='textList' class='displaySelect'>
+                        <option value='pattern1' selected='selected'>Pattern 1</option>
+                        <option value='pattern2'>Pattern 2</option>
+                        <option value='pattern3'>Pattern 3</option>
+                    </select>
+                </dd>
+                <input id='sendText' class='subSend' type='button' value='Send' onclick='onSendText()' />
+            </dl>
+
+
+            <dl>
+                <dt>Image Sample:</dt>
+                <dd>
+                    <select id='graphicList' class='displaySelect' onchange='onLoadImage()' >
+                        <option value='display_image_1.png' selected='selected'>Image 1</option>
+                        <option value='display_image_2.png'>Image 2</option>
+                    </select>
+                </dd>
+                <input class='subSend' type='button' value='Send' onclick='onSendGraphic()' />
+            </dl>
+
+            <dl>
+                <dt></dt>
+                <dd>
+                    <canvas id='canvas' width='10' height='15'>
+                        Your browser does not support Canvas!
+                    </canvas>
+                </dd>
+            </dl>
+
+            <dl>
+                <dt>Back Light:</dt>
+                <dd>
+                    <select id='backLight' class='displaySelect' >
+                        <option value='true' selected='selected'>Turn On</option>
+                        <option value='false'>Turn Off</option>
+                    </select>
+                </dd>
+                <input class='subSend' type='button' value='Send' onclick='onSendBackLight()' />
+            </dl>
+
+            <dl>
+                <dt>Cursor:</dt>
+                <dd>
+                    <select id='cursor' class='displaySelect' >
+                        <option value='off' selected='selected'>Off</option>
+                        <option value='blink'>Blink</option>
+                        <option value='on'>On</option>
+                    </select>
+                </dd>
+                <input class='subSend' type='button' value='Send' onclick='onSendCursor()' />
+            </dl>
+
+            <dl>
+                <dt>Cursor Position:</dt>
+                <dd>
+                    X:
+                    <select id='cursor_x_position' class='displaySmallSelect' >
+                        <option value='1' selected='selected'>1</option>
+                        <option value='2'>2</option>
+                        <option value='3'>3</option>
+                        <option value='4'>4</option>
+                        <option value='5'>5</option>
+                        <option value='6'>6</option>
+                        <option value='7'>7</option>
+                        <option value='8'>8</option>
+                        <option value='9'>9</option>
+                        <option value='10'>10</option>
+                        <option value='11'>11</option>
+                        <option value='12'>12</option>
+                        <option value='13'>13</option>
+                        <option value='14'>14</option>
+                        <option value='15'>15</option>
+                        <option value='16'>16</option>
+                        <option value='17'>17</option>
+                        <option value='18'>18</option>
+                        <option value='19'>19</option>
+                        <option value='20'>20</option>
+                    </select>
+                    Y:
+                    <select id='cursor_y_position' class='displaySmallSelect' >
+                        <option value='1' selected='selected'>1</option>
+                        <option value='2'>2</option>
+                    </select>
+                </dd>
+                <input class='subSend' type='button' value='Send' onclick='onSendSpecifiedCursorPosition()' />
+            </dl>
+
+            <dl>
+                <dt>Contrast:</dt>
+                <dd>
+                    <select id='contrast' class='displaySelect' >
+                        <option value='minus3'>-3</option>
+                        <option value='minus2'>-2</option>
+                        <option value='minus1'>-1</option>
+                        <option value='default' selected='selected'>Default</option>
+                        <option value='plus1' >+1</option>
+                        <option value='plus2' >+2</option>
+                        <option value='plus3' >+3</option>
+                    </select>
+                </dd>
+                <input class='subSend' type='button' value='Send' onclick='onSendTone()' />
+            </dl>
+
+            <dl>
+                <dt>Character Set (International):</dt>
+                <dd>
+                    <select id='international' class='displaySelect' >
+                        <option value='usa'    selected='selected'>USA</option>
+                        <option value='france'        >France</option>
+                        <option value='germany'       >Germany</option>
+                        <option value='uk'            >UK</option>
+                        <option value='denmark'       >Denmark</option>
+                        <option value='sweden'        >Sweden</option>
+                        <option value='italy'         >Italy</option>
+                        <option value='spain'         >Spain</option>
+                        <option value='japan'         >Japan</option>
+                        <option value='norway'        >Norway</option>
+                        <option value='denmark2'      >Denmark 2</option>
+                        <option value='spain2'        >Spain 2</option>
+                        <option value='latin_america' >Latin America</option>
+                        <option value='korea'         >Korea</option>
+                    </select>
+                </dd>
+                <input class='subSend' type='button' value='Send' onclick='onSendInternational()' />
+            </dl>
+
+            <dl>
+                <dt>Character Set (Code Page):</dt>
+                <dd>
+                    <select id='codePage' class='displaySelect' >
+                        <option value='cp437' selected='selected'>cp437</option>
+                        <option value='katakana' >katakana</option>
+                        <option value='cp850'    >cp850</option>
+                        <option value='cp852'    >cp852</option>
+                   <!-- <option value='cp856'    >cp856</option> -->
+                        <option value='cp858'    >cp858</option>
+                        <option value='cp860'    >cp860</option>
+                        <option value='cp863'    >cp863</option>
+                        <option value='cp865'    >cp865</option>
+                        <option value='cp866'    >cp866</option>
+                        <option value='cp1252'   >cp1252</option>
+                        <option value='shift_jis'>Shift JIS</option>
+                        <option value='gb2312'   >GB2312</option>
+                        <option value='big5'     >BIG5</option>
+                        <option value='korea'    >Korea</option>
+                    </select>
+                </dd>
+                <input class='subSend' type='button' value='Send' onclick='onSendCodePage()' />
+            </dl>
+
+            <dl>
+                <dt>Clear:</dt>
+                <dd>
+                    <select id='clear' class='displaySelect'>
+                        <option value='all' selected='selected'>All</option>
+                        <option value='delete_to_end_of_line'>Line</option>
+                    </select>
+                </dd>
+                <input class='subSend' type='button' value='Send' onclick='onSendClear()' />
+            </dl>
+
+        </dvi>
+
+        <dl>Extension Event Result:</dl>
+        <div>
+            <textarea id='textarea_response' style='width:98%; overflow:auto;' rows='10' cols='100' readonly='readonly'></textarea>
+        </div>
+        <div>
+            <input class='appendBtn' type='button' style='width:98%' value='Clear' onclick='onClearText()' />
+        </div>
+
+        <hr>
+
+        <dl>
+            <dt>Print sample</dt>
+        </dl>
+        <dl>
+            <dt>Paper Width:</dt>
+            <dd>
+                <select id='paperWidth'>
+                    <option value='inch2' selected='selected'>2 Inch</option>
+                    <option value='inch3'>3 Inch</option>
+                    <option value='inch4'>4 Inch</option>
+                </select>
+            </dd>
+        </dl>
+        <dl>
+            <dt>URL:</dt>
+            <ddurl>
+            <input id="printUrl" type="text" value="http://localhost:8001/StarWebPRNT/SendMessage"/></ddurl>
+        </dl>
+        <dl>
+            <dt>Paper Type:</dt>
+            <dd>
+                <select id='papertype'>
+                    <option value='' selected='selected'>-</option>
+                    <option value='normal'>Normal</option>
+                    <option value='black_mark'>Black Mark</option>
+                    <option value='black_mark_and_detect_at_power_on'>Black Mark and Detect at Power On</option>
+                </select>
+            </dd>
+        </dl>
+
+        <div>
+            <input type='button' id='sendBtnAscii' value='Print' style='width:98%; height:40px' onclick='onSendPrint()' />
+        </div>
+
+    </div>
+
+
+    </form>
+
+    <div class="to_top">
+        <a href="#global-header">Go to top</a>
+    </div>
+
+<footer id="global-footer" class="clearfix">
+    <a onclick='onReleaseAndBack({url:"http://www.star-m.jp/products/s_print/sdk_webprnt/manual/index.htm"})' target="_blank"><img src="images/footer-logo.png" width="123" alt="" id="footer-logo"></a>
+    <img src="images/footer-image.png"height="54" alt=""/>
+</footer>
+</body>
+</html>
