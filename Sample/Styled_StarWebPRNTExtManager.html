@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <!--
 //
-// StarWebPRNT Sample(Extension)
+// Star webPRNT Sample(Extension)
 //
 // Version 1.1.0
 //
@@ -49,13 +49,11 @@ function onConnect() {
             document.getElementById('printer_status').innerHTML = '-';
         }
 
-        var msg = '- onReceive -\n\n';
+        var msg = 'onReceive {\n';
+        msg += '\tManagerSuccess : [ ' + response.managerSuccess + ' ]\n';
+        msg += '\tManagerCode : [ '    + response.managerCode    + ' ]\n }';
 
-        msg += 'ManagerSuccess : [ ' + response.managerSuccess + ' ]\n';
-
-        msg += 'ManagerCode : [ ' + response.managerCode + ' ]\n';
-
-        alert(msg);
+        addExtensionResponse(msg);
 
         hideNowCommunicating();
     }
@@ -64,80 +62,78 @@ function onConnect() {
         document.getElementById('manager_state').innerHTML  = 'Not connected';
         document.getElementById('printer_status').innerHTML = '-';
 
-        var msg;
+        var msg = 'onError {\n';
+        msg += '\tStatus: '      + args.status       + '\n';
+        msg += '\tResponseText:' + args.responseText + '\n }';
 
-        msg = 'onError!'         + '\n';
-        msg += '  Status:'       + args.status + '\n';
-        msg += '  ResponseText:' + args.responseText;
-
-        alert(msg);
+        addExtensionResponse(msg);
 
         hideNowCommunicating();
     }
 
     manager.onBarcodeDataReceive      = function(args) {
-        addResponse('onBarcodeDataReceive');
+        addExtensionResponse('onBarcodeDataReceive');
 
         document.getElementById('textarea_readdata').value += decodeBase64ToString(args.data); // + " : " + (args.data);
         document.getElementById('textarea_readdata').scrollTop = document.getElementById('textarea_readdata').scrollHeight;
     }
     manager.onBarcodeReaderConnect    = function() {
-        addResponse('onBarcodeReaderConnect');
+        addExtensionResponse('event : onBarcodeReaderConnect');
     }
     manager.onBarcodeReaderDisconnect = function() {
-        addResponse('onBarcodeReaderDisconnect');
+        addExtensionResponse('event : onBarcodeReaderDisconnect');
     }
     manager.onBarcodeReaderImpossible = function() {
-        addResponse('onBarcodeReaderImpossible');
+        addExtensionResponse('event : onBarcodeReaderImpossible');
     }
     manager.onAccessoryDisconnect     = function() {
-        addResponse('onAccessoryDisconnect');
+        addExtensionResponse('event : onAccessoryDisconnect');
     }
     manager.onAccessoryConnectSuccess = function() {
-        addResponse('onAccessoryConnectSuccess');
+        addExtensionResponse('event : onAccessoryConnectSuccess');
     }
     manager.onAccessoryConnectFailure = function() {
-        addResponse('onAccessoryConnectFailure');
+        addExtensionResponse('event : onAccessoryConnectFailure');
     }
     manager.onPrinterImpossible       = function() {
-        addResponse('onPrinterImpossible');
+        addExtensionResponse('event : onPrinterImpossible');
     }
     manager.onPrinterOnline           = function() {
-        addResponse('onPrinterOnline');
+        addExtensionResponse('event : onPrinterOnline');
     }
     manager.onPrinterOffline          = function() {
-        addResponse('onPrinterOffline');
+        addExtensionResponse('event : onPrinterOffline');
     }
     manager.onPrinterPaperReady       = function() {
-        addResponse('onPrinterPaperReady');
+        addExtensionResponse('event : onPrinterPaperReady');
     }
     manager.onPrinterPaperNearEmpty   = function() {
-        addResponse('onPrinterPaperNearEmpty');
+        addExtensionResponse('event : onPrinterPaperNearEmpty');
     }
     manager.onPrinterPaperEmpty       = function() {
-        addResponse('onPrinterPaperEmpty');
+        addExtensionResponse('event : onPrinterPaperEmpty');
     }
     manager.onPrinterCoverOpen        = function() {
-        addResponse('onPrinterCoverOpen');
+        addExtensionResponse('event : onPrinterCoverOpen');
     }
     manager.onPrinterCoverClose       = function() {
-        addResponse('onPrinterCoverClose');
+        addExtensionResponse('event : onPrinterCoverClose');
     }
     manager.onCashDrawerOpen          = function() {
-        addResponse('onCashDrawerOpen');
+        addExtensionResponse('event : onCashDrawerOpen');
     }
     manager.onCashDrawerClose         = function() {
-        addResponse('onCashDrawerClose');
+        addExtensionResponse('event : onCashDrawerClose');
     }
     manager.onStatusUpdate            = function(args) {
-        addResponse('onStatusUpdate');
+        addExtensionResponse('event : onStatusUpdate');
 
         document.getElementById('printer_status').innerHTML = args.status;
     }
 
     var url = document.getElementById('url').value;
     if ( manager.connect({url:url}) == false ) {
-        alert("Already connected or Now communicating.");
+        addExtensionResponse("Already connected or Now communicating.");
         hideNowCommunicating();
     }
 
@@ -148,11 +144,11 @@ function onDisconnect() {
         showNowCommunicating();
     }
     else {
-        alert("Already disconnected");
+        addExtensionResponse("Already disconnected");
     }
 }
 
-function addResponse(response) {
+function addExtensionResponse(response) {
     date = new Date();
 
     hour = adjustDigitAlignment( date.getHours()       , 2);
@@ -165,6 +161,19 @@ function addResponse(response) {
     document.getElementById('textarea_response').scrollTop = document.getElementById('textarea_response').scrollHeight;
 }
 
+function addPrintResponse(response) {
+    date = new Date();
+
+    hour = adjustDigitAlignment( date.getHours()       , 2);
+    min  = adjustDigitAlignment( date.getMinutes()     , 2);
+    sec  = adjustDigitAlignment( date.getSeconds()     , 2);
+
+    time = hour + ':' + min + ':' + sec + '  ';
+
+    document.getElementById('textarea_print_response').value += time + response + '\n';
+    document.getElementById('textarea_print_response').scrollTop = document.getElementById('textarea_print_response').scrollHeight;
+}
+
 function adjustDigitAlignment(value, digitNum) {
     while (value.toString().length < digitNum) {
         value = '0' + value;
@@ -173,8 +182,12 @@ function adjustDigitAlignment(value, digitNum) {
 }
 
 function onClearText() {
-        document.getElementById('textarea_readdata').value = ('');
-        document.getElementById('textarea_response').value = ('');
+    document.getElementById('textarea_readdata').value = ('');
+    document.getElementById('textarea_response').value = ('');
+}
+
+function onClearPrintText() {
+        document.getElementById('textarea_print_response').value = ('');
 }
 
 function decodeBase64ToString(data) {
@@ -444,44 +457,48 @@ function sendMessage(request) {
     trader.onReceive = function (response) {
         hideNowCommunicating();
 
-        var msg = '- onReceive -\n\n';
+        var msg = 'onReceive {\n';
 
-        msg += 'TraderSuccess : [ ' + response.traderSuccess + ' ]\n';
+        msg += '\tTraderSuccess : [ ' + response.traderSuccess + ' ]\n';
 
 //      msg += 'TraderCode : [ ' + response.traderCode + ' ]\n';
 
-        msg += 'TraderStatus : [ ' + response.traderStatus + ',\n';
+        msg += '\tTraderStatus : [ ' + response.traderStatus + ',\n';
 
-        if (trader.isCoverOpen            ({traderStatus:response.traderStatus})) {msg += '\tCoverOpen,\n';}
-        if (trader.isOffLine              ({traderStatus:response.traderStatus})) {msg += '\tOffLine,\n';}
-        if (trader.isCompulsionSwitchClose({traderStatus:response.traderStatus})) {msg += '\tCompulsionSwitchClose,\n';}
-        if (trader.isEtbCommandExecute    ({traderStatus:response.traderStatus})) {msg += '\tEtbCommandExecute,\n';}
-        if (trader.isHighTemperatureStop  ({traderStatus:response.traderStatus})) {msg += '\tHighTemperatureStop,\n';}
-        if (trader.isNonRecoverableError  ({traderStatus:response.traderStatus})) {msg += '\tNonRecoverableError,\n';}
-        if (trader.isAutoCutterError      ({traderStatus:response.traderStatus})) {msg += '\tAutoCutterError,\n';}
-        if (trader.isBlackMarkError       ({traderStatus:response.traderStatus})) {msg += '\tBlackMarkError,\n';}
-        if (trader.isPaperEnd             ({traderStatus:response.traderStatus})) {msg += '\tPaperEnd,\n';}
-        if (trader.isPaperNearEnd         ({traderStatus:response.traderStatus})) {msg += '\tPaperNearEnd,\n';}
+        if (trader.isCoverOpen            ({traderStatus:response.traderStatus})) {msg += '\t\tCoverOpen,\n';}
+        if (trader.isOffLine              ({traderStatus:response.traderStatus})) {msg += '\t\tOffLine,\n';}
+        if (trader.isCompulsionSwitchClose({traderStatus:response.traderStatus})) {msg += '\t\tCompulsionSwitchClose,\n';}
+        if (trader.isEtbCommandExecute    ({traderStatus:response.traderStatus})) {msg += '\t\tEtbCommandExecute,\n';}
+        if (trader.isHighTemperatureStop  ({traderStatus:response.traderStatus})) {msg += '\t\tHighTemperatureStop,\n';}
+        if (trader.isNonRecoverableError  ({traderStatus:response.traderStatus})) {msg += '\t\tNonRecoverableError,\n';}
+        if (trader.isAutoCutterError      ({traderStatus:response.traderStatus})) {msg += '\t\tAutoCutterError,\n';}
+        if (trader.isBlackMarkError       ({traderStatus:response.traderStatus})) {msg += '\t\tBlackMarkError,\n';}
+        if (trader.isPaperEnd             ({traderStatus:response.traderStatus})) {msg += '\t\tPaperEnd,\n';}
+        if (trader.isPaperNearEnd         ({traderStatus:response.traderStatus})) {msg += '\t\tPaperNearEnd,\n';}
 
-        msg += '\tEtbCounter = ' + trader.extractionEtbCounter({traderStatus:response.traderStatus}).toString() + ' ]\n';
+        msg += '\t\tEtbCounter = ' + trader.extractionEtbCounter({traderStatus:response.traderStatus}).toString() + ' ]\n';
+
+        msg += ' }';
 
 //      msg += 'Status : [ ' + response.status + ' ]\n';
 //
 //      msg += 'ResponseText : [ ' + response.responseText + ' ]\n';
 
-        alert(msg);
+        addPrintResponse(msg);
     }
 
     trader.onError = function (response) {
         hideNowCommunicating();
 
-        var msg = '- onError -\n\n';
+        var msg = 'onError {\n';
 
         msg += '\tStatus:' + response.status + '\n';
 
-        msg += '\tResponseText:' + response.responseText;
+        msg += '\tResponseText:' + response.responseText + '\n';
 
-        alert(msg);
+        msg += ' }';
+
+        addPrintResponse(msg);
     }
 
     trader.sendMessage({request:request});
@@ -519,8 +536,8 @@ window.onload = function() {
 <body>
 
 <header id="global-header">
-<h1><a onclick='onReleaseAndBack({url:"A001.html"})'><img src="images/logo_01.png" alt="HOME" width="108" height="61"></a></h1>
-<div id="sub-logo"><a onclick='onReleaseAndBack({url:"http://www.star-m.jp/"})' target="_blank"><img src="images/logo_02.png" alt="" width="120" height="13"></a></div>
+<h1><a href="A001.html"><img src="images/logo_01.png" alt="HOME" width="108" height="61"></a></h1>
+<div id="sub-logo"><a href="http://www.star-m.jp/" target="_blank"><img src="images/logo_02.png" alt="" width="120" height="13"></a></div>
 </header>
 
 <section class="btmMg20">
@@ -626,6 +643,15 @@ window.onload = function() {
             <input type='button' id='sendBtnAscii' value='Print' style='width:98%; height:40px' onclick='onSendAscii()' />
         </div>
 
+        <dl>Print Result:</dl>
+        <div>
+            <textarea id='textarea_print_response' style='width:98%; overflow:auto;' rows='10' cols='100' readonly='readonly'></textarea>
+        </div>
+        <div>
+            <input class='appendBtn' type='button' style='width:98%' value='Clear' onclick='onClearPrintText()' />
+        </div>
+
+
     </div>
 
 
@@ -636,7 +662,7 @@ window.onload = function() {
     </div>
 
 <footer id="global-footer" class="clearfix">
-    <a onclick='onReleaseAndBack({url:"http://www.star-m.jp/products/s_print/sdk_webprnt/manual/index.htm"})' target="_blank"><img src="images/footer-logo.png" width="123" alt="" id="footer-logo"></a>
+    <a href="https://www.star-m.jp/starwebprnt-oml.html" target="_blank"><img src="images/footer-logo.png" width="123" alt="" id="footer-logo"></a>
     <img src="images/footer-image.png"height="54" alt=""/>
 </footer>
 </body>

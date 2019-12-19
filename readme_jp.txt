@@ -1,10 +1,10 @@
 ﻿************************************************************
-      Star WebPRNT SDK  -  Ver 1.5.0
+      Star webPRNT SDK  -  Ver 1.6.0
          Readme_Jp.txt                  スター精密（株）
 ************************************************************
 
  1. 概要
- 2. Ver 1.5.0 についての変更点
+ 2. Ver 1.6.0 についての変更点
  3. 内容
  4. 適用
  5. 制約事項
@@ -23,36 +23,29 @@
   レシート印刷が可能となります。また、プリンターを制御するためのドライバーやプ
   ラグインをインストールする必要もありません。
 
-  詳細な説明は、Users Manual(HTMLファイル)を参照ください。
-
+  詳細な説明は、Users Manualを参照ください。
+  Users Manual: https://www.star-m.jp/starwebprnt-oml.html
 
 ================================
- 2. Ver 1.5.0 についての変更点
+ 2. Ver 1.6.0 についての変更点
 ================================
 
- [SDK]
-  - Display機能をサポート
+  [SDK]
+   - 「StarWebPRNTTrader.js」と「StarWebPRNTExtManager.js」を、iOS WKWebviewに対応。
 
- [User's Manual]
-  - Display機能に関するリファレンスを追加
 
 ==========
  3. 内容
 ==========
 
-  StarWebPRNT_WebContents_V1.5.0
+  StarWebPRNT_WebContents_V1.6.0
   |
-  | Readme_En.txt                       // リリースノート(英語)
-  | Readme_Jp.txt                       // リリースノート(日本語)
-  | SoftwareLicenseAgreement.pdf        // ソフトウエア使用許諾書(英語)
-  | SoftwareLicenseAgreement_jp.pdf     // ソフトウエア使用許諾書(日本語)
-  |
-  +- UsersManual
-  |  |  jp                              // 説明資料(日本語)
-  |  +- en                              // 説明資料(英語)
-  |
-  +- Sample                             // WebPRNT用サンプルプログラム
-
+  |- Readme_En.txt                       // リリースノート(英語)
+  |- Readme_Jp.txt                       // リリースノート(日本語)
+  |- SoftwareLicenseAgreement.pdf        // ソフトウエア使用許諾書(英語)
+  |- SoftwareLicenseAgreement_Jp.pdf     // ソフトウエア使用許諾書(日本語)
+  |- Sample                              // Star webPRNT用サンプルプログラム
+  |- UsersManual                         // Users Manualへのショートカット
 
 =============
  4. 適用
@@ -78,7 +71,7 @@
        SP700            (Ethernet利用時: F/W Ver3.0以上)
 
     <Bluetoothをご使用の場合>
-      印刷するには、Star WebPRNT Browserが必要です。
+      印刷するには、Star webPRNT Browserが必要です。
       対応しているデバイスは注記の通りです。
 
         *1 iOSおよびAndroidデバイスにおいてサポートされています。
@@ -95,10 +88,10 @@
  5. 制約事項
 =============
   
-  1. Star WebPRNT BrowserでのStar Micronics Cloudレシートアップロード機能有効時の制約
+  1. Star webPRNT BrowserでのStar Micronics Cloudレシートアップロード機能有効時の制約
      レシートアップロード機能有効時、各<cutpaper>エレメントまでをひとつのレシート
      としてアップロードを行います。
-     １つのStarWebPRNT送信エレメント内に２つ以上の<cutpaper>エレメントを含める場合、
+     １つのStar webPRNT送信エレメント内に２つ以上の<cutpaper>エレメントを含める場合、
      ２つ目以降の各<cutpaper>エレメントの後は、印字では<alignment>エレメントで以前に
      設定した属性が左寄せにリセットされ、アップロードされるレシートでは<alignment>
      エレメントと<text>エレメントで以前に設定した属性がデフォルト値にリセットされます。
@@ -111,18 +104,26 @@
  6. 著作権
 ===========
 
-  スター精密（株）Copyright 2014-2018
+  スター精密（株）Copyright 2014-2019
 
 
 =============
  7. 更新履歴
 =============
 
+ Ver 1.6.0
+  2019/10/18 : [SDK]
+                 - 「StarWebPRNTTrader.js」と「StarWebPRNTExtManager.js」を、iOS WKWebviewに対応。
+
+ Ver 1.5.1
+  2019/04/10 : [SDK]
+                 - Star webPRNTブラウザーでのDisplay機能をサポート
+
  Ver 1.5.0
-  2018/09/11 :  [SDK]
+  2018/09/11 : [SDK]
                  - Display機能をサポート
 
-                [User's Manual]
+               [User's Manual]
                  - Display機能に関するリファレンスを追加
 
  Ver 1.4.1
@@ -199,14 +200,14 @@
 
  Ver 1.0.0 
   2014/12/12 : [SDK]
-                - iOS版Star WebPRNT Browserとの組合せ利用時に発生する事案に対す
+                - iOS版Star webPRNT Browserとの組合せ利用時に発生する事案に対す
                   るサンプルコード追加
                     事案1:印刷内容が全て表示される前に印刷ボタンを押すと、その
                           時点で表示された内容のみが印刷される
-                    事案2:印刷ボタンを連続して押下した場合に、iOS版Star WebPRNT
+                    事案2:印刷ボタンを連続して押下した場合に、iOS版Star webPRNT
                           Browserが強制終了することがある
                 - トップページの追加
-                - Star WebPRNT Browser iOSの使い方マニュアルを追加
+                - Star webPRNT Browser iOSの使い方マニュアルを追加
                 - 2inchレシート紙をサポート
                 - 全ての表示が完了してからwindows.onLoad関数によって表示させる
                   機能を追加
@@ -215,7 +216,7 @@
                   印刷ボタンの2度押しを防ぐ機能を追加
 
                [User's Manual]
-                - Star WebPRNT Browser iOSの使い方を追加
+                - Star webPRNT Browser iOSの使い方を追加
 
  Ver 0.3.0
   2014/01/15 : [SDK]

@@ -1,10 +1,10 @@
-************************************************************
-      Star WebPRNT SDK  -  Ver 1.5.0
+﻿************************************************************
+      Star webPRNT SDK  -  Ver 1.6.0
          Readme_En.txt             Star Micronics Co., Ltd.
 ************************************************************
 
  1. Overview
- 2. Ver 1.5.0 Changes
+ 2. Ver 1.6.0 Changes
  3. Contents
  4. Scope
  5. Remarks
@@ -23,34 +23,28 @@
   Using your web programming knowledge, you can control printer.
   No printer drivers or plug-ins are required.
 
+  See the Users Manual for detailed information.
+  Users Manual: https://www.star-m.jp/starwebprnt-oml.html
 
 =======================
- 2. Ver 1.5.0 Changes
+ 2. Ver 1.6.0 Changes
 =======================
   
   [SDK]
-   - Added display control function.
-
-  [User's Manual]
-   - Added reference related with display control function.
+   - "StarWebPRNTTrader.js" and "StarWebPRNTExtManager.js" have been updated to accommodate iOS WKWebview.
 
 =============
  3. Contents
 =============
 
-  StarWebPRNT_WebContents_V1.5.0
+  StarWebPRNT_WebContents_V1.6.0
   |
-  | Readme_En.txt                       // Release Note(English)
-  | Readme_Jp.txt                       // Release Note(Japanese)
-  | SoftwareLicenseAgreement.pdf        // Software License Agreement(English)
-  | SoftwareLicenseAgreement_jp.pdf     // Software License Agreement(Japanese)
-  |
-  +- UsersManual
-  |  |  jp                              // Master help file(English)
-  |  +- en                              // Master help file(Japanese)
-  |
-  +- Sample                             // WebPRNT sample program
-
+  |- Readme_En.txt                       // Release Note(English)
+  |- Readme_Jp.txt                       // Release Note(Japanese)
+  |- SoftwareLicenseAgreement.pdf        // Software License Agreement(English)
+  |- SoftwareLicenseAgreement_Jp.pdf     // Software License Agreement(Japanese)
+  |- Sample                              // Star webPRNT sample program
+  |- UsersManual                         // Shortcut to User Manual
 
 =================
  4. Scope
@@ -76,7 +70,7 @@
        SP700            (Ethernet: Ver3.0 or later)
 
        <Notification of Bluetooth I/F>
-         To print data, "Star WebPRNT Browser" is required.
+         To print data, "Star webPRNT Browser" is required.
            *1: Support both iOS and Android devices.
 
   [Interface Card]
@@ -90,10 +84,10 @@
   5. Remarks
 =============
 
-  1. Limitations when Star Micronics Cloud receipt uploading function is enabled on the Star WebPRNT Browser
+  1. Limitations when Star Micronics Cloud receipt uploading function is enabled on the Star webPRNT Browser
      The receipt content until each <cutpaper> element will be uploaded as
      one receipt.
-     If you include more than one <cutpaper> element in one StarWebPRNT
+     If you include more than one <cutpaper> element in one Star webPRNT
      request element, on and from the second <cutpaper> element,
      the previously set attributes for <alignment> element will be reset
      and left-aligned in the printing and the previously set attributes for
@@ -108,12 +102,20 @@
  6. Copyright
 ==============
 
-  Copyright 2014-2018 Star Micronics Co., Ltd. All rights reserved.
+  Copyright 2014-2019 Star Micronics Co., Ltd. All rights reserved.
 
 
 ====================
  7. Release History
 ====================
+
+ Ver 1.6.0
+ 10/18/2019   : [SDK]
+                 - "StarWebPRNTTrader.js" and "StarWebPRNTExtManager.js" have been updated to accommodate iOS WKWebview.
+
+ Ver 1.5.1
+ 04/10/2019   : [SDK]
+                 - Added display control function in Star webPRNT browser.
 
  Ver 1.5.0
  11/09/2018   : [SDK]
@@ -144,7 +146,7 @@
                  - Added setup manual for Star Micronics Cloud.
 
                 [User's Manual]
-                 - Added a list of Star WebPRNT request elements supporting receipt upload function.
+                 - Added a list of Star webPRNT request elements supporting receipt upload function.
 
                 [Readme]
                  - Added IFBD-HI01X/HI02X to the supported interface card.
@@ -194,7 +196,7 @@
  Ver 1.0.0
  12/12/2014   : [SDK]
                 - Added top-page
-                - Added how to use "Star WebPRNT Browser for iOS"
+                - Added how to use "Star webPRNT Browser for iOS"
                 - Support 2inch receipt printing
                 - Added the function that contents should be hidden by default
                   and be displayed by window.onLoad function after all contents
@@ -205,7 +207,7 @@
                   double-pressing of a print button.
 
                 [User's Manual]
-                - Added how to use "Star WebPRNT Browser for iOS"
+                - Added how to use "Star webPRNT Browser for iOS"
 
  Ver 0.3.0
  01/15/2014   : [SDK]

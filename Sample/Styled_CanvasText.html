@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <!--
 //
-// StarWebPRNT Sample(Canvas Handwriting)
+// Star webPRNT Sample(Canvas Text)
 //
 // Version 1.2.0
 //
@@ -13,7 +13,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="Expires" content="86400">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
-<title>StarWebPRNT Sample(Canvas Text)</title>
+<title>Star webPRNT Sample(Canvas Text)</title>
 
 <link href="css/import.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="style.css" media="screen">
@@ -136,15 +136,22 @@ function onSendMessage() {
     }
 
     trader.onError = function (response) {
-        hideNowPrinting();
-
         var msg = '- onError -\n\n';
 
         msg += '\tStatus:' + response.status + '\n';
 
-        msg += '\tResponseText:' + response.responseText;
+        msg += '\tResponseText:' + response.responseText + '\n\n';
 
-        alert(msg);
+        msg += 'Do you want to retry?\n';
+
+        var answer = confirm(msg);
+
+        if (answer) {
+            onSendMessage();
+        }
+        else {
+            hideNowPrinting();
+        }
     }
 
     try {
@@ -278,7 +285,7 @@ window.onload = function() {
 				<dl>
 					<dt>Text</dt>
 					<dd>:
-                    <input id='text' type='text' size='30' value='Hello, StarWebPRNT.' /></dd>
+                    <input id='text' type='text' size='30' value='Hello, Star webPRNT.' /></dd>
 				</dl>
 				<dl>
 					<dt>Position</dt>
@@ -334,7 +341,7 @@ window.onload = function() {
         <a href="#global-header">Go to top</a>
     </div>
 <footer id="global-footer" class="clearfix">
-	<a href="http://www.star-m.jp/products/s_print/sdk_webprnt/manual/index.htm" target="_blank"><img src="images/footer-logo.png" width="123" alt="" id="footer-logo"></a>
+	<a href="https://www.star-m.jp/starwebprnt-oml.html" target="_blank"><img src="images/footer-logo.png" width="123" alt="" id="footer-logo"></a>
     <img src="images/footer-image.png"height="54" alt=""/>
 </footer>
 
