@@ -20,3 +20,7 @@ StarWebPrintExtManager.prototype._clearClaimId=function(){this.claimId=0;this.is
 StarWebPrintExtManager.prototype._sendExtMessage=function(a){a.isNeedExternalCallBack&&("write"==a.requestType?this.isWaitWriteCallback=!0:this.isWaitCallback=!0);var d="<extmanager ";"claim"==a.requestType||"read"==a.requestType||"write"==a.requestType?(d+='request_type="'+a.requestType+'" ',"claim"==a.requestType&&(d+='polling_timeout="'+this._getPollingTimeout()+'" ')):d+='request_type="release" ';0!=this.claimId&&(d+='claimid="'+this.claimId+'" ');d+=">";"write"==a.requestType&&void 0!=a.request&&
 (d+=a.request);var d=d+"</extmanager>",e=new StarWebPrintTrader,b=this,f=this._getPollingTimeout(),g="write"==a.requestType;g?(e.onReceive=function(c){c=b._analyzeXml(c,g);if(a.isNeedExternalCallBack||"false"==c.managerSuccess){if(void 0!=b.onReceive)b.onReceive(c);b.isWaitWriteCallback=!1}},e.onError=function(a){b.isWaitWriteCallback=!1;b._clearClaimId();if(void 0!=b.onError)b.onError(a)}):(e.onReceive=function(c){c=b._analyzeXml(c,g);if(a.isNeedExternalCallBack||"false"==c.managerSuccess){if(void 0!=
 b.onReceive)b.onReceive(c);b.isWaitCallback=!1}b.isPolling&&b._waitCallPolling()},e.onError=function(a){b.isWaitCallback=!1;b._clearClaimId();if(void 0!=b.onError)b.onError(a)});e.sendMessage({url:this.url,request:d,timeout:f})};
+
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = StarWebPrintExtManager;
+}

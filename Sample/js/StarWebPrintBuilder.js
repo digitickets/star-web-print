@@ -29,3 +29,7 @@ StarWebPrintBuilder.prototype._encodeBase64Binary=function(b){var a="",d=b.lengt
 StarWebPrintBuilder.prototype._encodeRasterImage=function(b,a,d){for(var e=[[-254,-126,-222,-94,-246,-118,-214,-86],[-62,-190,-30,-158,-54,-182,-22,-150],[-206,-78,-238,-110,-198,-70,-230,-102],[-14,-142,-46,-174,-6,-134,-38,-166],[-242,-114,-210,-82,-250,-122,-218,-90],[-50,-178,-18,-146,-58,-186,-26,-154],[-194,-66,-226,-98,-202,-74,-234,-106],[-2,-130,-34,-162,-10,-138,-42,-170]],c="",f=0,g=0;g<d;g++){for(var h=0,k=128,l=0;l<a;l++)if(((30*b[f]+59*b[f+1]+11*b[f+2])*b[f+3]+12800)/25500-b[f+3]<e[g&
 7][l&7]&&(h|=k),f+=4,0==(k>>=1))c+=String.fromCharCode(h),h=0,k=128;128!=k&&(c+=String.fromCharCode(h))}b=c;c="";a=b.length;b+="\x00\x00";for(g=0;g<a;g+=3)d=b.charCodeAt(g)<<16|b.charCodeAt(g+1)<<8|b.charCodeAt(g+2),c+="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".charAt(d>>18&63)+"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".charAt(d>>12&63)+"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".charAt(d>>6&63)+"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".charAt(d&
 63);switch(a%3){case 1:return c.slice(0,-2)+"==";case 2:return c.slice(0,-1)+"="}return c};
+
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = StarWebPrintBuilder;
+}

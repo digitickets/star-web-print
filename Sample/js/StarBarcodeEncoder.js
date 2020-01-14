@@ -34,3 +34,7 @@ c=a.data;if(0==c.length)throw Error("Data length is invalid.");if(c.match(/[^\x0
 a+=String.fromCharCode(47);d="";for(b=0;b<a.length;b++)d+=e[a.charCodeAt(b)];return d+"1"};
 StarBarcodeEncoder.prototype.createNW7=function(a){var f="    NnWwNnNn       NnWnWnWn  NnNwWnNn WnWnWnNn WnWnNnWn NnNnNwWn NnNnWwNn NnNwNnWn WwNnNnNn NnWnNwNn WnNnNwNn NwNnNnWn NwNnWnNn NwWnNnNn WnNwNnNn WnNnWnWn       NnWwNwNn NwNwNnWn NnNwNwWn NnNwWwNn                             NnWwNwNn NwNwNnWn NnNwNwWn NnNwWwNn".split(" ");a=a.data;if(0==a.length)throw Error("Data length is invalid.");if(a.match(/[^\$\+\-\.\/0-9\:A-Da-d]/g))throw Error("Data is invalid.");for(var e="",c=0;c<a.length;c++)e+=
 f[a.charCodeAt(c)-32];return e.slice(0,-1)};
+
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = StarBarcodeEncoder;
+}

@@ -20,3 +20,7 @@ StarWebPrintTrader.prototype.isHighTemperatureStop=function(a){return parseInt(a
 StarWebPrintTrader.prototype.isPaperEnd=function(a){return parseInt(a.traderStatus.substr(10,2),16)&8?!0:!1};StarWebPrintTrader.prototype.isPaperNearEnd=function(a){return parseInt(a.traderStatus.substr(10,2),16)&4?!0:!1};
 StarWebPrintTrader.prototype.extractionEtbCounter=function(a){var b=0;parseInt(a.traderStatus.substr(14,2),16)&64&&(b|=16);parseInt(a.traderStatus.substr(14,2),16)&32&&(b|=8);parseInt(a.traderStatus.substr(14,2),16)&8&&(b|=4);parseInt(a.traderStatus.substr(14,2),16)&4&&(b|=2);parseInt(a.traderStatus.substr(14,2),16)&2&&(b|=1);return b};
 StarWebPrintTrader.prototype._encodeEscapeSequence=function(a){var b=/[<>&]/g;b.test(a)&&(a=a.replace(b,function(a){switch(a){case "<":return"&lt;";case ">":return"&gt;"}return"&amp;"}));return a};
+
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = StarWebPrintTrader;
+}
