@@ -1,18 +1,12 @@
 {
   "name": "digitickets.star-web-print",
-  "version": "1.5.0",
+  "version": "1.6.0.1",
   "homepage": "http://www.starmicronics.com/support/sdkdocumentation.aspx",
   "authors": [
     "Star Micronics"
   ],
   "description": "Javascript library for printing to Star Micronics printers supporting the WebPRNT interface.",
-  "main": [
-    "Sample/js/StarBarcodeEncoder.js",
-    "Sample/js/StarWebPrintBuilder.js",
-    "Sample/js/StarWebPrintDisplayBuilder.js",
-    "Sample/js/StarWebPrintExtManager.js",
-    "Sample/js/StarWebPrintTrader.js"
-  ],
+  "main": "main.js",
   "keywords": [
     "javascript",
     "Star",
