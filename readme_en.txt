@@ -1,10 +1,10 @@
 ﻿************************************************************
-      Star webPRNT SDK  -  Ver 1.6.0
+      Star webPRNT SDK  -  Ver 1.7.0
          Readme_En.txt             Star Micronics Co., Ltd.
 ************************************************************
 
  1. Overview
- 2. Ver 1.6.0 Changes
+ 2. Ver 1.7.0 Changes
  3. Contents
  4. Scope
  5. Remarks
@@ -27,17 +27,17 @@
   Users Manual: https://www.star-m.jp/starwebprnt-oml.html
 
 =======================
- 2. Ver 1.6.0 Changes
+ 2. Ver 1.7.0 Changes
 =======================
   
   [SDK]
-   - "StarWebPRNTTrader.js" and "StarWebPRNTExtManager.js" have been updated to accommodate iOS WKWebview.
+   - Added hold print function for TSP650IISK.
 
 =============
  3. Contents
 =============
 
-  StarWebPRNT_WebContents_V1.6.0
+  StarWebPRNT_WebContents_V1.7.0
   |
   |- Readme_En.txt                       // Release Note(English)
   |- Readme_Jp.txt                       // Release Note(Japanese)
@@ -61,6 +61,7 @@
 
        FVP10            (Ethernet: Ver1.5 or later, Bluetooth: Ver2.0 or later)  (*1)
        TSP650II         (Ethernet: Ver1.2 or later, Bluetooth: Ver1.0 or later)  (*1)
+       TSP650IISK       (Ver1.0 or later)    (*1)
        TSP700II         (Ethernet: Ver4.1 or later, Bluetooth: Ver5.0 or later)  (*1)
        TSP800II         (Ethernet: Ver1.6 or later, Bluetooth: Ver2.0 or later)  (*1)
        mPOP             (Ver1.0 or later)    (*1)
@@ -74,8 +75,8 @@
            *1: Support both iOS and Android devices.
 
   [Interface Card]
-       Ethernet:  IFBD-HE07X/HE08X/BE07X    (Ver3.1.0 or later)
-                  IFBD-HI01X                (Ver1.1.0 or later)
+       Ethernet:  IFBD-HE07X/HE08X/BE07X    (TSP650IISK: Ver5.1.0 or later, Others: Ver3.1.0 or later)
+                  IFBD-HI01X                (TSP650IISK: Ver1.9.0 or later, Others: Ver1.1.0 or later)
                   IFBD-HI02X                (Ver1.2.0 or later)
        Bluetooth: IFBD-HB03/HB04            (Ver1.0 or later)
                   IFBD-HB05/HB06/BB05       (Ver4.1 or later)
@@ -102,12 +103,16 @@
  6. Copyright
 ==============
 
-  Copyright 2014-2019 Star Micronics Co., Ltd. All rights reserved.
+  Copyright 2013 Star Micronics Co., Ltd. All rights reserved.
 
 
 ====================
  7. Release History
 ====================
+
+ Ver 1.7.0
+ 06/17/2020   : [SDK]
+                 - Added hold print function for TSP650IISK.
 
  Ver 1.6.0
  10/18/2019   : [SDK]

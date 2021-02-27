@@ -9,6 +9,5 @@ A GitHub copy of the Star Micronics Web Print code found at http://www.starmicro
 
 # Versioning
 
-As of writing this README, the version of the package from Star Micronics is `1.6.0`. But as we had previously published
-this package to the NPM registry, we cannot use `1.6.0+1`, so, `1.6.0` will be released as `1.6.1`, but future versions
-will be released using Star's own version number with the `+1` metadata suffix.
+To allow for ease of upgrading, we take the standard package supplied by Star Micronics, add support for CommonJS module
+format, and repackage it with a `+1` version. So, if the official version is `v1.7.0`, our version is `v1.7.0+1`.

@@ -385,6 +385,21 @@ function onAppendSound() {
     }
 }
 
+function onAppendHoldPrint() {
+    try {
+        var type = document.getElementById('holdPrintType').value;
+
+        request += builder.createHoldPrintElement({type:type});
+
+        sampleCode += 'request += builder.createHoldPrintElement({type:\'' + type + '\')});\n';
+
+        updateSampleCode();
+    }
+    catch (e) {
+        alert(e.message);
+    }
+}
+
 function onAppendRawData() {
     try {
         var data = document.getElementById('rawdataData').value;
@@ -471,10 +486,12 @@ function onSendMessage() {
     updateSampleCode();
 
 	showNowPrinting();
-    var url              = document.getElementById('url').value;
-    var papertype        = document.getElementById('papertype').value;
+    var url               = document.getElementById('url').value;
+    var papertype         = document.getElementById('papertype').value;
+    var timeout           = document.getElementById('timeout').value;
+    var holdprint_timeout = document.getElementById('holdprint_timeout').value;
 
-    var trader = new StarWebPrintTrader({url:url, papertype:papertype});
+    var trader = new StarWebPrintTrader({url:url, papertype:papertype, timeout:timeout, holdprint_timeout:holdprint_timeout});
 
     trader.onReceive = function (response) {
         hideNowPrinting();
@@ -483,7 +500,7 @@ function onSendMessage() {
 
         msg += 'TraderSuccess : [ ' + response.traderSuccess + ' ]\n';
 
-//      msg += 'TraderCode : [ ' + response.traderCode + ' ]\n';
+        msg += 'TraderCode : [ ' + response.traderCode + ' ]\n';
 
         msg += 'TraderStatus : [ ' + response.traderStatus + ',\n';
 
@@ -497,6 +514,7 @@ function onSendMessage() {
         if (trader.isBlackMarkError       ({traderStatus:response.traderStatus})) {msg += '\tBlackMarkError,\n';}
         if (trader.isPaperEnd             ({traderStatus:response.traderStatus})) {msg += '\tPaperEnd,\n';}
         if (trader.isPaperNearEnd         ({traderStatus:response.traderStatus})) {msg += '\tPaperNearEnd,\n';}
+        if (trader.isPaperPresent         ({traderStatus:response.traderStatus})) {msg += '\tPaperPresent,\n';}
 
         msg += '\tEtbCounter = ' + trader.extractionEtbCounter({traderStatus:response.traderStatus}).toString() + ' ]\n';
 
@@ -1077,6 +1095,20 @@ window.onload = function() {
 				</dl>
 				<div class="appendBlock"><input class="appendBtn" type='button' value='Append' onclick='onAppendUnitFeed()' /></div>
 
+            <hr>
+            <h4 class="clearfix">Hold Print</h4>
+                <dl>
+                    <dt>Type</dt>
+                    <dd>:
+                        <select id='holdPrintType'>
+                            <option value='default' selected='selected'>default</option>
+                            <option value='valid'  >valid</option>
+                            <option value='invalid'>invalid</option>
+                        </select>
+                    </dd>
+                   
+                </dl>
+                <div class="appendBlock"><input class="appendBtn" type='button' value='Append' onclick='onAppendHoldPrint()' /></div>
 
 			<hr>
 			<h4 class="clearfix">Cut Paper</h4>
@@ -1140,7 +1172,6 @@ window.onload = function() {
 				</dl>
 				<div class="appendBlock"><input class="appendBtn" type='button' value='Append' onclick='onAppendSound()' /></div>
 
-
 			<hr>
 			<h4 class="clearfix">Raw Data</h4>
 				<dl>
@@ -1177,8 +1208,28 @@ window.onload = function() {
                             <option value='black_mark_and_detect_at_power_on'>Black Mark and Detect at Power On</option>
                         </select>
                     </dd>
-                </dl>
 
+                    <dt>Timeout</dt>
+                    <dd>:
+                        <select id='timeout'>
+                            <option value='30000'>30 sec</option>
+                            <option value='60000'>60 sec</option>
+                            <option value='90000' selected='selected'>90 sec</option>
+                            <option value='12000'>120 sec</option>
+                            <option value='18000'>180 sec</option>
+                        </select>
+                    </dd>
+
+                    <dt>HoldPrintTimeout</dt>
+                    <dd>:
+                        <select id='holdprint_timeout'>
+                            <option value='10000' selected='selected'>10 sec</option>
+                            <option value='15000'>15 sec</option>
+                            <option value='20000'>20 sec</option>
+                            <option value='30000'>30 sec</option>
+                        </select>
+                    </dd>
+                </dl>
                 <div class="appendBlock"><input id="sendBtn" type="button" value="Send" onclick="onSendMessage()" /></div>
 
             <hr>
