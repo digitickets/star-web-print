@@ -6,3 +6,8 @@
 		position:fixed;
 	}
 }
+
+#smcs_image{
+	height: 28px;
+	vertical-align: middle;
+}

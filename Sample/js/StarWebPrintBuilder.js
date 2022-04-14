@@ -1,7 +1,7 @@
 //
 // StarWebPrintBuilder API
 //
-// Version 1.1.0
+// Version 1.2.0
 //
 // Copyright 2012 STAR MICRONICS CO., LTD. All Rights Reserved.
 //
@@ -19,6 +19,8 @@ return a+="</pdf417>"};StarWebPrintBuilder.prototype.createPeripheralElement=fun
 StarWebPrintBuilder.prototype.createQrCodeElement=function(b){var a;if(void 0!=b){a="<qrcode"+this._analysisEnumAttribute("model",b.model,/^(model[12])$/);a+=this._analysisEnumAttribute("level",b.level,/^(level_[lmqh])$/);a+=this._analysisValueAttribute("cell",b.cell,1,8);if(void 0==b.data)throw Error('Argument "data" is undefined.');a=a+">"+this._encodeEscapeSequenceBinary(b.data)}else throw Error("Argument is undefined.");return a+="</qrcode>"};
 StarWebPrintBuilder.prototype.createRawDataElement=function(b){if(void 0!=b){if(void 0==b.data)throw Error('Argument "data" is undefined.');b="<rawdata>"+this._encodeBase64Binary(b.data)}else throw Error("Argument is undefined.");return b+"</rawdata>"};
 StarWebPrintBuilder.prototype.createRuledLineElement=function(b){var a="<ruledline";void 0!=b&&(a+=this._analysisEnumAttribute("thickness",b.thickness,/^(thin|medium|thick|double_(thin|medium|thick))$/),a+=this._analysisValueAttribute("width",b.width,1,65535));return a+"/>"};StarWebPrintBuilder.prototype.createSoundElement=function(b){var a="<sound";void 0!=b&&(a+=this._analysisValueAttribute("channel",b.channel,1,2),a+=this._analysisValueAttribute("repeat",b.repeat,1,20));return a+"/>"};
+StarWebPrintBuilder.prototype.createSoundWithSettingElement=function(b){var a="<sound_with_setting";if(void 0!=b){if(void 0!=b.sound_storage_area&&void 0==b.sound_number||void 0==b.sound_storage_area&&void 0!=b.sound_number)throw Error("Only one of sound_storage_area and sound_number was set.");a+=this._analysisValueAttribute("sound_storage_area",b.sound_storage_area,1,2);a+=this._analysisValueAttribute("sound_number",b.sound_number,0,7);a+=this._analysisEnumAttribute("volume",b.volume,/^(volume(0|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|_off|_min|_max))$/)}return a+
+"/>"};
 StarWebPrintBuilder.prototype.createTextElement=function(b){var a;if(void 0!=b)a="<text"+this._analysisEnumAttribute("emphasis",b.emphasis,/^(false|true)$/),a+=this._analysisEnumAttribute("invert",b.invert,/^(false|true)$/),a+=this._analysisEnumAttribute("linespace",b.linespace,/^(24|32)$/),a+=this._analysisEnumAttribute("font",b.font,/^(font_[ab])$/),a+=this._analysisEnumAttribute("underline",b.underline,/^(false|true)$/),a+=this._analysisValueAttribute("characterspace",b.characterspace,0,7),a+=
 this._analysisValueAttribute("width",b.width,1,6),a+=this._analysisValueAttribute("height",b.height,1,6),a+=this._analysisEnumAttribute("codepage",b.codepage,/^(cp(437|737|772|774|851|852|855|857|858|860|861|862|863|864|865|866|869|874|928|932|998|999|1001|1250|1251|1252|2001|3001|3002|3011|3012|3021|3041|3840|3841|3843|3844|3845|3846|3847|3848)|utf8|blank|utf8|shift_jis|gb18030|gb2312|big5|korea)$/),a+=this._analysisEnumAttribute("international",b.international,/^(usa|france|germany|uk|denmark|sweden|italy|spain|japan|norway|denmark2|spain2|latin_america|korea|ireland|legal)$/),
 void 0!=b.data?(a+=">",a=!0==b.binary?a+this._encodeEscapeSequenceBinary(b.data):a+this._encodeEscapeSequence(b.data),a+="</text>"):a+="/>";else throw Error("Argument is undefined.");return a};StarWebPrintBuilder.prototype.createHoldPrintElement=function(b){var a="<holdprint";void 0!=b&&(a+=this._analysisEnumAttribute("type",b.type,/^(valid|invalid|default)$/));return a+"/>"};

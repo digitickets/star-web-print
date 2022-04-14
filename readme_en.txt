@@ -1,10 +1,10 @@
 ﻿************************************************************
-      Star webPRNT SDK  -  Ver 1.7.0
+      Star webPRNT SDK  -  Ver 1.8.0
          Readme_En.txt             Star Micronics Co., Ltd.
 ************************************************************
 
  1. Overview
- 2. Ver 1.7.0 Changes
+ 2. Ver 1.8.0 Changes
  3. Contents
  4. Scope
  5. Remarks
@@ -27,17 +27,24 @@
   Users Manual: https://www.star-m.jp/starwebprnt-oml.html
 
 =======================
- 2. Ver 1.7.0 Changes
+ 2. Ver 1.8.0 Changes
 =======================
   
   [SDK]
-   - Added hold print function for TSP650IISK.
+   - Added Melody Speaker (mC-Sound) sounding function in Star webPRNT browser.   
+
+  [User's Manual] 
+   - Added TSP100IV. 
+   - Added a reference for Melody Speaker (mC-Sound) sounding function. 
+   - The request elements of the receipt upload function related to Star Micronics
+     Cloud Service was removed. 
+
 
 =============
  3. Contents
 =============
 
-  StarWebPRNT_WebContents_V1.7.0
+  StarWebPRNT_WebContents_V1.8.0
   |
   |- Readme_En.txt                       // Release Note(English)
   |- Readme_Jp.txt                       // Release Note(Japanese)
@@ -65,14 +72,15 @@
        TSP700II         (Ethernet: Ver4.1 or later, Bluetooth: Ver5.0 or later)  (*1)
        TSP800II         (Ethernet: Ver1.6 or later, Bluetooth: Ver2.0 or later)  (*1)
        mPOP             (Ver1.0 or later)    (*1)
-       mC-Print2        (Ver1.0 or later)    (*1)
-       mC-Print3        (Ver1.0 or later)    (*1)
-
+       mC-Print2        (Ethernet/Bluetooth/USB: Ver1.0 or later)    (*1)
+       mC-Print3        (Ethernet/Bluetooth/USB: Ver1.0 or later)    (*1)
+       TSP100IV         (Ethernet/USB: Ver1.0 or later)    (*2)
        SP700            (Ethernet: Ver3.0 or later)
 
-       <Notification of Bluetooth I/F>
+       <Notification of Bluetooth/USB I/F>
          To print data, "Star webPRNT Browser" is required.
            *1: Support both iOS and Android devices.
+           *2: Support Android devices.
 
   [Interface Card]
        Ethernet:  IFBD-HE07X/HE08X/BE07X    (TSP650IISK: Ver5.1.0 or later, Others: Ver3.1.0 or later)
@@ -85,19 +93,6 @@
   5. Remarks
 =============
 
-  1. Limitations when Star Micronics Cloud receipt uploading function is enabled on the Star webPRNT Browser
-     The receipt content until each <cutpaper> element will be uploaded as
-     one receipt.
-     If you include more than one <cutpaper> element in one Star webPRNT
-     request element, on and from the second <cutpaper> element,
-     the previously set attributes for <alignment> element will be reset
-     and left-aligned in the printing and the previously set attributes for
-     <alignment> and <text> elements will be reset to default values in the
-     uploaded receipts.
-     If you need to continually reflect the attributes set prior to the
-     <cutpaper> element, please send again <alignment> and <text> elements
-     which have your desired attributes, in addition to the <cutpaper> element.
-
 
 ==============
  6. Copyright
@@ -109,6 +104,16 @@
 ====================
  7. Release History
 ====================
+
+ Ver 1.8.0
+ 10/29/2021   : [SDK] 
+                 - Added Melody Speaker (mC-Sound) sounding function in Star webPRNT browser.   
+
+                [User's Manual] 
+                 - Added TSP100IV. 
+                 - Added a reference for Melody Speaker (mC-Sound) sounding function. 
+                 - The request elements of the receipt upload function related to Star Micronics
+                   Cloud Service was removed. 
 
  Ver 1.7.0
  06/17/2020   : [SDK]

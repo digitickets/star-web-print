@@ -1,10 +1,10 @@
-﻿﻿************************************************************
-      Star webPRNT SDK  -  Ver 1.7.0
+************************************************************
+      Star webPRNT SDK  -  Ver 1.8.0
          Readme_Jp.txt                  スター精密（株）
 ************************************************************
 
  1. 概要
- 2. Ver 1.7.0 についての変更点
+ 2. Ver 1.8.0 についての変更点
  3. 内容
  4. 適用
  5. 制約事項
@@ -27,18 +27,23 @@
   Users Manual: https://www.star-m.jp/starwebprnt-oml.html
 
 ================================
- 2. Ver 1.7.0 についての変更点
+ 2. Ver 1.8.0 についての変更点
 ================================
 
   [SDK]
-   - 用紙保持制御機能を追加。（TSP650IISK※)
-     ※日本国内では販売していません。
+   - Star webPRNTブラウザーでメロディースピーカー(mC-Sound)鳴動機能をサポート
+  
+  [User's Manual]
+   - TSP100IVを追加
+   - メロディースピーカー(mC-Sound)鳴動機能に関するリファレンスを追加
+   - スター精密クラウドサービスに関連するレシートアップロード機能の送信エレメントを削除
+
 
 ==========
  3. 内容
 ==========
 
-  StarWebPRNT_WebContents_V1.7.0
+  StarWebPRNT_WebContents_V1.8.0
   |
   |- Readme_En.txt                       // リリースノート(英語)
   |- Readme_Jp.txt                       // リリースノート(日本語)
@@ -65,16 +70,18 @@
        TSP700II         (Ethernet利用時: F/W Ver4.1以上, Bluetooth利用時: F/W Ver5.0以上)  (*1)
        TSP800II         (Ethernet利用時: F/W Ver1.6以上, Bluetooth利用時: F/W Ver2.0以上)  (*1)
        mPOP             (F/W Ver1.0以上)    (*1)
-       mC-Print2        (F/W Ver1.0以上）   (*1)
-       mC-Print3        (F/W Ver1.0以上）   (*1)
+       mC-Print2        (Ethernet/Bluetooth/USB利用時:F/W Ver1.0以上)    (*1)
+       mC-Print3        (Ethernet/Bluetooth/USB利用時:F/W Ver1.0以上)    (*1)
+       TSP100IV         (Ethernet/USB利用時:F/W Ver1.0以上)              (*2)
 
        SP700            (Ethernet利用時: F/W Ver3.0以上)
 
-    <Bluetoothをご使用の場合>
+    <Bluetooth/USBをご使用の場合>
       印刷するには、Star webPRNT Browserが必要です。
       対応しているデバイスは注記の通りです。
 
         *1 iOSおよびAndroidデバイスにおいてサポートされています。
+        *2 Androidデバイスにおいてサポートされています。
 
   ◇ 対応インターフェースカード
        Ethernet:  IFBD-HE07X/HE08X/BE07X    (Ver3.1.0以上)
@@ -87,17 +94,6 @@
 =============
  5. 制約事項
 =============
-  
-  1. Star webPRNT BrowserでのStar Micronics Cloudレシートアップロード機能有効時の制約
-     レシートアップロード機能有効時、各<cutpaper>エレメントまでをひとつのレシート
-     としてアップロードを行います。
-     １つのStar webPRNT送信エレメント内に２つ以上の<cutpaper>エレメントを含める場合、
-     ２つ目以降の各<cutpaper>エレメントの後は、印字では<alignment>エレメントで以前に
-     設定した属性が左寄せにリセットされ、アップロードされるレシートでは<alignment>
-     エレメントと<text>エレメントで以前に設定した属性がデフォルト値にリセットされます。
-     <cutpaper>エレメント以前に設定していた属性を引き続き反映したい場合、<cutpaper>
-     エレメントに続けて、所望の属性を含む<alignment>エレメントと<text>エレメントを
-     再度送信ください。
 
 
 ===========
@@ -110,6 +106,15 @@
 =============
  7. 更新履歴
 =============
+
+ Ver 1.8.0
+  2021/10/29 : [SDK]
+                 - Star webPRNTブラウザーでメロディースピーカー(mC-Sound)鳴動機能をサポート
+  
+               [User's Manual]
+                 - TSP100IVを追加
+                 - メロディースピーカー(mC-Sound)鳴動機能に関するリファレンスを追加
+                 - スター精密クラウドサービスに関連するレシートアップロード機能の送信エレメントを削除
 
  Ver 1.7.0
   2020/06/17 : [SDK]

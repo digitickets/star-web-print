@@ -385,6 +385,37 @@ function onAppendSound() {
     }
 }
 
+function onAppendSoundWithSetting() {
+    try {
+        var soundStorageArea = document.getElementById('soundStorageArea').value;
+        var soundNumber = document.getElementById('soundNumber').value;
+        var volume = document.getElementById('volume').value;
+
+        var parameter = {};
+
+        if (soundStorageArea != '-') {
+            parameter.sound_storage_area = parseInt(soundStorageArea);
+        }
+
+        if (soundNumber != '-') {
+            parameter.sound_number = parseInt(soundNumber);
+        }
+        
+        if (volume != '-') {
+            parameter.volume = volume;
+        }
+        
+        request += builder.createSoundWithSettingElement(parameter);
+
+        sampleCode += 'request += builder.createSoundWithSettingElement(' + JSON.stringify(parameter) + ');\n';
+
+        updateSampleCode();
+    }
+    catch (e) {
+        alert(e.message);
+    }
+}
+
 function onAppendHoldPrint() {
     try {
         var type = document.getElementById('holdPrintType').value;
@@ -1171,6 +1202,61 @@ window.onload = function() {
                     </dd>
 				</dl>
 				<div class="appendBlock"><input class="appendBtn" type='button' value='Append' onclick='onAppendSound()' /></div>
+            
+            
+            <hr>
+            <h4 class="clearfix">Sound With Setting</h4>
+                <dl>
+                    <dt>Sound Storage Area</dt>
+                    <dd>:
+                        <select id='soundStorageArea'>
+                            <option value='-' selected='selected'>-</option>
+                            <option value='1'>1</option>
+                            <option value='2'>2</option>
+                        </select>
+                    </dd>
+                    <dt>Sound Number</dt>
+                    <dd>:
+                        <select id='soundNumber'>
+                            <option value='-' selected='selected'>-</option>
+                            <option value='0'>0</option>
+                            <option value='1'>1</option>
+                            <option value='2'>2</option>
+                            <option value='3'>3</option>
+                            <option value='4'>4</option>
+                            <option value='5'>5</option>
+                            <option value='6'>6</option>
+                            <option value='7'>7</option>
+                        </select>
+                    </dd>
+                    <dt>Volume</dt>
+                    <dd>:
+                        <select id='volume'>
+                            <option value='-' selected='selected'>-</option>
+                            <option value='volume_off'>Volume OFF</option>
+                            <option value='volume_min'>Volume MIN</option>
+                            <option value='volume_max'>Volume MAX</option>
+                            <option value='volume0'>Volume0</option>
+                            <option value='volume1'>Volume1</option>
+                            <option value='volume2'>Volume2</option>
+                            <option value='volume3'>Volume3</option>
+                            <option value='volume4'>Volume4</option>
+                            <option value='volume5'>Volume5</option>
+                            <option value='volume6'>Volume6</option>
+                            <option value='volume7'>Volume7</option>
+                            <option value='volume8'>Volume8</option>
+                            <option value='volume9'>Volume9</option>
+                            <option value='volume10'>Volume10</option>
+                            <option value='volume11'>Volume11</option>
+                            <option value='volume12'>Volume12</option>
+                            <option value='volume13'>Volume13</option>
+                            <option value='volume14'>Volume14</option>
+                            <option value='volume15'>Volume15</option>
+                        </select>
+                    </dd>
+                </dl>
+                <div class="appendBlock"><input class="appendBtn" type='button' value='Append' onclick='onAppendSoundWithSetting()' /></div>
+
 
 			<hr>
 			<h4 class="clearfix">Raw Data</h4>
@@ -1215,8 +1301,8 @@ window.onload = function() {
                             <option value='30000'>30 sec</option>
                             <option value='60000'>60 sec</option>
                             <option value='90000' selected='selected'>90 sec</option>
-                            <option value='12000'>120 sec</option>
-                            <option value='18000'>180 sec</option>
+                            <option value='120000'>120 sec</option>
+                            <option value='180000'>180 sec</option>
                         </select>
                     </dd>
 
