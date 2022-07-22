@@ -1,5 +1,5 @@
 # star-web-print
-A GitHub copy of the Star Micronics Web Print code found at http://www.starmicronics.com/support/sdkdocumentation.aspx.
+A GitHub copy of the Star Micronics Web Print code found at https://starmicronics.com/support/developers/webprnt-sdk/.
 
 # Changes made by DigiTickets
 

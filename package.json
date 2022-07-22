@@ -1,7 +1,7 @@
 {
   "name": "digitickets.star-web-print",
-  "version": "1.8.0+1",
-  "homepage": "http://www.starmicronics.com/support/sdkdocumentation.aspx",
+  "version": "1.8.0+2",
+  "homepage": "https://starmicronics.com/support/developers/webprnt-sdk/",
   "authors": [
     "Star Micronics"
   ],
