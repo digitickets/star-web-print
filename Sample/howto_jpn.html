@@ -12,9 +12,9 @@
 <link rel="alternate" type="application/rss+xml" title="STAR MICRONICS CO.,LTD &raquo; Homepage Comments Feed" href="http://www.star-m.jp/eng/index.html/feed/" />
 <!-- <script type='text/javascript' src='js/jquery-1.6.4.min.js?ver=3.7.1'></script>
 <script type='text/javascript' src='js/jquery.mobile-1.0rc2.min.js?ver=1.0'></script> -->
-<link rel='next' title='Product Information' href='http://www.star-m.jp/eng/products/index.html' />
-<link rel='canonical' href='http://www.star-m.jp/eng/index.html' />
-<link rel='shortlink' href='http://www.star-m.jp/eng/?p=2' />
+<link rel="next" title="'Product Information" href="'http://www.star-m.jp/eng/products/index.html" />
+<link rel="'canonical" href="'http://www.star-m.jp/eng/index.html" />
+<link rel="'shortlink" href="'http://www.star-m.jp/eng/?p=2" />
 <!-- HeadSpace SEO 3.6.41 by John Godley - urbangiraffe.com -->
 <!-- HeadSpace -->
 </head>
@@ -76,10 +76,18 @@
          変更する場合はUse DefaultをOFFにして(3)、ポート名("BT:&lt;iOS Port Name&gt;" または "BLE:&lt;iOS Port Name&gt;")を入力してください(4)。<br />
          <img src="illust/Howtouse/Howto_i_04.png" class="numOpeFig2 img-responsive" alt="ComparisonReceiptSesign 設定画面">
          <div class="Note_text">
-         <p>Note:</p>
-         <p>SM-L200・SM-L300ではUse Defaultを使用できません。<br />
-         Use DefaultをOFFにして、ポート名（デフォルトでは”BLE:STAR L200-XXXXX”*）を入力してください。<br />
-         *XXXXXはS/Nの下5桁</p>
+         <p class="Note_title">Note:</p>
+         <p>SM-L200・SM-L300・SM-S210I2-DB2・SM-T300I2-DB2・SM-T400I2-DB2ではUse Defaultを使用できません。<br />
+			 Use DefaultをOFFにしてポート名を入力してください。</p>
+        <table class="PortNameDefault">
+			<caption class="caption-left">[ デフォルト ]</caption>
+			<tr><td width="150px">SM-L200</td><td>”BLE:STAR L200-XXXXX” *</td></tr>
+			<tr><td>SM-L300</td><td>”BLE:STAR L300-XXXXX” *</td></tr>
+			<tr><td>SM-S210I2-DB2</td><td>”BT:SM-S210I-XXXXX” *</td></tr>
+			<tr><td>SM-T300I2-DB2</td><td>”BT:SM-T300I-XXXXX” *</td></tr>
+			<tr><td>SM-T400I2-DB2</td><td>”BT:SM-T400I-XXXXX” *</td></tr>		 
+			 </table>
+			 <p class="remarks">* XXXXXはS/Nの下5桁</p>
          </div>
          </li>
 	   <li>Star webPRNT Browserを開き、動作を確認します。<br />
@@ -87,13 +95,13 @@
 	   </ol>
 	</div>
     <div class="to_top">
-        <a href="#global-header" data-ajax=”false”>トップへ戻る</a>
+        <a href="#global-header" data-ajax="false">トップへ戻る</a>
     </div>
 </section>
 
 <footer id="global-footer" class="clearfix" style="position:relative;">
 	<a href="https://www.star-m.jp/starwebprnt-oml.html" target="_blank"><img src="images/footer-logo.png" width="123" alt="" id="footer-logo"></a>
-    <img src="images/footer-image.png"height="54" alt=""/>
+    <img src="images/footer-image.png" height="54" alt=""/>
 </footer>
 </div>
 </body>

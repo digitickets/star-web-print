@@ -53,7 +53,9 @@ function sendMessage(request) {
             // if (trader.isBlackMarkError       ({traderStatus:response.traderStatus})) {msg += '\tBlackMarkError,\n';}
             if (trader.isPaperEnd             ({traderStatus:response.traderStatus})) {msg += '\t紙無しエラー,\n';}
             // if (trader.isPaperNearEnd         ({traderStatus:response.traderStatus})) {msg += '\tPaperNearEnd,\n';}
-
+            // if (trader.isPaperPresent         ({traderStatus:response.traderStatus})) {msg += '\tPaperPresent,\n';}
+            if (trader.isRollPositionError    ({traderStatus:response.traderStatus})) {msg += '\tRollPositionError,\n';}
+            
             msg += ' ]\n';
         }
 

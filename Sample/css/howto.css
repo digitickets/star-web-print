@@ -161,9 +161,14 @@ box-sizing: border-box;
 	margin-bottom:1em;
 }
 
-.Note_text :first-of-type{
+/*.Note_text :first-of-type{
 	font-weight:bold;
 	font-style:italic;
+}*/
+
+.Note_title{
+	font-weight: bold;
+	font-style: italic;
 }
 
 .newFunction{
@@ -183,4 +188,29 @@ dd{
 }
 .memo{
 	font-size: 0.8em;
+}
+
+.PortNameDefault{
+	font-weight: normal;
+	border: none;
+	font-size: 0.8rem;
+	margin: 1em 0 0 2em;
+}
+
+.PortNameDefault table{
+	font-weight: normal;
+}
+
+.PortNameDefault td:first-child{
+	font-weight: bold;
+}
+
+.caption-left{
+	text-align: left;
+	font-weight: bold;
+}
+
+.remarks{
+	font-size: 0.8em;
+	margin-left: 2em;
 }

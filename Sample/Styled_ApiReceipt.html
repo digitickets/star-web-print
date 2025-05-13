@@ -53,12 +53,14 @@ function sendMessage(request) {
         if (trader.isBlackMarkError       ({traderStatus:response.traderStatus})) {msg += '\tBlackMarkError,\n';}
         if (trader.isPaperEnd             ({traderStatus:response.traderStatus})) {msg += '\tPaperEnd,\n';}
         if (trader.isPaperNearEnd         ({traderStatus:response.traderStatus})) {msg += '\tPaperNearEnd,\n';}
+        if (trader.isPaperPresent         ({traderStatus:response.traderStatus})) {msg += '\tPaperPresent,\n';}
+        if (trader.isRollPositionError    ({traderStatus:response.traderStatus})) {msg += '\tRollPositionError,\n';}
 
         msg += '\tEtbCounter = ' + trader.extractionEtbCounter({traderStatus:response.traderStatus}).toString() + ' ]\n';
 
-//      msg += 'Status : [ ' + response.status + ' ]\n';
+//          msg += 'Status : [ ' + response.status + ' ]\n';
 //
-//      msg += 'ResponseText : [ ' + response.responseText + ' ]\n';
+//          msg += 'ResponseText : [ ' + response.responseText + ' ]\n';
 
         alert(msg);
     }
@@ -568,6 +570,8 @@ window.onload = function() {
                             <option value='normal'>Normal</option>
                             <option value='black_mark'>Black Mark</option>
                             <option value='black_mark_and_detect_at_power_on'>Black Mark and Detect at Power On</option>
+                            <option value='gap'>Gap</option>
+                            <option value='gap_and_detect_at_power_on'>Gap and Detect at Power On</option>
                         </select>
                     </dd>
                 </dl>

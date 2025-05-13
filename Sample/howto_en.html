@@ -12,9 +12,9 @@
 <link rel="alternate" type="application/rss+xml" title="STAR MICRONICS CO.,LTD &raquo; Homepage Comments Feed" href="http://www.star-m.jp/eng/index.html/feed/" />
 <!-- <script type='text/javascript' src='js/jquery-1.6.4.min.js?ver=3.7.1'></script>
 <script type='text/javascript' src='js/jquery.mobile-1.0rc2.min.js?ver=1.0'></script> -->
-<link rel='next' title='Product Information' href='http://www.star-m.jp/eng/products/index.html' />
-<link rel='canonical' href='http://www.star-m.jp/eng/index.html' />
-<link rel='shortlink' href='http://www.star-m.jp/eng/?p=2' />
+<link rel="next" title="Product Information" href="http://www.star-m.jp/eng/products/index.html" />
+<link rel="canonical" href="http://www.star-m.jp/eng/index.html" />
+<link rel="'shortlink" href="http://www.star-m.jp/eng/?p=2" />
 <!-- HeadSpace SEO 3.6.41 by John Godley - urbangiraffe.com -->
 <!-- HeadSpace -->
 </head>
@@ -57,7 +57,9 @@
              </div>
              <div class="col-md-4">
              <img src="illust/Howtouse/Howto_i_01-2_en.png" class="numOpeFig2 img-responsive" alt="">
-             </li>
+             </div>
+				</div>
+				</li>
 
          <li>Choose the Star Bluetooth printer to use for "PRINTER".<br />
          When you have changed the printer’s mode to “StarPRNT”, select the printer model with “(StarPRNT)” .<br>
@@ -76,11 +78,23 @@
          To change this setting, set "Use Default" to OFF(3) and enter the port name ("BT:&lt;iOS Port Name&gt;" or "BLE:&lt;iOS Port Name&gt;").(4)<br />
          <img src="illust/Howtouse/Howto_i_04_en.png" class="numOpeFig2 img-responsive" alt="">
          <div class="Note_text">
-         <p>Note:</p>
-         <p> “Use Default” is not available with SM-L200 and SM-L300.<br />
-         Set "Use Default" to OFF and enter the port name (“BLE:STAR L200-XXXXX”*  as default.)<br />
-         * XXXXX is the lower 5 digits of the S/No.</p>
+         <p class="Note_title">Note:</p>
+         <p> “Use Default” is not available with SM-L200, SM-L300, SM-S230I-UB2, SM-T300-DB2, SM-T300I2-DB2 and SM-T400I2-DB2.<br />
+         Set "Use Default" to OFF and enter the port name.</p>
+         
+        <table class="PortNameDefault">
+			<caption class="caption-left">[ Default ]</caption>
+			<tr><td width="150px">SM-L200</td><td>”BLE:STAR L200-XXXXX” *</td></tr>
+			<tr><td>SM-L300</td><td>”BLE:STAR L300-XXXXX” *</td></tr>
+			<tr><td>SM-S230I-UB2</td><td>”BT:SM-S230I-XXXXX” *</td></tr>
+			<tr><td>SM-T300-DB2</td><td>”BT:SM-T300-XXXXX” *</td></tr>
+			<tr><td>SM-T300I2-DB2</td><td>”BT:SM-T300I-XXXXX” *</td></tr>
+			<tr><td>SM-T400I2-DB2</td><td>”BT:SM-T400I-XXXXX” *</td></tr>		 
+			 </table>
+			 <p class="remarks">* XXXXX is the lower 5 digits of the S/No.</p>
          </div>
+			 
+			 
          </li>
 
            <li>Open the Star webPRNT Browser and try printing.<br />
@@ -94,7 +108,7 @@
 
 <footer id="global-footer" class="clearfix" style="position:relative;">
 	<a href="https://www.star-m.jp/starwebprnt-oml.html" target="_blank"><img src="images/footer-logo.png" width="123" alt="" id="footer-logo"></a>
-    <img src="images/footer-image.png"height="54" alt=""/>
+    <img src="images/footer-image.png" height="54" alt=""/>
 </footer>
 </div>
 </body>
