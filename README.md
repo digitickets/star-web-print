@@ -15,4 +15,4 @@ format, and repackage it with a `+1` version.
 As Star Micronics changes the format of the version number from time to time, it will be based upon the version within
 the zip file from the official site.
 
-This is currently `StarWebPRNT_WebContents_V1.9.0_20230907.zip`, and so this version is `1.9.0+1`.
+This is currently `StarWebPRNT_WebContents_V1.10.0.zip`, and so this version is `1.10.0+1`.

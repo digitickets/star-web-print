@@ -1,16 +1,15 @@
 ************************************************************
-      Star webPRNT SDK  -  Ver 1.8.0
+      Star webPRNT SDK  -  Ver 1.10.0
          Readme_Jp.txt                  スター精密（株）
 ************************************************************
 
  1. 概要
- 2. Ver 1.8.0 についての変更点
+ 2. 変更点
  3. 内容
  4. 適用
  5. 制約事項
  6. 著作権
  7. 変更履歴
-
 
 ==========
  1. 概要
@@ -27,23 +26,24 @@
   Users Manual: https://www.star-m.jp/starwebprnt-oml.html
 
 ================================
- 2. Ver 1.8.0 についての変更点
+ 2. 変更点
 ================================
 
   [SDK]
-   - Star webPRNTブラウザーでメロディースピーカー(mC-Sound)鳴動機能をサポート
-  
-  [User's Manual]
-   - TSP100IVを追加
-   - メロディースピーカー(mC-Sound)鳴動機能に関するリファレンスを追加
-   - スター精密クラウドサービスに関連するレシートアップロード機能の送信エレメントを削除
+   - createTextElement
+       基本テキスト拡大をサポート
+   - createBarcodeElement
+       widthの選択肢を追加
+   - 
 
+  [Readme]
+   - mC-Label2を追加
 
 ==========
  3. 内容
 ==========
 
-  StarWebPRNT_WebContents_V1.8.0
+  StarWebPRNT_WebContents_V1.10.0
   |
   |- Readme_En.txt                       // リリースノート(英語)
   |- Readme_Jp.txt                       // リリースノート(日本語)
@@ -57,22 +57,26 @@
 =============
   ■ 対象プリンタモデル
    ◇ プリンタモデル
-       SM-S210I         (F/W Ver2.4以上)    (*1)
-       SM-S220I         (F/W Ver2.0以上)    (*1)
-       SM-S230I         (F/W Ver1.0以上)    (*1)
-       SM-T300I         (F/W Ver2.4以上)    (*1)
-       SM-T400I         (F/W Ver2.4以上)    (*1)
-       SM-L200          (F/W Ver1.0以上)    (*1)
-       SM-L300          (F/W Ver1.0以上)    (*1)
+       SM-S210I         (F/W Ver2.4以上)  (*1)
+       SM-S220I         (F/W Ver2.0以上)  (*1)
+       SM-S230I         (F/W Ver1.0以上)  (*1)
+       SM-T300I         (F/W Ver2.4以上)  (*1)
+       SM-T400I         (F/W Ver2.4以上)  (*1)
+       SM-L200          (F/W Ver1.0以上)  (*1)
+       SM-L300          (F/W Ver1.0以上)  (*1)
 
        FVP10            (Ethernet利用時: F/W Ver1.5以上, Bluetooth利用時: F/W Ver2.0以上)  (*1)
        TSP650II         (Ethernet利用時: F/W Ver1.2以上, Bluetooth利用時: F/W Ver1.0以上)  (*1)
        TSP700II         (Ethernet利用時: F/W Ver4.1以上, Bluetooth利用時: F/W Ver5.0以上)  (*1)
        TSP800II         (Ethernet利用時: F/W Ver1.6以上, Bluetooth利用時: F/W Ver2.0以上)  (*1)
-       mPOP             (F/W Ver1.0以上)    (*1)
-       mC-Print2        (Ethernet/Bluetooth/USB利用時:F/W Ver1.0以上)    (*1)
-       mC-Print3        (Ethernet/Bluetooth/USB利用時:F/W Ver1.0以上)    (*1)
-       TSP100IV         (Ethernet/USB利用時:F/W Ver1.0以上)              (*2)
+       mPOP             (F/W Ver1.0以上)  (*1)
+       mC-Print2        (Ethernet/Bluetooth/USB利用時: F/W Ver1.0以上)  (*1)
+       mC-Print3        (Ethernet/Bluetooth/USB利用時: F/W Ver1.0以上)  (*1)
+       mC-Label2        (Ethernet/Bluetooth/USB利用時: F/W Ver1.0以上)  (*1)
+       mC-Label3        (Bluetooth利用時: F/W Ver1.0以上)  (*1)
+                        (USB利用時: F/W Ver1.1以上)        (*2)
+       TSP100IV         (Ethernet/USB利用時: F/W Ver1.0以上)  (*2)
+       TSP100IV SK      (USB利用時: F/W Ver2.0以上)  (*2)
 
        SP700            (Ethernet利用時: F/W Ver3.0以上)
 
@@ -90,7 +94,6 @@
        Bluetooth: IFBD-HB03/HB04            (Ver1.0以上)
                   IFBD-HB05/HB06/BB05       (Ver4.1以上)
 
-
 =============
  5. 制約事項
 =============
@@ -102,15 +105,38 @@
 
   スター精密（株）Copyright 2013
 
-
 =============
  7. 更新履歴
 =============
 
+ Ver 1.10.0
+  2025/05/19 : [SDK]
+                - createTextElement
+                    基本テキスト拡大をサポート
+                - createBarcodeElement
+                    widthの選択肢を追加
+
+               [Readme]
+                - mC-Label2を追加
+
+ Ver 1.9.0
+  2023/09/07 : [Readme]
+                - TSP100IV SKを追加
+
+  2023/06/19 : [Readme]
+                - mC-Label3の対応インターフェースを更新
+
+  2023/04/10 : [SDK]
+                - ギャップセンサー制御をサポート
+
+               [User's Manual]
+                - mC-Label3を追加
+                - ギャップセンサー制御に関するリファレンスを追加
+
  Ver 1.8.0
   2021/10/29 : [SDK]
                  - Star webPRNTブラウザーでメロディースピーカー(mC-Sound)鳴動機能をサポート
-  
+
                [User's Manual]
                  - TSP100IVを追加
                  - メロディースピーカー(mC-Sound)鳴動機能に関するリファレンスを追加
@@ -194,21 +220,21 @@
                 - ブラックマークに関するAPIのリファレンスを修正
                 - StarPRNTモードに関するリファレンスを追加
 
- Ver 1.2.0   
+ Ver 1.2.0
   2015/11/06 : [SDK]
                 - ブラックマーク用紙対応
 
                [User's Manual]
                 - ブラックマークに関するAPIのリファレンスを追加
 
- Ver 1.1.0   
+ Ver 1.1.0
   2015/02/20 : [SDK]
                 - コンテンツの表示サイズを、閲覧デバイスの画面サイズに合わせて
                   自動変更する機能追加
 
                 - Androidデバイスにおける表示に関する不具合を修正
 
- Ver 1.0.0 
+ Ver 1.0.0
   2014/12/12 : [SDK]
                 - iOS版Star webPRNT Browserとの組合せ利用時に発生する事案に対す
                   るサンプルコード追加
@@ -244,5 +270,5 @@
                [User's Manual]
                 - ASR10記載追加
 
- Ver 0.1.0 
+ Ver 0.1.0
   2013/08/26 : 初版リリース
